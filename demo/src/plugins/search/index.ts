@@ -1,0 +1,1 @@
+export { SearchCustom } from './plugin';

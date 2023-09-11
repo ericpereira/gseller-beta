@@ -1,0 +1,39 @@
+{
+  "name": "@vendure/demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:server": "ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "dev:worker": "ts-node-dev --respawn --transpile-only ./src/index-worker.ts",
+    "dev": "concurrently yarn:dev:*",
+    "build": "tsc && concurrently yarn:copy:*",
+    "start:server": "yarn migration:run && node ./dist/index.js",
+    "start:worker": "node ./dist/index-worker.js",
+    "start": "concurrently yarn:start:*",
+    "migration:generate": "ts-node migration generate",
+    "migration:run": "ts-node migration run",
+    "migration:revert": "ts-node migration revert",
+    "copy:assets": "cpx 'static/**' 'dist/static'",
+    "copy:layouts": "cpx 'layouts/**' 'dist/layouts'",
+    "watch": "concurrently yarn:dev"
+  },
+  "dependencies": {
+    "@gabrielvenegaas/pagarmecoreapilib": "^5.7.3",
+    "@vercel/client": "^12.6.2",
+    "add": "^2.0.6",
+    "axios": "^1.4.0",
+    "class-validator": "^0.14.0",
+    "cpx": "^1.5.0",
+    "dotenv": "16.3.1",
+    "lerna": "^7.0.2",
+    "pagarme": "^4.32.0",
+    "pg": "8.11.0",
+    "typescript": "4.3.5",
+    "uuidv4": "^6.2.13"
+  },
+  "devDependencies": {
+    "concurrently": "8.2.0",
+    "ts-node": "10.9.1",
+    "ts-node-dev": "^2.0.0"
+  }
+}

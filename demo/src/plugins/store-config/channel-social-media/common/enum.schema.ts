@@ -1,0 +1,38 @@
+import { gql } from 'graphql-tag';
+
+export const SocialMediaName = gql`
+  enum SocialMediaName {
+  FACEBOOK
+  TWITTER
+  INSTAGRAM
+  YOUTUBE
+  LINKEDIN
+  PINTEREST
+  SNAPCHAT
+  TIKTOK
+  REDDIT
+  WHATSAPP
+  WECHAT
+  DISCORD
+  TELEGRAM
+  MEDIUM
+  QUORA
+  GOOGLE_PLUS
+  VKONTAKTE
+  SINA_WEIBO
+  LINE
+  SKYPE
+  PERISCOPE
+  SOUNDCLOUD
+  TWITCH
+  VIMEO
+  DRIBBBLE
+  BEHANCE
+  GOODREADS
+  MEETUP
+  SLIDESHARE
+  MIXCLOUD
+  XING
+  RENREN
+}
+`;

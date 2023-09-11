@@ -1,0 +1,20 @@
+{{> header title="Verify Your New Email Address" }}
+
+<mj-section background-color="#fafafa">
+    <mj-column>
+        <mj-text color="#525252">
+          Recebemos uma solicitação para alterar seu endereço de e-mail registrado para este.
+             Clique no botão abaixo para verificar este endereço e concluir o processo:
+        </mj-text>
+
+        <mj-button font-family="Helvetica"
+                   background-color="#f45e43"
+                   color="white"
+                   href="{{ changeEmailAddressUrl }}?token={{ identifierChangeToken }}">
+         Verifique! 
+        </mj-button>
+    </mj-column>
+</mj-section>
+
+
+{{> footer }}

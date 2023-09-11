@@ -1,0 +1,12 @@
+// export * from "./shared";
+// export * from "./shipping/kangu/correios/correios-shipping.plugin";
+// export * from "./default-setting/default-setting.plugin";
+// export * from "./vercel-connect/plugin";
+// export * from "./asset/asset.plugin";
+// export * from "./customer";
+// export * from "./store-config";
+// export * from "./contact/contact.plugin";
+// export * from "./payments";
+// export * from "./cubing-calculation/plugin";
+// export * from "./layouts";
+// export * from "./deploys/plugin";
