@@ -51,7 +51,6 @@ import { ProductOptionGroupService } from './services/product-option-group.servi
 import { ProductOptionService } from './services/product-option.service';
 import { ProductVariantService } from './services/product-variant.service';
 import { ProductService } from './services/product.service';
-import { PromotionService } from './services/promotion.service';
 import { RoleService } from './services/role.service';
 import { SearchService } from './services/search.service';
 import { SellerService } from './services/seller.service';
@@ -88,7 +87,6 @@ const services = [
     ProductOptionService,
     ProductService,
     ProductVariantService,
-    PromotionService,
     RoleService,
     SearchService,
     SellerService,

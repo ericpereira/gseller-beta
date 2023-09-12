@@ -44,7 +44,6 @@ export * from './services/product-option-group.service';
 export * from './services/product-option.service';
 export * from './services/product-variant.service';
 export * from './services/product.service';
-export * from './services/promotion.service';
 export * from './services/role.service';
 export * from './services/search.service';
 export * from './services/seller.service';

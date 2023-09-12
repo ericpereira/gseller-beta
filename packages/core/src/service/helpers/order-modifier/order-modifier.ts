@@ -55,7 +55,6 @@ import { CountryService } from '../../services/country.service';
 import { HistoryService } from '../../services/history.service';
 import { PaymentService } from '../../services/payment.service';
 import { ProductVariantService } from '../../services/product-variant.service';
-import { PromotionService } from '../../services/promotion.service';
 import { StockMovementService } from '../../services/stock-movement.service';
 import { CustomFieldRelationService } from '../custom-field-relation/custom-field-relation.service';
 import { EntityHydrator } from '../entity-hydrator/entity-hydrator.service';
@@ -88,7 +87,6 @@ export class OrderModifier {
         private stockMovementService: StockMovementService,
         private productVariantService: ProductVariantService,
         private customFieldRelationService: CustomFieldRelationService,
-        private promotionService: PromotionService,
         private eventBus: EventBus,
         private entityHydrator: EntityHydrator,
         private historyService: HistoryService,
@@ -548,57 +546,13 @@ export class OrderModifier {
             modification.billingAddressChange = input.updateBillingAddress;
         }
 
-        if (input.couponCodes) {
-            for (const couponCode of input.couponCodes) {
-                const validationResult = await this.promotionService.validateCouponCode(
-                    ctx,
-                    couponCode,
-                    order.customer && order.customer.id,
-                );
-                if (isGraphQlErrorResult(validationResult)) {
-                    return validationResult as
-                        | CouponCodeExpiredError
-                        | CouponCodeInvalidError
-                        | CouponCodeLimitError;
-                }
-                if (!order.couponCodes.includes(couponCode)) {
-                    // This is a new coupon code that hadn't been applied before
-                    await this.historyService.createHistoryEntryForOrder({
-                        ctx,
-                        orderId: order.id,
-                        type: HistoryEntryType.ORDER_COUPON_APPLIED,
-                        data: { couponCode, promotionId: validationResult.id },
-                    });
-                }
-            }
-            for (const existingCouponCode of order.couponCodes) {
-                if (!input.couponCodes.includes(existingCouponCode)) {
-                    // An existing coupon code has been removed
-                    await this.historyService.createHistoryEntryForOrder({
-                        ctx,
-                        orderId: order.id,
-                        type: HistoryEntryType.ORDER_COUPON_REMOVED,
-                        data: { couponCode: existingCouponCode },
-                    });
-                }
-            }
-            order.couponCodes = input.couponCodes;
-        }
-
         const updatedOrderLines = order.lines.filter(l => updatedOrderLineIds.includes(l.id));
-        const promotions = await this.promotionService.getActivePromotionsInChannel(ctx);
-        const activePromotionsPre = await this.promotionService.getActivePromotionsOnOrder(ctx, order.id);
-        await this.orderCalculator.applyPriceAdjustments(ctx, order, promotions, updatedOrderLines, {
-            recalculateShipping: input.options?.recalculateShipping,
-        });
         await this.connection.getRepository(ctx, OrderLine).save(order.lines, { reload: false });
         const orderCustomFields = (input as any).customFields;
         if (orderCustomFields) {
             patchEntity(order, { customFields: orderCustomFields });
         }
-
-        await this.promotionService.runPromotionSideEffects(ctx, order, activePromotionsPre);
-
+        
         if (dryRun) {
             return { order, modification };
         }

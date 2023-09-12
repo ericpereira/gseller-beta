@@ -39,7 +39,6 @@ export * from './product-variant/product-variant.entity';
 export * from './product/product-asset.entity';
 export * from './product/product-translation.entity';
 export * from './product/product.entity';
-export * from './promotion/promotion.entity';
 export * from './refund/refund.entity';
 export * from './role/role.entity';
 export * from './seller/seller.entity';

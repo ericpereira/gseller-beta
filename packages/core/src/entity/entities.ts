@@ -40,8 +40,6 @@ import { ProductVariantAsset } from './product-variant/product-variant-asset.ent
 import { ProductVariantPrice } from './product-variant/product-variant-price.entity';
 import { ProductVariantTranslation } from './product-variant/product-variant-translation.entity';
 import { ProductVariant } from './product-variant/product-variant.entity';
-import { PromotionTranslation } from './promotion/promotion-translation.entity';
-import { Promotion } from './promotion/promotion.entity';
 import { Refund } from './refund/refund.entity';
 import { Country } from './region/country.entity';
 import { Province } from './region/province.entity';
@@ -120,8 +118,6 @@ export const coreEntitiesMap = {
     ProductVariantAsset,
     ProductVariantPrice,
     ProductVariantTranslation,
-    Promotion,
-    PromotionTranslation,
     Province,
     Refund,
     RefundLine,

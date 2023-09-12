@@ -5,9 +5,6 @@ import { Type } from '@vendure/common/lib/shared-types';
 import { ConfigurableOperationDef } from '../../common/configurable-operation';
 import { InternalServerError } from '../../common/error/errors';
 import {
-    PromotionCondition,
-    PromotionItemAction,
-    PromotionOrderAction,
     ShippingCalculator,
     ShippingEligibilityChecker,
 } from '../../config';
@@ -90,11 +87,6 @@ export class ConfigurableOperationCodec {
                 return this.configService.paymentOptions.paymentMethodHandlers;
             case PaymentMethodEligibilityChecker:
                 return this.configService.paymentOptions.paymentMethodEligibilityCheckers || [];
-            case PromotionItemAction:
-            case PromotionOrderAction:
-                return this.configService.promotionOptions.promotionActions || [];
-            case PromotionCondition:
-                return this.configService.promotionOptions.promotionConditions || [];
             case ShippingEligibilityChecker:
                 return this.configService.shippingOptions.shippingEligibilityCheckers || [];
             case ShippingCalculator:

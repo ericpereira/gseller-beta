@@ -176,16 +176,6 @@ export class DraftOrderResolver {
     @Transaction()
     @Mutation()
     @Allow(Permission.CreateOrder)
-    async applyCouponCodeToDraftOrder(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationApplyCouponCodeToDraftOrderArgs,
-    ): Promise<ErrorResultUnion<ApplyCouponCodeResult, Order>> {
-        return this.orderService.applyCouponCode(ctx, args.orderId, args.couponCode);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.CreateOrder)
     async removeCouponCodeFromDraftOrder(
         @Ctx() ctx: RequestContext,
         @Args() args: MutationRemoveCouponCodeFromDraftOrderArgs,

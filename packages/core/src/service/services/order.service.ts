@@ -86,7 +86,6 @@ import { FulfillmentLine } from '../../entity/order-line-reference/fulfillment-l
 import { OrderModification } from '../../entity/order-modification/order-modification.entity';
 import { Payment } from '../../entity/payment/payment.entity';
 import { ProductVariant } from '../../entity/product-variant/product-variant.entity';
-import { Promotion } from '../../entity/promotion/promotion.entity';
 import { Refund } from '../../entity/refund/refund.entity';
 import { Session } from '../../entity/session/session.entity';
 import { ShippingLine } from '../../entity/shipping-line/shipping-line.entity';
@@ -124,7 +123,6 @@ import { HistoryService } from './history.service';
 import { PaymentMethodService } from './payment-method.service';
 import { PaymentService } from './payment.service';
 import { ProductVariantService } from './product-variant.service';
-import { PromotionService } from './promotion.service';
 import { StockLevelService } from './stock-level.service';
 import { StockMovementService } from './stock-movement.service';
 
@@ -154,7 +152,6 @@ export class OrderService {
         private stockMovementService: StockMovementService,
         private refundStateMachine: RefundStateMachine,
         private historyService: HistoryService,
-        private promotionService: PromotionService,
         private eventBus: EventBus,
         private channelService: ChannelService,
         private orderModifier: OrderModifier,
@@ -687,39 +684,6 @@ export class OrderService {
 
     /**
      * @description
-     * Applies a coupon code to the Order, which should be a valid coupon code as specified in the configuration
-     * of an active {@link Promotion}.
-     */
-    async applyCouponCode(
-        ctx: RequestContext,
-        orderId: ID,
-        couponCode: string,
-    ): Promise<ErrorResultUnion<ApplyCouponCodeResult, Order>> {
-        const order = await this.getOrderOrThrow(ctx, orderId);
-        if (order.couponCodes.includes(couponCode)) {
-            return order;
-        }
-        const validationResult = await this.promotionService.validateCouponCode(
-            ctx,
-            couponCode,
-            order.customer && order.customer.id,
-        );
-        if (isGraphQlErrorResult(validationResult)) {
-            return validationResult;
-        }
-        order.couponCodes.push(couponCode);
-        await this.historyService.createHistoryEntryForOrder({
-            ctx,
-            orderId: order.id,
-            type: HistoryEntryType.ORDER_COUPON_APPLIED,
-            data: { couponCode, promotionId: validationResult.id },
-        });
-        this.eventBus.publish(new CouponCodeEvent(ctx, couponCode, orderId, 'assigned'));
-        return this.applyPriceAdjustments(ctx, order);
-    }
-
-    /**
-     * @description
      * Removes a coupon code from the Order.
      */
     async removeCouponCode(ctx: RequestContext, orderId: ID, couponCode: string) {
@@ -747,19 +711,6 @@ export class OrderService {
         } else {
             return order;
         }
-    }
-
-    /**
-     * @description
-     * Returns all {@link Promotion}s associated with an Order. A Promotion only gets associated with
-     * and Order once the order has been placed (see {@link OrderPlacedStrategy}).
-     */
-    async getOrderPromotions(ctx: RequestContext, orderId: ID): Promise<Promotion[]> {
-        const order = await this.connection.getEntityOrThrow(ctx, Order, orderId, {
-            channelId: ctx.channelId,
-            relations: ['promotions'],
-        });
-        return order.promotions.map(p => this.translator.translate(p, ctx)) || [];
     }
 
     /**
@@ -1442,18 +1393,6 @@ export class OrderService {
         // Check that any applied couponCodes are still valid now that
         // we know the Customer.
         let updatedOrder = order;
-        if (order.couponCodes) {
-            for (const couponCode of order.couponCodes.slice()) {
-                const validationResult = await this.promotionService.validateCouponCode(
-                    ctx,
-                    couponCode,
-                    customer.id,
-                );
-                if (isGraphQlErrorResult(validationResult)) {
-                    updatedOrder = await this.removeCouponCode(ctx, orderId, couponCode);
-                }
-            }
-        }
         return updatedOrder;
     }
 
@@ -1666,9 +1605,6 @@ export class OrderService {
         order: Order,
         updatedOrderLines?: OrderLine[],
     ): Promise<Order> {
-        const promotions = await this.promotionService.getActivePromotionsInChannel(ctx);
-        const activePromotionsPre = await this.promotionService.getActivePromotionsOnOrder(ctx, order.id);
-
         if (updatedOrderLines?.length) {
             const { orderItemPriceCalculationStrategy, changedPriceHandlingStrategy } =
                 this.configService.orderOptions;
@@ -1706,7 +1642,6 @@ export class OrderService {
         const updatedOrder = await this.orderCalculator.applyPriceAdjustments(
             ctx,
             order,
-            promotions,
             updatedOrderLines ?? [],
         );
         await this.connection
@@ -1717,7 +1652,6 @@ export class OrderService {
             .save(omit(updatedOrder, ['shippingAddress', 'billingAddress']), { reload: false });
         await this.connection.getRepository(ctx, OrderLine).save(updatedOrder.lines, { reload: false });
         await this.connection.getRepository(ctx, ShippingLine).save(order.shippingLines, { reload: false });
-        await this.promotionService.runPromotionSideEffects(ctx, order, activePromotionsPre);
 
         return assertFound(this.findOne(ctx, order.id));
     }

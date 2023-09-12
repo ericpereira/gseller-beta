@@ -40,7 +40,6 @@ import { DefaultOrderByCodeAccessStrategy } from './order/order-by-code-access-s
 import { DefaultOrderCodeStrategy } from './order/order-code-strategy';
 import { UseGuestStrategy } from './order/use-guest-strategy';
 import { defaultPaymentProcess } from './payment/default-payment-process';
-import { defaultPromotionActions, defaultPromotionConditions } from './promotion';
 import { InMemorySessionCacheStrategy } from './session-cache/in-memory-session-cache-strategy';
 import { defaultShippingCalculator } from './shipping-method/default-shipping-calculator';
 import { defaultShippingEligibilityChecker } from './shipping-method/default-shipping-eligibility-checker';
@@ -130,10 +129,6 @@ export const defaultConfig: RuntimeVendureConfig = {
         zoneCacheTtl: 30000,
         taxRateCacheTtl: 30000,
         metadataModifiers: [],
-    },
-    promotionOptions: {
-        promotionConditions: defaultPromotionConditions,
-        promotionActions: defaultPromotionActions,
     },
     shippingOptions: {
         shippingEligibilityCheckers: [defaultShippingEligibilityChecker],

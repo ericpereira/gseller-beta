@@ -8,8 +8,6 @@ import { ConfigService } from '../../../config/config.service';
 import { FulfillmentHandler } from '../../../config/fulfillment/fulfillment-handler';
 import { PaymentMethodEligibilityChecker } from '../../../config/payment/payment-method-eligibility-checker';
 import { PaymentMethodHandler } from '../../../config/payment/payment-method-handler';
-import { PromotionAction } from '../../../config/promotion/promotion-action';
-import { PromotionCondition } from '../../../config/promotion/promotion-condition';
 import { ShippingCalculator } from '../../../config/shipping-method/shipping-calculator';
 import { ShippingEligibilityChecker } from '../../../config/shipping-method/shipping-eligibility-checker';
 
@@ -18,8 +16,6 @@ export type ConfigDefTypeMap = {
     FulfillmentHandler: FulfillmentHandler;
     PaymentMethodEligibilityChecker: PaymentMethodEligibilityChecker;
     PaymentMethodHandler: PaymentMethodHandler;
-    PromotionAction: PromotionAction;
-    PromotionCondition: PromotionCondition;
     ShippingCalculator: ShippingCalculator;
     ShippingEligibilityChecker: ShippingEligibilityChecker;
 };
@@ -40,8 +36,6 @@ export class ConfigArgService {
             PaymentMethodEligibilityChecker:
                 this.configService.paymentOptions.paymentMethodEligibilityCheckers || [],
             PaymentMethodHandler: this.configService.paymentOptions.paymentMethodHandlers,
-            PromotionAction: this.configService.promotionOptions.promotionActions,
-            PromotionCondition: this.configService.promotionOptions.promotionConditions,
             ShippingCalculator: this.configService.shippingOptions.shippingCalculators,
             ShippingEligibilityChecker: this.configService.shippingOptions.shippingEligibilityCheckers,
         };

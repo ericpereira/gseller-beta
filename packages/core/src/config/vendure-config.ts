@@ -43,8 +43,6 @@ import { StockAllocationStrategy } from './order/stock-allocation-strategy';
 import { PaymentMethodEligibilityChecker } from './payment/payment-method-eligibility-checker';
 import { PaymentMethodHandler } from './payment/payment-method-handler';
 import { PaymentProcess } from './payment/payment-process';
-import { PromotionAction } from './promotion/promotion-action';
-import { PromotionCondition } from './promotion/promotion-condition';
 import { SessionCacheStrategy } from './session-cache/session-cache-strategy';
 import { ShippingCalculator } from './shipping-method/shipping-calculator';
 import { ShippingEligibilityChecker } from './shipping-method/shipping-eligibility-checker';
@@ -699,22 +697,6 @@ export interface CatalogOptions {
 }
 
 /**
- * @docsCategory promotions
- */
-export interface PromotionOptions {
-    /**
-     * @description
-     * An array of conditions which can be used to construct Promotions
-     */
-    promotionConditions?: Array<PromotionCondition<any>>;
-    /**
-     * @description
-     * An array of actions which can be used to construct Promotions
-     */
-    promotionActions?: Array<PromotionAction<any>>;
-}
-
-/**
  * @docsCategory shipping
  * */
 export interface ShippingOptions {
@@ -1094,11 +1076,7 @@ export interface VendureConfig {
      * @default []
      */
     plugins?: Array<DynamicModule | Type<any>>;
-    /**
-     * @description
-     * Configures the Conditions and Actions available when creating Promotions.
-     */
-    promotionOptions?: PromotionOptions;
+    
     /**
      * @description
      * Configures the available checkers and calculators for ShippingMethods.
@@ -1149,7 +1127,6 @@ export interface RuntimeVendureConfig extends Required<VendureConfig> {
     importExportOptions: Required<ImportExportOptions>;
     jobQueueOptions: Required<JobQueueOptions>;
     orderOptions: Required<OrderOptions>;
-    promotionOptions: Required<PromotionOptions>;
     shippingOptions: Required<ShippingOptions>;
     taxOptions: Required<TaxOptions>;
     systemOptions: Required<SystemOptions>;

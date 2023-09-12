@@ -69,20 +69,6 @@ export class OrderEntityResolver {
         }
         return this.historyService.getHistoryForOrder(ctx, order.id, publicOnly, options);
     }
-
-    @ResolveField()
-    async promotions(@Ctx() ctx: RequestContext, @Parent() order: Order) {
-        // If the order has been hydrated with the promotions, then we can just return those
-        // as long as they have the translations joined.
-        if (
-            order.promotions &&
-            (order.promotions.length === 0 ||
-                (order.promotions.length > 0 && order.promotions[0].translations))
-        ) {
-            return order.promotions.map(p => this.translator.translate(p, ctx));
-        }
-        return this.orderService.getOrderPromotions(ctx, order.id);
-    }
 }
 
 @Resolver('Order')

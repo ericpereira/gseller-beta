@@ -28,7 +28,6 @@ import { OrderResolver } from './resolvers/admin/order.resolver';
 import { PaymentMethodResolver } from './resolvers/admin/payment-method.resolver';
 import { ProductOptionResolver } from './resolvers/admin/product-option.resolver';
 import { ProductResolver } from './resolvers/admin/product.resolver';
-import { PromotionResolver } from './resolvers/admin/promotion.resolver';
 import { RoleResolver } from './resolvers/admin/role.resolver';
 import { SearchResolver } from './resolvers/admin/search.resolver';
 import { SellerResolver } from './resolvers/admin/seller.resolver';
@@ -105,7 +104,6 @@ const adminResolvers = [
     PaymentMethodResolver,
     ProductOptionResolver,
     ProductResolver,
-    PromotionResolver,
     RoleResolver,
     SearchResolver,
     ShippingMethodResolver,

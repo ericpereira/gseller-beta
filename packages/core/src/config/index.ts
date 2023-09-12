@@ -67,7 +67,6 @@ export * from './payment/example-payment-method-handler';
 export * from './payment/payment-method-eligibility-checker';
 export * from './payment/payment-method-handler';
 export * from './payment/payment-process';
-export * from './promotion';
 export * from './session-cache/in-memory-session-cache-strategy';
 export * from './session-cache/noop-session-cache-strategy';
 export * from './session-cache/session-cache-strategy';

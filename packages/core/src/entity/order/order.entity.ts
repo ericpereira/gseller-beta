@@ -25,7 +25,6 @@ import { Money } from '../money.decorator';
 import { OrderLine } from '../order-line/order-line.entity';
 import { OrderModification } from '../order-modification/order-modification.entity';
 import { Payment } from '../payment/payment.entity';
-import { Promotion } from '../promotion/promotion.entity';
 import { ShippingLine } from '../shipping-line/shipping-line.entity';
 import { Surcharge } from '../surcharge/surcharge.entity';
 
@@ -116,16 +115,7 @@ export class Order extends VendureEntity implements ChannelAware, HasCustomField
      */
     @Column('simple-array')
     couponCodes: string[];
-
-    /**
-     * @description
-     * Promotions applied to the order. Only gets populated after the payment process has completed,
-     * i.e. the Order is no longer active.
-     */
-    @ManyToMany(type => Promotion)
-    @JoinTable()
-    promotions: Promotion[];
-
+    
     @Column('simple-json') shippingAddress: OrderAddress;
 
     @Column('simple-json') billingAddress: OrderAddress;

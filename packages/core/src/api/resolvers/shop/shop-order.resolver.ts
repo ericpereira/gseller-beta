@@ -365,21 +365,6 @@ export class ShopOrderResolver {
     @Transaction()
     @Mutation()
     @Allow(Permission.UpdateOrder, Permission.Owner)
-    async applyCouponCode(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationApplyCouponCodeArgs & ActiveOrderArgs,
-    ): Promise<ErrorResultUnion<ApplyCouponCodeResult, Order>> {
-        const order = await this.activeOrderService.getActiveOrder(
-            ctx,
-            args[ACTIVE_ORDER_INPUT_FIELD_NAME],
-            true,
-        );
-        return this.orderService.applyCouponCode(ctx, order.id, args.couponCode);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder, Permission.Owner)
     async removeCouponCode(
         @Ctx() ctx: RequestContext,
         @Args() args: MutationApplyCouponCodeArgs & ActiveOrderArgs,

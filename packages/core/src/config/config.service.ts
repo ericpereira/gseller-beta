@@ -16,7 +16,6 @@ import {
     JobQueueOptions,
     OrderOptions,
     PaymentOptions,
-    PromotionOptions,
     RuntimeVendureConfig,
     ShippingOptions,
     SystemOptions,
@@ -70,10 +69,6 @@ export class ConfigService implements VendureConfig {
 
     get dbConnectionOptions(): DataSourceOptions {
         return this.activeConfig.dbConnectionOptions;
-    }
-
-    get promotionOptions(): Required<PromotionOptions> {
-        return this.activeConfig.promotionOptions;
     }
 
     get shippingOptions(): Required<ShippingOptions> {

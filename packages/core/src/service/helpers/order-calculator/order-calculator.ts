@@ -9,7 +9,6 @@ import { idsAreEqual } from '../../../common/utils';
 import { ConfigService } from '../../../config/config.service';
 import { OrderLine, TaxCategory, TaxRate } from '../../../entity';
 import { Order } from '../../../entity/order/order.entity';
-import { Promotion } from '../../../entity/promotion/promotion.entity';
 import { Zone } from '../../../entity/zone/zone.entity';
 import { ShippingMethodService } from '../../services/shipping-method.service';
 import { TaxRateService } from '../../services/tax-rate.service';
@@ -49,14 +48,10 @@ export class OrderCalculator {
     async applyPriceAdjustments(
         ctx: RequestContext,
         order: Order,
-        promotions: Promotion[],
         updatedOrderLines: OrderLine[] = [],
         options?: { recalculateShipping?: boolean },
     ): Promise<Order> {
         const { taxZoneStrategy } = this.configService.taxOptions;
-        // We reset the promotions array as all promotions
-        // must be revalidated on any changes to an Order.
-        order.promotions = [];
         const zones = await this.zoneService.getAllWithMembers(ctx);
         const activeTaxZone = await this.requestContextCache.get(ctx, 'activeTaxZone', () =>
             taxZoneStrategy.determineTaxZone(ctx, zones, ctx.channel, order),
@@ -88,8 +83,6 @@ export class OrderCalculator {
 
             // Then test and apply promotions
             const totalBeforePromotions = order.subTotal;
-            await this.applyPromotions(ctx, order, promotions);
-            // itemsModifiedByPromotions.forEach(item => updatedOrderItems.add(item));
 
             if (order.subTotal !== totalBeforePromotions) {
                 // Finally, re-calculate taxes because the promotions may have
@@ -99,7 +92,6 @@ export class OrderCalculator {
         }
         if (options?.recalculateShipping !== false) {
             await this.applyShipping(ctx, order);
-            await this.applyShippingPromotions(ctx, order, promotions);
         }
         this.calculateOrderTotals(order);
         return order;
@@ -158,151 +150,6 @@ export class OrderCalculator {
             taxRateCache.set(taxCategory, rate);
             return rate;
         };
-    }
-
-    /**
-     * @description
-     * Applies any eligible promotions to each OrderLine in the order.
-     */
-    private async applyPromotions(ctx: RequestContext, order: Order, promotions: Promotion[]): Promise<void> {
-        await this.applyOrderItemPromotions(ctx, order, promotions);
-        await this.applyOrderPromotions(ctx, order, promotions);
-        return;
-    }
-
-    /**
-     * @description
-     * Applies promotions to OrderItems. This is a quite complex function, due to the inherent complexity
-     * of applying the promotions, and also due to added complexity in the name of performance
-     * optimization. Therefore, it is heavily annotated so that the purpose of each step is clear.
-     */
-    private async applyOrderItemPromotions(
-        ctx: RequestContext,
-        order: Order,
-        promotions: Promotion[],
-    ): Promise<void> {
-        for (const line of order.lines) {
-            // Must be re-calculated for each line, since the previous lines may have triggered promotions
-            // which affected the order price.
-            const applicablePromotions = await filterAsync(promotions, p => p.test(ctx, order).then(Boolean));
-            line.clearAdjustments();
-
-            for (const promotion of applicablePromotions) {
-                let priceAdjusted = false;
-                // We need to test the promotion *again*, even though we've tested them for the line.
-                // This is because the previous Promotions may have adjusted the Order in such a way
-                // as to render later promotions no longer applicable.
-                const applicableOrState = await promotion.test(ctx, order);
-                if (applicableOrState) {
-                    const state = typeof applicableOrState === 'object' ? applicableOrState : undefined;
-                    // for (const item of line.items) {
-                    const adjustment = await promotion.apply(ctx, { orderLine: line }, state);
-                    if (adjustment) {
-                        adjustment.amount = adjustment.amount * line.quantity;
-                        line.addAdjustment(adjustment);
-                        priceAdjusted = true;
-                    }
-                    if (priceAdjusted) {
-                        this.calculateOrderTotals(order);
-                        priceAdjusted = false;
-                    }
-                    this.addPromotion(order, promotion);
-                }
-            }
-            this.calculateOrderTotals(order);
-        }
-        return;
-    }
-
-    private async applyOrderPromotions(
-        ctx: RequestContext,
-        order: Order,
-        promotions: Promotion[],
-    ): Promise<void> {
-        // const updatedItems = new Set<OrderItem>();
-        const orderHasDistributedPromotions = !!order.discounts.find(
-            adjustment => adjustment.type === AdjustmentType.DISTRIBUTED_ORDER_PROMOTION,
-        );
-        if (orderHasDistributedPromotions) {
-            // If the Order currently has any Order-level discounts applied, we need to
-            // mark all OrderItems in the Order as "updated", since one or more of those
-            // Order-level discounts may become invalid, which will require _all_ OrderItems
-            // to be saved.
-            order.lines.forEach(line => {
-                line.clearAdjustments(AdjustmentType.DISTRIBUTED_ORDER_PROMOTION);
-            });
-        }
-
-        this.calculateOrderTotals(order);
-        const applicableOrderPromotions = await filterAsync(promotions, p =>
-            p.test(ctx, order).then(Boolean),
-        );
-        if (applicableOrderPromotions.length) {
-            for (const promotion of applicableOrderPromotions) {
-                // re-test the promotion on each iteration, since the order total
-                // may be modified by a previously-applied promotion
-                const applicableOrState = await promotion.test(ctx, order);
-                if (applicableOrState) {
-                    const state = typeof applicableOrState === 'object' ? applicableOrState : undefined;
-                    const adjustment = await promotion.apply(ctx, { order }, state);
-                    if (adjustment && adjustment.amount !== 0) {
-                        const amount = adjustment.amount;
-                        const weights = order.lines
-                            .filter(l => l.quantity !== 0)
-                            .map(l => l.proratedLinePriceWithTax);
-                        const distribution = prorate(weights, amount);
-                        order.lines.forEach((line, i) => {
-                            const shareOfAmount = distribution[i];
-                            const itemWeights = Array.from({
-                                length: line.quantity,
-                            }).map(() => line.unitPrice);
-                            const itemDistribution = prorate(itemWeights, shareOfAmount);
-                            line.addAdjustment({
-                                amount: shareOfAmount,
-                                adjustmentSource: adjustment.adjustmentSource,
-                                description: adjustment.description,
-                                type: AdjustmentType.DISTRIBUTED_ORDER_PROMOTION,
-                                data: { itemDistribution },
-                            });
-                        });
-                        this.calculateOrderTotals(order);
-                    }
-                    this.addPromotion(order, promotion);
-                }
-            }
-            this.calculateOrderTotals(order);
-        }
-        return;
-    }
-
-    private async applyShippingPromotions(ctx: RequestContext, order: Order, promotions: Promotion[]) {
-        const applicableOrderPromotions = await filterAsync(promotions, p =>
-            p.test(ctx, order).then(Boolean),
-        );
-        if (applicableOrderPromotions.length) {
-            order.shippingLines.forEach(line => line.clearAdjustments());
-            for (const promotion of applicableOrderPromotions) {
-                // re-test the promotion on each iteration, since the order total
-                // may be modified by a previously-applied promotion
-                const applicableOrState = await promotion.test(ctx, order);
-                if (applicableOrState) {
-                    const state = typeof applicableOrState === 'object' ? applicableOrState : undefined;
-                    for (const shippingLine of order.shippingLines) {
-                        const adjustment = await promotion.apply(ctx, { shippingLine, order }, state);
-                        if (adjustment && adjustment.amount !== 0) {
-                            shippingLine.addAdjustment(adjustment);
-                        }
-                    }
-                    this.addPromotion(order, promotion);
-                }
-            }
-        } else {
-            // If there is no applicable promotion for shipping,
-            // we should remove already assigned adjustment from shipping lines.
-            for (const shippingLine of order.shippingLines) {
-                shippingLine.clearAdjustments();
-            }
-        }
     }
 
     private async applyShipping(ctx: RequestContext, order: Order) {
@@ -384,11 +231,5 @@ export class OrderCalculator {
 
         order.shipping = shippingPrice;
         order.shippingWithTax = shippingPriceWithTax;
-    }
-
-    private addPromotion(order: Order, promotion: Promotion) {
-        if (order.promotions && !order.promotions.find(p => idsAreEqual(p.id, promotion.id))) {
-            order.promotions.push(promotion);
-        }
     }
 }
