@@ -83,9 +83,6 @@ export class FastImporterService {
             translationType: ProductTranslation,
             beforeSave: async p => {
                 p.channels = unique([this.defaultChannel, this.importCtx.channel], 'id');
-                if (input.facetValueIds) {
-                    p.facetValues = input.facetValueIds.map(id => ({ id } as any));
-                }
                 if (input.featuredAssetId) {
                     p.featuredAsset = { id: input.featuredAssetId } as any;
                 }
@@ -164,9 +161,6 @@ export class FastImporterService {
                 const { optionIds } = input;
                 if (optionIds && optionIds.length) {
                     variant.options = optionIds.map(id => ({ id } as any));
-                }
-                if (input.facetValueIds) {
-                    variant.facetValues = input.facetValueIds.map(id => ({ id } as any));
                 }
                 variant.product = { id: input.productId } as any;
                 variant.taxCategory = { id: input.taxCategoryId } as any;

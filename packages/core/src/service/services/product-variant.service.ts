@@ -34,7 +34,6 @@ import {
     ProductVariantPrice,
     TaxCategory,
 } from '../../entity';
-import { FacetValue } from '../../entity/facet-value/facet-value.entity';
 import { Product } from '../../entity/product/product.entity';
 import { ProductOption } from '../../entity/product-option/product-option.entity';
 import { ProductVariantTranslation } from '../../entity/product-variant/product-variant-translation.entity';
@@ -51,7 +50,6 @@ import { samplesEach } from '../helpers/utils/samples-each';
 
 import { AssetService } from './asset.service';
 import { ChannelService } from './channel.service';
-import { FacetValueService } from './facet-value.service';
 import { GlobalSettingsService } from './global-settings.service';
 import { RoleService } from './role.service';
 import { StockLevelService } from './stock-level.service';
@@ -70,7 +68,6 @@ export class ProductVariantService {
         private connection: TransactionalConnection,
         private configService: ConfigService,
         private taxCategoryService: TaxCategoryService,
-        private facetValueService: FacetValueService,
         private assetService: AssetService,
         private translatableSaver: TranslatableSaver,
         private eventBus: EventBus,
@@ -92,11 +89,6 @@ export class ProductVariantService {
     ): Promise<PaginatedList<Translated<ProductVariant>>> {
         const relations = ['featuredAsset', 'taxCategory', 'channels'];
         const customPropertyMap: { [name: string]: string } = {};
-        const hasFacetValueIdFilter = !!(options as ProductVariantListOptions)?.filter?.facetValueId;
-        if (hasFacetValueIdFilter) {
-            relations.push('facetValues');
-            customPropertyMap.facetValueId = 'facetValues.id';
-        }
         return this.listQueryBuilder
             .build(ProductVariant, options, {
                 relations,
@@ -142,8 +134,6 @@ export class ProductVariantService {
             .findByIdsInChannel(ctx, ProductVariant, ids, ctx.channelId, {
                 relations: [
                     'options',
-                    'facetValues',
-                    'facetValues.facet',
                     'taxCategory',
                     'assets',
                     'featuredAsset',
@@ -163,8 +153,6 @@ export class ProductVariantService {
                 relations: [
                     ...(relations || [
                         'options',
-                        'facetValues',
-                        'facetValues.facet',
                         'assets',
                         'featuredAsset',
                     ]),
@@ -272,16 +260,6 @@ export class ProductVariantService {
                 relations: ['options'],
             })
             .then(variant => (!variant ? [] : variant.options.map(o => this.translator.translate(o, ctx))));
-    }
-
-    getFacetValuesForVariant(ctx: RequestContext, variantId: ID): Promise<Array<Translated<FacetValue>>> {
-        return this.connection
-            .findOneInChannel(ctx, ProductVariant, variantId, ctx.channelId, {
-                relations: ['facetValues', 'facetValues.facet', 'facetValues.channels'],
-            })
-            .then(variant =>
-                !variant ? [] : variant.facetValues.map(o => this.translator.translate(o, ctx, ['facet'])),
-            );
     }
 
     /**
@@ -419,9 +397,7 @@ export class ProductVariantService {
                         .find({ where: { id: In(optionIds) } });
                     variant.options = selectedOptions;
                 }
-                if (input.facetValueIds) {
-                    variant.facetValues = await this.facetValueService.findByIds(ctx, input.facetValueIds);
-                }
+                
                 variant.product = { id: input.productId } as any;
                 variant.taxCategory = { id: input.taxCategoryId } as any;
                 await this.assetService.updateFeaturedAsset(ctx, variant, input);
@@ -462,7 +438,6 @@ export class ProductVariantService {
     private async updateSingle(ctx: RequestContext, input: UpdateProductVariantInput): Promise<ID> {
         const existingVariant = await this.connection.getEntityOrThrow(ctx, ProductVariant, input.id, {
             channelId: ctx.channelId,
-            relations: ['facetValues', 'facetValues.channels'],
         });
         const outOfStockThreshold = await this.getOutOfStockThreshold(ctx, existingVariant);
         if (input.stockOnHand && input.stockOnHand < outOfStockThreshold) {
@@ -493,15 +468,6 @@ export class ProductVariantService {
                         .getRepository(ctx, ProductOption)
                         .find({ where: { id: In(input.optionIds) } });
                     v.options = selectedOptions;
-                }
-                if (input.facetValueIds) {
-                    const facetValuesInOtherChannels = existingVariant.facetValues.filter(fv =>
-                        fv.channels.every(channel => !idsAreEqual(channel.id, ctx.channelId)),
-                    );
-                    v.facetValues = [
-                        ...facetValuesInOtherChannels,
-                        ...(await this.facetValueService.findByIds(ctx, input.facetValueIds)),
-                    ];
                 }
                 if (input.stockOnHand != null || input.stockLevels) {
                     await this.stockMovementService.adjustProductVariantStock(
@@ -667,9 +633,7 @@ export class ProductVariantService {
             variants.map(async variant => {
                 const variantWithPrices = await this.applyChannelPriceAndTax(variant, ctx);
                 return this.translator.translate(variantWithPrices, ctx, [
-                    'options',
-                    'facetValues',
-                    ['facetValues', 'facet'],
+                    'options'
                 ]);
             }),
         );

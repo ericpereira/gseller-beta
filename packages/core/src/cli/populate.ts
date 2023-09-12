@@ -95,8 +95,6 @@ export async function populate<T extends INestApplicationContext>(
         }
 
         Logger.info(`Imported ${importResult.imported} products`, loggerCtx);
-
-        await populateCollections(app, initialData, channel);
     }
 
     Logger.info('Done!', loggerCtx);
@@ -115,23 +113,6 @@ export async function populateInitialData(
         Logger.info('Populated initial data', loggerCtx);
     } catch (err: any) {
         Logger.error(err.message, loggerCtx);
-    }
-}
-
-export async function populateCollections(
-    app: INestApplicationContext,
-    initialData: import('@vendure/core').InitialData,
-    channel?: import('@vendure/core').Channel,
-) {
-    const { Populator, Logger } = await import('@vendure/core');
-    const populator = app.get(Populator);
-    try {
-        if (initialData.collections.length) {
-            await populator.populateCollections(initialData, channel);
-            Logger.info(`Created ${initialData.collections.length} Collections`, loggerCtx);
-        }
-    } catch (err: any) {
-        Logger.info(err.message, loggerCtx);
     }
 }
 

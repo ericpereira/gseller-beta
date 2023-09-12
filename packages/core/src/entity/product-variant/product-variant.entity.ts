@@ -13,7 +13,6 @@ import { Channel } from '../channel/channel.entity';
 import { Collection } from '../collection/collection.entity';
 import { CustomProductVariantFields } from '../custom-entity-fields';
 import { EntityId } from '../entity-id.decorator';
-import { FacetValue } from '../facet-value/facet-value.entity';
 import { Product } from '../product/product.entity';
 import { ProductOption } from '../product-option/product-option.entity';
 import { StockLevel } from '../stock-level/stock-level.entity';
@@ -156,10 +155,6 @@ export class ProductVariant
     @ManyToMany(type => ProductOption)
     @JoinTable()
     options: ProductOption[];
-
-    @ManyToMany(type => FacetValue)
-    @JoinTable()
-    facetValues: FacetValue[];
 
     @Column(type => CustomProductVariantFields)
     customFields: CustomProductVariantFields;

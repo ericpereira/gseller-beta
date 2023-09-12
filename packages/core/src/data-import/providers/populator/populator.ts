@@ -12,10 +12,9 @@ import {
 } from '../../../config';
 import { manualFulfillmentHandler } from '../../../config/fulfillment/manual-fulfillment-handler';
 import { TransactionalConnection } from '../../../connection/index';
-import { Channel, Collection, FacetValue, TaxCategory, User } from '../../../entity';
+import { Channel, Collection, TaxCategory, User } from '../../../entity';
 import {
     CollectionService,
-    FacetValueService,
     PaymentMethodService,
     RequestContextService,
     RoleService,
@@ -55,7 +54,6 @@ export class Populator {
         private shippingMethodService: ShippingMethodService,
         private paymentMethodService: PaymentMethodService,
         private collectionService: CollectionService,
-        private facetValueService: FacetValueService,
         private searchService: SearchService,
         private assetImporter: AssetImporter,
         private roleService: RoleService,
@@ -109,93 +107,6 @@ export class Populator {
         } catch (e: any) {
             Logger.error('Could not populate roles');
             Logger.error(e, 'populator', e.stack);
-        }
-    }
-
-    /**
-     * @description
-     * Should be run *after* the products have been populated, otherwise the expected FacetValues will not
-     * yet exist.
-     */
-    async populateCollections(data: InitialData, channel?: Channel) {
-        const ctx = await this.createRequestContext(data, channel);
-
-        const allFacetValues = await this.facetValueService.findAll(ctx, ctx.languageCode);
-        const collectionMap = new Map<string, Collection>();
-        for (const collectionDef of data.collections) {
-            const parent = collectionDef.parentName && collectionMap.get(collectionDef.parentName);
-            const parentId = parent ? parent.id.toString() : undefined;
-            const { assets } = await this.assetImporter.getAssets(collectionDef.assetPaths || []);
-            let filters: ConfigurableOperationInput[] = [];
-            try {
-                filters = (collectionDef.filters || []).map(filter =>
-                    this.processFilterDefinition(filter, allFacetValues),
-                );
-            } catch (e: any) {
-                Logger.error(e.message);
-            }
-            const collection = await this.collectionService.create(ctx, {
-                translations: [
-                    {
-                        languageCode: ctx.languageCode,
-                        name: collectionDef.name,
-                        description: collectionDef.description || '',
-                        slug: collectionDef.slug ?? collectionDef.name,
-                    },
-                ],
-                isPrivate: collectionDef.private || false,
-                parentId,
-                assetIds: assets.map(a => a.id.toString()),
-                featuredAssetId: assets.length ? assets[0].id.toString() : undefined,
-                filters,
-            });
-            collectionMap.set(collectionDef.name, collection);
-        }
-        // Wait for the created collection operations to complete before running
-        // the reindex of the search index.
-        await new Promise(resolve => setTimeout(resolve, 50));
-        await this.searchService.reindex(ctx);
-    }
-
-    private processFilterDefinition(
-        filter: CollectionFilterDefinition,
-        allFacetValues: FacetValue[],
-    ): ConfigurableOperationInput {
-        switch (filter.code) {
-            case 'facet-value-filter':
-                const facetValueIds = filter.args.facetValueNames
-                    .map(name =>
-                        allFacetValues.find(fv => {
-                            let facetName;
-                            let valueName = name;
-                            if (name.includes(':')) {
-                                [facetName, valueName] = name.split(':');
-                                return (
-                                    (fv.name === valueName || fv.code === valueName) &&
-                                    (fv.facet.name === facetName || fv.facet.code === facetName)
-                                );
-                            } else {
-                                return fv.name === valueName || fv.code === valueName;
-                            }
-                        }),
-                    )
-                    .filter(notNullOrUndefined)
-                    .map(fv => fv.id);
-                return {
-                    code: filter.code,
-                    arguments: [
-                        {
-                            name: 'facetValueIds',
-                            value: JSON.stringify(facetValueIds),
-                        },
-                        {
-                            name: 'containsAny',
-                            value: filter.args.containsAny.toString(),
-                        },
-                    ],
-                };
-            default:
-                throw new Error(`Filter with code "${filter.code as string}" is not recognized.`);
         }
     }
 

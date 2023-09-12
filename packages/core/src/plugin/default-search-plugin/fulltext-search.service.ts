@@ -5,12 +5,11 @@ import { Omit } from '@vendure/common/lib/omit';
 import { RequestContext } from '../../api/common/request-context';
 import { InternalServerError } from '../../common/error/errors';
 import { TransactionalConnection } from '../../connection/transactional-connection';
-import { Collection, FacetValue } from '../../entity';
+import { Collection } from '../../entity';
 import { EventBus } from '../../event-bus/event-bus';
 import { SearchEvent } from '../../event-bus/events/search-event';
 import { Job } from '../../job-queue/job';
 import { CollectionService } from '../../service/services/collection.service';
-import { FacetValueService } from '../../service/services/facet-value.service';
 import { ProductVariantService } from '../../service/services/product-variant.service';
 import { SearchService } from '../../service/services/search.service';
 
@@ -34,7 +33,6 @@ export class FulltextSearchService {
     constructor(
         private connection: TransactionalConnection,
         private eventBus: EventBus,
-        private facetValueService: FacetValueService,
         private collectionService: CollectionService,
         private productVariantService: ProductVariantService,
         private searchIndexService: SearchIndexService,
@@ -52,7 +50,7 @@ export class FulltextSearchService {
         ctx: RequestContext,
         input: SearchInput,
         enabledOnly: boolean = false,
-    ): Promise<Omit<Omit<SearchResponse, 'facetValues'>, 'collections'>> {
+    ): Promise<Omit<SearchResponse, 'collections'>> {
         const items = await this._searchStrategy.getSearchResults(ctx, input, enabledOnly);
         const totalItems = await this._searchStrategy.getTotalCount(ctx, input, enabledOnly);
         this.eventBus.publish(new SearchEvent(ctx, input));
@@ -61,24 +59,6 @@ export class FulltextSearchService {
             items,
             totalItems,
         };
-    }
-
-    /**
-     * Return a list of all FacetValues which appear in the result set.
-     */
-    async facetValues(
-        ctx: RequestContext,
-        input: SearchInput,
-        enabledOnly: boolean = false,
-    ): Promise<Array<{ facetValue: FacetValue; count: number }>> {
-        const facetValueIdsMap = await this._searchStrategy.getFacetValueIds(ctx, input, enabledOnly);
-        const facetValues = await this.facetValueService.findByIds(ctx, Array.from(facetValueIdsMap.keys()));
-        return facetValues.map((facetValue, index) => {
-            return {
-                facetValue,
-                count: facetValueIdsMap.get(facetValue.id.toString()) as number,
-            };
-        });
     }
 
     /**

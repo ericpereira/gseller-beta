@@ -2957,7 +2957,6 @@ export type SearchReindexResponse = {
 export type SearchResponse = {
     __typename?: 'SearchResponse';
     collections: Array<CollectionResult>;
-    facetValues: Array<FacetValueResult>;
     items: Array<SearchResult>;
     totalItems: Scalars['Int'];
 };

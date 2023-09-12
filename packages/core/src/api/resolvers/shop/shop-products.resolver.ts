@@ -15,10 +15,8 @@ import { InternalServerError, UserInputError } from '../../../common/error/error
 import { ListQueryOptions } from '../../../common/types/common-types';
 import { Translated } from '../../../common/types/locale-types';
 import { Collection } from '../../../entity/collection/collection.entity';
-import { Facet } from '../../../entity/facet/facet.entity';
 import { Product } from '../../../entity/product/product.entity';
-import { CollectionService, FacetService } from '../../../service';
-import { FacetValueService } from '../../../service/services/facet-value.service';
+import { CollectionService } from '../../../service';
 import { ProductVariantService } from '../../../service/services/product-variant.service';
 import { ProductService } from '../../../service/services/product.service';
 import { RequestContext } from '../../common/request-context';
@@ -30,9 +28,7 @@ export class ShopProductsResolver {
     constructor(
         private productService: ProductService,
         private productVariantService: ProductVariantService,
-        private facetValueService: FacetValueService,
         private collectionService: CollectionService,
-        private facetService: FacetService,
     ) {}
 
     @Query()
@@ -71,7 +67,6 @@ export class ShopProductsResolver {
         if (result.enabled === false) {
             return;
         }
-        result.facetValues = result.facetValues?.filter(fv => !fv.facet.isPrivate) as any;
         return result;
     }
 
@@ -125,34 +120,5 @@ export class ShopProductsResolver {
     @Query()
     async search(...args: any): Promise<Omit<SearchResponse, 'facetValues'>> {
         throw new InternalServerError('error.no-search-plugin-configured');
-    }
-
-    @Query()
-    async facets(
-        @Ctx() ctx: RequestContext,
-        @Args() args: QueryFacetsArgs,
-        @Relations(Facet) relations: RelationPaths<Facet>,
-    ): Promise<PaginatedList<Translated<Facet>>> {
-        const options: ListQueryOptions<Facet> = {
-            ...args.options,
-            filter: {
-                ...(args.options && args.options.filter),
-                isPrivate: { eq: false },
-            },
-        };
-        return this.facetService.findAll(ctx, options || undefined, relations);
-    }
-
-    @Query()
-    async facet(
-        @Ctx() ctx: RequestContext,
-        @Args() args: QueryFacetArgs,
-        @Relations(Facet) relations: RelationPaths<Facet>,
-    ): Promise<Translated<Facet> | undefined> {
-        const facet = await this.facetService.findOne(ctx, args.id, relations);
-        if (facet && facet.isPrivate) {
-            return;
-        }
-        return facet;
     }
 }

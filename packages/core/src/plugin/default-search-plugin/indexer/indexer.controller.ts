@@ -14,7 +14,6 @@ import { asyncObservable, idsAreEqual } from '../../../common/utils';
 import { ConfigService } from '../../../config/config.service';
 import { Logger } from '../../../config/logger/vendure-logger';
 import { TransactionalConnection } from '../../../connection/transactional-connection';
-import { FacetValue } from '../../../entity/facet-value/facet-value.entity';
 import { Product } from '../../../entity/product/product.entity';
 import { ProductVariant } from '../../../entity/product-variant/product-variant.entity';
 import { ProductPriceApplicator } from '../../../service/helpers/product-price-applicator/product-price-applicator';
@@ -36,11 +35,9 @@ import {
 import { MutableRequestContext } from './mutable-request-context';
 
 export const BATCH_SIZE = 1000;
-export const productRelations = ['featuredAsset', 'facetValues', 'facetValues.facet', 'channels'];
+export const productRelations = ['featuredAsset', 'channels'];
 export const variantRelations = [
     'featuredAsset',
-    'facetValues',
-    'facetValues.facet',
     'collections',
     'taxCategory',
     'channels',
@@ -381,8 +378,6 @@ export class IndexerController {
                         productPreview: product.featuredAsset ? product.featuredAsset.preview : '',
                         productVariantPreview: variant.featuredAsset ? variant.featuredAsset.preview : '',
                         channelIds: variant.channels.map(c => c.id as string),
-                        facetIds: this.getFacetIds(variant, product),
-                        facetValueIds: this.getFacetValueIds(variant, product),
                         collectionIds: variant.collections.map(c => c.id.toString()),
                         collectionSlugs: collectionTranslations.map(c => c.slug),
                     });
@@ -448,8 +443,6 @@ export class IndexerController {
             productPreview: product.featuredAsset?.preview ?? '',
             productVariantPreview: '',
             channelIds: [ctx.channelId.toString()],
-            facetIds: product.facetValues?.map(fv => fv.facet.id.toString()) ?? [],
-            facetValueIds: product.facetValues?.map(fv => fv.id.toString()) ?? [],
             collectionIds: [],
             collectionSlugs: [],
         });
@@ -479,20 +472,6 @@ export class IndexerController {
         return (translatable.translations.find(t => t.languageCode === languageCode) ||
             translatable.translations.find(t => t.languageCode === this.configService.defaultLanguageCode) ||
             translatable.translations[0]) as unknown as Translation<T>;
-    }
-
-    private getFacetIds(variant: ProductVariant, product: Product): string[] {
-        const facetIds = (fv: FacetValue) => fv.facet.id.toString();
-        const variantFacetIds = variant.facetValues.map(facetIds);
-        const productFacetIds = product.facetValues.map(facetIds);
-        return unique([...variantFacetIds, ...productFacetIds]);
-    }
-
-    private getFacetValueIds(variant: ProductVariant, product: Product): string[] {
-        const facetValueIds = (fv: FacetValue) => fv.id.toString();
-        const variantFacetValueIds = variant.facetValues.map(facetValueIds);
-        const productFacetValueIds = product.facetValues.map(facetValueIds);
-        return unique([...variantFacetValueIds, ...productFacetValueIds]);
     }
 
     /**

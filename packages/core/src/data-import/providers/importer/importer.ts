@@ -10,15 +10,11 @@ import { RequestContext } from '../../../api/common/request-context';
 import { InternalServerError } from '../../../common/error/errors';
 import { ConfigService } from '../../../config/config.service';
 import { CustomFieldConfig } from '../../../config/custom-field/custom-field-types';
-import { Facet } from '../../../entity/facet/facet.entity';
-import { FacetValue } from '../../../entity/facet-value/facet-value.entity';
 import { TaxCategory } from '../../../entity/tax-category/tax-category.entity';
 import { ChannelService } from '../../../service/services/channel.service';
-import { FacetValueService } from '../../../service/services/facet-value.service';
-import { FacetService } from '../../../service/services/facet.service';
 import { TaxCategoryService } from '../../../service/services/tax-category.service';
 import { AssetImporter } from '../asset-importer/asset-importer';
-import { ImportParser, ParsedFacet, ParsedProductWithVariants } from '../import-parser/import-parser';
+import { ImportParser, ParsedProductWithVariants } from '../import-parser/import-parser';
 
 import { FastImporterService } from './fast-importer.service';
 
@@ -43,16 +39,12 @@ export class Importer {
     private taxCategoryMatches: { [name: string]: ID } = {};
     // These Maps are used to cache newly-created entities and prevent duplicates
     // from being created.
-    private facetMap = new Map<string, Facet>();
-    private facetValueMap = new Map<string, FacetValue>();
 
     /** @internal */
     constructor(
         private configService: ConfigService,
         private importParser: ImportParser,
         private channelService: ChannelService,
-        private facetService: FacetService,
-        private facetValueService: FacetValueService,
         private taxCategoryService: TaxCategoryService,
         private assetImporter: AssetImporter,
         private fastImporter: FastImporterService,
@@ -61,7 +53,7 @@ export class Importer {
     /**
      * @description
      * Parses the contents of the [product import CSV file](/docs/developer-guide/importing-product-data/#product-import-format) and imports
-     * the resulting Product & ProductVariants, as well as any associated Assets, Facets & FacetValues.
+     * the resulting Product & ProductVariants, as well as any associated Assets
      *
      * The `ctxOrLanguageCode` argument is used to specify the languageCode to be used when creating the Products.
      */
@@ -177,7 +169,6 @@ export class Importer {
             const createdProductId = await this.fastImporter.createProduct({
                 featuredAssetId: productAssets.length ? productAssets[0].id : undefined,
                 assetIds: productAssets.map(a => a.id),
-                facetValueIds: await this.getFacetValueIds(ctx, product.facets, ctx.languageCode),
                 translations: product.translations.map(translation => {
                     return {
                         languageCode: translation.languageCode,
@@ -243,10 +234,7 @@ export class Importer {
                 if (createVariantAssets.errors.length) {
                     errors = errors.concat(createVariantAssets.errors);
                 }
-                let facetValueIds: ID[] = [];
-                if (0 < variant.facets.length) {
-                    facetValueIds = await this.getFacetValueIds(ctx, variant.facets, languageCode);
-                }
+                
                 const variantCustomFields = this.processCustomFieldValues(
                     variantMainTranslation.customFields,
                     this.configService.customFields.ProductVariant,
@@ -256,7 +244,6 @@ export class Importer {
                 );
                 const createdVariant = await this.fastImporter.createProductVariant({
                     productId: createdProductId,
-                    facetValueIds,
                     featuredAssetId: variantAssets.length ? variantAssets[0].id : undefined,
                     assetIds: variantAssets.map(a => a.id),
                     sku: variant.sku,
@@ -295,72 +282,6 @@ export class Importer {
             });
         }
         return errors;
-    }
-
-    private async getFacetValueIds(
-        ctx: RequestContext,
-        facets: ParsedFacet[],
-        languageCode: LanguageCode,
-    ): Promise<ID[]> {
-        const facetValueIds: ID[] = [];
-        for (const item of facets) {
-            const itemMainTranslation = this.getTranslationByCodeOrFirst(item.translations, languageCode);
-            const facetName = itemMainTranslation.facet;
-            const valueName = itemMainTranslation.value;
-
-            let facetEntity: Facet;
-            const cachedFacet = this.facetMap.get(facetName);
-            if (cachedFacet) {
-                facetEntity = cachedFacet;
-            } else {
-                const existing = await this.facetService.findByCode(
-                    ctx,
-                    normalizeString(facetName, '-'),
-                    languageCode,
-                );
-                if (existing) {
-                    facetEntity = existing;
-                } else {
-                    facetEntity = await this.facetService.create(ctx, {
-                        isPrivate: false,
-                        code: normalizeString(facetName, '-'),
-                        translations: item.translations.map(translation => {
-                            return {
-                                languageCode: translation.languageCode,
-                                name: translation.facet,
-                            };
-                        }),
-                    });
-                }
-                this.facetMap.set(facetName, facetEntity);
-            }
-
-            let facetValueEntity: FacetValue;
-            const facetValueMapKey = `${facetName}:${valueName}`;
-            const cachedFacetValue = this.facetValueMap.get(facetValueMapKey);
-            if (cachedFacetValue) {
-                facetValueEntity = cachedFacetValue;
-            } else {
-                const existing = facetEntity.values.find(v => v.name === valueName);
-                if (existing) {
-                    facetValueEntity = existing;
-                } else {
-                    facetValueEntity = await this.facetValueService.create(ctx, facetEntity, {
-                        code: normalizeString(valueName, '-'),
-                        translations: item.translations.map(translation => {
-                            return {
-                                languageCode: translation.languageCode,
-                                name: translation.value,
-                            };
-                        }),
-                    });
-                }
-                this.facetValueMap.set(facetValueMapKey, facetValueEntity);
-            }
-            facetValueIds.push(facetValueEntity.id);
-        }
-
-        return facetValueIds;
     }
 
     private processCustomFieldValues(customFields: { [field: string]: string }, config: CustomFieldConfig[]) {
