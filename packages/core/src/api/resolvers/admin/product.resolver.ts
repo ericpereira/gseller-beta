@@ -30,7 +30,6 @@ import { UserInputError } from '../../../common/error/errors';
 import { Translated } from '../../../common/types/locale-types';
 import { Product } from '../../../entity/product/product.entity';
 import { ProductVariant } from '../../../entity/product-variant/product-variant.entity';
-import { FacetValueService } from '../../../service/services/facet-value.service';
 import { ProductVariantService } from '../../../service/services/product-variant.service';
 import { ProductService } from '../../../service/services/product.service';
 import { RequestContext } from '../../common/request-context';
@@ -44,7 +43,6 @@ export class ProductResolver {
     constructor(
         private productService: ProductService,
         private productVariantService: ProductVariantService,
-        private facetValueService: FacetValueService,
     ) {}
 
     @Query()

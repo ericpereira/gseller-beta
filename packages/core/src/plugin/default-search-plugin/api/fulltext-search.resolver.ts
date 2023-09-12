@@ -13,13 +13,12 @@ import { Ctx } from '../../../api/decorators/request-context.decorator';
 import { SearchResolver as BaseSearchResolver } from '../../../api/resolvers/admin/search.resolver';
 import { InternalServerError } from '../../../common/error/errors';
 import { Collection } from '../../../entity/collection/collection.entity';
-import { FacetValue } from '../../../entity/facet-value/facet-value.entity';
 import { FulltextSearchService } from '../fulltext-search.service';
 import { SearchJobBufferService } from '../search-job-buffer/search-job-buffer.service';
 
 @Resolver('SearchResponse')
 export class ShopFulltextSearchResolver
-    implements Pick<BaseSearchResolver, 'search' | 'facetValues' | 'collections'>
+    implements Pick<BaseSearchResolver, 'search' | 'collections'>
 {
     constructor(private fulltextSearchService: FulltextSearchService) {}
 
@@ -28,20 +27,11 @@ export class ShopFulltextSearchResolver
     async search(
         @Ctx() ctx: RequestContext,
         @Args() args: QuerySearchArgs,
-    ): Promise<Omit<SearchResponse, 'facetValues' | 'collections'>> {
+    ): Promise<Omit<SearchResponse, 'collections'>> {
         const result = await this.fulltextSearchService.search(ctx, args.input, true);
         // ensure the facetValues property resolver has access to the input args
         (result as any).input = args.input;
         return result;
-    }
-
-    @ResolveField()
-    async facetValues(
-        @Ctx() ctx: RequestContext,
-        @Parent() parent: { input: SearchInput },
-    ): Promise<Array<{ facetValue: FacetValue; count: number }>> {
-        const facetValues = await this.fulltextSearchService.facetValues(ctx, parent.input, true);
-        return facetValues.filter(i => !i.facetValue.facet.isPrivate);
     }
 
     @ResolveField()
@@ -66,19 +56,11 @@ export class AdminFulltextSearchResolver implements BaseSearchResolver {
     async search(
         @Ctx() ctx: RequestContext,
         @Args() args: QuerySearchArgs,
-    ): Promise<Omit<SearchResponse, 'facetValues' | 'collections'>> {
+    ): Promise<Omit<SearchResponse, 'collections'>> {
         const result = await this.fulltextSearchService.search(ctx, args.input, false);
         // ensure the facetValues property resolver has access to the input args
         (result as any).input = args.input;
         return result;
-    }
-
-    @ResolveField()
-    async facetValues(
-        @Ctx() ctx: RequestContext,
-        @Parent() parent: { input: SearchInput },
-    ): Promise<Array<{ facetValue: FacetValue; count: number }>> {
-        return this.fulltextSearchService.facetValues(ctx, parent.input, false);
     }
 
     @ResolveField()

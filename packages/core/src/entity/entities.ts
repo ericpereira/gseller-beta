@@ -10,10 +10,6 @@ import { CollectionTranslation } from './collection/collection-translation.entit
 import { Collection } from './collection/collection.entity';
 import { Customer } from './customer/customer.entity';
 import { CustomerGroup } from './customer-group/customer-group.entity';
-import { FacetTranslation } from './facet/facet-translation.entity';
-import { Facet } from './facet/facet.entity';
-import { FacetValueTranslation } from './facet-value/facet-value-translation.entity';
-import { FacetValue } from './facet-value/facet-value.entity';
 import { Fulfillment } from './fulfillment/fulfillment.entity';
 import { GlobalSettings } from './global-settings/global-settings.entity';
 import { CustomerHistoryEntry } from './history-entry/customer-history-entry.entity';
@@ -89,10 +85,6 @@ export const coreEntitiesMap = {
     CustomerGroup,
     CustomerHistoryEntry,
     ExternalAuthenticationMethod,
-    Facet,
-    FacetTranslation,
-    FacetValue,
-    FacetValueTranslation,
     Fulfillment,
     FulfillmentLine,
     GlobalSettings,

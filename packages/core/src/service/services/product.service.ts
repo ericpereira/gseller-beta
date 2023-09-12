@@ -24,7 +24,6 @@ import { Translated } from '../../common/types/locale-types';
 import { assertFound, idsAreEqual } from '../../common/utils';
 import { TransactionalConnection } from '../../connection/transactional-connection';
 import { Channel } from '../../entity/channel/channel.entity';
-import { FacetValue } from '../../entity/facet-value/facet-value.entity';
 import { ProductTranslation } from '../../entity/product/product-translation.entity';
 import { Product } from '../../entity/product/product.entity';
 import { ProductOptionGroup } from '../../entity/product-option-group/product-option-group.entity';
@@ -42,7 +41,6 @@ import { TranslatorService } from '../helpers/translator/translator.service';
 import { AssetService } from './asset.service';
 import { ChannelService } from './channel.service';
 import { CollectionService } from './collection.service';
-import { FacetValueService } from './facet-value.service';
 import { ProductOptionGroupService } from './product-option-group.service';
 import { ProductVariantService } from './product-variant.service';
 import { RoleService } from './role.service';
@@ -56,7 +54,7 @@ import { TaxRateService } from './tax-rate.service';
  */
 @Injectable()
 export class ProductService {
-    private readonly relations = ['featuredAsset', 'assets', 'channels', 'facetValues', 'facetValues.facet'];
+    private readonly relations = ['featuredAsset', 'assets', 'channels'];
 
     constructor(
         private connection: TransactionalConnection,
@@ -64,7 +62,6 @@ export class ProductService {
         private roleService: RoleService,
         private assetService: AssetService,
         private productVariantService: ProductVariantService,
-        private facetValueService: FacetValueService,
         private taxRateService: TaxRateService,
         private collectionService: CollectionService,
         private listQueryBuilder: ListQueryBuilder,
@@ -83,11 +80,6 @@ export class ProductService {
     ): Promise<PaginatedList<Translated<Product>>> {
         const effectiveRelations = relations || this.relations;
         const customPropertyMap: { [name: string]: string } = {};
-        const hasFacetValueIdFilter = !!(options as ProductListOptions)?.filter?.facetValueId;
-        if (hasFacetValueIdFilter) {
-            effectiveRelations.push('facetValues');
-            customPropertyMap.facetValueId = 'facetValues.id';
-        }
         return this.listQueryBuilder
             .build(Product, options, {
                 relations: effectiveRelations,
@@ -99,7 +91,7 @@ export class ProductService {
             .getManyAndCount()
             .then(async ([products, totalItems]) => {
                 const items = products.map(product =>
-                    this.translator.translate(product, ctx, ['facetValues', ['facetValues', 'facet']]),
+                    this.translator.translate(product, ctx, []),
                 );
                 return {
                     items,
@@ -114,11 +106,7 @@ export class ProductService {
         relations?: RelationPaths<Product>,
     ): Promise<Translated<Product> | undefined> {
         const effectiveRelations = relations ?? this.relations;
-        if (relations && effectiveRelations.includes('facetValues')) {
-            // We need the facet to determine with the FacetValues are public
-            // when serving via the Shop API.
-            effectiveRelations.push('facetValues.facet');
-        }
+        
         const product = await this.connection.findOneInChannel(ctx, Product, productId, ctx.channelId, {
             relations: unique(effectiveRelations),
             where: {
@@ -128,7 +116,7 @@ export class ProductService {
         if (!product) {
             return;
         }
-        return this.translator.translate(product, ctx, ['facetValues', ['facetValues', 'facet']]);
+        return this.translator.translate(product, ctx, []);
     }
 
     async findByIds(
@@ -150,7 +138,7 @@ export class ProductService {
             .getMany()
             .then(products =>
                 products.map(product =>
-                    this.translator.translate(product, ctx, ['facetValues', ['facetValues', 'facet']]),
+                    this.translator.translate(product, ctx, []),
                 ),
             );
     }
@@ -165,18 +153,6 @@ export class ProductService {
             channelId: ctx.channelId,
         });
         return product.channels;
-    }
-
-    getFacetValuesForProduct(ctx: RequestContext, productId: ID): Promise<Array<Translated<FacetValue>>> {
-        return this.connection
-            .getRepository(ctx, Product)
-            .findOne({
-                where: { id: productId },
-                relations: ['facetValues'],
-            })
-            .then(variant =>
-                !variant ? [] : variant.facetValues.map(o => this.translator.translate(o, ctx, ['facet'])),
-            );
     }
 
     async findOneBySlug(
@@ -222,9 +198,6 @@ export class ProductService {
             translationType: ProductTranslation,
             beforeSave: async p => {
                 await this.channelService.assignToCurrentChannel(p, ctx);
-                if (input.facetValueIds) {
-                    p.facetValues = await this.facetValueService.findByIds(ctx, input.facetValueIds);
-                }
                 await this.assetService.updateFeaturedAsset(ctx, p, input);
             },
         });
@@ -237,7 +210,6 @@ export class ProductService {
     async update(ctx: RequestContext, input: UpdateProductInput): Promise<Translated<Product>> {
         const product = await this.connection.getEntityOrThrow(ctx, Product, input.id, {
             channelId: ctx.channelId,
-            relations: ['facetValues', 'facetValues.channels'],
         });
         await this.slugValidator.validateSlugs(ctx, input, ProductTranslation);
         const updatedProduct = await this.translatableSaver.update({
@@ -246,15 +218,6 @@ export class ProductService {
             entityType: Product,
             translationType: ProductTranslation,
             beforeSave: async p => {
-                if (input.facetValueIds) {
-                    const facetValuesInOtherChannels = product.facetValues.filter(fv =>
-                        fv.channels.every(channel => !idsAreEqual(channel.id, ctx.channelId)),
-                    );
-                    p.facetValues = [
-                        ...facetValuesInOtherChannels,
-                        ...(await this.facetValueService.findByIds(ctx, input.facetValueIds)),
-                    ];
-                }
                 await this.assetService.updateFeaturedAsset(ctx, p, input);
                 await this.assetService.updateEntityAssets(ctx, p, input);
             },

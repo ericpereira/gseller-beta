@@ -6,7 +6,7 @@ import fs from 'fs-extra';
 import path from 'path';
 
 import { logColored } from './cli-utils';
-import { importProductsFromCsv, populateCollections, populateInitialData } from './populate';
+import { importProductsFromCsv, populateInitialData } from './populate';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const version = require('../../package.json').version;
@@ -55,7 +55,6 @@ program
         const initialData = require(filePath);
         const app = await getApplicationRef();
         if (app) {
-            await populateCollections(app, initialData);
             logColored('\nDone!');
             await app.close();
         }

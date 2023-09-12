@@ -20,7 +20,6 @@ import { CountryResolver } from './resolvers/admin/country.resolver';
 import { CustomerGroupResolver } from './resolvers/admin/customer-group.resolver';
 import { CustomerResolver } from './resolvers/admin/customer.resolver';
 import { DraftOrderResolver } from './resolvers/admin/draft-order.resolver';
-import { FacetResolver } from './resolvers/admin/facet.resolver';
 import { GlobalSettingsResolver } from './resolvers/admin/global-settings.resolver';
 import { ImportResolver } from './resolvers/admin/import.resolver';
 import { JobResolver } from './resolvers/admin/job.resolver';
@@ -47,8 +46,6 @@ import {
     CustomerEntityResolver,
 } from './resolvers/entity/customer-entity.resolver';
 import { CustomerGroupEntityResolver } from './resolvers/entity/customer-group-entity.resolver';
-import { FacetEntityResolver } from './resolvers/entity/facet-entity.resolver';
-import { FacetValueEntityResolver } from './resolvers/entity/facet-value-entity.resolver';
 import {
     FulfillmentAdminEntityResolver,
     FulfillmentEntityResolver,
@@ -96,7 +93,6 @@ const adminResolvers = [
     CustomerGroupResolver,
     CustomerResolver,
     DraftOrderResolver,
-    FacetResolver,
     GlobalSettingsResolver,
     ImportResolver,
     JobResolver,
@@ -130,8 +126,6 @@ export const entityResolvers = [
     CountryEntityResolver,
     CustomerEntityResolver,
     CustomerGroupEntityResolver,
-    FacetEntityResolver,
-    FacetValueEntityResolver,
     FulfillmentEntityResolver,
     FulfillmentLineEntityResolver,
     OrderEntityResolver,

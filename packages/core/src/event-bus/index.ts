@@ -18,8 +18,6 @@ export * from './events/customer-address-event';
 export * from './events/customer-event';
 export * from './events/customer-group-event';
 export * from './events/customer-group-change-event';
-export * from './events/facet-event';
-export * from './events/facet-value-event';
 export * from './events/fulfillment-event';
 export * from './events/fulfillment-state-transition-event';
 export * from './events/global-settings-event';

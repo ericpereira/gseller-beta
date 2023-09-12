@@ -21,7 +21,6 @@ import { Translated } from '../../../common/types/locale-types';
 import { CollectionFilter } from '../../../config/catalog/collection-filter';
 import { Collection } from '../../../entity/collection/collection.entity';
 import { CollectionService } from '../../../service/services/collection.service';
-import { FacetValueService } from '../../../service/services/facet-value.service';
 import { ConfigurableOperationCodec } from '../../common/configurable-operation-codec';
 import { RequestContext } from '../../common/request-context';
 import { Allow } from '../../decorators/allow.decorator';
@@ -33,7 +32,6 @@ import { Transaction } from '../../decorators/transaction.decorator';
 export class CollectionResolver {
     constructor(
         private collectionService: CollectionService,
-        private facetValueService: FacetValueService,
         private configurableOperationCodec: ConfigurableOperationCodec,
     ) {}
 

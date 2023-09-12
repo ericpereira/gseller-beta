@@ -10,7 +10,7 @@ import { PaginatedList } from '@vendure/common/lib/shared-types';
 import { RequestContextCacheService } from '../../../cache/request-context-cache.service';
 import { Translated } from '../../../common/types/locale-types';
 import { idsAreEqual } from '../../../common/utils';
-import { Asset, Channel, FacetValue, Product, ProductOption, StockLevel, TaxRate } from '../../../entity';
+import { Asset, Channel, Product, ProductOption, StockLevel, TaxRate } from '../../../entity';
 import { ProductVariant } from '../../../entity/product-variant/product-variant.entity';
 import { StockMovement } from '../../../entity/stock-movement/stock-movement.entity';
 import { LocaleStringHydrator } from '../../../service/helpers/locale-string-hydrator/locale-string-hydrator';
@@ -117,33 +117,6 @@ export class ProductVariantEntityResolver {
             return productVariant.options as Array<Translated<ProductOption>>;
         }
         return this.productVariantService.getOptionsForVariant(ctx, productVariant.id);
-    }
-
-    @ResolveField()
-    async facetValues(
-        @Ctx() ctx: RequestContext,
-        @Parent() productVariant: ProductVariant,
-        @Api() apiType: ApiType,
-    ): Promise<Array<Translated<FacetValue>>> {
-        if (productVariant.facetValues?.length === 0) {
-            return [];
-        }
-        let facetValues: Array<Translated<FacetValue>>;
-        if (productVariant.facetValues?.[0]?.channels) {
-            facetValues = productVariant.facetValues as Array<Translated<FacetValue>>;
-        } else {
-            facetValues = await this.productVariantService.getFacetValuesForVariant(ctx, productVariant.id);
-        }
-
-        return facetValues.filter(fv => {
-            if (!fv.channels.find(c => idsAreEqual(c.id, ctx.channelId))) {
-                return false;
-            }
-            if (apiType === 'shop' && fv.facet.isPrivate) {
-                return false;
-            }
-            return true;
-        });
     }
 
     @ResolveField()

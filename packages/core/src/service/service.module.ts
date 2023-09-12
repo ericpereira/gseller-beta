@@ -38,8 +38,6 @@ import { CollectionService } from './services/collection.service';
 import { CountryService } from './services/country.service';
 import { CustomerGroupService } from './services/customer-group.service';
 import { CustomerService } from './services/customer.service';
-import { FacetValueService } from './services/facet-value.service';
-import { FacetService } from './services/facet.service';
 import { FulfillmentService } from './services/fulfillment.service';
 import { GlobalSettingsService } from './services/global-settings.service';
 import { HistoryService } from './services/history.service';
@@ -74,8 +72,6 @@ const services = [
     CountryService,
     CustomerGroupService,
     CustomerService,
-    FacetService,
-    FacetValueService,
     FulfillmentService,
     GlobalSettingsService,
     HistoryService,
