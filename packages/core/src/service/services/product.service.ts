@@ -40,7 +40,6 @@ import { TranslatorService } from '../helpers/translator/translator.service';
 
 import { AssetService } from './asset.service';
 import { ChannelService } from './channel.service';
-import { CollectionService } from './collection.service';
 import { ProductOptionGroupService } from './product-option-group.service';
 import { ProductVariantService } from './product-variant.service';
 import { RoleService } from './role.service';
@@ -63,7 +62,6 @@ export class ProductService {
         private assetService: AssetService,
         private productVariantService: ProductVariantService,
         private taxRateService: TaxRateService,
-        private collectionService: CollectionService,
         private listQueryBuilder: ListQueryBuilder,
         private translatableSaver: TranslatableSaver,
         private eventBus: EventBus,

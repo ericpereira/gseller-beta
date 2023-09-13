@@ -12,13 +12,12 @@ import { Allow } from '../../../api/decorators/allow.decorator';
 import { Ctx } from '../../../api/decorators/request-context.decorator';
 import { SearchResolver as BaseSearchResolver } from '../../../api/resolvers/admin/search.resolver';
 import { InternalServerError } from '../../../common/error/errors';
-import { Collection } from '../../../entity/collection/collection.entity';
 import { FulltextSearchService } from '../fulltext-search.service';
 import { SearchJobBufferService } from '../search-job-buffer/search-job-buffer.service';
 
 @Resolver('SearchResponse')
 export class ShopFulltextSearchResolver
-    implements Pick<BaseSearchResolver, 'search' | 'collections'>
+    implements Pick<BaseSearchResolver, 'search'>
 {
     constructor(private fulltextSearchService: FulltextSearchService) {}
 
@@ -32,15 +31,6 @@ export class ShopFulltextSearchResolver
         // ensure the facetValues property resolver has access to the input args
         (result as any).input = args.input;
         return result;
-    }
-
-    @ResolveField()
-    async collections(
-        @Ctx() ctx: RequestContext,
-        @Parent() parent: { input: SearchInput },
-    ): Promise<Array<{ collection: Collection; count: number }>> {
-        const collections = await this.fulltextSearchService.collections(ctx, parent.input, true);
-        return collections.filter(i => !i.collection.isPrivate);
     }
 }
 
@@ -61,14 +51,6 @@ export class AdminFulltextSearchResolver implements BaseSearchResolver {
         // ensure the facetValues property resolver has access to the input args
         (result as any).input = args.input;
         return result;
-    }
-
-    @ResolveField()
-    async collections(
-        @Ctx() ctx: RequestContext,
-        @Parent() parent: { input: SearchInput },
-    ): Promise<Array<{ collection: Collection; count: number }>> {
-        return this.fulltextSearchService.collections(ctx, parent.input, false);
     }
 
     @Mutation()

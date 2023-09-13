@@ -10,8 +10,6 @@ export * from './events/asset-event';
 export * from './events/attempted-login-event';
 export * from './events/change-channel-event';
 export * from './events/channel-event';
-export * from './events/collection-event';
-export * from './events/collection-modification-event';
 export * from './events/country-event';
 export * from './events/coupon-code-event';
 export * from './events/customer-address-event';

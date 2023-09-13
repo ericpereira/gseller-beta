@@ -5,11 +5,9 @@ import { Omit } from '@vendure/common/lib/omit';
 import { RequestContext } from '../../api/common/request-context';
 import { InternalServerError } from '../../common/error/errors';
 import { TransactionalConnection } from '../../connection/transactional-connection';
-import { Collection } from '../../entity';
 import { EventBus } from '../../event-bus/event-bus';
 import { SearchEvent } from '../../event-bus/events/search-event';
 import { Job } from '../../job-queue/job';
-import { CollectionService } from '../../service/services/collection.service';
 import { ProductVariantService } from '../../service/services/product-variant.service';
 import { SearchService } from '../../service/services/search.service';
 
@@ -33,8 +31,6 @@ export class FulltextSearchService {
     constructor(
         private connection: TransactionalConnection,
         private eventBus: EventBus,
-        private collectionService: CollectionService,
-        private productVariantService: ProductVariantService,
         private searchIndexService: SearchIndexService,
         private searchService: SearchService,
         @Inject(PLUGIN_INIT_OPTIONS) private options: DefaultSearchPluginInitOptions,
@@ -59,24 +55,6 @@ export class FulltextSearchService {
             items,
             totalItems,
         };
-    }
-
-    /**
-     * Return a list of all Collections which appear in the result set.
-     */
-    async collections(
-        ctx: RequestContext,
-        input: SearchInput,
-        enabledOnly: boolean = false,
-    ): Promise<Array<{ collection: Collection; count: number }>> {
-        const collectionIdsMap = await this._searchStrategy.getCollectionIds(ctx, input, enabledOnly);
-        const collections = await this.collectionService.findByIds(ctx, Array.from(collectionIdsMap.keys()));
-        return collections.map((collection, index) => {
-            return {
-                collection,
-                count: collectionIdsMap.get(collection.id.toString()) as number,
-            };
-        });
     }
 
     /**
