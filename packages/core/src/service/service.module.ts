@@ -34,7 +34,6 @@ import { AdministratorService } from './services/administrator.service';
 import { AssetService } from './services/asset.service';
 import { AuthService } from './services/auth.service';
 import { ChannelService } from './services/channel.service';
-import { CollectionService } from './services/collection.service';
 import { CountryService } from './services/country.service';
 import { CustomerGroupService } from './services/customer-group.service';
 import { CustomerService } from './services/customer.service';
@@ -68,7 +67,6 @@ const services = [
     AssetService,
     AuthService,
     ChannelService,
-    CollectionService,
     CountryService,
     CustomerGroupService,
     CustomerService,

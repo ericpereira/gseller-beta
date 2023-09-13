@@ -10,7 +10,6 @@ import { HasCustomFields } from '../../config/custom-field/custom-field-types';
 import { Asset } from '../asset/asset.entity';
 import { VendureEntity } from '../base/base.entity';
 import { Channel } from '../channel/channel.entity';
-import { Collection } from '../collection/collection.entity';
 import { CustomProductVariantFields } from '../custom-entity-fields';
 import { EntityId } from '../entity-id.decorator';
 import { Product } from '../product/product.entity';
@@ -158,9 +157,6 @@ export class ProductVariant
 
     @Column(type => CustomProductVariantFields)
     customFields: CustomProductVariantFields;
-
-    @ManyToMany(type => Collection, collection => collection.productVariants)
-    collections: Collection[];
 
     @ManyToMany(type => Channel)
     @JoinTable()

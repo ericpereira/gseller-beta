@@ -5,9 +5,6 @@ import { AuthenticationMethod } from './authentication-method/authentication-met
 import { ExternalAuthenticationMethod } from './authentication-method/external-authentication-method.entity';
 import { NativeAuthenticationMethod } from './authentication-method/native-authentication-method.entity';
 import { Channel } from './channel/channel.entity';
-import { CollectionAsset } from './collection/collection-asset.entity';
-import { CollectionTranslation } from './collection/collection-translation.entity';
-import { Collection } from './collection/collection.entity';
 import { Customer } from './customer/customer.entity';
 import { CustomerGroup } from './customer-group/customer-group.entity';
 import { Fulfillment } from './fulfillment/fulfillment.entity';
@@ -77,9 +74,6 @@ export const coreEntitiesMap = {
     AuthenticationMethod,
     Cancellation,
     Channel,
-    Collection,
-    CollectionAsset,
-    CollectionTranslation,
     Country,
     Customer,
     CustomerGroup,

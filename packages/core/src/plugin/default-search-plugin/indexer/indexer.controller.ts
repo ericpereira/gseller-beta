@@ -347,9 +347,6 @@ export class IndexerController {
             for (const languageCode of languageVariants) {
                 const productTranslation = this.getTranslation(product, languageCode);
                 const variantTranslation = this.getTranslation(variant, languageCode);
-                const collectionTranslations = variant.collections.map(c =>
-                    this.getTranslation(c, languageCode),
-                );
 
                 for (const channel of variant.channels) {
                     ctx.setChannel(channel);
@@ -378,8 +375,6 @@ export class IndexerController {
                         productPreview: product.featuredAsset ? product.featuredAsset.preview : '',
                         productVariantPreview: variant.featuredAsset ? variant.featuredAsset.preview : '',
                         channelIds: variant.channels.map(c => c.id as string),
-                        collectionIds: variant.collections.map(c => c.id.toString()),
-                        collectionSlugs: collectionTranslations.map(c => c.slug),
                     });
                     if (this.options.indexStockStatus) {
                         item.inStock =

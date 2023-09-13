@@ -12,9 +12,8 @@ import {
 } from '../../../config';
 import { manualFulfillmentHandler } from '../../../config/fulfillment/manual-fulfillment-handler';
 import { TransactionalConnection } from '../../../connection/index';
-import { Channel, Collection, TaxCategory, User } from '../../../entity';
+import { Channel, TaxCategory, User } from '../../../entity';
 import {
-    CollectionService,
     PaymentMethodService,
     RequestContextService,
     RoleService,
@@ -53,7 +52,6 @@ export class Populator {
         private taxCategoryService: TaxCategoryService,
         private shippingMethodService: ShippingMethodService,
         private paymentMethodService: PaymentMethodService,
-        private collectionService: CollectionService,
         private searchService: SearchService,
         private assetImporter: AssetImporter,
         private roleService: RoleService,
