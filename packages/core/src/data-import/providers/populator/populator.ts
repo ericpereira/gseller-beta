@@ -10,11 +10,9 @@ import {
     defaultShippingEligibilityChecker,
     Logger,
 } from '../../../config';
-import { manualFulfillmentHandler } from '../../../config/fulfillment/manual-fulfillment-handler';
 import { TransactionalConnection } from '../../../connection/index';
-import { Channel, Collection, TaxCategory, User } from '../../../entity';
+import { Channel, TaxCategory, User } from '../../../entity';
 import {
-    CollectionService,
     PaymentMethodService,
     RequestContextService,
     RoleService,
@@ -53,7 +51,6 @@ export class Populator {
         private taxCategoryService: TaxCategoryService,
         private shippingMethodService: ShippingMethodService,
         private paymentMethodService: PaymentMethodService,
-        private collectionService: CollectionService,
         private searchService: SearchService,
         private assetImporter: AssetImporter,
         private roleService: RoleService,
@@ -84,12 +81,7 @@ export class Populator {
             Logger.error('Could not populate tax rates');
             Logger.error(e, 'populator', e.stack);
         }
-        try {
-            await this.populateShippingMethods(ctx, data.shippingMethods);
-        } catch (e: any) {
-            Logger.error('Could not populate shipping methods');
-            Logger.error(e, 'populator', e.stack);
-        }
+        
         try {
             await this.populatePaymentMethods(ctx, data.paymentMethods);
         } catch (e: any) {
@@ -197,31 +189,7 @@ export class Populator {
             }
         }
     }
-
-    private async populateShippingMethods(
-        ctx: RequestContext,
-        shippingMethods: Array<{ name: string; price: number }>,
-    ) {
-        for (const method of shippingMethods) {
-            await this.shippingMethodService.create(ctx, {
-                fulfillmentHandler: manualFulfillmentHandler.code,
-                checker: {
-                    code: defaultShippingEligibilityChecker.code,
-                    arguments: [{ name: 'orderMinimum', value: '0' }],
-                },
-                calculator: {
-                    code: defaultShippingCalculator.code,
-                    arguments: [
-                        { name: 'rate', value: method.price.toString() },
-                        { name: 'taxRate', value: '0' },
-                        { name: 'includesTax', value: 'auto' },
-                    ],
-                },
-                code: normalizeString(method.name, '-'),
-                translations: [{ languageCode: ctx.languageCode, name: method.name, description: '' }],
-            });
-        }
-    }
+    
 
     private async populatePaymentMethods(ctx: RequestContext, paymentMethods: InitialData['paymentMethods']) {
         for (const method of paymentMethods) {

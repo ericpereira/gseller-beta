@@ -38,7 +38,6 @@ import { TransactionalConnection } from '../../connection/transactional-connecti
 import { Asset } from '../../entity/asset/asset.entity';
 import { OrderableAsset } from '../../entity/asset/orderable-asset.entity';
 import { VendureEntity } from '../../entity/base/base.entity';
-import { Collection } from '../../entity/collection/collection.entity';
 import { Product } from '../../entity/product/product.entity';
 import { ProductVariant } from '../../entity/product-variant/product-variant.entity';
 import { EventBus } from '../../event-bus/event-bus';
@@ -363,7 +362,6 @@ export class AssetService {
             const usages = await this.findAssetUsages(ctx, asset);
             usageCount.products += usages.products.length;
             usageCount.variants += usages.variants.length;
-            usageCount.collections += usages.collections.length;
         }
         const hasUsages = !!(usageCount.products || usageCount.variants || usageCount.collections);
         if (hasUsages && !force) {
@@ -677,7 +675,7 @@ export class AssetService {
     private async findAssetUsages(
         ctx: RequestContext,
         asset: Asset,
-    ): Promise<{ products: Product[]; variants: ProductVariant[]; collections: Collection[] }> {
+    ): Promise<{ products: Product[]; variants: ProductVariant[]; }> {
         const products = await this.connection.getRepository(ctx, Product).find({
             where: {
                 featuredAsset: { id: asset.id },
@@ -690,11 +688,6 @@ export class AssetService {
                 deletedAt: IsNull(),
             },
         });
-        const collections = await this.connection.getRepository(ctx, Collection).find({
-            where: {
-                featuredAsset: { id: asset.id },
-            },
-        });
-        return { products, variants, collections };
+        return { products, variants };
     }
 }

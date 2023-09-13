@@ -11,7 +11,6 @@ import { ConfigArgService } from './helpers/config-arg/config-arg.service';
 import { CustomFieldRelationService } from './helpers/custom-field-relation/custom-field-relation.service';
 import { EntityHydrator } from './helpers/entity-hydrator/entity-hydrator.service';
 import { ExternalAuthenticationService } from './helpers/external-authentication/external-authentication.service';
-import { FulfillmentStateMachine } from './helpers/fulfillment-state-machine/fulfillment-state-machine';
 import { ListQueryBuilder } from './helpers/list-query-builder/list-query-builder';
 import { LocaleStringHydrator } from './helpers/locale-string-hydrator/locale-string-hydrator';
 import { OrderCalculator } from './helpers/order-calculator/order-calculator';
@@ -34,11 +33,9 @@ import { AdministratorService } from './services/administrator.service';
 import { AssetService } from './services/asset.service';
 import { AuthService } from './services/auth.service';
 import { ChannelService } from './services/channel.service';
-import { CollectionService } from './services/collection.service';
 import { CountryService } from './services/country.service';
 import { CustomerGroupService } from './services/customer-group.service';
 import { CustomerService } from './services/customer.service';
-import { FulfillmentService } from './services/fulfillment.service';
 import { GlobalSettingsService } from './services/global-settings.service';
 import { HistoryService } from './services/history.service';
 import { OrderTestingService } from './services/order-testing.service';
@@ -68,11 +65,9 @@ const services = [
     AssetService,
     AuthService,
     ChannelService,
-    CollectionService,
     CountryService,
     CustomerGroupService,
     CustomerService,
-    FulfillmentService,
     GlobalSettingsService,
     HistoryService,
     OrderService,
@@ -103,7 +98,6 @@ const helpers = [
     PasswordCipher,
     OrderCalculator,
     OrderStateMachine,
-    FulfillmentStateMachine,
     OrderMerger,
     OrderModifier,
     OrderSplitter,

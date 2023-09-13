@@ -15,7 +15,6 @@ import { AdministratorResolver } from './resolvers/admin/administrator.resolver'
 import { AssetResolver } from './resolvers/admin/asset.resolver';
 import { AuthResolver } from './resolvers/admin/auth.resolver';
 import { ChannelResolver } from './resolvers/admin/channel.resolver';
-import { CollectionResolver } from './resolvers/admin/collection.resolver';
 import { CountryResolver } from './resolvers/admin/country.resolver';
 import { CustomerGroupResolver } from './resolvers/admin/customer-group.resolver';
 import { CustomerResolver } from './resolvers/admin/customer.resolver';
@@ -39,18 +38,12 @@ import { ZoneResolver } from './resolvers/admin/zone.resolver';
 import { AdministratorEntityResolver } from './resolvers/entity/administrator-entity.resolver';
 import { AssetEntityResolver } from './resolvers/entity/asset-entity.resolver';
 import { ChannelEntityResolver } from './resolvers/entity/channel-entity.resolver';
-import { CollectionEntityResolver } from './resolvers/entity/collection-entity.resolver';
 import { CountryEntityResolver } from './resolvers/entity/country-entity.resolver';
 import {
     CustomerAdminEntityResolver,
     CustomerEntityResolver,
 } from './resolvers/entity/customer-entity.resolver';
 import { CustomerGroupEntityResolver } from './resolvers/entity/customer-group-entity.resolver';
-import {
-    FulfillmentAdminEntityResolver,
-    FulfillmentEntityResolver,
-} from './resolvers/entity/fulfillment-entity.resolver';
-import { FulfillmentLineEntityResolver } from './resolvers/entity/fulfillment-line-entity.resolver';
 import { JobEntityResolver } from './resolvers/entity/job-entity.resolver';
 import { OrderAdminEntityResolver, OrderEntityResolver } from './resolvers/entity/order-entity.resolver';
 import { OrderLineEntityResolver } from './resolvers/entity/order-line-entity.resolver';
@@ -88,7 +81,6 @@ const adminResolvers = [
     AssetResolver,
     AuthResolver,
     ChannelResolver,
-    CollectionResolver,
     CountryResolver,
     CustomerGroupResolver,
     CustomerResolver,
@@ -122,12 +114,9 @@ const shopResolvers = [
 export const entityResolvers = [
     AssetEntityResolver,
     ChannelEntityResolver,
-    CollectionEntityResolver,
     CountryEntityResolver,
     CustomerEntityResolver,
     CustomerGroupEntityResolver,
-    FulfillmentEntityResolver,
-    FulfillmentLineEntityResolver,
     OrderEntityResolver,
     OrderLineEntityResolver,
     PaymentEntityResolver,
@@ -150,7 +139,6 @@ export const adminEntityResolvers = [
     CustomerAdminEntityResolver,
     OrderAdminEntityResolver,
     PaymentMethodEntityResolver,
-    FulfillmentAdminEntityResolver,
     PaymentAdminEntityResolver,
     ProductVariantAdminEntityResolver,
     ProductAdminEntityResolver,

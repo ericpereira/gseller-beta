@@ -9,7 +9,6 @@ import { Injector } from '../../common';
 import { idsAreEqual } from '../../common/utils';
 import { EventBus } from '../../event-bus/event-bus';
 import { AssetEvent } from '../../event-bus/events/asset-event';
-import { CollectionModificationEvent } from '../../event-bus/events/collection-modification-event';
 import { ProductChannelEvent } from '../../event-bus/events/product-channel-event';
 import { ProductEvent } from '../../event-bus/events/product-event';
 import { ProductVariantChannelEvent } from '../../event-bus/events/product-variant-channel-event';
@@ -165,23 +164,6 @@ export class DefaultSearchPlugin implements OnApplicationBootstrap, OnApplicatio
                 );
             }
         });
-
-        // TODO: Remove this buffering logic because because we have dedicated buffering based on #1137
-        const collectionModification$ = this.eventBus.ofType(CollectionModificationEvent);
-        const closingNotifier$ = collectionModification$.pipe(debounceTime(50));
-        collectionModification$
-            .pipe(
-                buffer(closingNotifier$),
-                filter(events => 0 < events.length),
-                map(events => ({
-                    ctx: events[0].ctx,
-                    ids: events.reduce((ids, e) => [...ids, ...e.productVariantIds], [] as ID[]),
-                })),
-                filter(e => 0 < e.ids.length),
-            )
-            .subscribe(events => {
-                return this.searchIndexService.updateVariantsById(events.ctx, events.ids);
-            });
 
         this.eventBus
             .ofType(TaxRateModificationEvent)

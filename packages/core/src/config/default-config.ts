@@ -24,8 +24,6 @@ import { DefaultStockDisplayStrategy } from './catalog/default-stock-display-str
 import { DefaultStockLocationStrategy } from './catalog/default-stock-location-strategy';
 import { AutoIncrementIdStrategy } from './entity/auto-increment-id-strategy';
 import { DefaultMoneyStrategy } from './entity/default-money-strategy';
-import { defaultFulfillmentProcess } from './fulfillment/default-fulfillment-process';
-import { manualFulfillmentHandler } from './fulfillment/manual-fulfillment-handler';
 import { DefaultLogger } from './logger/default-logger';
 import { DefaultActiveOrderStrategy } from './order/default-active-order-strategy';
 import { DefaultChangedPriceHandlingStrategy } from './order/default-changed-price-handling-strategy';
@@ -134,9 +132,6 @@ export const defaultConfig: RuntimeVendureConfig = {
         shippingEligibilityCheckers: [defaultShippingEligibilityChecker],
         shippingCalculators: [defaultShippingCalculator],
         shippingLineAssignmentStrategy: new DefaultShippingLineAssignmentStrategy(),
-        customFulfillmentProcess: [],
-        process: [defaultFulfillmentProcess],
-        fulfillmentHandlers: [manualFulfillmentHandler],
     },
     orderOptions: {
         orderItemsLimit: 999,

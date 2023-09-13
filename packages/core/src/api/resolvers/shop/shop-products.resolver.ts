@@ -14,9 +14,7 @@ import { PaginatedList } from '@vendure/common/lib/shared-types';
 import { InternalServerError, UserInputError } from '../../../common/error/errors';
 import { ListQueryOptions } from '../../../common/types/common-types';
 import { Translated } from '../../../common/types/locale-types';
-import { Collection } from '../../../entity/collection/collection.entity';
 import { Product } from '../../../entity/product/product.entity';
-import { CollectionService } from '../../../service';
 import { ProductVariantService } from '../../../service/services/product-variant.service';
 import { ProductService } from '../../../service/services/product.service';
 import { RequestContext } from '../../common/request-context';
@@ -27,8 +25,6 @@ import { Ctx } from '../../decorators/request-context.decorator';
 export class ShopProductsResolver {
     constructor(
         private productService: ProductService,
-        private productVariantService: ProductVariantService,
-        private collectionService: CollectionService,
     ) {}
 
     @Query()
@@ -68,53 +64,6 @@ export class ShopProductsResolver {
             return;
         }
         return result;
-    }
-
-    @Query()
-    async collections(
-        @Ctx() ctx: RequestContext,
-        @Args() args: QueryCollectionsArgs,
-        @Relations({
-            entity: Collection,
-            omit: ['productVariants', 'assets', 'parent.productVariants', 'children.productVariants'],
-        })
-        relations: RelationPaths<Collection>,
-    ): Promise<PaginatedList<Translated<Collection>>> {
-        const options: ListQueryOptions<Collection> = {
-            ...args.options,
-            filter: {
-                ...(args.options && args.options.filter),
-                isPrivate: { eq: false },
-            },
-        };
-        return this.collectionService.findAll(ctx, options || undefined, relations);
-    }
-
-    @Query()
-    async collection(
-        @Ctx() ctx: RequestContext,
-        @Args() args: QueryCollectionArgs,
-        @Relations({
-            entity: Collection,
-            omit: ['productVariants', 'assets', 'parent.productVariants', 'children.productVariants'],
-        })
-        relations: RelationPaths<Collection>,
-    ): Promise<Translated<Collection> | undefined> {
-        let collection: Translated<Collection> | undefined;
-        if (args.id) {
-            collection = await this.collectionService.findOne(ctx, args.id, relations);
-            if (args.slug && collection && collection.slug !== args.slug) {
-                throw new UserInputError('error.collection-id-slug-mismatch');
-            }
-        } else if (args.slug) {
-            collection = await this.collectionService.findOneBySlug(ctx, args.slug, relations);
-        } else {
-            throw new UserInputError('error.collection-id-or-slug-must-be-provided');
-        }
-        if (collection && collection.isPrivate) {
-            return;
-        }
-        return collection;
     }
 
     @Query()

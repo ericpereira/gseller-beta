@@ -5,7 +5,6 @@ import { ConfigurableOperationDef } from '../../../common/configurable-operation
 import { UserInputError } from '../../../common/error/errors';
 import { CollectionFilter } from '../../../config/catalog/collection-filter';
 import { ConfigService } from '../../../config/config.service';
-import { FulfillmentHandler } from '../../../config/fulfillment/fulfillment-handler';
 import { PaymentMethodEligibilityChecker } from '../../../config/payment/payment-method-eligibility-checker';
 import { PaymentMethodHandler } from '../../../config/payment/payment-method-handler';
 import { ShippingCalculator } from '../../../config/shipping-method/shipping-calculator';
@@ -13,7 +12,6 @@ import { ShippingEligibilityChecker } from '../../../config/shipping-method/ship
 
 export type ConfigDefTypeMap = {
     CollectionFilter: CollectionFilter;
-    FulfillmentHandler: FulfillmentHandler;
     PaymentMethodEligibilityChecker: PaymentMethodEligibilityChecker;
     PaymentMethodHandler: PaymentMethodHandler;
     ShippingCalculator: ShippingCalculator;
@@ -32,7 +30,6 @@ export class ConfigArgService {
     constructor(private configService: ConfigService) {
         this.definitionsByType = {
             CollectionFilter: this.configService.catalogOptions.collectionFilters,
-            FulfillmentHandler: this.configService.shippingOptions.fulfillmentHandlers,
             PaymentMethodEligibilityChecker:
                 this.configService.paymentOptions.paymentMethodEligibilityCheckers || [],
             PaymentMethodHandler: this.configService.paymentOptions.paymentMethodHandlers,

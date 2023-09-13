@@ -17,7 +17,6 @@ import { HistoryEntry } from '../../entity/history-entry/history-entry.entity';
 import { OrderHistoryEntry } from '../../entity/history-entry/order-history-entry.entity';
 import { EventBus } from '../../event-bus';
 import { HistoryEntryEvent } from '../../event-bus/events/history-entry-event';
-import { FulfillmentState } from '../helpers/fulfillment-state-machine/fulfillment-state';
 import { ListQueryBuilder } from '../helpers/list-query-builder/list-query-builder';
 import { OrderState } from '../helpers/order-state-machine/order-state';
 import { PaymentState } from '../helpers/payment-state-machine/payment-state';
@@ -76,11 +75,6 @@ export interface OrderHistoryEntryData {
         paymentId: ID;
         from: PaymentState;
         to: PaymentState;
-    };
-    [HistoryEntryType.ORDER_FULFILLMENT_TRANSITION]: {
-        fulfillmentId: ID;
-        from: FulfillmentState;
-        to: FulfillmentState;
     };
     [HistoryEntryType.ORDER_FULFILLMENT]: {
         fulfillmentId: ID;

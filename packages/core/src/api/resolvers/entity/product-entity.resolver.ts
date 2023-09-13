@@ -7,13 +7,11 @@ import { Translated } from '../../../common/types/locale-types';
 import { idsAreEqual } from '../../../common/utils';
 import { Asset } from '../../../entity/asset/asset.entity';
 import { Channel } from '../../../entity/channel/channel.entity';
-import { Collection } from '../../../entity/collection/collection.entity';
 import { Product } from '../../../entity/product/product.entity';
 import { ProductOptionGroup } from '../../../entity/product-option-group/product-option-group.entity';
 import { ProductVariant } from '../../../entity/product-variant/product-variant.entity';
 import { LocaleStringHydrator } from '../../../service/helpers/locale-string-hydrator/locale-string-hydrator';
 import { AssetService } from '../../../service/services/asset.service';
-import { CollectionService } from '../../../service/services/collection.service';
 import { ProductOptionGroupService } from '../../../service/services/product-option-group.service';
 import { ProductVariantService } from '../../../service/services/product-variant.service';
 import { ProductService } from '../../../service/services/product.service';
@@ -27,7 +25,6 @@ import { Ctx } from '../../decorators/request-context.decorator';
 export class ProductEntityResolver {
     constructor(
         private productVariantService: ProductVariantService,
-        private collectionService: CollectionService,
         private productOptionGroupService: ProductOptionGroupService,
         private assetService: AssetService,
         private productService: ProductService,
@@ -77,15 +74,6 @@ export class ProductEntityResolver {
         @Relations({ entity: ProductVariant, omit: ['assets'] }) relations: RelationPaths<ProductVariant>,
     ): Promise<PaginatedList<ProductVariant>> {
         return this.productVariantService.getVariantsByProductId(ctx, product.id, args.options, relations);
-    }
-
-    @ResolveField()
-    async collections(
-        @Ctx() ctx: RequestContext,
-        @Parent() product: Product,
-        @Api() apiType: ApiType,
-    ): Promise<Array<Translated<Collection>>> {
-        return this.collectionService.getCollectionsByProductId(ctx, product.id, apiType === 'shop');
     }
 
     @ResolveField()
