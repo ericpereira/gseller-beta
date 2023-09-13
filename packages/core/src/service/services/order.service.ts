@@ -78,11 +78,9 @@ import { ConfigService } from '../../config/config.service';
 import { TransactionalConnection } from '../../connection/transactional-connection';
 import { Channel } from '../../entity/channel/channel.entity';
 import { Customer } from '../../entity/customer/customer.entity';
-import { Fulfillment } from '../../entity/fulfillment/fulfillment.entity';
 import { HistoryEntry } from '../../entity/history-entry/history-entry.entity';
 import { Order } from '../../entity/order/order.entity';
 import { OrderLine } from '../../entity/order-line/order-line.entity';
-import { FulfillmentLine } from '../../entity/order-line-reference/fulfillment-line.entity';
 import { OrderModification } from '../../entity/order-modification/order-modification.entity';
 import { Payment } from '../../entity/payment/payment.entity';
 import { ProductVariant } from '../../entity/product-variant/product-variant.entity';
@@ -100,7 +98,6 @@ import {
     RefundStateTransitionEvent,
 } from '../../event-bus/index';
 import { CustomFieldRelationService } from '../helpers/custom-field-relation/custom-field-relation.service';
-import { FulfillmentState } from '../helpers/fulfillment-state-machine/fulfillment-state';
 import { ListQueryBuilder } from '../helpers/list-query-builder/list-query-builder';
 import { OrderCalculator } from '../helpers/order-calculator/order-calculator';
 import { OrderMerger } from '../helpers/order-merger/order-merger';
@@ -118,7 +115,6 @@ import { patchEntity } from '../helpers/utils/patch-entity';
 import { ChannelService } from './channel.service';
 import { CountryService } from './country.service';
 import { CustomerService } from './customer.service';
-import { FulfillmentService } from './fulfillment.service';
 import { HistoryService } from './history.service';
 import { PaymentMethodService } from './payment-method.service';
 import { PaymentService } from './payment.service';
@@ -147,7 +143,6 @@ export class OrderService {
         private paymentService: PaymentService,
         private paymentStateMachine: PaymentStateMachine,
         private paymentMethodService: PaymentMethodService,
-        private fulfillmentService: FulfillmentService,
         private listQueryBuilder: ListQueryBuilder,
         private stockMovementService: StockMovementService,
         private refundStateMachine: RefundStateMachine,
@@ -906,22 +901,6 @@ export class OrderService {
         return order;
     }
 
-    /**
-     * @description
-     * Transitions a Fulfillment to the given state and then transitions the Order state based on
-     * whether all Fulfillments of the Order are shipped or delivered.
-     */
-    async transitionFulfillmentToState(
-        ctx: RequestContext,
-        fulfillmentId: ID,
-        state: FulfillmentState,
-    ): Promise<Fulfillment | FulfillmentStateTransitionError> {
-        const result = await this.fulfillmentService.transitionToState(ctx, fulfillmentId, state);
-        if (isGraphQlErrorResult(result)) {
-            return result;
-        }
-        return result.fulfillment;
-    }
 
     /**
      * @description
@@ -1129,141 +1108,6 @@ export class OrderService {
         return payment;
     }
 
-    /**
-     * @description
-     * Creates a new Fulfillment associated with the given Order and OrderItems.
-     */
-    async createFulfillment(
-        ctx: RequestContext,
-        input: FulfillOrderInput,
-    ): Promise<ErrorResultUnion<AddFulfillmentToOrderResult, Fulfillment>> {
-        if (!input.lines || input.lines.length === 0 || summate(input.lines, 'quantity') === 0) {
-            return new EmptyOrderLineSelectionError();
-        }
-        const orders = await getOrdersFromLines(ctx, this.connection, input.lines);
-
-        if (await this.requestedFulfillmentQuantityExceedsLineQuantity(ctx, input)) {
-            return new ItemsAlreadyFulfilledError();
-        }
-
-        const stockCheckResult = await this.ensureSufficientStockForFulfillment(ctx, input);
-        if (isGraphQlErrorResult(stockCheckResult)) {
-            return stockCheckResult;
-        }
-
-        const fulfillment = await this.fulfillmentService.create(ctx, orders, input.lines, input.handler);
-        if (isGraphQlErrorResult(fulfillment)) {
-            return fulfillment;
-        }
-
-        await this.connection
-            .getRepository(ctx, Order)
-            .createQueryBuilder()
-            .relation('fulfillments')
-            .of(orders)
-            .add(fulfillment);
-
-        for (const order of orders) {
-            await this.historyService.createHistoryEntryForOrder({
-                ctx,
-                orderId: order.id,
-                type: HistoryEntryType.ORDER_FULFILLMENT,
-                data: {
-                    fulfillmentId: fulfillment.id,
-                },
-            });
-        }
-        const result = await this.fulfillmentService.transitionToState(ctx, fulfillment.id, 'Pending');
-        if (isGraphQlErrorResult(result)) {
-            return result;
-        }
-        return result.fulfillment;
-    }
-
-    private async requestedFulfillmentQuantityExceedsLineQuantity(
-        ctx: RequestContext,
-        input: FulfillOrderInput,
-    ) {
-        const existingFulfillmentLines = await this.connection
-            .getRepository(ctx, FulfillmentLine)
-            .createQueryBuilder('fulfillmentLine')
-            .leftJoinAndSelect('fulfillmentLine.orderLine', 'orderLine')
-            .leftJoinAndSelect('fulfillmentLine.fulfillment', 'fulfillment')
-            .where('fulfillmentLine.orderLineId IN (:...orderLineIds)', {
-                orderLineIds: input.lines.map(l => l.orderLineId),
-            })
-            .andWhere('fulfillment.state != :state', { state: 'Cancelled' })
-            .getMany();
-
-        for (const inputLine of input.lines) {
-            const existingFulfillmentLine = existingFulfillmentLines.find(l =>
-                idsAreEqual(l.orderLineId, inputLine.orderLineId),
-            );
-            if (existingFulfillmentLine) {
-                const unfulfilledQuantity =
-                    existingFulfillmentLine.orderLine.quantity - existingFulfillmentLine.quantity;
-                if (unfulfilledQuantity < inputLine.quantity) {
-                    return true;
-                }
-            } else {
-                const orderLine = await this.connection.getEntityOrThrow(
-                    ctx,
-                    OrderLine,
-                    inputLine.orderLineId,
-                );
-                if (orderLine.quantity < inputLine.quantity) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    private async ensureSufficientStockForFulfillment(
-        ctx: RequestContext,
-        input: FulfillOrderInput,
-    ): Promise<InsufficientStockOnHandError | undefined> {
-        const lines = await this.connection.getRepository(ctx, OrderLine).find({
-            where: {
-                id: In(input.lines.map(l => l.orderLineId)),
-            },
-            relations: ['productVariant'],
-        });
-
-        for (const line of lines) {
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            const lineInput = input.lines.find(l => idsAreEqual(l.orderLineId, line.id))!;
-
-            const fulfillableStockLevel = await this.productVariantService.getFulfillableStockLevel(
-                ctx,
-                line.productVariant,
-            );
-            if (fulfillableStockLevel < lineInput.quantity) {
-                const { stockOnHand } = await this.stockLevelService.getAvailableStock(
-                    ctx,
-                    line.productVariant.id,
-                );
-                const productVariant = this.translator.translate(line.productVariant, ctx);
-                return new InsufficientStockOnHandError({
-                    productVariantId: productVariant.id as string,
-                    productVariantName: productVariant.name,
-                    stockOnHand,
-                });
-            }
-        }
-    }
-
-    /**
-     * @description
-     * Returns an array of all Fulfillments associated with the Order.
-     */
-    async getOrderFulfillments(ctx: RequestContext, order: Order): Promise<Fulfillment[]> {
-        const { fulfillments } = await this.connection.getEntityOrThrow(ctx, Order, order.id, {
-            relations: ['fulfillments'],
-        });
-
-        return fulfillments;
-    }
 
     /**
      * @description

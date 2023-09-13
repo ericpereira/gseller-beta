@@ -38,7 +38,6 @@ import { TransactionalConnection } from '../../../connection/transactional-conne
 import { VendureEntity } from '../../../entity/base/base.entity';
 import { Order } from '../../../entity/order/order.entity';
 import { OrderLine } from '../../../entity/order-line/order-line.entity';
-import { FulfillmentLine } from '../../../entity/order-line-reference/fulfillment-line.entity';
 import { OrderModificationLine } from '../../../entity/order-line-reference/order-modification-line.entity';
 import { OrderModification } from '../../../entity/order-modification/order-modification.entity';
 import { Payment } from '../../../entity/payment/payment.entity';
@@ -297,20 +296,13 @@ export class OrderModifier {
                     quantity: Math.min(totalAllocated, lineInput.quantity),
                 });
             }
-            const fulfillmentsForLine = await this.connection
-                .getRepository(ctx, FulfillmentLine)
-                .createQueryBuilder('fulfillmentLine')
-                .leftJoinAndSelect('fulfillmentLine.orderLine', 'orderLine')
-                .where('orderLine.id = :orderLineId', { orderLineId: lineInput.orderLineId })
-                .getMany();
             const cancellationsForLine = await this.connection
                 .getRepository(ctx, Cancellation)
                 .createQueryBuilder('cancellation')
                 .leftJoinAndSelect('cancellation.orderLine', 'orderLine')
                 .where('orderLine.id = :orderLineId', { orderLineId: lineInput.orderLineId })
                 .getMany();
-            const totalFulfilled =
-                summate(fulfillmentsForLine, 'quantity') - summate(cancellationsForLine, 'quantity');
+            const totalFulfilled = summate(cancellationsForLine, 'quantity');
             if (0 < totalFulfilled) {
                 fulfilledLines.push({
                     orderLineId: lineInput.orderLineId,

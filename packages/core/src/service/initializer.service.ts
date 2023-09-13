@@ -50,7 +50,6 @@ export class InitializerService {
         await this.channelService.initChannels();
         await this.roleService.initRoles();
         await this.administratorService.initAdministrators();
-        await this.shippingMethodService.initShippingMethods();
         await this.taxRateService.initTaxRates();
         await this.stockLocationService.initStockLocations();
         this.eventBus.publish(new InitializerEvent());

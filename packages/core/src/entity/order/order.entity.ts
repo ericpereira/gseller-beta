@@ -20,7 +20,6 @@ import { Channel } from '../channel/channel.entity';
 import { CustomOrderFields } from '../custom-entity-fields';
 import { Customer } from '../customer/customer.entity';
 import { EntityId } from '../entity-id.decorator';
-import { Fulfillment } from '../fulfillment/fulfillment.entity';
 import { Money } from '../money.decorator';
 import { OrderLine } from '../order-line/order-line.entity';
 import { OrderModification } from '../order-modification/order-modification.entity';
@@ -122,10 +121,6 @@ export class Order extends VendureEntity implements ChannelAware, HasCustomField
 
     @OneToMany(type => Payment, payment => payment.order)
     payments: Payment[];
-
-    @ManyToMany(type => Fulfillment)
-    @JoinTable()
-    fulfillments: Fulfillment[];
 
     @Column('varchar')
     currencyCode: CurrencyCode;

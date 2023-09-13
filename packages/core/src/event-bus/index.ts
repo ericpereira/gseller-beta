@@ -16,8 +16,6 @@ export * from './events/customer-address-event';
 export * from './events/customer-event';
 export * from './events/customer-group-event';
 export * from './events/customer-group-change-event';
-export * from './events/fulfillment-event';
-export * from './events/fulfillment-state-transition-event';
 export * from './events/global-settings-event';
 export * from './events/history-entry-event';
 export * from './events/identifier-change-event';

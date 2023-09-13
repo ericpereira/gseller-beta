@@ -9,8 +9,6 @@ import { EntityNotFoundError, idsAreEqual } from '../../../common/index';
 import { TransactionalConnection } from '../../../connection/index';
 import { Order } from '../../../entity/order/order.entity';
 import { OrderLine } from '../../../entity/order-line/order-line.entity';
-import { FulfillmentLine } from '../../../entity/order-line-reference/fulfillment-line.entity';
-import { FulfillmentState } from '../fulfillment-state-machine/fulfillment-state';
 import { PaymentState } from '../payment-state-machine/payment-state';
 
 /**
@@ -41,95 +39,10 @@ export function totalCoveredByPayments(order: Order, state?: PaymentState | Paym
 }
 
 /**
- * Returns true if all (non-cancelled) OrderItems are delivered.
- */
-export function orderItemsAreDelivered(order: Order) {
-    return (
-        getOrderLinesFulfillmentStates(order).every(state => state === 'Delivered') &&
-        !isOrderPartiallyFulfilled(order)
-    );
-}
-
-/**
- * Returns true if at least one, but not all (non-cancelled) OrderItems are delivered.
- */
-export function orderItemsArePartiallyDelivered(order: Order) {
-    const states = getOrderLinesFulfillmentStates(order);
-    return (
-        states.some(state => state === 'Delivered') &&
-        (!states.every(state => state === 'Delivered') || isOrderPartiallyFulfilled(order))
-    );
-}
-
-function getOrderLinesFulfillmentStates(order: Order): Array<FulfillmentState | undefined> {
-    const fulfillmentLines = getOrderFulfillmentLines(order);
-    const states = unique(
-        order.lines
-            .filter(line => line.quantity !== 0)
-            .map(line => {
-                const matchingFulfillmentLines = fulfillmentLines.filter(fl =>
-                    idsAreEqual(fl.orderLineId, line.id),
-                );
-                const totalFulfilled = summate(matchingFulfillmentLines, 'quantity');
-                if (0 < totalFulfilled) {
-                    return matchingFulfillmentLines.map(l => l.fulfillment.state);
-                } else {
-                    return undefined;
-                }
-            })
-            .flat(),
-    );
-    return states;
-}
-
-/**
- * Returns true if at least one, but not all (non-cancelled) OrderItems are shipped.
- */
-export function orderItemsArePartiallyShipped(order: Order) {
-    const states = getOrderLinesFulfillmentStates(order);
-    return (
-        states.some(state => state === 'Shipped') &&
-        (!states.every(state => state === 'Shipped') || isOrderPartiallyFulfilled(order))
-    );
-}
-
-/**
- * Returns true if all (non-cancelled) OrderItems are shipped.
- */
-export function orderItemsAreShipped(order: Order) {
-    return (
-        getOrderLinesFulfillmentStates(order).every(state => state === 'Shipped') &&
-        !isOrderPartiallyFulfilled(order)
-    );
-}
-
-/**
  * Returns true if all OrderItems in the order are cancelled
  */
 export function orderLinesAreAllCancelled(order: Order) {
     return order.lines.every(line => line.quantity === 0);
-}
-
-function getOrderFulfillmentLines(order: Order): FulfillmentLine[] {
-    return order.fulfillments
-        .filter(f => f.state !== 'Cancelled')
-        .reduce(
-            (fulfillmentLines, fulfillment) => [...fulfillmentLines, ...fulfillment.lines],
-            [] as FulfillmentLine[],
-        );
-}
-
-/**
- * Returns true if Fulfillments exist for only some but not all of the
- * order items.
- */
-function isOrderPartiallyFulfilled(order: Order) {
-    const fulfillmentLines = getOrderFulfillmentLines(order);
-    const lines = fulfillmentLines.reduce((acc, item) => {
-        acc[item.orderLineId] = (acc[item.orderLineId] || 0) + item.quantity;
-        return acc;
-    }, {} as { [orderLineId: string]: number });
-    return order.lines.some(line => line.quantity > lines[line.id]);
 }
 
 export async function getOrdersFromLines(

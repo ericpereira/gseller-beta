@@ -65,23 +65,6 @@ export class ShippingMethodResolver {
         return this.shippingMethodService.getShippingCalculators(ctx);
     }
 
-    @Query()
-    @Allow(Permission.ReadSettings, Permission.ReadOrder, Permission.ReadShippingMethod)
-    fulfillmentHandlers(@Ctx() ctx: RequestContext): ConfigurableOperationDefinition[] {
-        return this.shippingMethodService.getFulfillmentHandlers(ctx);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.CreateSettings, Permission.CreateShippingMethod)
-    createShippingMethod(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationCreateShippingMethodArgs,
-    ): Promise<ShippingMethod> {
-        const { input } = args;
-        return this.shippingMethodService.create(ctx, input);
-    }
-
     @Transaction()
     @Mutation()
     @Allow(Permission.UpdateSettings, Permission.UpdateShippingMethod)

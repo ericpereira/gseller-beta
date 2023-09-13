@@ -25,8 +25,6 @@ import { CustomFields } from './custom-field/custom-field-types';
 import { EntityIdStrategy } from './entity/entity-id-strategy';
 import { MoneyStrategy } from './entity/money-strategy';
 import { EntityMetadataModifier } from './entity-metadata/entity-metadata-modifier';
-import { FulfillmentHandler } from './fulfillment/fulfillment-handler';
-import { FulfillmentProcess } from './fulfillment/fulfillment-process';
 import { JobQueueStrategy } from './job-queue/job-queue-strategy';
 import { VendureLogger } from './logger/vendure-logger';
 import { ActiveOrderStrategy } from './order/active-order-strategy';
@@ -719,28 +717,6 @@ export interface ShippingOptions {
      * @since 2.0.0
      */
     shippingLineAssignmentStrategy?: ShippingLineAssignmentStrategy;
-    /**
-     * @description
-     * Allows the definition of custom states and transition logic for the fulfillment process state machine.
-     * Takes an array of objects implementing the {@link FulfillmentProcess} interface.
-     *
-     * @deprecated use `process`
-     */
-    customFulfillmentProcess?: Array<FulfillmentProcess<any>>;
-    /**
-     * @description
-     * Allows the definition of custom states and transition logic for the fulfillment process state machine.
-     * Takes an array of objects implementing the {@link FulfillmentProcess} interface.
-     *
-     * @since 2.0.0
-     * @default defaultFulfillmentProcess
-     */
-    process?: Array<FulfillmentProcess<any>>;
-    /**
-     * @description
-     * An array of available FulfillmentHandlers.
-     */
-    fulfillmentHandlers?: Array<FulfillmentHandler<any>>;
 }
 
 /**

@@ -7,14 +7,12 @@ import { NativeAuthenticationMethod } from './authentication-method/native-authe
 import { Channel } from './channel/channel.entity';
 import { Customer } from './customer/customer.entity';
 import { CustomerGroup } from './customer-group/customer-group.entity';
-import { Fulfillment } from './fulfillment/fulfillment.entity';
 import { GlobalSettings } from './global-settings/global-settings.entity';
 import { CustomerHistoryEntry } from './history-entry/customer-history-entry.entity';
 import { HistoryEntry } from './history-entry/history-entry.entity';
 import { OrderHistoryEntry } from './history-entry/order-history-entry.entity';
 import { Order } from './order/order.entity';
 import { OrderLine } from './order-line/order-line.entity';
-import { FulfillmentLine } from './order-line-reference/fulfillment-line.entity';
 import { OrderLineReference } from './order-line-reference/order-line-reference.entity';
 import { OrderModificationLine } from './order-line-reference/order-modification-line.entity';
 import { RefundLine } from './order-line-reference/refund-line.entity';
@@ -79,8 +77,6 @@ export const coreEntitiesMap = {
     CustomerGroup,
     CustomerHistoryEntry,
     ExternalAuthenticationMethod,
-    Fulfillment,
-    FulfillmentLine,
     GlobalSettings,
     HistoryEntry,
     OrderModificationLine,
