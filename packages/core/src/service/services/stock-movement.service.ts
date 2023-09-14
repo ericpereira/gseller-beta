@@ -12,14 +12,11 @@ import { RequestContext } from '../../api/common/request-context';
 import { InternalServerError } from '../../common/error/errors';
 import { idsAreEqual } from '../../common/index';
 import { ConfigService } from '../../config/index';
-import { ShippingCalculator } from '../../config/shipping-method/shipping-calculator';
-import { ShippingEligibilityChecker } from '../../config/shipping-method/shipping-eligibility-checker';
 import { TransactionalConnection } from '../../connection/transactional-connection';
 import { StockLevel, StockLocation } from '../../entity/index';
 import { Order } from '../../entity/order/order.entity';
 import { OrderLine } from '../../entity/order-line/order-line.entity';
 import { ProductVariant } from '../../entity/product-variant/product-variant.entity';
-import { ShippingMethod } from '../../entity/shipping-method/shipping-method.entity';
 import { Allocation } from '../../entity/stock-movement/allocation.entity';
 import { Cancellation } from '../../entity/stock-movement/cancellation.entity';
 import { Release } from '../../entity/stock-movement/release.entity';
@@ -42,9 +39,6 @@ import { StockLocationService } from './stock-location.service';
  */
 @Injectable()
 export class StockMovementService {
-    shippingEligibilityCheckers: ShippingEligibilityChecker[];
-    shippingCalculators: ShippingCalculator[];
-    private activeShippingMethods: ShippingMethod[];
 
     constructor(
         private connection: TransactionalConnection,

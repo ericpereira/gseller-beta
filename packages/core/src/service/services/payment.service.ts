@@ -16,10 +16,8 @@ import { idsAreEqual } from '../../common/utils';
 import { Logger } from '../../config/logger/vendure-logger';
 import { PaymentMethodHandler } from '../../config/payment/payment-method-handler';
 import { TransactionalConnection } from '../../connection/transactional-connection';
-import { Fulfillment } from '../../entity/fulfillment/fulfillment.entity';
 import { Order } from '../../entity/order/order.entity';
 import { OrderLine } from '../../entity/order-line/order-line.entity';
-import { FulfillmentLine } from '../../entity/order-line-reference/fulfillment-line.entity';
 import { RefundLine } from '../../entity/order-line-reference/refund-line.entity';
 import { Payment } from '../../entity/payment/payment.entity';
 import { PaymentMethod } from '../../entity/payment-method/payment-method.entity';
@@ -379,12 +377,6 @@ export class PaymentService {
                 );
                 refundLines.push(refundLine);
             }
-            await this.connection
-                .getRepository(ctx, Fulfillment)
-                .createQueryBuilder()
-                .relation('lines')
-                .of(refund)
-                .add(refundLines);
             if (createRefundResult) {
                 let finalize: () => Promise<any>;
                 const fromState = refund.state;

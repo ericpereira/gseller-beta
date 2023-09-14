@@ -11,7 +11,6 @@ import { ConfigArgService } from './helpers/config-arg/config-arg.service';
 import { CustomFieldRelationService } from './helpers/custom-field-relation/custom-field-relation.service';
 import { EntityHydrator } from './helpers/entity-hydrator/entity-hydrator.service';
 import { ExternalAuthenticationService } from './helpers/external-authentication/external-authentication.service';
-import { FulfillmentStateMachine } from './helpers/fulfillment-state-machine/fulfillment-state-machine';
 import { ListQueryBuilder } from './helpers/list-query-builder/list-query-builder';
 import { LocaleStringHydrator } from './helpers/locale-string-hydrator/locale-string-hydrator';
 import { OrderCalculator } from './helpers/order-calculator/order-calculator';
@@ -24,7 +23,6 @@ import { PaymentStateMachine } from './helpers/payment-state-machine/payment-sta
 import { ProductPriceApplicator } from './helpers/product-price-applicator/product-price-applicator';
 import { RefundStateMachine } from './helpers/refund-state-machine/refund-state-machine';
 import { RequestContextService } from './helpers/request-context/request-context.service';
-import { ShippingCalculator } from './helpers/shipping-calculator/shipping-calculator';
 import { SlugValidator } from './helpers/slug-validator/slug-validator';
 import { TranslatableSaver } from './helpers/translatable-saver/translatable-saver';
 import { TranslatorService } from './helpers/translator/translator.service';
@@ -37,7 +35,6 @@ import { ChannelService } from './services/channel.service';
 import { CountryService } from './services/country.service';
 import { CustomerGroupService } from './services/customer-group.service';
 import { CustomerService } from './services/customer.service';
-import { FulfillmentService } from './services/fulfillment.service';
 import { GlobalSettingsService } from './services/global-settings.service';
 import { OrderTestingService } from './services/order-testing.service';
 import { OrderService } from './services/order.service';
@@ -51,7 +48,6 @@ import { RoleService } from './services/role.service';
 import { SearchService } from './services/search.service';
 import { SellerService } from './services/seller.service';
 import { SessionService } from './services/session.service';
-import { ShippingMethodService } from './services/shipping-method.service';
 import { StockLevelService } from './services/stock-level.service';
 import { StockLocationService } from './services/stock-location.service';
 import { StockMovementService } from './services/stock-movement.service';
@@ -69,7 +65,6 @@ const services = [
     CountryService,
     CustomerGroupService,
     CustomerService,
-    FulfillmentService,
     GlobalSettingsService,
     OrderService,
     OrderTestingService,
@@ -83,7 +78,6 @@ const services = [
     SearchService,
     SellerService,
     SessionService,
-    ShippingMethodService,
     StockLevelService,
     StockLocationService,
     StockMovementService,
@@ -99,13 +93,11 @@ const helpers = [
     PasswordCipher,
     OrderCalculator,
     OrderStateMachine,
-    FulfillmentStateMachine,
     OrderMerger,
     OrderModifier,
     OrderSplitter,
     PaymentStateMachine,
     ListQueryBuilder,
-    ShippingCalculator,
     VerificationTokenGenerator,
     RefundStateMachine,
     ConfigArgService,

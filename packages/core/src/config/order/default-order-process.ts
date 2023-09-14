@@ -12,10 +12,6 @@ import { ProductVariant } from '../../entity/product-variant/product-variant.ent
 import { OrderPlacedEvent } from '../../event-bus/events/order-placed-event';
 import { OrderState } from '../../service/helpers/order-state-machine/order-state';
 import {
-    orderItemsAreDelivered,
-    orderItemsArePartiallyDelivered,
-    orderItemsArePartiallyShipped,
-    orderItemsAreShipped,
     orderLinesAreAllCancelled,
     orderTotalIsCovered,
     totalCoveredByPayments,
@@ -318,12 +314,6 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
                 if (options.arrangingPaymentRequiresCustomer !== false && !order.customer) {
                     return 'message.cannot-transition-to-payment-without-customer';
                 }
-                if (
-                    options.arrangingPaymentRequiresShipping !== false &&
-                    (!order.shippingLines || order.shippingLines.length === 0)
-                ) {
-                    return 'message.cannot-transition-to-payment-without-shipping-method';
-                }
                 if (options.arrangingPaymentRequiresStock !== false) {
                     const variantsWithInsufficientSaleableStock: ProductVariant[] = [];
                     for (const line of order.lines) {
@@ -366,32 +356,6 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
                 ) {
                     if (!orderLinesAreAllCancelled(order)) {
                         return 'message.cannot-transition-unless-all-cancelled';
-                    }
-                }
-            }
-            if (options.checkFulfillmentStates !== false) {
-                if (toState === 'PartiallyShipped') {
-                    const orderWithFulfillments = await findOrderWithFulfillments(ctx, order.id);
-                    if (!orderItemsArePartiallyShipped(orderWithFulfillments)) {
-                        return 'message.cannot-transition-unless-some-order-items-shipped';
-                    }
-                }
-                if (toState === 'Shipped') {
-                    const orderWithFulfillments = await findOrderWithFulfillments(ctx, order.id);
-                    if (!orderItemsAreShipped(orderWithFulfillments)) {
-                        return 'message.cannot-transition-unless-all-order-items-shipped';
-                    }
-                }
-                if (toState === 'PartiallyDelivered') {
-                    const orderWithFulfillments = await findOrderWithFulfillments(ctx, order.id);
-                    if (!orderItemsArePartiallyDelivered(orderWithFulfillments)) {
-                        return 'message.cannot-transition-unless-some-order-items-delivered';
-                    }
-                }
-                if (toState === 'Delivered') {
-                    const orderWithFulfillments = await findOrderWithFulfillments(ctx, order.id);
-                    if (!orderItemsAreDelivered(orderWithFulfillments)) {
-                        return 'message.cannot-transition-unless-all-order-items-delivered';
                     }
                 }
             }

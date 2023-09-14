@@ -24,8 +24,6 @@ import { DefaultStockDisplayStrategy } from './catalog/default-stock-display-str
 import { DefaultStockLocationStrategy } from './catalog/default-stock-location-strategy';
 import { AutoIncrementIdStrategy } from './entity/auto-increment-id-strategy';
 import { DefaultMoneyStrategy } from './entity/default-money-strategy';
-import { defaultFulfillmentProcess } from './fulfillment/default-fulfillment-process';
-import { manualFulfillmentHandler } from './fulfillment/manual-fulfillment-handler';
 import { DefaultLogger } from './logger/default-logger';
 import { DefaultActiveOrderStrategy } from './order/default-active-order-strategy';
 import { DefaultChangedPriceHandlingStrategy } from './order/default-changed-price-handling-strategy';
@@ -41,9 +39,6 @@ import { DefaultOrderCodeStrategy } from './order/order-code-strategy';
 import { UseGuestStrategy } from './order/use-guest-strategy';
 import { defaultPaymentProcess } from './payment/default-payment-process';
 import { InMemorySessionCacheStrategy } from './session-cache/in-memory-session-cache-strategy';
-import { defaultShippingCalculator } from './shipping-method/default-shipping-calculator';
-import { defaultShippingEligibilityChecker } from './shipping-method/default-shipping-eligibility-checker';
-import { DefaultShippingLineAssignmentStrategy } from './shipping-method/default-shipping-line-assignment-strategy';
 import { DefaultTaxLineCalculationStrategy } from './tax/default-tax-line-calculation-strategy';
 import { DefaultTaxZoneStrategy } from './tax/default-tax-zone-strategy';
 import { RuntimeVendureConfig } from './vendure-config';
@@ -129,14 +124,6 @@ export const defaultConfig: RuntimeVendureConfig = {
         zoneCacheTtl: 30000,
         taxRateCacheTtl: 30000,
         metadataModifiers: [],
-    },
-    shippingOptions: {
-        shippingEligibilityCheckers: [defaultShippingEligibilityChecker],
-        shippingCalculators: [defaultShippingCalculator],
-        shippingLineAssignmentStrategy: new DefaultShippingLineAssignmentStrategy(),
-        customFulfillmentProcess: [],
-        process: [defaultFulfillmentProcess],
-        fulfillmentHandlers: [manualFulfillmentHandler],
     },
     orderOptions: {
         orderItemsLimit: 999,

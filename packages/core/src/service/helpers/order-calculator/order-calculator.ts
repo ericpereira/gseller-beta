@@ -10,10 +10,8 @@ import { ConfigService } from '../../../config/config.service';
 import { OrderLine, TaxCategory, TaxRate } from '../../../entity';
 import { Order } from '../../../entity/order/order.entity';
 import { Zone } from '../../../entity/zone/zone.entity';
-import { ShippingMethodService } from '../../services/shipping-method.service';
 import { TaxRateService } from '../../services/tax-rate.service';
 import { ZoneService } from '../../services/zone.service';
-import { ShippingCalculator } from '../shipping-calculator/shipping-calculator';
 
 import { prorate } from './prorate';
 
@@ -34,8 +32,6 @@ export class OrderCalculator {
         private configService: ConfigService,
         private zoneService: ZoneService,
         private taxRateService: TaxRateService,
-        private shippingMethodService: ShippingMethodService,
-        private shippingCalculator: ShippingCalculator,
         private requestContextCache: RequestContextCacheService,
     ) {}
 
@@ -89,9 +85,6 @@ export class OrderCalculator {
                 // altered the unit prices, which in turn will alter the tax payable.
                 await this.applyTaxes(ctx, order, activeTaxZone);
             }
-        }
-        if (options?.recalculateShipping !== false) {
-            await this.applyShipping(ctx, order);
         }
         this.calculateOrderTotals(order);
         return order;
@@ -152,50 +145,6 @@ export class OrderCalculator {
         };
     }
 
-    private async applyShipping(ctx: RequestContext, order: Order) {
-        for (const shippingLine of order.shippingLines) {
-            const currentShippingMethod =
-                shippingLine?.shippingMethodId &&
-                (await this.shippingMethodService.findOne(ctx, shippingLine.shippingMethodId));
-            if (!currentShippingMethod) {
-                return;
-            }
-            const currentMethodStillEligible = await currentShippingMethod.test(ctx, order);
-            if (currentMethodStillEligible) {
-                const result = await currentShippingMethod.apply(ctx, order);
-                if (result) {
-                    shippingLine.listPrice = result.price;
-                    shippingLine.listPriceIncludesTax = result.priceIncludesTax;
-                    shippingLine.taxLines = [
-                        {
-                            description: 'shipping tax',
-                            taxRate: result.taxRate,
-                        },
-                    ];
-                }
-                continue;
-            }
-            const results = await this.shippingCalculator.getEligibleShippingMethods(ctx, order, [
-                currentShippingMethod.id,
-            ]);
-            if (results && results.length) {
-                const cheapest = results[0];
-                shippingLine.listPrice = cheapest.result.price;
-                shippingLine.listPriceIncludesTax = cheapest.result.priceIncludesTax;
-                shippingLine.shippingMethod = cheapest.method;
-                shippingLine.shippingMethodId = cheapest.method.id;
-                shippingLine.taxLines = [
-                    {
-                        description: 'shipping tax',
-                        taxRate: cheapest.result.taxRate,
-                    },
-                ];
-            } else {
-                order.shippingLines = order.shippingLines.filter(sl => sl !== shippingLine);
-            }
-        }
-    }
-
     /**
      * @description
      * Sets the totals properties on an Order by summing each OrderLine, and taking
@@ -224,11 +173,6 @@ export class OrderCalculator {
 
         let shippingPrice = 0;
         let shippingPriceWithTax = 0;
-        for (const shippingLine of order.shippingLines) {
-            shippingPrice += shippingLine.discountedPrice;
-            shippingPriceWithTax += shippingLine.discountedPriceWithTax;
-        }
-
         order.shipping = shippingPrice;
         order.shippingWithTax = shippingPriceWithTax;
     }

@@ -6,7 +6,6 @@ import { Channel } from '../../entity/channel/channel.entity';
 import { Order } from '../../entity/order/order.entity';
 import { OrderLine } from '../../entity/order-line/order-line.entity';
 import { Payment } from '../../entity/payment/payment.entity';
-import { ShippingLine } from '../../entity/shipping-line/shipping-line.entity';
 import { Surcharge } from '../../entity/surcharge/surcharge.entity';
 import { OrderState } from '../../service/index';
 
@@ -22,7 +21,6 @@ export interface SplitOrderContents {
     channelId: ID;
     state: OrderState;
     lines: OrderLine[];
-    shippingLines: ShippingLine[];
 }
 
 /**

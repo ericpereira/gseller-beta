@@ -6,18 +6,14 @@ import { notNullOrUndefined } from '@vendure/common/lib/shared-utils';
 import { RequestContext } from '../../../api/common/request-context';
 import {
     ConfigService,
-    defaultShippingCalculator,
-    defaultShippingEligibilityChecker,
     Logger,
 } from '../../../config';
-import { manualFulfillmentHandler } from '../../../config/fulfillment/manual-fulfillment-handler';
 import { TransactionalConnection } from '../../../connection/index';
 import { Channel, TaxCategory, User } from '../../../entity';
 import {
     PaymentMethodService,
     RequestContextService,
     RoleService,
-    ShippingMethodService,
 } from '../../../service';
 import { ChannelService } from '../../../service/services/channel.service';
 import { CountryService } from '../../../service/services/country.service';
@@ -50,7 +46,6 @@ export class Populator {
         private channelService: ChannelService,
         private taxRateService: TaxRateService,
         private taxCategoryService: TaxCategoryService,
-        private shippingMethodService: ShippingMethodService,
         private paymentMethodService: PaymentMethodService,
         private searchService: SearchService,
         private assetImporter: AssetImporter,
@@ -80,12 +75,6 @@ export class Populator {
             await this.populateTaxRates(ctx, data.taxRates, zoneMap);
         } catch (e: any) {
             Logger.error('Could not populate tax rates');
-            Logger.error(e, 'populator', e.stack);
-        }
-        try {
-            await this.populateShippingMethods(ctx, data.shippingMethods);
-        } catch (e: any) {
-            Logger.error('Could not populate shipping methods');
             Logger.error(e, 'populator', e.stack);
         }
         try {
@@ -193,31 +182,6 @@ export class Populator {
                     enabled: true,
                 });
             }
-        }
-    }
-
-    private async populateShippingMethods(
-        ctx: RequestContext,
-        shippingMethods: Array<{ name: string; price: number }>,
-    ) {
-        for (const method of shippingMethods) {
-            await this.shippingMethodService.create(ctx, {
-                fulfillmentHandler: manualFulfillmentHandler.code,
-                checker: {
-                    code: defaultShippingEligibilityChecker.code,
-                    arguments: [{ name: 'orderMinimum', value: '0' }],
-                },
-                calculator: {
-                    code: defaultShippingCalculator.code,
-                    arguments: [
-                        { name: 'rate', value: method.price.toString() },
-                        { name: 'taxRate', value: '0' },
-                        { name: 'includesTax', value: 'auto' },
-                    ],
-                },
-                code: normalizeString(method.name, '-'),
-                translations: [{ languageCode: ctx.languageCode, name: method.name, description: '' }],
-            });
         }
     }
 

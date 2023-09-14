@@ -10,7 +10,6 @@ import {
     OrderStateTransitionEvent,
     PasswordResetEvent,
     ProductVariant,
-    ShippingLine,
     User,
 } from '@vendure/core';
 
@@ -77,31 +76,7 @@ export const mockOrderStateTransitionEvent = new OrderStateTransitionEvent(
         subTotal: 15144,
         subTotalWithTax: 18173,
         shipping: 1000,
-        shippingLines: [
-            new ShippingLine({
-                listPrice: 1000,
-                listPriceIncludesTax: true,
-                taxLines: [{ taxRate: 20, description: 'shipping tax' }],
-                shippingMethod: {
-                    code: 'express-flat-rate',
-                    name: 'Express Shipping',
-                    description: 'Express Shipping',
-                    id: '2',
-                },
-            }),
-        ],
         surcharges: [],
-        shippingAddress: {
-            fullName: 'Test Customer',
-            company: '',
-            streetLine1: '6000 Pagac Land',
-            streetLine2: '',
-            city: 'Port Kirsten',
-            province: 'Avon',
-            postalCode: 'ZU32 9CP',
-            country: 'Cabo Verde',
-            phoneNumber: '',
-        },
         payments: [],
     }),
 );

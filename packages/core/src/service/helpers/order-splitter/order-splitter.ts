@@ -8,7 +8,6 @@ import { TransactionalConnection } from '../../../connection/transactional-conne
 import { Channel } from '../../../entity/channel/channel.entity';
 import { Order } from '../../../entity/order/order.entity';
 import { OrderLine } from '../../../entity/order-line/order-line.entity';
-import { ShippingLine } from '../../../entity/shipping-line/shipping-line.entity';
 import { ChannelService } from '../../services/channel.service';
 import { OrderService } from '../../services/order.service';
 
@@ -37,10 +36,6 @@ export class OrderSplitter {
             for (const line of partialOrder.lines) {
                 lines.push(await this.duplicateOrderLine(ctx, line));
             }
-            const shippingLines: ShippingLine[] = [];
-            for (const shippingLine of partialOrder.shippingLines) {
-                shippingLines.push(await this.duplicateShippingLine(ctx, shippingLine));
-            }
             const sellerOrder = await this.connection.getRepository(ctx, Order).save(
                 new Order({
                     type: OrderType.Seller,
@@ -53,7 +48,6 @@ export class OrderSplitter {
                     state: partialOrder.state,
                     lines,
                     surcharges: [],
-                    shippingLines,
                     couponCodes: order.couponCodes,
                     modifications: [],
                     shippingAddress: order.shippingAddress,
@@ -85,7 +79,6 @@ export class OrderSplitter {
                     'productVariant',
                     'taxCategory',
                     'featuredAsset',
-                    'shippingLine',
                     'shippingLineId',
                     'customFields',
                     'sellerChannel',
@@ -100,23 +93,5 @@ export class OrderSplitter {
             }),
         );
         return newLine;
-    }
-
-    private async duplicateShippingLine(
-        ctx: RequestContext,
-        shippingLine: ShippingLine,
-    ): Promise<ShippingLine> {
-        return await this.connection.getRepository(ctx, ShippingLine).save(
-            new ShippingLine({
-                ...pick(shippingLine, [
-                    'shippingMethodId',
-                    'order',
-                    'listPrice',
-                    'listPriceIncludesTax',
-                    'adjustments',
-                    'taxLines',
-                ]),
-            }),
-        );
     }
 }

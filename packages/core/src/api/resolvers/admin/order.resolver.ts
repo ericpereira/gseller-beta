@@ -29,11 +29,9 @@ import { PaginatedList } from '@vendure/common/lib/shared-types';
 
 import { ErrorResultUnion, isGraphQlErrorResult } from '../../../common/error/error-result';
 import { TransactionalConnection } from '../../../connection';
-import { Fulfillment } from '../../../entity/fulfillment/fulfillment.entity';
 import { Order } from '../../../entity/order/order.entity';
 import { Payment } from '../../../entity/payment/payment.entity';
 import { Refund } from '../../../entity/refund/refund.entity';
-import { FulfillmentState } from '../../../service/helpers/fulfillment-state-machine/fulfillment-state';
 import { OrderState } from '../../../service/helpers/order-state-machine/order-state';
 import { PaymentState } from '../../../service/helpers/payment-state-machine/payment-state';
 import { OrderService } from '../../../service/services/order.service';
@@ -90,16 +88,6 @@ export class OrderResolver {
     @Transaction()
     @Mutation()
     @Allow(Permission.UpdateOrder)
-    async addFulfillmentToOrder(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationAddFulfillmentToOrderArgs,
-    ): Promise<ErrorResultUnion<AddFulfillmentToOrderResult, Fulfillment>> {
-        return this.orderService.createFulfillment(ctx, args.input);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder)
     async cancelOrder(
         @Ctx() ctx: RequestContext,
         @Args() args: MutationCancelOrderArgs,
@@ -139,16 +127,6 @@ export class OrderResolver {
         @Args() args: MutationTransitionOrderToStateArgs,
     ) {
         return this.orderService.transitionToState(ctx, args.id, args.state as OrderState);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder)
-    async transitionFulfillmentToState(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationTransitionFulfillmentToStateArgs,
-    ) {
-        return this.orderService.transitionFulfillmentToState(ctx, args.id, args.state as FulfillmentState);
     }
 
     @Transaction()

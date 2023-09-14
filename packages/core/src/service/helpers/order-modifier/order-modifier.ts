@@ -38,12 +38,10 @@ import { TransactionalConnection } from '../../../connection/transactional-conne
 import { VendureEntity } from '../../../entity/base/base.entity';
 import { Order } from '../../../entity/order/order.entity';
 import { OrderLine } from '../../../entity/order-line/order-line.entity';
-import { FulfillmentLine } from '../../../entity/order-line-reference/fulfillment-line.entity';
 import { OrderModificationLine } from '../../../entity/order-line-reference/order-modification-line.entity';
 import { OrderModification } from '../../../entity/order-modification/order-modification.entity';
 import { Payment } from '../../../entity/payment/payment.entity';
 import { ProductVariant } from '../../../entity/product-variant/product-variant.entity';
-import { ShippingLine } from '../../../entity/shipping-line/shipping-line.entity';
 import { Allocation } from '../../../entity/stock-movement/allocation.entity';
 import { Cancellation } from '../../../entity/stock-movement/cancellation.entity';
 import { Release } from '../../../entity/stock-movement/release.entity';
@@ -295,20 +293,13 @@ export class OrderModifier {
                     quantity: Math.min(totalAllocated, lineInput.quantity),
                 });
             }
-            const fulfillmentsForLine = await this.connection
-                .getRepository(ctx, FulfillmentLine)
-                .createQueryBuilder('fulfillmentLine')
-                .leftJoinAndSelect('fulfillmentLine.orderLine', 'orderLine')
-                .where('orderLine.id = :orderLineId', { orderLineId: lineInput.orderLineId })
-                .getMany();
             const cancellationsForLine = await this.connection
                 .getRepository(ctx, Cancellation)
                 .createQueryBuilder('cancellation')
                 .leftJoinAndSelect('cancellation.orderLine', 'orderLine')
                 .where('orderLine.id = :orderLineId', { orderLineId: lineInput.orderLineId })
                 .getMany();
-            const totalFulfilled =
-                summate(fulfillmentsForLine, 'quantity') - summate(cancellationsForLine, 'quantity');
+            const totalFulfilled = summate(cancellationsForLine, 'quantity');
             if (0 < totalFulfilled) {
                 fulfilledLines.push({
                     orderLineId: lineInput.orderLineId,
@@ -330,18 +321,6 @@ export class OrderModifier {
         const orderWithLines = await this.connection.getEntityOrThrow(ctx, Order, order.id, {
             relations: ['lines', 'surcharges', 'shippingLines'],
         });
-        if (input.cancelShipping === true) {
-            for (const shippingLine of orderWithLines.shippingLines) {
-                shippingLine.adjustments.push({
-                    adjustmentSource: 'CANCEL_ORDER',
-                    type: AdjustmentType.OTHER,
-                    description: 'shipping cancellation',
-                    amount: -shippingLine.discountedPriceWithTax,
-                    data: {},
-                });
-                await this.connection.getRepository(ctx, ShippingLine).save(shippingLine, { reload: false });
-            }
-        }
         // Update totals after cancellation
         this.orderCalculator.calculateOrderTotals(orderWithLines);
         await this.connection.getRepository(ctx, Order).save(orderWithLines, { reload: false });
@@ -573,7 +552,6 @@ export class OrderModifier {
             .getRepository(ctx, OrderModification)
             .save(modification);
         await this.connection.getRepository(ctx, Order).save(order);
-        await this.connection.getRepository(ctx, ShippingLine).save(order.shippingLines, { reload: false });
         return { order, modification: createdModification };
     }
 

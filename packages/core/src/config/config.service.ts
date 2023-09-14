@@ -17,7 +17,6 @@ import {
     OrderOptions,
     PaymentOptions,
     RuntimeVendureConfig,
-    ShippingOptions,
     SystemOptions,
     TaxOptions,
     VendureConfig,
@@ -69,10 +68,6 @@ export class ConfigService implements VendureConfig {
 
     get dbConnectionOptions(): DataSourceOptions {
         return this.activeConfig.dbConnectionOptions;
-    }
-
-    get shippingOptions(): Required<ShippingOptions> {
-        return this.activeConfig.shippingOptions;
     }
 
     get orderOptions(): Required<OrderOptions> {

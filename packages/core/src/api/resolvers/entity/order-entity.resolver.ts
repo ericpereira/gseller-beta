@@ -5,7 +5,6 @@ import { assertFound, idsAreEqual } from '../../../common/utils';
 import { Order } from '../../../entity/order/order.entity';
 import { TranslatorService } from '../../../service/index';
 import { OrderService } from '../../../service/services/order.service';
-import { ShippingMethodService } from '../../../service/services/shipping-method.service';
 import { ApiType } from '../../common/get-api-type';
 import { RequestContext } from '../../common/request-context';
 import { Api } from '../../decorators/api.decorator';
@@ -23,14 +22,6 @@ export class OrderEntityResolver {
             return order.payments;
         }
         return this.orderService.getOrderPayments(ctx, order.id);
-    }
-
-    @ResolveField()
-    async fulfillments(@Ctx() ctx: RequestContext, @Parent() order: Order) {
-        if (order.fulfillments) {
-            return order.fulfillments;
-        }
-        return this.orderService.getOrderFulfillments(ctx, order);
     }
 
     @ResolveField()
