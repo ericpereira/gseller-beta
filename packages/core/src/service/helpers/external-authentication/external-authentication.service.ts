@@ -11,7 +11,6 @@ import { User } from '../../../entity/user/user.entity';
 import { AdministratorService } from '../../services/administrator.service';
 import { ChannelService } from '../../services/channel.service';
 import { CustomerService } from '../../services/customer.service';
-import { HistoryService } from '../../services/history.service';
 import { RoleService } from '../../services/role.service';
 
 /**
@@ -26,7 +25,6 @@ export class ExternalAuthenticationService {
     constructor(
         private connection: TransactionalConnection,
         private roleService: RoleService,
-        private historyService: HistoryService,
         private customerService: CustomerService,
         private administratorService: AdministratorService,
         private channelService: ChannelService,
@@ -139,26 +137,6 @@ export class ExternalAuthenticationService {
         }
         await this.channelService.assignToCurrentChannel(customer, ctx);
         await this.connection.getRepository(ctx, Customer).save(customer);
-
-        await this.historyService.createHistoryEntryForCustomer({
-            customerId: customer.id,
-            ctx,
-            type: HistoryEntryType.CUSTOMER_REGISTERED,
-            data: {
-                strategy: config.strategy,
-            },
-        });
-
-        if (config.verified) {
-            await this.historyService.createHistoryEntryForCustomer({
-                customerId: customer.id,
-                ctx,
-                type: HistoryEntryType.CUSTOMER_VERIFIED,
-                data: {
-                    strategy: config.strategy,
-                },
-            });
-        }
 
         return savedUser;
     }

@@ -38,7 +38,6 @@ import { Logger } from '../../../config/logger/vendure-logger';
 import { AdministratorService } from '../../../service/services/administrator.service';
 import { AuthService } from '../../../service/services/auth.service';
 import { CustomerService } from '../../../service/services/customer.service';
-import { HistoryService } from '../../../service/services/history.service';
 import { UserService } from '../../../service/services/user.service';
 import { RequestContext } from '../../common/request-context';
 import { setSessionToken } from '../../common/set-session-token';
@@ -55,7 +54,6 @@ export class ShopAuthResolver extends BaseAuthResolver {
         administratorService: AdministratorService,
         configService: ConfigService,
         protected customerService: CustomerService,
-        protected historyService: HistoryService,
     ) {
         super(authService, userService, administratorService, configService);
     }
@@ -263,17 +261,7 @@ export class ShopAuthResolver extends BaseAuthResolver {
         if (isGraphQlErrorResult(result)) {
             return result;
         }
-        if (result && ctx.activeUserId) {
-            const customer = await this.customerService.findOneByUserId(ctx, ctx.activeUserId);
-            if (customer) {
-                await this.historyService.createHistoryEntryForCustomer({
-                    ctx,
-                    customerId: customer.id,
-                    type: HistoryEntryType.CUSTOMER_PASSWORD_UPDATED,
-                    data: {},
-                });
-            }
-        }
+        
         return { success: result };
     }
 

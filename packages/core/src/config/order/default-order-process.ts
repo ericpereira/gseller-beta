@@ -167,7 +167,6 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
     let eventBus: import('../../event-bus/index').EventBus;
     let stockMovementService: import('../../service/index').StockMovementService;
     let stockLevelService: import('../../service/index').StockLevelService;
-    let historyService: import('../../service/index').HistoryService;
     let orderSplitter: import('../../service/index').OrderSplitter;
 
     const orderProcess: OrderProcess<OrderState> = {
@@ -243,7 +242,6 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
                 m => m.StockMovementService,
             );
             const StockLevelService = await import('../../service/index.js').then(m => m.StockLevelService);
-            const HistoryService = await import('../../service/index.js').then(m => m.HistoryService);
             const OrderSplitter = await import('../../service/index.js').then(m => m.OrderSplitter);
             const ProductVariantService = await import('../../service/index.js').then(
                 m => m.ProductVariantService,
@@ -254,7 +252,6 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
             eventBus = injector.get(EventBus);
             stockMovementService = injector.get(StockMovementService);
             stockLevelService = injector.get(StockLevelService);
-            historyService = injector.get(HistoryService);
             orderSplitter = injector.get(OrderSplitter);
         },
 
@@ -440,15 +437,6 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
                 // which will allow us to run the OrderPlacedStrategy at the correct point.
                 order.active = true;
             }
-            await historyService.createHistoryEntryForOrder({
-                orderId: order.id,
-                type: HistoryEntryType.ORDER_STATE_TRANSITION,
-                ctx,
-                data: {
-                    from: fromState,
-                    to: toState,
-                },
-            });
         },
     };
 

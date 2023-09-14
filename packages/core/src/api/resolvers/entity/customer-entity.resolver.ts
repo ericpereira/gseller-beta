@@ -6,7 +6,6 @@ import { Address } from '../../../entity/address/address.entity';
 import { Customer } from '../../../entity/customer/customer.entity';
 import { Order } from '../../../entity/order/order.entity';
 import { CustomerService } from '../../../service/services/customer.service';
-import { HistoryService } from '../../../service/services/history.service';
 import { OrderService } from '../../../service/services/order.service';
 import { UserService } from '../../../service/services/user.service';
 import { ApiType } from '../../common/get-api-type';
@@ -62,7 +61,7 @@ export class CustomerEntityResolver {
 
 @Resolver('Customer')
 export class CustomerAdminEntityResolver {
-    constructor(private customerService: CustomerService, private historyService: HistoryService) {}
+    constructor(private customerService: CustomerService) {}
 
     @ResolveField()
     groups(@Ctx() ctx: RequestContext, @Parent() customer: Customer) {
@@ -70,20 +69,5 @@ export class CustomerAdminEntityResolver {
             return customer.groups;
         }
         return this.customerService.getCustomerGroups(ctx, customer.id);
-    }
-
-    @ResolveField()
-    async history(
-        @Ctx() ctx: RequestContext,
-        @Api() apiType: ApiType,
-        @Parent() order: Order,
-        @Args() args: any,
-    ) {
-        const publicOnly = apiType === 'shop';
-        const options: HistoryEntryListOptions = { ...args.options };
-        if (!options.sort) {
-            options.sort = { createdAt: SortOrder.ASC };
-        }
-        return this.historyService.getHistoryForCustomer(ctx, order.id, publicOnly, options);
     }
 }

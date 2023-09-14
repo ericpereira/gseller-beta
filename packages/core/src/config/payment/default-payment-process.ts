@@ -15,7 +15,6 @@ declare module '../../service/helpers/payment-state-machine/payment-state' {
 
 let configService: import('../config.service').ConfigService;
 let orderService: import('../../service/services/order.service').OrderService;
-let historyService: import('../../service/index').HistoryService;
 
 /**
  * @description
@@ -48,12 +47,10 @@ export const defaultPaymentProcess: PaymentProcess<PaymentState> = {
         // Lazily import these services to avoid a circular dependency error
         // due to this being used as part of the DefaultConfig
         const ConfigService = await import('../config.service.js').then(m => m.ConfigService);
-        const HistoryService = await import('../../service/index.js').then(m => m.HistoryService);
         const OrderService = await import('../../service/services/order.service.js').then(
             m => m.OrderService,
         );
         configService = injector.get(ConfigService);
-        historyService = injector.get(HistoryService);
         orderService = injector.get(OrderService);
     },
     async onTransitionStart(fromState, toState, data) {
@@ -62,18 +59,7 @@ export const defaultPaymentProcess: PaymentProcess<PaymentState> = {
     async onTransitionEnd(fromState, toState, data) {
         const { ctx, payment, order } = data;
         order.payments = await orderService.getOrderPayments(ctx, order.id);
-
-        await historyService.createHistoryEntryForOrder({
-            ctx: data.ctx,
-            orderId: data.order.id,
-            type: HistoryEntryType.ORDER_PAYMENT_TRANSITION,
-            data: {
-                paymentId: data.payment.id,
-                from: fromState,
-                to: toState,
-            },
-        });
-
+        
         if (
             orderTotalIsCovered(order, 'Settled') &&
             order.state !== 'PaymentSettled' &&

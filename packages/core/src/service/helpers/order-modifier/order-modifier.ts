@@ -52,7 +52,6 @@ import { Surcharge } from '../../../entity/surcharge/surcharge.entity';
 import { EventBus } from '../../../event-bus/event-bus';
 import { OrderLineEvent } from '../../../event-bus/index';
 import { CountryService } from '../../services/country.service';
-import { HistoryService } from '../../services/history.service';
 import { PaymentService } from '../../services/payment.service';
 import { ProductVariantService } from '../../services/product-variant.service';
 import { StockMovementService } from '../../services/stock-movement.service';
@@ -89,7 +88,6 @@ export class OrderModifier {
         private customFieldRelationService: CustomFieldRelationService,
         private eventBus: EventBus,
         private entityHydrator: EntityHydrator,
-        private historyService: HistoryService,
         private translator: TranslatorService,
     ) {}
 
@@ -347,17 +345,6 @@ export class OrderModifier {
         // Update totals after cancellation
         this.orderCalculator.calculateOrderTotals(orderWithLines);
         await this.connection.getRepository(ctx, Order).save(orderWithLines, { reload: false });
-
-        await this.historyService.createHistoryEntryForOrder({
-            ctx,
-            orderId: order.id,
-            type: HistoryEntryType.ORDER_CANCELLATION,
-            data: {
-                lines: lineInputs,
-                reason: input.reason || undefined,
-                shippingCancelled: !!input.cancelShipping,
-            },
-        });
 
         return orderLinesAreAllCancelled(orderWithLines);
     }

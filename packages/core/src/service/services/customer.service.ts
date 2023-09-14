@@ -47,7 +47,6 @@ import { NativeAuthenticationMethod } from '../../entity/authentication-method/n
 import { Channel } from '../../entity/channel/channel.entity';
 import { Customer } from '../../entity/customer/customer.entity';
 import { CustomerGroup } from '../../entity/customer-group/customer-group.entity';
-import { HistoryEntry } from '../../entity/history-entry/history-entry.entity';
 import { Order } from '../../entity/order/order.entity';
 import { User } from '../../entity/user/user.entity';
 import { EventBus } from '../../event-bus/event-bus';
@@ -67,7 +66,6 @@ import { patchEntity } from '../helpers/utils/patch-entity';
 
 import { ChannelService } from './channel.service';
 import { CountryService } from './country.service';
-import { HistoryService } from './history.service';
 import { UserService } from './user.service';
 
 /**
@@ -85,7 +83,6 @@ export class CustomerService {
         private countryService: CountryService,
         private listQueryBuilder: ListQueryBuilder,
         private eventBus: EventBus,
-        private historyService: HistoryService,
         private channelService: ChannelService,
         private customFieldRelationService: CustomFieldRelationService,
         private translator: TranslatorService,
@@ -268,25 +265,7 @@ export class CustomerService {
         await this.channelService.assignToCurrentChannel(customer, ctx);
         const createdCustomer = await this.connection.getRepository(ctx, Customer).save(customer);
         await this.customFieldRelationService.updateRelations(ctx, Customer, input, createdCustomer);
-        await this.historyService.createHistoryEntryForCustomer({
-            ctx,
-            customerId: createdCustomer.id,
-            type: HistoryEntryType.CUSTOMER_REGISTERED,
-            data: {
-                strategy: NATIVE_AUTH_STRATEGY_NAME,
-            },
-        });
 
-        if (customer.user?.verified) {
-            await this.historyService.createHistoryEntryForCustomer({
-                ctx,
-                customerId: createdCustomer.id,
-                type: HistoryEntryType.CUSTOMER_VERIFIED,
-                data: {
-                    strategy: NATIVE_AUTH_STRATEGY_NAME,
-                },
-            });
-        }
         this.eventBus.publish(new CustomerEvent(ctx, createdCustomer, 'created', input));
         return createdCustomer;
     }
@@ -349,14 +328,7 @@ export class CustomerService {
         const updatedCustomer = patchEntity(customer, input);
         await this.connection.getRepository(ctx, Customer).save(updatedCustomer, { reload: false });
         await this.customFieldRelationService.updateRelations(ctx, Customer, input, updatedCustomer);
-        await this.historyService.createHistoryEntryForCustomer({
-            customerId: customer.id,
-            ctx,
-            type: HistoryEntryType.CUSTOMER_DETAIL_UPDATED,
-            data: {
-                input,
-            },
-        });
+
         this.eventBus.publish(new CustomerEvent(ctx, customer, 'updated', input));
         return assertFound(this.findOne(ctx, customer.id));
     }
@@ -401,14 +373,7 @@ export class CustomerService {
         if (isGraphQlErrorResult(customer)) {
             return customer;
         }
-        await this.historyService.createHistoryEntryForCustomer({
-            customerId: customer.id,
-            ctx,
-            type: HistoryEntryType.CUSTOMER_REGISTERED,
-            data: {
-                strategy: NATIVE_AUTH_STRATEGY_NAME,
-            },
-        });
+        
         if (!user) {
             const customerUser = await this.userService.createCustomerUser(
                 ctx,
@@ -443,15 +408,6 @@ export class CustomerService {
         await this.connection.getRepository(ctx, Customer).save(customer, { reload: false });
         if (!user.verified) {
             this.eventBus.publish(new AccountRegistrationEvent(ctx, user));
-        } else {
-            await this.historyService.createHistoryEntryForCustomer({
-                customerId: customer.id,
-                ctx,
-                type: HistoryEntryType.CUSTOMER_VERIFIED,
-                data: {
-                    strategy: NATIVE_AUTH_STRATEGY_NAME,
-                },
-            });
         }
         return { success: true };
     }
@@ -490,14 +446,7 @@ export class CustomerService {
         if (ctx.channelId) {
             await this.channelService.assignToChannels(ctx, Customer, customer.id, [ctx.channelId]);
         }
-        await this.historyService.createHistoryEntryForCustomer({
-            customerId: customer.id,
-            ctx,
-            type: HistoryEntryType.CUSTOMER_VERIFIED,
-            data: {
-                strategy: NATIVE_AUTH_STRATEGY_NAME,
-            },
-        });
+        
         const user = assertFound(this.findOneByUserId(ctx, result.id));
         this.eventBus.publish(new AccountVerifiedEvent(ctx, customer));
         return user;
@@ -516,12 +465,6 @@ export class CustomerService {
             if (!customer) {
                 throw new InternalServerError('error.cannot-locate-customer-for-user');
             }
-            await this.historyService.createHistoryEntryForCustomer({
-                customerId: customer.id,
-                ctx,
-                type: HistoryEntryType.CUSTOMER_PASSWORD_RESET_REQUESTED,
-                data: {},
-            });
         }
     }
 
@@ -545,12 +488,7 @@ export class CustomerService {
         if (!customer) {
             throw new InternalServerError('error.cannot-locate-customer-for-user');
         }
-        await this.historyService.createHistoryEntryForCustomer({
-            customerId: customer.id,
-            ctx,
-            type: HistoryEntryType.CUSTOMER_PASSWORD_RESET_VERIFIED,
-            data: {},
-        });
+
         this.eventBus.publish(new PasswordResetVerifiedEvent(ctx, result));
         return result;
     }
@@ -582,15 +520,7 @@ export class CustomerService {
             return false;
         }
         const oldEmailAddress = customer.emailAddress;
-        await this.historyService.createHistoryEntryForCustomer({
-            customerId: customer.id,
-            ctx,
-            type: HistoryEntryType.CUSTOMER_EMAIL_UPDATE_REQUESTED,
-            data: {
-                oldEmailAddress,
-                newEmailAddress,
-            },
-        });
+        
         if (this.configService.authOptions.requireVerification) {
             user.getNativeAuthenticationMethod().pendingIdentifier = newEmailAddress;
             await this.userService.setIdentifierChangeToken(ctx, user);
@@ -603,15 +533,7 @@ export class CustomerService {
             await this.connection.getRepository(ctx, User).save(user, { reload: false });
             await this.connection.getRepository(ctx, Customer).save(customer, { reload: false });
             this.eventBus.publish(new IdentifierChangeEvent(ctx, user, oldIdentifier));
-            await this.historyService.createHistoryEntryForCustomer({
-                customerId: customer.id,
-                ctx,
-                type: HistoryEntryType.CUSTOMER_EMAIL_UPDATE_VERIFIED,
-                data: {
-                    oldEmailAddress,
-                    newEmailAddress,
-                },
-            });
+            
             return true;
         }
     }
@@ -640,15 +562,7 @@ export class CustomerService {
         this.eventBus.publish(new IdentifierChangeEvent(ctx, user, oldIdentifier));
         customer.emailAddress = user.identifier;
         await this.connection.getRepository(ctx, Customer).save(customer, { reload: false });
-        await this.historyService.createHistoryEntryForCustomer({
-            customerId: customer.id,
-            ctx,
-            type: HistoryEntryType.CUSTOMER_EMAIL_UPDATE_VERIFIED,
-            data: {
-                oldEmailAddress: oldIdentifier,
-                newEmailAddress: customer.emailAddress,
-            },
-        });
+        
         return true;
     }
 
@@ -706,12 +620,7 @@ export class CustomerService {
         customer.addresses.push(createdAddress);
         await this.connection.getRepository(ctx, Customer).save(customer, { reload: false });
         await this.enforceSingleDefaultAddress(ctx, createdAddress.id, input);
-        await this.historyService.createHistoryEntryForCustomer({
-            customerId: customer.id,
-            ctx,
-            type: HistoryEntryType.CUSTOMER_ADDRESS_CREATED,
-            data: { address: addressToLine(createdAddress) },
-        });
+        
         createdAddress.customer = customer;
         this.eventBus.publish(new CustomerAddressEvent(ctx, createdAddress, 'created', input));
         return createdAddress;
@@ -739,16 +648,7 @@ export class CustomerService {
         updatedAddress = await this.connection.getRepository(ctx, Address).save(updatedAddress);
         await this.customFieldRelationService.updateRelations(ctx, Address, input, updatedAddress);
         await this.enforceSingleDefaultAddress(ctx, input.id, input);
-
-        await this.historyService.createHistoryEntryForCustomer({
-            customerId: address.customer.id,
-            ctx,
-            type: HistoryEntryType.CUSTOMER_ADDRESS_UPDATED,
-            data: {
-                address: addressToLine(updatedAddress),
-                input,
-            },
-        });
+        
         updatedAddress.customer = customer;
         this.eventBus.publish(new CustomerAddressEvent(ctx, updatedAddress, 'updated', input));
         return updatedAddress;
@@ -769,14 +669,7 @@ export class CustomerService {
         }
         address.country = this.translator.translate(address.country, ctx);
         await this.reassignDefaultsForDeletedAddress(ctx, address);
-        await this.historyService.createHistoryEntryForCustomer({
-            customerId: address.customer.id,
-            ctx,
-            type: HistoryEntryType.CUSTOMER_ADDRESS_DELETED,
-            data: {
-                address: addressToLine(address),
-            },
-        });
+        
         const deletedAddress = new Address(address);
         await this.connection.getRepository(ctx, Address).remove(address);
         address.customer = customer;
@@ -856,41 +749,8 @@ export class CustomerService {
         const customer = await this.connection.getEntityOrThrow(ctx, Customer, input.id, {
             channelId: ctx.channelId,
         });
-        await this.historyService.createHistoryEntryForCustomer(
-            {
-                ctx,
-                customerId: customer.id,
-                type: HistoryEntryType.CUSTOMER_NOTE,
-                data: {
-                    note: input.note,
-                },
-            },
-            input.isPublic,
-        );
+        
         return customer;
-    }
-
-    async updateCustomerNote(ctx: RequestContext, input: UpdateCustomerNoteInput): Promise<HistoryEntry> {
-        return this.historyService.updateCustomerHistoryEntry(ctx, {
-            type: HistoryEntryType.CUSTOMER_NOTE,
-            data: input.note ? { note: input.note } : undefined,
-            ctx,
-            entryId: input.noteId,
-        });
-    }
-
-    async deleteCustomerNote(ctx: RequestContext, id: ID): Promise<DeletionResponse> {
-        try {
-            await this.historyService.deleteCustomerHistoryEntry(ctx, id);
-            return {
-                result: DeletionResult.DELETED,
-            };
-        } catch (e: any) {
-            return {
-                result: DeletionResult.NOT_DELETED,
-                message: e.message,
-            };
-        }
     }
 
     private async enforceSingleDefaultAddress(

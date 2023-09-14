@@ -79,7 +79,6 @@ import { TransactionalConnection } from '../../connection/transactional-connecti
 import { Channel } from '../../entity/channel/channel.entity';
 import { Customer } from '../../entity/customer/customer.entity';
 import { Fulfillment } from '../../entity/fulfillment/fulfillment.entity';
-import { HistoryEntry } from '../../entity/history-entry/history-entry.entity';
 import { Order } from '../../entity/order/order.entity';
 import { OrderLine } from '../../entity/order-line/order-line.entity';
 import { FulfillmentLine } from '../../entity/order-line-reference/fulfillment-line.entity';
@@ -119,7 +118,6 @@ import { ChannelService } from './channel.service';
 import { CountryService } from './country.service';
 import { CustomerService } from './customer.service';
 import { FulfillmentService } from './fulfillment.service';
-import { HistoryService } from './history.service';
 import { PaymentMethodService } from './payment-method.service';
 import { PaymentService } from './payment.service';
 import { ProductVariantService } from './product-variant.service';
@@ -151,7 +149,6 @@ export class OrderService {
         private listQueryBuilder: ListQueryBuilder,
         private stockMovementService: StockMovementService,
         private refundStateMachine: RefundStateMachine,
-        private historyService: HistoryService,
         private eventBus: EventBus,
         private channelService: ChannelService,
         private orderModifier: OrderModifier,
@@ -698,12 +695,7 @@ export class OrderService {
                         .length,
             );
             order.couponCodes = order.couponCodes.filter(cc => cc !== couponCode);
-            await this.historyService.createHistoryEntryForOrder({
-                ctx,
-                orderId: order.id,
-                type: HistoryEntryType.ORDER_COUPON_REMOVED,
-                data: { couponCode },
-            });
+            
             this.eventBus.publish(new CouponCodeEvent(ctx, couponCode, orderId, 'removed'));
             const result = await this.applyPriceAdjustments(ctx, order);
             await this.connection.getRepository(ctx, OrderLine).save(affectedOrderLines);
@@ -953,14 +945,6 @@ export class OrderService {
             return result.order;
         }
 
-        await this.historyService.createHistoryEntryForOrder({
-            ctx,
-            orderId: input.orderId,
-            type: HistoryEntryType.ORDER_MODIFIED,
-            data: {
-                modificationId: result.modification.id,
-            },
-        });
         return this.getOrderOrThrow(ctx, input.orderId);
     }
 
@@ -1163,16 +1147,6 @@ export class OrderService {
             .of(orders)
             .add(fulfillment);
 
-        for (const order of orders) {
-            await this.historyService.createHistoryEntryForOrder({
-                ctx,
-                orderId: order.id,
-                type: HistoryEntryType.ORDER_FULFILLMENT,
-                data: {
-                    fulfillmentId: fulfillment.id,
-                },
-            });
-        }
         const result = await this.fulfillmentService.transitionToState(ctx, fulfillment.id, 'Pending');
         if (isGraphQlErrorResult(result)) {
             return result;
@@ -1394,50 +1368,6 @@ export class OrderService {
         // we know the Customer.
         let updatedOrder = order;
         return updatedOrder;
-    }
-
-    /**
-     * @description
-     * Creates a new "ORDER_NOTE" type {@link OrderHistoryEntry} in the Order's history timeline.
-     */
-    async addNoteToOrder(ctx: RequestContext, input: AddNoteToOrderInput): Promise<Order> {
-        const order = await this.getOrderOrThrow(ctx, input.id);
-        await this.historyService.createHistoryEntryForOrder(
-            {
-                ctx,
-                orderId: order.id,
-                type: HistoryEntryType.ORDER_NOTE,
-                data: {
-                    note: input.note,
-                },
-            },
-            input.isPublic,
-        );
-        return order;
-    }
-
-    async updateOrderNote(ctx: RequestContext, input: UpdateOrderNoteInput): Promise<HistoryEntry> {
-        return this.historyService.updateOrderHistoryEntry(ctx, {
-            type: HistoryEntryType.ORDER_NOTE,
-            data: input.note ? { note: input.note } : undefined,
-            isPublic: input.isPublic ?? undefined,
-            ctx,
-            entryId: input.noteId,
-        });
-    }
-
-    async deleteOrderNote(ctx: RequestContext, id: ID): Promise<DeletionResponse> {
-        try {
-            await this.historyService.deleteOrderHistoryEntry(ctx, id);
-            return {
-                result: DeletionResult.DELETED,
-            };
-        } catch (e: any) {
-            return {
-                result: DeletionResult.NOT_DELETED,
-                message: e.message,
-            };
-        }
     }
 
     /**
