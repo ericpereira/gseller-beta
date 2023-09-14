@@ -29,7 +29,6 @@ import { ProductResolver } from './resolvers/admin/product.resolver';
 import { RoleResolver } from './resolvers/admin/role.resolver';
 import { SearchResolver } from './resolvers/admin/search.resolver';
 import { SellerResolver } from './resolvers/admin/seller.resolver';
-import { ShippingMethodResolver } from './resolvers/admin/shipping-method.resolver';
 import { StockLocationResolver } from './resolvers/admin/stock-location.resolver';
 import { TagResolver } from './resolvers/admin/tag.resolver';
 import { TaxCategoryResolver } from './resolvers/admin/tax-category.resolver';
@@ -44,11 +43,6 @@ import {
     CustomerEntityResolver,
 } from './resolvers/entity/customer-entity.resolver';
 import { CustomerGroupEntityResolver } from './resolvers/entity/customer-group-entity.resolver';
-import {
-    FulfillmentAdminEntityResolver,
-    FulfillmentEntityResolver,
-} from './resolvers/entity/fulfillment-entity.resolver';
-import { FulfillmentLineEntityResolver } from './resolvers/entity/fulfillment-line-entity.resolver';
 import { JobEntityResolver } from './resolvers/entity/job-entity.resolver';
 import { OrderAdminEntityResolver, OrderEntityResolver } from './resolvers/entity/order-entity.resolver';
 import { OrderLineEntityResolver } from './resolvers/entity/order-line-entity.resolver';
@@ -70,8 +64,6 @@ import {
 import { RefundEntityResolver } from './resolvers/entity/refund-entity.resolver';
 import { RefundLineEntityResolver } from './resolvers/entity/refund-line-entity.resolver';
 import { RoleEntityResolver } from './resolvers/entity/role-entity.resolver';
-import { ShippingLineEntityResolver } from './resolvers/entity/shipping-line-entity.resolver';
-import { ShippingMethodEntityResolver } from './resolvers/entity/shipping-method-entity.resolver';
 import { TaxRateEntityResolver } from './resolvers/entity/tax-rate-entity.resolver';
 import { UserEntityResolver } from './resolvers/entity/user-entity.resolver';
 import { ZoneEntityResolver } from './resolvers/entity/zone-entity.resolver';
@@ -99,7 +91,6 @@ const adminResolvers = [
     ProductResolver,
     RoleResolver,
     SearchResolver,
-    ShippingMethodResolver,
     StockLocationResolver,
     TagResolver,
     TaxCategoryResolver,
@@ -122,8 +113,6 @@ export const entityResolvers = [
     CountryEntityResolver,
     CustomerEntityResolver,
     CustomerGroupEntityResolver,
-    FulfillmentEntityResolver,
-    FulfillmentLineEntityResolver,
     OrderEntityResolver,
     OrderLineEntityResolver,
     PaymentEntityResolver,
@@ -134,10 +123,8 @@ export const entityResolvers = [
     RefundEntityResolver,
     RefundLineEntityResolver,
     RoleEntityResolver,
-    ShippingLineEntityResolver,
     UserEntityResolver,
     TaxRateEntityResolver,
-    ShippingMethodEntityResolver,
     ZoneEntityResolver,
 ];
 
@@ -146,7 +133,6 @@ export const adminEntityResolvers = [
     CustomerAdminEntityResolver,
     OrderAdminEntityResolver,
     PaymentMethodEntityResolver,
-    FulfillmentAdminEntityResolver,
     PaymentAdminEntityResolver,
     ProductVariantAdminEntityResolver,
     ProductAdminEntityResolver,

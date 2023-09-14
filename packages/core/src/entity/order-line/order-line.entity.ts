@@ -15,7 +15,6 @@ import { EntityId } from '../entity-id.decorator';
 import { Money } from '../money.decorator';
 import { Order } from '../order/order.entity';
 import { ProductVariant } from '../product-variant/product-variant.entity';
-import { ShippingLine } from '../shipping-line/shipping-line.entity';
 import { Cancellation } from '../stock-movement/cancellation.entity';
 import { TaxCategory } from '../tax-category/tax-category.entity';
 
@@ -42,15 +41,6 @@ export class OrderLine extends VendureEntity implements HasCustomFields {
 
     @EntityId({ nullable: true })
     sellerChannelId?: ID;
-
-    /**
-     * @description
-     * The {@link ShippingLine} to which this line has been assigned.
-     * This is determined by the configured {@link ShippingLineAssignmentStrategy}.
-     */
-    @Index()
-    @ManyToOne(type => ShippingLine, { nullable: true, onDelete: 'SET NULL' })
-    shippingLine?: ShippingLine;
 
     @EntityId({ nullable: true })
     shippingLineId?: ID;

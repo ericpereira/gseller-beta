@@ -25,8 +25,6 @@ import { CustomFields } from './custom-field/custom-field-types';
 import { EntityIdStrategy } from './entity/entity-id-strategy';
 import { MoneyStrategy } from './entity/money-strategy';
 import { EntityMetadataModifier } from './entity-metadata/entity-metadata-modifier';
-import { FulfillmentHandler } from './fulfillment/fulfillment-handler';
-import { FulfillmentProcess } from './fulfillment/fulfillment-process';
 import { JobQueueStrategy } from './job-queue/job-queue-strategy';
 import { VendureLogger } from './logger/vendure-logger';
 import { ActiveOrderStrategy } from './order/active-order-strategy';
@@ -44,9 +42,6 @@ import { PaymentMethodEligibilityChecker } from './payment/payment-method-eligib
 import { PaymentMethodHandler } from './payment/payment-method-handler';
 import { PaymentProcess } from './payment/payment-process';
 import { SessionCacheStrategy } from './session-cache/session-cache-strategy';
-import { ShippingCalculator } from './shipping-method/shipping-calculator';
-import { ShippingEligibilityChecker } from './shipping-method/shipping-eligibility-checker';
-import { ShippingLineAssignmentStrategy } from './shipping-method/shipping-line-assignment-strategy';
 import { HealthCheckStrategy } from './system/health-check-strategy';
 import { TaxLineCalculationStrategy } from './tax/tax-line-calculation-strategy';
 import { TaxZoneStrategy } from './tax/tax-zone-strategy';
@@ -697,53 +692,6 @@ export interface CatalogOptions {
 }
 
 /**
- * @docsCategory shipping
- * */
-export interface ShippingOptions {
-    /**
-     * @description
-     * An array of available ShippingEligibilityCheckers for use in configuring ShippingMethods
-     */
-    shippingEligibilityCheckers?: Array<ShippingEligibilityChecker<any>>;
-    /**
-     * @description
-     * An array of available ShippingCalculators for use in configuring ShippingMethods
-     */
-    shippingCalculators?: Array<ShippingCalculator<any>>;
-    /**
-     * @description
-     * This strategy is used to assign a given {@link ShippingLine} to one or more {@link OrderLine}s of the Order.
-     * This allows you to set multiple shipping methods for a single order, each assigned a different subset of
-     * OrderLines.
-     *
-     * @since 2.0.0
-     */
-    shippingLineAssignmentStrategy?: ShippingLineAssignmentStrategy;
-    /**
-     * @description
-     * Allows the definition of custom states and transition logic for the fulfillment process state machine.
-     * Takes an array of objects implementing the {@link FulfillmentProcess} interface.
-     *
-     * @deprecated use `process`
-     */
-    customFulfillmentProcess?: Array<FulfillmentProcess<any>>;
-    /**
-     * @description
-     * Allows the definition of custom states and transition logic for the fulfillment process state machine.
-     * Takes an array of objects implementing the {@link FulfillmentProcess} interface.
-     *
-     * @since 2.0.0
-     * @default defaultFulfillmentProcess
-     */
-    process?: Array<FulfillmentProcess<any>>;
-    /**
-     * @description
-     * An array of available FulfillmentHandlers.
-     */
-    fulfillmentHandlers?: Array<FulfillmentHandler<any>>;
-}
-
-/**
  * @description
  * These credentials will be used to create the Superadmin user & administrator
  * when Vendure first bootstraps.
@@ -1079,11 +1027,6 @@ export interface VendureConfig {
     
     /**
      * @description
-     * Configures the available checkers and calculators for ShippingMethods.
-     */
-    shippingOptions?: ShippingOptions;
-    /**
-     * @description
      * Provide a logging service which implements the {@link VendureLogger} interface.
      * Note that the logging of SQL queries is controlled separately by the
      * `dbConnectionOptions.logging` property.
@@ -1127,7 +1070,6 @@ export interface RuntimeVendureConfig extends Required<VendureConfig> {
     importExportOptions: Required<ImportExportOptions>;
     jobQueueOptions: Required<JobQueueOptions>;
     orderOptions: Required<OrderOptions>;
-    shippingOptions: Required<ShippingOptions>;
     taxOptions: Required<TaxOptions>;
     systemOptions: Required<SystemOptions>;
 }

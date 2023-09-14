@@ -7,11 +7,9 @@ import { NativeAuthenticationMethod } from './authentication-method/native-authe
 import { Channel } from './channel/channel.entity';
 import { Customer } from './customer/customer.entity';
 import { CustomerGroup } from './customer-group/customer-group.entity';
-import { Fulfillment } from './fulfillment/fulfillment.entity';
 import { GlobalSettings } from './global-settings/global-settings.entity';
 import { Order } from './order/order.entity';
 import { OrderLine } from './order-line/order-line.entity';
-import { FulfillmentLine } from './order-line-reference/fulfillment-line.entity';
 import { OrderLineReference } from './order-line-reference/order-line-reference.entity';
 import { OrderModificationLine } from './order-line-reference/order-modification-line.entity';
 import { RefundLine } from './order-line-reference/refund-line.entity';
@@ -40,9 +38,6 @@ import { Seller } from './seller/seller.entity';
 import { AnonymousSession } from './session/anonymous-session.entity';
 import { AuthenticatedSession } from './session/authenticated-session.entity';
 import { Session } from './session/session.entity';
-import { ShippingLine } from './shipping-line/shipping-line.entity';
-import { ShippingMethodTranslation } from './shipping-method/shipping-method-translation.entity';
-import { ShippingMethod } from './shipping-method/shipping-method.entity';
 import { StockLevel } from './stock-level/stock-level.entity';
 import { StockLocation } from './stock-location/stock-location.entity';
 import { Allocation } from './stock-movement/allocation.entity';
@@ -75,8 +70,6 @@ export const coreEntitiesMap = {
     Customer,
     CustomerGroup,
     ExternalAuthenticationMethod,
-    Fulfillment,
-    FulfillmentLine,
     GlobalSettings,
     OrderModificationLine,
     NativeAuthenticationMethod,
@@ -107,9 +100,6 @@ export const coreEntitiesMap = {
     Role,
     Sale,
     Session,
-    ShippingLine,
-    ShippingMethod,
-    ShippingMethodTranslation,
     StockAdjustment,
     StockLevel,
     StockLocation,

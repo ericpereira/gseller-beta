@@ -5,19 +5,13 @@ import { ConfigurableOperationDef } from '../../../common/configurable-operation
 import { UserInputError } from '../../../common/error/errors';
 import { CollectionFilter } from '../../../config/catalog/collection-filter';
 import { ConfigService } from '../../../config/config.service';
-import { FulfillmentHandler } from '../../../config/fulfillment/fulfillment-handler';
 import { PaymentMethodEligibilityChecker } from '../../../config/payment/payment-method-eligibility-checker';
 import { PaymentMethodHandler } from '../../../config/payment/payment-method-handler';
-import { ShippingCalculator } from '../../../config/shipping-method/shipping-calculator';
-import { ShippingEligibilityChecker } from '../../../config/shipping-method/shipping-eligibility-checker';
 
 export type ConfigDefTypeMap = {
     CollectionFilter: CollectionFilter;
-    FulfillmentHandler: FulfillmentHandler;
     PaymentMethodEligibilityChecker: PaymentMethodEligibilityChecker;
     PaymentMethodHandler: PaymentMethodHandler;
-    ShippingCalculator: ShippingCalculator;
-    ShippingEligibilityChecker: ShippingEligibilityChecker;
 };
 
 export type ConfigDefType = keyof ConfigDefTypeMap;
@@ -32,12 +26,9 @@ export class ConfigArgService {
     constructor(private configService: ConfigService) {
         this.definitionsByType = {
             CollectionFilter: this.configService.catalogOptions.collectionFilters,
-            FulfillmentHandler: this.configService.shippingOptions.fulfillmentHandlers,
             PaymentMethodEligibilityChecker:
                 this.configService.paymentOptions.paymentMethodEligibilityCheckers || [],
             PaymentMethodHandler: this.configService.paymentOptions.paymentMethodHandlers,
-            ShippingCalculator: this.configService.shippingOptions.shippingCalculators,
-            ShippingEligibilityChecker: this.configService.shippingOptions.shippingEligibilityCheckers,
         };
     }
 
@@ -81,17 +72,6 @@ export class ConfigArgService {
                 output.push(match);
             }
         }
-        return output;
-    }
-
-    private parseOperationArgs(
-        input: ConfigurableOperationInput,
-        checkerOrCalculator: ShippingEligibilityChecker | ShippingCalculator,
-    ): ConfigurableOperation {
-        const output: ConfigurableOperation = {
-            code: input.code,
-            args: input.arguments,
-        };
         return output;
     }
 

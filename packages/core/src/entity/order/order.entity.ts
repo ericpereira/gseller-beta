@@ -20,12 +20,10 @@ import { Channel } from '../channel/channel.entity';
 import { CustomOrderFields } from '../custom-entity-fields';
 import { Customer } from '../customer/customer.entity';
 import { EntityId } from '../entity-id.decorator';
-import { Fulfillment } from '../fulfillment/fulfillment.entity';
 import { Money } from '../money.decorator';
 import { OrderLine } from '../order-line/order-line.entity';
 import { OrderModification } from '../order-modification/order-modification.entity';
 import { Payment } from '../payment/payment.entity';
-import { ShippingLine } from '../shipping-line/shipping-line.entity';
 import { Surcharge } from '../surcharge/surcharge.entity';
 
 /**
@@ -123,10 +121,6 @@ export class Order extends VendureEntity implements ChannelAware, HasCustomField
     @OneToMany(type => Payment, payment => payment.order)
     payments: Payment[];
 
-    @ManyToMany(type => Fulfillment)
-    @JoinTable()
-    fulfillments: Fulfillment[];
-
     @Column('varchar')
     currencyCode: CurrencyCode;
 
@@ -159,14 +153,7 @@ export class Order extends VendureEntity implements ChannelAware, HasCustomField
      */
     @Money()
     subTotalWithTax: number;
-
-    /**
-     * @description
-     * The shipping charges applied to this order.
-     */
-    @OneToMany(type => ShippingLine, shippingLine => shippingLine.order)
-    shippingLines: ShippingLine[];
-
+    
     /**
      * @description
      * The total of all the `shippingLines`.
@@ -183,17 +170,6 @@ export class Order extends VendureEntity implements ChannelAware, HasCustomField
         const groupedAdjustments = new Map<string, Discount>();
         for (const line of this.lines ?? []) {
             for (const discount of line.discounts) {
-                const adjustment = groupedAdjustments.get(discount.adjustmentSource);
-                if (adjustment) {
-                    adjustment.amount += discount.amount;
-                    adjustment.amountWithTax += discount.amountWithTax;
-                } else {
-                    groupedAdjustments.set(discount.adjustmentSource, { ...discount });
-                }
-            }
-        }
-        for (const shippingLine of this.shippingLines ?? []) {
-            for (const discount of shippingLine.discounts) {
                 const adjustment = groupedAdjustments.get(discount.adjustmentSource);
                 if (adjustment) {
                     adjustment.amount += discount.amount;
@@ -289,7 +265,7 @@ export class Order extends VendureEntity implements ChannelAware, HasCustomField
             { rate: number; base: number; tax: number; description: string }
         >();
         const taxId = (taxLine: TaxLine): string => `${taxLine.description}:${taxLine.taxRate}`;
-        const taxableLines = [...(this.lines ?? []), ...(this.shippingLines ?? [])];
+        const taxableLines = [...(this.lines ?? [])];
         for (const line of taxableLines) {
             const taxRateTotal = summate(line.taxLines, 'taxRate');
             for (const taxLine of line.taxLines) {
@@ -297,9 +273,9 @@ export class Order extends VendureEntity implements ChannelAware, HasCustomField
                 const row = taxRateMap.get(id);
                 const proportionOfTotalRate = 0 < taxLine.taxRate ? taxLine.taxRate / taxRateTotal : 0;
 
-                const lineBase = line instanceof OrderLine ? line.proratedLinePrice : line.discountedPrice;
+                const lineBase = line instanceof OrderLine ? line.proratedLinePrice : 0;
                 const lineWithTax =
-                    line instanceof OrderLine ? line.proratedLinePriceWithTax : line.discountedPriceWithTax;
+                    line instanceof OrderLine ? line.proratedLinePriceWithTax : 0;
                 const amount = Math.round((lineWithTax - lineBase) * proportionOfTotalRate);
                 if (row) {
                     row.tax += amount;

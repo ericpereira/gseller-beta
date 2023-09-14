@@ -4,10 +4,6 @@ import { Type } from '@vendure/common/lib/shared-types';
 
 import { ConfigurableOperationDef } from '../../common/configurable-operation';
 import { InternalServerError } from '../../common/error/errors';
-import {
-    ShippingCalculator,
-    ShippingEligibilityChecker,
-} from '../../config';
 import { CollectionFilter } from '../../config/catalog/collection-filter';
 import { ConfigService } from '../../config/config.service';
 import { PaymentMethodEligibilityChecker } from '../../config/payment/payment-method-eligibility-checker';
@@ -87,10 +83,6 @@ export class ConfigurableOperationCodec {
                 return this.configService.paymentOptions.paymentMethodHandlers;
             case PaymentMethodEligibilityChecker:
                 return this.configService.paymentOptions.paymentMethodEligibilityCheckers || [];
-            case ShippingEligibilityChecker:
-                return this.configService.shippingOptions.shippingEligibilityCheckers || [];
-            case ShippingCalculator:
-                return this.configService.shippingOptions.shippingCalculators || [];
             default:
                 throw new InternalServerError('error.unknown-configurable-operation-definition', {
                     name: defType.name,

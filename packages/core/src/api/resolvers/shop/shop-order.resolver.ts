@@ -181,24 +181,6 @@ export class ShopOrderResolver {
 
     @Query()
     @Allow(Permission.Owner)
-    async eligibleShippingMethods(
-        @Ctx() ctx: RequestContext,
-        @Args() args: ActiveOrderArgs,
-    ): Promise<ShippingMethodQuote[]> {
-        if (ctx.authorizedAsOwnerOnly) {
-            const sessionOrder = await this.activeOrderService.getActiveOrder(
-                ctx,
-                args[ACTIVE_ORDER_INPUT_FIELD_NAME],
-            );
-            if (sessionOrder) {
-                return this.orderService.getEligibleShippingMethods(ctx, sessionOrder.id);
-            }
-        }
-        return [];
-    }
-
-    @Query()
-    @Allow(Permission.Owner)
     async eligiblePaymentMethods(
         @Ctx() ctx: RequestContext,
         @Args() args: ActiveOrderArgs,
@@ -213,25 +195,6 @@ export class ShopOrderResolver {
             }
         }
         return [];
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.Owner)
-    async setOrderShippingMethod(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationSetOrderShippingMethodArgs & ActiveOrderArgs,
-    ): Promise<ErrorResultUnion<SetOrderShippingMethodResult, Order>> {
-        if (ctx.authorizedAsOwnerOnly) {
-            const sessionOrder = await this.activeOrderService.getActiveOrder(
-                ctx,
-                args[ACTIVE_ORDER_INPUT_FIELD_NAME],
-            );
-            if (sessionOrder) {
-                return this.orderService.setShippingMethod(ctx, sessionOrder.id, args.shippingMethodId);
-            }
-        }
-        return new NoActiveOrderError();
     }
 
     @Transaction()

@@ -95,11 +95,7 @@ export class ConfigModule implements OnApplicationBootstrap, OnApplicationShutdo
             orderSellerStrategy,
             guestCheckoutStrategy,
         } = this.configService.orderOptions;
-        const {
-            customFulfillmentProcess,
-            process: fulfillmentProcess,
-            shippingLineAssignmentStrategy,
-        } = this.configService.shippingOptions;
+        
         const { customPaymentProcess, process: paymentProcess } = this.configService.paymentOptions;
         const { entityIdStrategy: entityIdStrategyDeprecated } = this.configService;
         const { entityIdStrategy } = this.configService.entityOptions;
@@ -127,8 +123,6 @@ export class ConfigModule implements OnApplicationBootstrap, OnApplicationShutdo
             productVariantPriceCalculationStrategy,
             orderItemPriceCalculationStrategy,
             ...orderProcess,
-            ...customFulfillmentProcess,
-            ...fulfillmentProcess,
             ...customPaymentProcess,
             ...paymentProcess,
             stockAllocationStrategy,
@@ -138,7 +132,6 @@ export class ConfigModule implements OnApplicationBootstrap, OnApplicationShutdo
             changedPriceHandlingStrategy,
             ...(Array.isArray(activeOrderStrategy) ? activeOrderStrategy : [activeOrderStrategy]),
             orderSellerStrategy,
-            shippingLineAssignmentStrategy,
             stockLocationStrategy,
             productVariantPriceSelectionStrategy,
             guestCheckoutStrategy,
@@ -148,15 +141,10 @@ export class ConfigModule implements OnApplicationBootstrap, OnApplicationShutdo
     private getConfigurableOperations(): Array<ConfigurableOperationDef<any>> {
         const { paymentMethodHandlers, paymentMethodEligibilityCheckers } = this.configService.paymentOptions;
         const { collectionFilters } = this.configService.catalogOptions;
-        const { shippingCalculators, shippingEligibilityCheckers, fulfillmentHandlers } =
-            this.configService.shippingOptions;
         return [
             ...(paymentMethodEligibilityCheckers || []),
             ...paymentMethodHandlers,
             ...collectionFilters,
-            ...(shippingCalculators || []),
-            ...(shippingEligibilityCheckers || []),
-            ...(fulfillmentHandlers || []),
         ];
     }
 }

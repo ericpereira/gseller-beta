@@ -182,23 +182,4 @@ export class DraftOrderResolver {
     ): Promise<Order> {
         return this.orderService.removeCouponCode(ctx, args.orderId, args.couponCode);
     }
-
-    @Query()
-    @Allow(Permission.CreateOrder)
-    async eligibleShippingMethodsForDraftOrder(
-        @Ctx() ctx: RequestContext,
-        @Args() args: QueryEligibleShippingMethodsForDraftOrderArgs,
-    ): Promise<ShippingMethodQuote[]> {
-        return this.orderService.getEligibleShippingMethods(ctx, args.orderId);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.CreateOrder)
-    async setDraftOrderShippingMethod(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationSetDraftOrderShippingMethodArgs,
-    ): Promise<ErrorResultUnion<SetOrderShippingMethodResult, Order>> {
-        return this.orderService.setShippingMethod(ctx, args.orderId, [args.shippingMethodId]);
-    }
 }
