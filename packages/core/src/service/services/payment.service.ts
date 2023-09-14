@@ -377,6 +377,10 @@ export class PaymentService {
                 );
                 refundLines.push(refundLine);
             }
+<<<<<<< HEAD
+=======
+            
+>>>>>>> d654f5a2981735a4b286a057c49d1f7af65596c9
             if (createRefundResult) {
                 let finalize: () => Promise<any>;
                 const fromState = refund.state;

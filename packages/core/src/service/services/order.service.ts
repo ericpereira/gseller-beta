@@ -985,40 +985,6 @@ export class OrderService {
         return payment;
     }
 
-    private async ensureSufficientStockForFulfillment(
-        ctx: RequestContext,
-        input: FulfillOrderInput,
-    ): Promise<InsufficientStockOnHandError | undefined> {
-        const lines = await this.connection.getRepository(ctx, OrderLine).find({
-            where: {
-                id: In(input.lines.map(l => l.orderLineId)),
-            },
-            relations: ['productVariant'],
-        });
-
-        for (const line of lines) {
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            const lineInput = input.lines.find(l => idsAreEqual(l.orderLineId, line.id))!;
-
-            const fulfillableStockLevel = await this.productVariantService.getFulfillableStockLevel(
-                ctx,
-                line.productVariant,
-            );
-            if (fulfillableStockLevel < lineInput.quantity) {
-                const { stockOnHand } = await this.stockLevelService.getAvailableStock(
-                    ctx,
-                    line.productVariant.id,
-                );
-                const productVariant = this.translator.translate(line.productVariant, ctx);
-                return new InsufficientStockOnHandError({
-                    productVariantId: productVariant.id as string,
-                    productVariantName: productVariant.name,
-                    stockOnHand,
-                });
-            }
-        }
-    }
-
     /**
      * @description
      * Returns an array of all Surcharges associated with the Order.
