@@ -26,8 +26,6 @@ import { CustomFieldRelationService } from '../helpers/custom-field-relation/cus
 import { ListQueryBuilder } from '../helpers/list-query-builder/list-query-builder';
 import { patchEntity } from '../helpers/utils/patch-entity';
 
-import { HistoryService } from './history.service';
-
 /**
  * @description
  * Contains methods relating to {@link CustomerGroup} entities.
@@ -39,7 +37,6 @@ export class CustomerGroupService {
     constructor(
         private connection: TransactionalConnection,
         private listQueryBuilder: ListQueryBuilder,
-        private historyService: HistoryService,
         private eventBus: EventBus,
         private customFieldRelationService: CustomFieldRelationService,
     ) {}
@@ -92,17 +89,6 @@ export class CustomerGroupService {
         const newCustomerGroup = await this.connection.getRepository(ctx, CustomerGroup).save(customerGroup);
         if (input.customerIds) {
             const customers = await this.getCustomersFromIds(ctx, input.customerIds);
-            for (const customer of customers) {
-                customer.groups = [...(customer.groups || []), newCustomerGroup];
-                await this.historyService.createHistoryEntryForCustomer({
-                    ctx,
-                    customerId: customer.id,
-                    type: HistoryEntryType.CUSTOMER_ADDED_TO_GROUP,
-                    data: {
-                        groupName: customerGroup.name,
-                    },
-                });
-            }
             await this.connection.getRepository(ctx, Customer).save(customers);
         }
         const savedCustomerGroup = await assertFound(this.findOne(ctx, newCustomerGroup.id));
@@ -148,19 +134,6 @@ export class CustomerGroupService {
     ): Promise<CustomerGroup> {
         const customers = await this.getCustomersFromIds(ctx, input.customerIds);
         const group = await this.connection.getEntityOrThrow(ctx, CustomerGroup, input.customerGroupId);
-        for (const customer of customers) {
-            if (!customer.groups.map(g => g.id).includes(input.customerGroupId)) {
-                customer.groups.push(group);
-                await this.historyService.createHistoryEntryForCustomer({
-                    ctx,
-                    customerId: customer.id,
-                    type: HistoryEntryType.CUSTOMER_ADDED_TO_GROUP,
-                    data: {
-                        groupName: group.name,
-                    },
-                });
-            }
-        }
 
         await this.connection.getRepository(ctx, Customer).save(customers, { reload: false });
         this.eventBus.publish(new CustomerGroupChangeEvent(ctx, customers, group, 'assigned'));
@@ -179,14 +152,6 @@ export class CustomerGroupService {
                 throw new UserInputError('error.customer-does-not-belong-to-customer-group');
             }
             customer.groups = customer.groups.filter(g => !idsAreEqual(g.id, group.id));
-            await this.historyService.createHistoryEntryForCustomer({
-                ctx,
-                customerId: customer.id,
-                type: HistoryEntryType.CUSTOMER_REMOVED_FROM_GROUP,
-                data: {
-                    groupName: group.name,
-                },
-            });
         }
         await this.connection.getRepository(ctx, Customer).save(customers, { reload: false });
         this.eventBus.publish(new CustomerGroupChangeEvent(ctx, customers, group, 'removed'));

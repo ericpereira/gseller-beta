@@ -8,7 +8,6 @@ import { StateMachineConfig } from '../../../common/finite-state-machine/types';
 import { ConfigService } from '../../../config/config.service';
 import { Order } from '../../../entity/order/order.entity';
 import { Refund } from '../../../entity/refund/refund.entity';
-import { HistoryService } from '../../services/history.service';
 
 import { RefundState, refundStateTransitions, RefundTransitionData } from './refund-state';
 
@@ -20,17 +19,7 @@ export class RefundStateMachine {
             return true;
         },
         onTransitionEnd: async (fromState, toState, data) => {
-            await this.historyService.createHistoryEntryForOrder({
-                ctx: data.ctx,
-                orderId: data.order.id,
-                type: HistoryEntryType.ORDER_REFUND_TRANSITION,
-                data: {
-                    refundId: data.refund.id,
-                    from: fromState,
-                    to: toState,
-                    reason: data.refund.reason,
-                },
-            });
+            
         },
         onError: (fromState, toState, message) => {
             throw new IllegalOperationError(message || 'error.cannot-transition-refund-from-to', {
@@ -40,7 +29,7 @@ export class RefundStateMachine {
         },
     };
 
-    constructor(private configService: ConfigService, private historyService: HistoryService) {}
+    constructor(private configService: ConfigService) {}
 
     getNextStates(refund: Refund): readonly RefundState[] {
         const fsm = new FSM(this.config, refund.state);

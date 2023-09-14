@@ -20,7 +20,6 @@ declare module '../../service/helpers/fulfillment-state-machine/fulfillment-stat
 let connection: import('../../connection/transactional-connection').TransactionalConnection;
 let configService: import('../config.service').ConfigService;
 let orderService: import('../../service/index').OrderService;
-let historyService: import('../../service/index').HistoryService;
 let stockMovementService: import('../../service/index').StockMovementService;
 let stockLevelService: import('../../service/index').StockLevelService;
 
@@ -64,14 +63,12 @@ export const defaultFulfillmentProcess: FulfillmentProcess<FulfillmentState> = {
             m => m.TransactionalConnection,
         );
         const ConfigService = await import('../config.service.js').then(m => m.ConfigService);
-        const HistoryService = await import('../../service/index.js').then(m => m.HistoryService);
         const OrderService = await import('../../service/index.js').then(m => m.OrderService);
         const StockMovementService = await import('../../service/index.js').then(m => m.StockMovementService);
         const StockLevelService = await import('../../service/index.js').then(m => m.StockLevelService);
         connection = injector.get(TransactionalConnection);
         configService = injector.get(ConfigService);
         orderService = injector.get(OrderService);
-        historyService = injector.get(HistoryService);
         stockMovementService = injector.get(StockMovementService);
         stockLevelService = injector.get(StockLevelService);
     },
@@ -100,20 +97,6 @@ export const defaultFulfillmentProcess: FulfillmentProcess<FulfillmentState> = {
         if (fromState === 'Created' && toState === 'Pending') {
             await stockMovementService.createSalesForOrder(ctx, fulfillment.lines);
         }
-        const historyEntryPromises = orders.map(order =>
-            historyService.createHistoryEntryForOrder({
-                orderId: order.id,
-                type: HistoryEntryType.ORDER_FULFILLMENT_TRANSITION,
-                ctx,
-                data: {
-                    fulfillmentId: fulfillment.id,
-                    from: fromState,
-                    to: toState,
-                },
-            }),
-        );
-
-        await Promise.all(historyEntryPromises);
 
         await Promise.all(
             orders.map(order =>

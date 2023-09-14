@@ -3,9 +3,7 @@ import { HistoryEntryListOptions, OrderHistoryArgs, SortOrder } from '@vendure/c
 
 import { assertFound, idsAreEqual } from '../../../common/utils';
 import { Order } from '../../../entity/order/order.entity';
-import { ProductOptionGroup } from '../../../entity/product-option-group/product-option-group.entity';
 import { TranslatorService } from '../../../service/index';
-import { HistoryService } from '../../../service/services/history.service';
 import { OrderService } from '../../../service/services/order.service';
 import { ShippingMethodService } from '../../../service/services/shipping-method.service';
 import { ApiType } from '../../common/get-api-type';
@@ -17,9 +15,6 @@ import { Ctx } from '../../decorators/request-context.decorator';
 export class OrderEntityResolver {
     constructor(
         private orderService: OrderService,
-        private shippingMethodService: ShippingMethodService,
-        private historyService: HistoryService,
-        private translator: TranslatorService,
     ) {}
 
     @ResolveField()
@@ -53,21 +48,6 @@ export class OrderEntityResolver {
         }
         const { lines } = await assertFound(this.orderService.findOne(ctx, order.id));
         return lines;
-    }
-
-    @ResolveField()
-    async history(
-        @Ctx() ctx: RequestContext,
-        @Api() apiType: ApiType,
-        @Parent() order: Order,
-        @Args() args: OrderHistoryArgs,
-    ) {
-        const publicOnly = apiType === 'shop';
-        const options: HistoryEntryListOptions = { ...args.options };
-        if (!options.sort) {
-            options.sort = { createdAt: SortOrder.ASC };
-        }
-        return this.historyService.getHistoryForOrder(ctx, order.id, publicOnly, options);
     }
 }
 

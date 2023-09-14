@@ -127,27 +127,6 @@ export class OrderResolver {
     @Transaction()
     @Mutation()
     @Allow(Permission.UpdateOrder)
-    async addNoteToOrder(@Ctx() ctx: RequestContext, @Args() args: MutationAddNoteToOrderArgs) {
-        return this.orderService.addNoteToOrder(ctx, args.input);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder)
-    async updateOrderNote(@Ctx() ctx: RequestContext, @Args() args: MutationUpdateOrderNoteArgs) {
-        return this.orderService.updateOrderNote(ctx, args.input);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder)
-    async deleteOrderNote(@Ctx() ctx: RequestContext, @Args() args: MutationDeleteOrderNoteArgs) {
-        return this.orderService.deleteOrderNote(ctx, args.id);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder)
     async setOrderCustomFields(@Ctx() ctx: RequestContext, @Args() args: MutationSetOrderCustomFieldsArgs) {
         return this.orderService.updateCustomFields(ctx, args.input.id, args.input.customFields);
     }

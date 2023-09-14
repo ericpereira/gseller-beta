@@ -149,18 +149,4 @@ export class CustomerResolver {
     async addNoteToCustomer(@Ctx() ctx: RequestContext, @Args() args: MutationAddNoteToCustomerArgs) {
         return this.customerService.addNoteToCustomer(ctx, args.input);
     }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateCustomer)
-    async updateCustomerNote(@Ctx() ctx: RequestContext, @Args() args: MutationUpdateCustomerNoteArgs) {
-        return this.customerService.updateCustomerNote(ctx, args.input);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateCustomer)
-    async deleteCustomerNote(@Ctx() ctx: RequestContext, @Args() args: MutationDeleteCustomerNoteArgs) {
-        return this.customerService.deleteCustomerNote(ctx, args.id);
-    }
 }

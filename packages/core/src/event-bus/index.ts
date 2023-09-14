@@ -19,7 +19,6 @@ export * from './events/customer-group-change-event';
 export * from './events/fulfillment-event';
 export * from './events/fulfillment-state-transition-event';
 export * from './events/global-settings-event';
-export * from './events/history-entry-event';
 export * from './events/identifier-change-event';
 export * from './events/identifier-change-request-event';
 export * from './events/initializer-event';
