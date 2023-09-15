@@ -17,7 +17,7 @@ import { createSelfRefreshingCache, SelfRefreshingCache } from '../../common/sel
 import { assertFound } from '../../common/utils';
 import { ConfigService } from '../../config/config.service';
 import { TransactionalConnection } from '../../connection/transactional-connection';
-import { Channel, TaxRate } from '../../entity';
+import { Channel } from '../../entity';
 import { Country } from '../../entity/region/country.entity';
 import { Zone } from '../../entity/zone/zone.entity';
 import { EventBus } from '../../event-bus';
@@ -152,28 +152,13 @@ export class ZoneService {
             };
         }
 
-        const taxRatesUsingZone = await this.connection
-            .getRepository(ctx, TaxRate)
-            .createQueryBuilder('taxRate')
-            .where('taxRate.zone = :id', { id })
-            .getMany();
-
-        if (0 < taxRatesUsingZone.length) {
-            return {
-                result: DeletionResult.NOT_DELETED,
-                message: ctx.translate('message.zone-used-in-tax-rates', {
-                    taxRateNames: taxRatesUsingZone.map(t => t.name).join(', '),
-                }),
-            };
-        } else {
-            await this.connection.getRepository(ctx, Zone).remove(zone);
-            await this.zones.refresh(ctx);
-            this.eventBus.publish(new ZoneEvent(ctx, deletedZone, 'deleted', id));
-            return {
-                result: DeletionResult.DELETED,
-                message: '',
-            };
-        }
+        await this.connection.getRepository(ctx, Zone).remove(zone);
+        await this.zones.refresh(ctx);
+        this.eventBus.publish(new ZoneEvent(ctx, deletedZone, 'deleted', id));
+        return {
+            result: DeletionResult.DELETED,
+            message: '',
+        };
     }
 
     async addMembersToZone(

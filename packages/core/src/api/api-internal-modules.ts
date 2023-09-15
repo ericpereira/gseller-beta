@@ -30,8 +30,6 @@ import { RoleResolver } from './resolvers/admin/role.resolver';
 import { SearchResolver } from './resolvers/admin/search.resolver';
 import { SellerResolver } from './resolvers/admin/seller.resolver';
 import { TagResolver } from './resolvers/admin/tag.resolver';
-import { TaxCategoryResolver } from './resolvers/admin/tax-category.resolver';
-import { TaxRateResolver } from './resolvers/admin/tax-rate.resolver';
 import { ZoneResolver } from './resolvers/admin/zone.resolver';
 import { AdministratorEntityResolver } from './resolvers/entity/administrator-entity.resolver';
 import { AssetEntityResolver } from './resolvers/entity/asset-entity.resolver';
@@ -63,7 +61,6 @@ import {
 import { RefundEntityResolver } from './resolvers/entity/refund-entity.resolver';
 import { RefundLineEntityResolver } from './resolvers/entity/refund-line-entity.resolver';
 import { RoleEntityResolver } from './resolvers/entity/role-entity.resolver';
-import { TaxRateEntityResolver } from './resolvers/entity/tax-rate-entity.resolver';
 import { UserEntityResolver } from './resolvers/entity/user-entity.resolver';
 import { ZoneEntityResolver } from './resolvers/entity/zone-entity.resolver';
 import { ShopAuthResolver } from './resolvers/shop/shop-auth.resolver';
@@ -91,8 +88,6 @@ const adminResolvers = [
     RoleResolver,
     SearchResolver,
     TagResolver,
-    TaxCategoryResolver,
-    TaxRateResolver,
     SellerResolver,
     ZoneResolver,
 ];
@@ -122,7 +117,6 @@ export const entityResolvers = [
     RefundLineEntityResolver,
     RoleEntityResolver,
     UserEntityResolver,
-    TaxRateEntityResolver,
     ZoneEntityResolver,
 ];
 

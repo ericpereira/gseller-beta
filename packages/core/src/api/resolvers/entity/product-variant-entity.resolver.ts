@@ -10,7 +10,7 @@ import { PaginatedList } from '@vendure/common/lib/shared-types';
 import { RequestContextCacheService } from '../../../cache/request-context-cache.service';
 import { Translated } from '../../../common/types/locale-types';
 import { idsAreEqual } from '../../../common/utils';
-import { Asset, Channel, Product, ProductOption, TaxRate } from '../../../entity';
+import { Asset, Channel, Product, ProductOption } from '../../../entity';
 import { ProductVariant } from '../../../entity/product-variant/product-variant.entity';
 import { LocaleStringHydrator } from '../../../service/helpers/locale-string-hydrator/locale-string-hydrator';
 import { AssetService } from '../../../service/services/asset.service';
@@ -48,27 +48,11 @@ export class ProductVariantEntityResolver {
     }
 
     @ResolveField()
-    async priceWithTax(
-        @Ctx() ctx: RequestContext,
-        @Parent() productVariant: ProductVariant,
-    ): Promise<number> {
-        return this.productVariantService.hydratePriceFields(ctx, productVariant, 'priceWithTax');
-    }
-
-    @ResolveField()
     async currencyCode(
         @Ctx() ctx: RequestContext,
         @Parent() productVariant: ProductVariant,
     ): Promise<CurrencyCode> {
         return this.productVariantService.hydratePriceFields(ctx, productVariant, 'currencyCode');
-    }
-
-    @ResolveField()
-    async taxRateApplied(
-        @Ctx() ctx: RequestContext,
-        @Parent() productVariant: ProductVariant,
-    ): Promise<TaxRate> {
-        return this.productVariantService.hydratePriceFields(ctx, productVariant, 'taxRateApplied');
     }
 
     @ResolveField()

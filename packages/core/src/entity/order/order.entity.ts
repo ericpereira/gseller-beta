@@ -24,7 +24,6 @@ import { Money } from '../money.decorator';
 import { OrderLine } from '../order-line/order-line.entity';
 import { OrderModification } from '../order-modification/order-modification.entity';
 import { Payment } from '../payment/payment.entity';
-import { Surcharge } from '../surcharge/surcharge.entity';
 
 /**
  * @description
@@ -96,16 +95,6 @@ export class Order extends VendureEntity implements ChannelAware, HasCustomField
 
     @OneToMany(type => OrderLine, line => line.order)
     lines: OrderLine[];
-
-    /**
-     * @description
-     * Surcharges are arbitrary modifications to the Order total which are neither
-     * ProductVariants nor discounts resulting from applied Promotions. For example,
-     * one-off discounts based on customer interaction, or surcharges based on payment
-     * methods.
-     */
-    @OneToMany(type => Surcharge, surcharge => surcharge.order)
-    surcharges: Surcharge[];
 
     /**
      * @description

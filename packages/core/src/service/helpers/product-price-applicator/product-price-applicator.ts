@@ -7,7 +7,6 @@ import { idsAreEqual } from '../../../common/utils';
 import { ConfigService } from '../../../config/config.service';
 import { Order } from '../../../entity/order/order.entity';
 import { ProductVariant } from '../../../entity/product-variant/product-variant.entity';
-import { TaxRateService } from '../../services/tax-rate.service';
 import { ZoneService } from '../../services/zone.service';
 
 /**
@@ -42,7 +41,6 @@ import { ZoneService } from '../../services/zone.service';
 export class ProductPriceApplicator {
     constructor(
         private configService: ConfigService,
-        private taxRateService: TaxRateService,
         private zoneService: ZoneService,
         private requestCache: RequestContextCacheService,
     ) {}
@@ -69,32 +67,22 @@ export class ProductPriceApplicator {
                 channel: ctx.channel.code,
             });
         }
-        const { taxZoneStrategy } = this.configService.taxOptions;
         const zones = await this.requestCache.get(ctx, 'allZones', () =>
             this.zoneService.getAllWithMembers(ctx),
         );
-        const activeTaxZone = await this.requestCache.get(ctx, 'activeTaxZone', () =>
-            taxZoneStrategy.determineTaxZone(ctx, zones, ctx.channel, order),
-        );
+        const activeTaxZone = await this.requestCache.get(ctx, 'activeTaxZone', () => null);
         if (!activeTaxZone) {
             throw new InternalServerError('error.no-active-tax-zone');
         }
-        const applicableTaxRate = await this.requestCache.get(
-            ctx,
-            `applicableTaxRate-${activeTaxZone.id}-${variant.taxCategory.id}`,
-            () => this.taxRateService.getApplicableTaxRate(ctx, activeTaxZone, variant.taxCategory),
-        );
 
         const { price, priceIncludesTax } = await productVariantPriceCalculationStrategy.calculate({
             inputPrice: channelPrice.price,
-            taxCategory: variant.taxCategory,
             activeTaxZone,
             ctx,
         });
 
         variant.listPrice = price;
         variant.listPriceIncludesTax = priceIncludesTax;
-        variant.taxRateApplied = applicableTaxRate;
         variant.currencyCode = channelPrice.currencyCode;
         return variant;
     }

@@ -9,7 +9,6 @@ import { Order } from '../order/order.entity';
 import { OrderModificationLine } from '../order-line-reference/order-modification-line.entity';
 import { Payment } from '../payment/payment.entity';
 import { Refund } from '../refund/refund.entity';
-import { Surcharge } from '../surcharge/surcharge.entity';
 
 /**
  * @description
@@ -33,9 +32,6 @@ export class OrderModification extends VendureEntity {
 
     @OneToMany(type => OrderModificationLine, line => line.modification)
     lines: OrderModificationLine[];
-
-    @OneToMany(type => Surcharge, surcharge => surcharge.orderModification)
-    surcharges: Surcharge[];
 
     @Money()
     priceChange: number;

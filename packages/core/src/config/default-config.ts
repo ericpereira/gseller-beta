@@ -37,8 +37,6 @@ import { DefaultOrderCodeStrategy } from './order/order-code-strategy';
 import { UseGuestStrategy } from './order/use-guest-strategy';
 import { defaultPaymentProcess } from './payment/default-payment-process';
 import { InMemorySessionCacheStrategy } from './session-cache/in-memory-session-cache-strategy';
-import { DefaultTaxLineCalculationStrategy } from './tax/default-tax-line-calculation-strategy';
-import { DefaultTaxZoneStrategy } from './tax/default-tax-zone-strategy';
 import { RuntimeVendureConfig } from './vendure-config';
 
 /**
@@ -142,10 +140,6 @@ export const defaultConfig: RuntimeVendureConfig = {
         paymentMethodHandlers: [],
         customPaymentProcess: [],
         process: [defaultPaymentProcess],
-    },
-    taxOptions: {
-        taxZoneStrategy: new DefaultTaxZoneStrategy(),
-        taxLineCalculationStrategy: new DefaultTaxLineCalculationStrategy(),
     },
     importExportOptions: {
         importAssetsDir: __dirname,

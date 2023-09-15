@@ -14,8 +14,6 @@ import { CustomProductVariantFields } from '../custom-entity-fields';
 import { EntityId } from '../entity-id.decorator';
 import { Product } from '../product/product.entity';
 import { ProductOption } from '../product-option/product-option.entity';
-import { TaxCategory } from '../tax-category/tax-category.entity';
-import { TaxRate } from '../tax-rate/tax-rate.entity';
 
 import { ProductVariantAsset } from './product-variant-asset.entity';
 import { ProductVariantPrice } from './product-variant-price.entity';
@@ -73,7 +71,7 @@ export class ProductVariant
             return 0;
         }
         return roundMoney(
-            this.listPriceIncludesTax ? this.taxRateApplied.netPriceOf(this.listPrice) : this.listPrice,
+            this.listPriceIncludesTax ? 0 : this.listPrice,
         );
     }
 
@@ -89,14 +87,9 @@ export class ProductVariant
             return 0;
         }
         return roundMoney(
-            this.listPriceIncludesTax ? this.listPrice : this.taxRateApplied.grossPriceOf(this.listPrice),
+            this.listPriceIncludesTax ? this.listPrice : 0,
         );
     }
-
-    /**
-     * Calculated at run-time
-     */
-    taxRateApplied: TaxRate;
 
     @Index()
     @ManyToOne(type => Asset, { onDelete: 'SET NULL' })
@@ -106,10 +99,6 @@ export class ProductVariant
         onDelete: 'SET NULL',
     })
     assets: ProductVariantAsset[];
-
-    @Index()
-    @ManyToOne(type => TaxCategory)
-    taxCategory: TaxCategory;
 
     @OneToMany(type => ProductVariantPrice, price => price.variant, { eager: true })
     productVariantPrices: ProductVariantPrice[];

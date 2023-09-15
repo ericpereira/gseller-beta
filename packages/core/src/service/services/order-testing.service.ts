@@ -47,7 +47,6 @@ export class OrderTestingService {
         const { orderItemPriceCalculationStrategy } = this.configService.orderOptions;
         const mockOrder = new Order({
             lines: [],
-            surcharges: [],
             modifications: [],
         });
         mockOrder.shippingAddress = shippingAddress;
@@ -64,7 +63,6 @@ export class OrderTestingService {
                 adjustments: [],
                 taxLines: [],
                 quantity: line.quantity,
-                taxCategory: productVariant.taxCategory,
             });
             mockOrder.lines.push(orderLine);
 
@@ -75,11 +73,9 @@ export class OrderTestingService {
                 mockOrder,
                 orderLine.quantity,
             );
-            const taxRate = productVariant.taxRateApplied;
             orderLine.listPrice = price;
             orderLine.listPriceIncludesTax = priceIncludesTax;
         }
-        await this.orderCalculator.applyPriceAdjustments(ctx, mockOrder, []);
         return mockOrder;
     }
 }

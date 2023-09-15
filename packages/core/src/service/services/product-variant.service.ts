@@ -32,7 +32,6 @@ import {
     OrderLine,
     ProductOptionGroup,
     ProductVariantPrice,
-    TaxCategory,
 } from '../../entity';
 import { Product } from '../../entity/product/product.entity';
 import { ProductOption } from '../../entity/product-option/product-option.entity';
@@ -52,7 +51,6 @@ import { AssetService } from './asset.service';
 import { ChannelService } from './channel.service';
 import { GlobalSettingsService } from './global-settings.service';
 import { RoleService } from './role.service';
-import { TaxCategoryService } from './tax-category.service';
 
 /**
  * @description
@@ -65,7 +63,6 @@ export class ProductVariantService {
     constructor(
         private connection: TransactionalConnection,
         private configService: ConfigService,
-        private taxCategoryService: TaxCategoryService,
         private assetService: AssetService,
         private translatableSaver: TranslatableSaver,
         private eventBus: EventBus,
@@ -361,7 +358,7 @@ export class ProductVariantService {
         if (input.price == null) {
             input.price = 0;
         }
-        input.taxCategoryId = (await this.getTaxCategoryForNewVariant(ctx, input.taxCategoryId)).id;
+        
         const inputWithoutPrice = {
             ...input,
         };
@@ -381,7 +378,6 @@ export class ProductVariantService {
                 }
                 
                 variant.product = { id: input.productId } as any;
-                variant.taxCategory = { id: input.taxCategoryId } as any;
                 await this.assetService.updateFeaturedAsset(ctx, variant, input);
                 await this.channelService.assignToCurrentChannel(variant, ctx);
             },
@@ -431,12 +427,6 @@ export class ProductVariantService {
             entityType: ProductVariant,
             translationType: ProductVariantTranslation,
             beforeSave: async v => {
-                if (input.taxCategoryId) {
-                    const taxCategory = await this.taxCategoryService.findOne(ctx, input.taxCategoryId);
-                    if (taxCategory) {
-                        v.taxCategory = taxCategory;
-                    }
-                }
                 if (input.optionIds && input.optionIds.length) {
                     const selectedOptions = await this.connection
                         .getRepository(ctx, ProductOption)
@@ -545,7 +535,7 @@ export class ProductVariantService {
      *
      * Is optimized to make as few DB calls as possible using caching based on the open request.
      */
-    async hydratePriceFields<F extends 'currencyCode' | 'price' | 'priceWithTax' | 'taxRateApplied'>(
+    async hydratePriceFields<F extends 'currencyCode' | 'price' >(
         ctx: RequestContext,
         variant: ProductVariant,
         priceField: F,
@@ -565,15 +555,6 @@ export class ProductVariantService {
                             { relations: ['productVariantPrices'], includeSoftDeleted: true },
                         );
                         variant.productVariantPrices = variantWithPrices.productVariantPrices;
-                    }
-                    if (!variant.taxCategory) {
-                        const variantWithTaxCategory = await this.connection.getEntityOrThrow(
-                            ctx,
-                            ProductVariant,
-                            variant.id,
-                            { relations: ['taxCategory'], includeSoftDeleted: true },
-                        );
-                        variant.taxCategory = variantWithTaxCategory.taxCategory;
                     }
                     resolve(await this.applyChannelPriceAndTax(variant, ctx));
                 } catch (e: any) {
@@ -780,23 +761,5 @@ export class ProductVariantService {
             .map(x => (prop ? x[prop] : x))
             .sort()
             .join(glue);
-    }
-
-    private async getTaxCategoryForNewVariant(
-        ctx: RequestContext,
-        taxCategoryId: ID | null | undefined,
-    ): Promise<TaxCategory> {
-        let taxCategory: TaxCategory;
-        if (taxCategoryId) {
-            taxCategory = await this.connection.getEntityOrThrow(ctx, TaxCategory, taxCategoryId);
-        } else {
-            const taxCategories = await this.taxCategoryService.findAll(ctx);
-            taxCategory = taxCategories.items.find(t => t.isDefault === true) ?? taxCategories.items[0];
-        }
-        if (!taxCategory) {
-            // there is no TaxCategory set up, so create a default
-            taxCategory = await this.taxCategoryService.create(ctx, { name: 'Standard Tax' });
-        }
-        return taxCategory;
     }
 }

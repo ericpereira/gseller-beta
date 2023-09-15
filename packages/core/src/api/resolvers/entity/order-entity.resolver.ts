@@ -25,14 +25,6 @@ export class OrderEntityResolver {
     }
 
     @ResolveField()
-    async surcharges(@Ctx() ctx: RequestContext, @Parent() order: Order) {
-        if (order.surcharges) {
-            return order.surcharges;
-        }
-        return this.orderService.getOrderSurcharges(ctx, order.id);
-    }
-
-    @ResolveField()
     async lines(@Ctx() ctx: RequestContext, @Parent() order: Order) {
         if (order.lines) {
             return order.lines;

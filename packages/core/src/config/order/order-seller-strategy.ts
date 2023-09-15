@@ -5,8 +5,6 @@ import { InjectableStrategy } from '../../common/index';
 import { Channel } from '../../entity/channel/channel.entity';
 import { Order } from '../../entity/order/order.entity';
 import { OrderLine } from '../../entity/order-line/order-line.entity';
-import { Payment } from '../../entity/payment/payment.entity';
-import { Surcharge } from '../../entity/surcharge/surcharge.entity';
 import { OrderState } from '../../service/index';
 
 /**

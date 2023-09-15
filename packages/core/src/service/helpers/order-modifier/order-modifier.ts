@@ -42,7 +42,6 @@ import { OrderModificationLine } from '../../../entity/order-line-reference/orde
 import { OrderModification } from '../../../entity/order-modification/order-modification.entity';
 import { Payment } from '../../../entity/payment/payment.entity';
 import { ProductVariant } from '../../../entity/product-variant/product-variant.entity';
-import { Surcharge } from '../../../entity/surcharge/surcharge.entity';
 import { EventBus } from '../../../event-bus/event-bus';
 import { OrderLineEvent } from '../../../event-bus/index';
 import { CountryService } from '../../services/country.service';
@@ -143,7 +142,6 @@ export class OrderModifier {
         const orderLine = await this.connection.getRepository(ctx, OrderLine).save(
             new OrderLine({
                 productVariant,
-                taxCategory: productVariant.taxCategory,
                 featuredAsset: productVariant.featuredAsset ?? productVariant.product.featuredAsset,
                 listPrice: productVariant.listPrice,
                 listPriceIncludesTax: productVariant.listPriceIncludesTax,
@@ -196,7 +194,6 @@ export class OrderModifier {
             order,
             note: input.note || '',
             lines: [],
-            surcharges: [],
         });
         const initialTotalWithTax = order.totalWithTax;
         const initialShippingWithTax = order.shippingWithTax;
@@ -304,32 +301,6 @@ export class OrderModifier {
             updatedOrderLineIds.push(orderLine.id);
         }
 
-        for (const surchargeInput of input.surcharges ?? []) {
-            const taxLines =
-                surchargeInput.taxRate != null
-                    ? [
-                          {
-                              taxRate: surchargeInput.taxRate,
-                              description: surchargeInput.taxDescription || '',
-                          },
-                      ]
-                    : [];
-            const surcharge = await this.connection.getRepository(ctx, Surcharge).save(
-                new Surcharge({
-                    sku: surchargeInput.sku || '',
-                    description: surchargeInput.description,
-                    listPrice: surchargeInput.price,
-                    listPriceIncludesTax: surchargeInput.priceIncludesTax,
-                    taxLines,
-                    order,
-                }),
-            );
-            order.surcharges.push(surcharge);
-            modification.surcharges.push(surcharge);
-            if (surcharge.priceWithTax < 0) {
-                refundInput.adjustment += Math.abs(surcharge.priceWithTax);
-            }
-        }
         if (input.surcharges?.length) {
             await this.connection.getRepository(ctx, Order).save(order, { reload: false });
         }

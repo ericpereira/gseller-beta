@@ -47,7 +47,6 @@ export class OrderSplitter {
                     channels: [new Channel({ id: partialOrder.channelId }), defaultChannel],
                     state: partialOrder.state,
                     lines,
-                    surcharges: [],
                     couponCodes: order.couponCodes,
                     modifications: [],
                     shippingAddress: order.shippingAddress,
@@ -77,7 +76,6 @@ export class OrderSplitter {
                 ...pick(line, [
                     'quantity',
                     'productVariant',
-                    'taxCategory',
                     'featuredAsset',
                     'shippingLineId',
                     'customFields',

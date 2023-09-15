@@ -11,7 +11,6 @@ import { ChannelService } from './services/channel.service';
 import { GlobalSettingsService } from './services/global-settings.service';
 import { RoleService } from './services/role.service';
 import { SellerService } from './services/seller.service';
-import { TaxRateService } from './services/tax-rate.service';
 import { ZoneService } from './services/zone.service';
 
 /**
@@ -27,7 +26,6 @@ export class InitializerService {
         private roleService: RoleService,
         private administratorService: AdministratorService,
         private globalSettingsService: GlobalSettingsService,
-        private taxRateService: TaxRateService,
         private sellerService: SellerService,
         private eventBus: EventBus,
     ) {}
@@ -46,7 +44,6 @@ export class InitializerService {
         await this.channelService.initChannels();
         await this.roleService.initRoles();
         await this.administratorService.initAdministrators();
-        await this.taxRateService.initTaxRates();
         this.eventBus.publish(new InitializerEvent());
     }
 

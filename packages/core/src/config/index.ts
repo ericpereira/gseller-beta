@@ -64,8 +64,4 @@ export * from './session-cache/in-memory-session-cache-strategy';
 export * from './session-cache/noop-session-cache-strategy';
 export * from './session-cache/session-cache-strategy';
 export * from './system/health-check-strategy';
-export * from './tax/default-tax-line-calculation-strategy';
-export * from './tax/default-tax-zone-strategy';
-export * from './tax/tax-line-calculation-strategy';
-export * from './tax/tax-zone-strategy';
 export * from './vendure-config';

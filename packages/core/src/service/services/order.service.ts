@@ -85,7 +85,6 @@ import { Payment } from '../../entity/payment/payment.entity';
 import { ProductVariant } from '../../entity/product-variant/product-variant.entity';
 import { Refund } from '../../entity/refund/refund.entity';
 import { Session } from '../../entity/session/session.entity';
-import { Surcharge } from '../../entity/surcharge/surcharge.entity';
 import { User } from '../../entity/user/user.entity';
 import { EventBus } from '../../event-bus/event-bus';
 import {
@@ -441,7 +440,6 @@ export class OrderService {
             code: await this.configService.orderOptions.orderCodeStrategy.generate(ctx),
             state: this.orderStateMachine.getInitialState(),
             lines: [],
-            surcharges: [],
             couponCodes: [],
             modifications: [],
             shippingAddress: {},
@@ -619,47 +617,6 @@ export class OrderService {
         order.lines = [];
         const updatedOrder = await this.applyPriceAdjustments(ctx, order);
         return updatedOrder;
-    }
-
-    /**
-     * @description
-     * Adds a {@link Surcharge} to the Order.
-     */
-    async addSurchargeToOrder(
-        ctx: RequestContext,
-        orderId: ID,
-        surchargeInput: Partial<Omit<Surcharge, 'id' | 'createdAt' | 'updatedAt' | 'order'>>,
-    ): Promise<Order> {
-        const order = await this.getOrderOrThrow(ctx, orderId);
-        const surcharge = await this.connection.getRepository(ctx, Surcharge).save(
-            new Surcharge({
-                taxLines: [],
-                sku: '',
-                listPriceIncludesTax: ctx.channel.pricesIncludeTax,
-                order,
-                ...surchargeInput,
-            }),
-        );
-        order.surcharges.push(surcharge);
-        const updatedOrder = await this.applyPriceAdjustments(ctx, order);
-        return updatedOrder;
-    }
-
-    /**
-     * @description
-     * Removes a {@link Surcharge} from the Order.
-     */
-    async removeSurchargeFromOrder(ctx: RequestContext, orderId: ID, surchargeId: ID): Promise<Order> {
-        const order = await this.getOrderOrThrow(ctx, orderId);
-        const surcharge = await this.connection.getEntityOrThrow(ctx, Surcharge, surchargeId);
-        if (order.surcharges.find(s => idsAreEqual(s.id, surcharge.id))) {
-            order.surcharges = order.surcharges.filter(s => !idsAreEqual(s.id, surchargeId));
-            const updatedOrder = await this.applyPriceAdjustments(ctx, order);
-            await this.connection.getRepository(ctx, Surcharge).remove(surcharge);
-            return updatedOrder;
-        } else {
-            return order;
-        }
     }
 
     /**
@@ -978,18 +935,6 @@ export class OrderService {
 
     /**
      * @description
-     * Returns an array of all Surcharges associated with the Order.
-     */
-    async getOrderSurcharges(ctx: RequestContext, orderId: ID): Promise<Surcharge[]> {
-        const order = await this.connection.getEntityOrThrow(ctx, Order, orderId, {
-            channelId: ctx.channelId,
-            relations: ['surcharges'],
-        });
-        return order.surcharges || [];
-    }
-
-    /**
-     * @description
      * Cancels an Order by transitioning it to the `Cancelled` state. If stock is being tracked for the ProductVariants
      * in the Order, then new {@link StockMovement}s will be created to correct the stock levels.
      */
@@ -1302,19 +1247,6 @@ export class OrderService {
                 updatedOrderLine.listPriceIncludesTax = priceResult.priceIncludesTax;
             }
         }
-
-        const updatedOrder = await this.orderCalculator.applyPriceAdjustments(
-            ctx,
-            order,
-            updatedOrderLines ?? [],
-        );
-        await this.connection
-            .getRepository(ctx, Order)
-            // Explicitly omit the shippingAddress and billingAddress properties to avoid
-            // a race condition where changing one or the other in parallel can
-            // overwrite the other's changes.
-            .save(omit(updatedOrder, ['shippingAddress', 'billingAddress']), { reload: false });
-        await this.connection.getRepository(ctx, OrderLine).save(updatedOrder.lines, { reload: false });
 
         return assertFound(this.findOne(ctx, order.id));
     }

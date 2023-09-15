@@ -42,8 +42,5 @@ export * from './events/role-change-event';
 export * from './events/role-event';
 export * from './events/search-event';
 export * from './events/seller-event';
-export * from './events/tax-category-event';
-export * from './events/tax-rate-event';
-export * from './events/tax-rate-modification-event';
 export * from './events/zone-event';
 export * from './events/zone-members-event';

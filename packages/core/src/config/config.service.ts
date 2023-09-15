@@ -18,7 +18,6 @@ import {
     PaymentOptions,
     RuntimeVendureConfig,
     SystemOptions,
-    TaxOptions,
     VendureConfig,
 } from './vendure-config';
 
@@ -76,10 +75,6 @@ export class ConfigService implements VendureConfig {
 
     get paymentOptions(): Required<PaymentOptions> {
         return this.activeConfig.paymentOptions as Required<PaymentOptions>;
-    }
-
-    get taxOptions(): Required<TaxOptions> {
-        return this.activeConfig.taxOptions;
     }
 
     get importExportOptions(): Required<ImportExportOptions> {

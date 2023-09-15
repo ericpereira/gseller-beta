@@ -13,7 +13,6 @@ import { ProductChannelEvent } from '../../event-bus/events/product-channel-even
 import { ProductEvent } from '../../event-bus/events/product-event';
 import { ProductVariantChannelEvent } from '../../event-bus/events/product-variant-channel-event';
 import { ProductVariantEvent } from '../../event-bus/events/product-variant-event';
-import { TaxRateModificationEvent } from '../../event-bus/events/tax-rate-modification-event';
 import { JobQueueService } from '../../job-queue/job-queue.service';
 import { PluginCommonModule } from '../plugin-common.module';
 import { VendurePlugin } from '../vendure-plugin';
@@ -164,20 +163,6 @@ export class DefaultSearchPlugin implements OnApplicationBootstrap, OnApplicatio
                 );
             }
         });
-
-        this.eventBus
-            .ofType(TaxRateModificationEvent)
-            // The delay prevents a "TransactionNotStartedError" (in SQLite/sqljs) by allowing any existing
-            // transactions to complete before a new job is added to the queue (assuming the SQL-based
-            // JobQueueStrategy).
-            // TODO: should be able to remove owing to f0fd6625
-            .pipe(delay(1))
-            .subscribe(event => {
-                const defaultTaxZone = event.ctx.channel.defaultTaxZone;
-                if (defaultTaxZone && idsAreEqual(defaultTaxZone.id, event.taxRate.zone.id)) {
-                    return this.searchIndexService.reindex(event.ctx);
-                }
-            });
 
         await this.initSearchStrategy();
     }
