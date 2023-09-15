@@ -42,17 +42,12 @@ import { OrderModificationLine } from '../../../entity/order-line-reference/orde
 import { OrderModification } from '../../../entity/order-modification/order-modification.entity';
 import { Payment } from '../../../entity/payment/payment.entity';
 import { ProductVariant } from '../../../entity/product-variant/product-variant.entity';
-import { Allocation } from '../../../entity/stock-movement/allocation.entity';
-import { Cancellation } from '../../../entity/stock-movement/cancellation.entity';
-import { Release } from '../../../entity/stock-movement/release.entity';
-import { Sale } from '../../../entity/stock-movement/sale.entity';
 import { Surcharge } from '../../../entity/surcharge/surcharge.entity';
 import { EventBus } from '../../../event-bus/event-bus';
 import { OrderLineEvent } from '../../../event-bus/index';
 import { CountryService } from '../../services/country.service';
 import { PaymentService } from '../../services/payment.service';
 import { ProductVariantService } from '../../services/product-variant.service';
-import { StockMovementService } from '../../services/stock-movement.service';
 import { CustomFieldRelationService } from '../custom-field-relation/custom-field-relation.service';
 import { EntityHydrator } from '../entity-hydrator/entity-hydrator.service';
 import { OrderCalculator } from '../order-calculator/order-calculator';
@@ -81,7 +76,6 @@ export class OrderModifier {
         private orderCalculator: OrderCalculator,
         private paymentService: PaymentService,
         private countryService: CountryService,
-        private stockMovementService: StockMovementService,
         private productVariantService: ProductVariantService,
         private customFieldRelationService: CustomFieldRelationService,
         private eventBus: EventBus,
@@ -192,142 +186,6 @@ export class OrderModifier {
         return lineWithRelations;
     }
 
-    /**
-     * @description
-     * Updates the quantity of an OrderLine, taking into account the available saleable stock level.
-     * Returns the actual quantity that the OrderLine was updated to (which may be less than the
-     * `quantity` argument if insufficient stock was available.
-     */
-    async updateOrderLineQuantity(
-        ctx: RequestContext,
-        orderLine: OrderLine,
-        quantity: number,
-        order: Order,
-    ): Promise<OrderLine> {
-        const currentQuantity = orderLine.quantity;
-        orderLine.quantity = quantity;
-        if (currentQuantity < quantity) {
-            if (!order.active && order.state !== 'Draft') {
-                await this.stockMovementService.createAllocationsForOrderLines(ctx, [
-                    {
-                        orderLineId: orderLine.id,
-                        quantity: quantity - currentQuantity,
-                    },
-                ]);
-            }
-        } else if (quantity < currentQuantity) {
-            if (!order.active && order.state !== 'Draft') {
-                // When an Order is not active (i.e. Customer checked out), then we don't want to just
-                // delete the OrderItems - instead we will cancel them
-                // const toSetAsCancelled = orderLine.items.filter(i => !i.cancelled).slice(quantity);
-                // const fulfilledItems = toSetAsCancelled.filter(i => !!i.fulfillment);
-                // const allocatedItems = toSetAsCancelled.filter(i => !i.fulfillment);
-                await this.stockMovementService.createCancellationsForOrderLines(ctx, [
-                    { orderLineId: orderLine.id, quantity },
-                ]);
-                await this.stockMovementService.createReleasesForOrderLines(ctx, [
-                    { orderLineId: orderLine.id, quantity },
-                ]);
-            }
-        }
-        await this.connection.getRepository(ctx, OrderLine).save(orderLine);
-        this.eventBus.publish(new OrderLineEvent(ctx, order, orderLine, 'updated'));
-        return orderLine;
-    }
-
-    async cancelOrderByOrderLines(
-        ctx: RequestContext,
-        input: CancelOrderInput,
-        lineInputs: OrderLineInput[],
-    ) {
-        if (lineInputs.length === 0 || summate(lineInputs, 'quantity') === 0) {
-            return new EmptyOrderLineSelectionError();
-        }
-        const orders = await getOrdersFromLines(ctx, this.connection, lineInputs);
-        if (1 < orders.length) {
-            return new MultipleOrderError();
-        }
-        const order = orders[0];
-        if (!idsAreEqual(order.id, input.orderId)) {
-            return new MultipleOrderError();
-        }
-        if (order.active) {
-            return new CancelActiveOrderError({ orderState: order.state });
-        }
-        const fullOrder = await this.connection.getEntityOrThrow(ctx, Order, order.id, {
-            relations: ['lines'],
-        });
-
-        const allocatedLines: OrderLineInput[] = [];
-        const fulfilledLines: OrderLineInput[] = [];
-        for (const lineInput of lineInputs) {
-            const orderLine = fullOrder.lines.find(l => idsAreEqual(l.id, lineInput.orderLineId));
-            if (orderLine && orderLine.quantity < lineInput.quantity) {
-                return new QuantityTooGreatError();
-            }
-            const allocationsForLine = await this.connection
-                .getRepository(ctx, Allocation)
-                .createQueryBuilder('allocation')
-                .leftJoinAndSelect('allocation.orderLine', 'orderLine')
-                .where('orderLine.id = :orderLineId', { orderLineId: lineInput.orderLineId })
-                .getMany();
-            const salesForLine = await this.connection
-                .getRepository(ctx, Sale)
-                .createQueryBuilder('sale')
-                .leftJoinAndSelect('sale.orderLine', 'orderLine')
-                .where('orderLine.id = :orderLineId', { orderLineId: lineInput.orderLineId })
-                .getMany();
-            const releasesForLine = await this.connection
-                .getRepository(ctx, Release)
-                .createQueryBuilder('release')
-                .leftJoinAndSelect('release.orderLine', 'orderLine')
-                .where('orderLine.id = :orderLineId', { orderLineId: lineInput.orderLineId })
-                .getMany();
-            const totalAllocated =
-                summate(allocationsForLine, 'quantity') +
-                summate(salesForLine, 'quantity') -
-                summate(releasesForLine, 'quantity');
-            if (0 < totalAllocated) {
-                allocatedLines.push({
-                    orderLineId: lineInput.orderLineId,
-                    quantity: Math.min(totalAllocated, lineInput.quantity),
-                });
-            }
-            const cancellationsForLine = await this.connection
-                .getRepository(ctx, Cancellation)
-                .createQueryBuilder('cancellation')
-                .leftJoinAndSelect('cancellation.orderLine', 'orderLine')
-                .where('orderLine.id = :orderLineId', { orderLineId: lineInput.orderLineId })
-                .getMany();
-            const totalFulfilled = summate(cancellationsForLine, 'quantity');
-            if (0 < totalFulfilled) {
-                fulfilledLines.push({
-                    orderLineId: lineInput.orderLineId,
-                    quantity: Math.min(totalFulfilled, lineInput.quantity),
-                });
-            }
-        }
-        await this.stockMovementService.createCancellationsForOrderLines(ctx, fulfilledLines);
-        await this.stockMovementService.createReleasesForOrderLines(ctx, allocatedLines);
-        for (const line of lineInputs) {
-            const orderLine = fullOrder.lines.find(l => idsAreEqual(l.id, line.orderLineId));
-            if (orderLine) {
-                await this.connection.getRepository(ctx, OrderLine).update(line.orderLineId, {
-                    quantity: orderLine.quantity - line.quantity,
-                });
-            }
-        }
-
-        const orderWithLines = await this.connection.getEntityOrThrow(ctx, Order, order.id, {
-            relations: ['lines', 'surcharges', 'shippingLines'],
-        });
-        // Update totals after cancellation
-        this.orderCalculator.calculateOrderTotals(orderWithLines);
-        await this.connection.getRepository(ctx, Order).save(orderWithLines, { reload: false });
-
-        return orderLinesAreAllCancelled(orderWithLines);
-    }
-
     async modifyOrder(
         ctx: RequestContext,
         input: ModifyOrderInput,
@@ -382,7 +240,6 @@ export class OrderModifier {
             }
             updatedOrderLineIds.push(orderLine.id);
             const initialQuantity = orderLine.quantity;
-            await this.updateOrderLineQuantity(ctx, orderLine, initialQuantity + correctedQuantity, order);
 
             const orderModificationLine = await this.connection
                 .getRepository(ctx, OrderModificationLine)
@@ -429,10 +286,7 @@ export class OrderModifier {
                             quantity: initialLineQuantity - quantity,
                         },
                     ];
-                    await this.cancelOrderByOrderLines(ctx, { orderId: order.id }, cancelLinesInput);
                     orderLine.quantity = quantity;
-                } else {
-                    await this.updateOrderLineQuantity(ctx, orderLine, quantity, order);
                 }
                 const orderModificationLine = await this.connection
                     .getRepository(ctx, OrderModificationLine)

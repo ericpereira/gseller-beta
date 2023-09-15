@@ -52,8 +52,6 @@ import { AssetService } from './asset.service';
 import { ChannelService } from './channel.service';
 import { GlobalSettingsService } from './global-settings.service';
 import { RoleService } from './role.service';
-import { StockLevelService } from './stock-level.service';
-import { StockMovementService } from './stock-movement.service';
 import { TaxCategoryService } from './tax-category.service';
 
 /**
@@ -73,8 +71,6 @@ export class ProductVariantService {
         private eventBus: EventBus,
         private listQueryBuilder: ListQueryBuilder,
         private globalSettingsService: GlobalSettingsService,
-        private stockMovementService: StockMovementService,
-        private stockLevelService: StockLevelService,
         private channelService: ChannelService,
         private roleService: RoleService,
         private customFieldRelationService: CustomFieldRelationService,
@@ -290,10 +286,8 @@ export class ProductVariantService {
         if (inventoryNotTracked) {
             return Number.MAX_SAFE_INTEGER;
         }
-        const { stockOnHand, stockAllocated } = await this.stockLevelService.getAvailableStock(
-            ctx,
-            variant.id,
-        );
+        const stockOnHand = 0
+        const stockAllocated = 0
         const effectiveOutOfStockThreshold = variant.useGlobalOutOfStockThreshold
             ? outOfStockThreshold
             : variant.outOfStockThreshold;
@@ -316,17 +310,6 @@ export class ProductVariantService {
 
     /**
      * @description
-     * Returns the stockLevel to display to the customer, as specified by the configured
-     * {@link StockDisplayStrategy}.
-     */
-    async getDisplayStockLevel(ctx: RequestContext, variant: ProductVariant): Promise<string> {
-        const { stockDisplayStrategy } = this.configService.catalogOptions;
-        const saleableStockLevel = await this.getSaleableStockLevel(ctx, variant);
-        return stockDisplayStrategy.getStockLevel(ctx, variant, saleableStockLevel);
-    }
-
-    /**
-     * @description
      * Returns the number of fulfillable units of the ProductVariant, equivalent to stockOnHand
      * for those variants which are tracking inventory.
      */
@@ -338,8 +321,7 @@ export class ProductVariantService {
         if (inventoryNotTracked) {
             return Number.MAX_SAFE_INTEGER;
         }
-        const { stockOnHand } = await this.stockLevelService.getAvailableStock(ctx, variant.id);
-        return stockOnHand;
+        return 0;
     }
 
     async create(
@@ -410,14 +392,6 @@ export class ProductVariantService {
         });
         await this.customFieldRelationService.updateRelations(ctx, ProductVariant, input, createdVariant);
         await this.assetService.updateEntityAssets(ctx, createdVariant, input);
-        if (input.stockOnHand != null || input.stockLevels) {
-            await this.stockMovementService.adjustProductVariantStock(
-                ctx,
-                createdVariant.id,
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                input.stockLevels || input.stockOnHand!,
-            );
-        }
 
         const defaultChannelId = (await this.channelService.getDefaultChannel(ctx)).id;
         await this.createOrUpdateProductVariantPrice(ctx, createdVariant.id, input.price, ctx.channelId);
@@ -468,14 +442,6 @@ export class ProductVariantService {
                         .getRepository(ctx, ProductOption)
                         .find({ where: { id: In(input.optionIds) } });
                     v.options = selectedOptions;
-                }
-                if (input.stockOnHand != null || input.stockLevels) {
-                    await this.stockMovementService.adjustProductVariantStock(
-                        ctx,
-                        existingVariant.id,
-                        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                        input.stockLevels || input.stockOnHand!,
-                    );
                 }
                 await this.assetService.updateFeaturedAsset(ctx, v, input);
                 await this.assetService.updateEntityAssets(ctx, v, input);

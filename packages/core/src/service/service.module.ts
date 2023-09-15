@@ -48,9 +48,6 @@ import { RoleService } from './services/role.service';
 import { SearchService } from './services/search.service';
 import { SellerService } from './services/seller.service';
 import { SessionService } from './services/session.service';
-import { StockLevelService } from './services/stock-level.service';
-import { StockLocationService } from './services/stock-location.service';
-import { StockMovementService } from './services/stock-movement.service';
 import { TagService } from './services/tag.service';
 import { TaxCategoryService } from './services/tax-category.service';
 import { TaxRateService } from './services/tax-rate.service';
@@ -78,9 +75,6 @@ const services = [
     SearchService,
     SellerService,
     SessionService,
-    StockLevelService,
-    StockLocationService,
-    StockMovementService,
     TagService,
     TaxCategoryService,
     TaxRateService,
