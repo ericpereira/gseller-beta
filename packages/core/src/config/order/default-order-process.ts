@@ -161,8 +161,6 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
     let productVariantService: import('../../service/index').ProductVariantService;
     let configService: import('../config.service').ConfigService;
     let eventBus: import('../../event-bus/index').EventBus;
-    let stockMovementService: import('../../service/index').StockMovementService;
-    let stockLevelService: import('../../service/index').StockLevelService;
     let orderSplitter: import('../../service/index').OrderSplitter;
 
     const orderProcess: OrderProcess<OrderState> = {
@@ -234,10 +232,6 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
             // due to this being used as part of the DefaultConfig
             const ConfigService = await import('../config.service.js').then(m => m.ConfigService);
             const EventBus = await import('../../event-bus/index.js').then(m => m.EventBus);
-            const StockMovementService = await import('../../service/index.js').then(
-                m => m.StockMovementService,
-            );
-            const StockLevelService = await import('../../service/index.js').then(m => m.StockLevelService);
             const OrderSplitter = await import('../../service/index.js').then(m => m.OrderSplitter);
             const ProductVariantService = await import('../../service/index.js').then(
                 m => m.ProductVariantService,
@@ -246,8 +240,6 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
             productVariantService = injector.get(ProductVariantService);
             configService = injector.get(ConfigService);
             eventBus = injector.get(EventBus);
-            stockMovementService = injector.get(StockMovementService);
-            stockLevelService = injector.get(StockLevelService);
             orderSplitter = injector.get(OrderSplitter);
         },
 
@@ -390,9 +382,6 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
                 toState,
                 order,
             );
-            if (shouldAllocateStock) {
-                await stockMovementService.createAllocationsForOrder(ctx, order);
-            }
             if (toState === 'Cancelled') {
                 order.active = false;
             }

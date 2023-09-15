@@ -29,7 +29,6 @@ import { ProductResolver } from './resolvers/admin/product.resolver';
 import { RoleResolver } from './resolvers/admin/role.resolver';
 import { SearchResolver } from './resolvers/admin/search.resolver';
 import { SellerResolver } from './resolvers/admin/seller.resolver';
-import { StockLocationResolver } from './resolvers/admin/stock-location.resolver';
 import { TagResolver } from './resolvers/admin/tag.resolver';
 import { TaxCategoryResolver } from './resolvers/admin/tax-category.resolver';
 import { TaxRateResolver } from './resolvers/admin/tax-rate.resolver';
@@ -91,7 +90,6 @@ const adminResolvers = [
     ProductResolver,
     RoleResolver,
     SearchResolver,
-    StockLocationResolver,
     TagResolver,
     TaxCategoryResolver,
     TaxRateResolver,

@@ -14,8 +14,6 @@ import { CustomProductVariantFields } from '../custom-entity-fields';
 import { EntityId } from '../entity-id.decorator';
 import { Product } from '../product/product.entity';
 import { ProductOption } from '../product-option/product-option.entity';
-import { StockLevel } from '../stock-level/stock-level.entity';
-import { StockMovement } from '../stock-movement/stock-movement.entity';
 import { TaxCategory } from '../tax-category/tax-category.entity';
 import { TaxRate } from '../tax-rate/tax-rate.entity';
 
@@ -144,12 +142,6 @@ export class ProductVariant
 
     @Column({ type: 'varchar', default: GlobalFlag.INHERIT })
     trackInventory: GlobalFlag;
-
-    @OneToMany(type => StockLevel, stockLevel => stockLevel.productVariant)
-    stockLevels: StockLevel[];
-
-    @OneToMany(type => StockMovement, stockMovement => stockMovement.productVariant)
-    stockMovements: StockMovement[];
 
     @ManyToMany(type => ProductOption)
     @JoinTable()

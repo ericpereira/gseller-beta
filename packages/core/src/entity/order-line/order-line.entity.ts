@@ -15,7 +15,6 @@ import { EntityId } from '../entity-id.decorator';
 import { Money } from '../money.decorator';
 import { Order } from '../order/order.entity';
 import { ProductVariant } from '../product-variant/product-variant.entity';
-import { Cancellation } from '../stock-movement/cancellation.entity';
 import { TaxCategory } from '../tax-category/tax-category.entity';
 
 /**
@@ -107,9 +106,6 @@ export class OrderLine extends VendureEntity implements HasCustomFields {
 
     @Column('simple-json')
     taxLines: TaxLine[];
-
-    @OneToOne(type => Cancellation, cancellation => cancellation.orderLine)
-    cancellation: Cancellation;
 
     @Column(type => CustomOrderLineFields)
     customFields: CustomOrderLineFields;

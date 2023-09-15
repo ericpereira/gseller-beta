@@ -115,8 +115,6 @@ import { CustomerService } from './customer.service';
 import { PaymentMethodService } from './payment-method.service';
 import { PaymentService } from './payment.service';
 import { ProductVariantService } from './product-variant.service';
-import { StockLevelService } from './stock-level.service';
-import { StockMovementService } from './stock-movement.service';
 
 /**
  * @description
@@ -139,7 +137,6 @@ export class OrderService {
         private paymentStateMachine: PaymentStateMachine,
         private paymentMethodService: PaymentMethodService,
         private listQueryBuilder: ListQueryBuilder,
-        private stockMovementService: StockMovementService,
         private refundStateMachine: RefundStateMachine,
         private eventBus: EventBus,
         private channelService: ChannelService,
@@ -147,7 +144,6 @@ export class OrderService {
         private customFieldRelationService: CustomFieldRelationService,
         private requestCache: RequestContextCacheService,
         private translator: TranslatorService,
-        private stockLevelService: StockLevelService,
     ) {}
 
     /**
@@ -523,9 +519,6 @@ export class OrderService {
         );
         if (correctedQuantity < quantity) {
             const newQuantity = (existingOrderLine ? existingOrderLine?.quantity : 0) + correctedQuantity;
-            await this.orderModifier.updateOrderLineQuantity(ctx, orderLine, newQuantity, order);
-        } else {
-            await this.orderModifier.updateOrderLineQuantity(ctx, orderLine, correctedQuantity, order);
         }
         const quantityWasAdjustedDown = correctedQuantity < quantity;
         const updatedOrder = await this.applyPriceAdjustments(ctx, order, [orderLine]);
@@ -577,8 +570,6 @@ export class OrderService {
             await this.connection.getRepository(ctx, OrderLine).remove(orderLine);
             this.eventBus.publish(new OrderLineEvent(ctx, order, orderLine, 'deleted'));
             updatedOrderLines = [];
-        } else {
-            await this.orderModifier.updateOrderLineQuantity(ctx, orderLine, correctedQuantity, order);
         }
         const quantityWasAdjustedDown = correctedQuantity < quantity;
         const updatedOrder = await this.applyPriceAdjustments(ctx, order, updatedOrderLines);
@@ -1008,9 +999,7 @@ export class OrderService {
     ): Promise<ErrorResultUnion<CancelOrderResult, Order>> {
         let allOrderItemsCancelled = false;
         const cancelResult =
-            input.lines != null
-                ? await this.orderModifier.cancelOrderByOrderLines(ctx, input, input.lines)
-                : await this.cancelOrderById(ctx, input);
+            input.lines != await this.cancelOrderById(ctx, input);
 
         if (isGraphQlErrorResult(cancelResult)) {
             return cancelResult;
@@ -1036,7 +1025,6 @@ export class OrderService {
                 orderLineId: l.id,
                 quantity: l.quantity,
             }));
-            return this.orderModifier.cancelOrderByOrderLines(ctx, input, lines);
         }
     }
 

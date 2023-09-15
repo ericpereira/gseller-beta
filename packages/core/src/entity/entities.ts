@@ -38,14 +38,6 @@ import { Seller } from './seller/seller.entity';
 import { AnonymousSession } from './session/anonymous-session.entity';
 import { AuthenticatedSession } from './session/authenticated-session.entity';
 import { Session } from './session/session.entity';
-import { StockLevel } from './stock-level/stock-level.entity';
-import { StockLocation } from './stock-location/stock-location.entity';
-import { Allocation } from './stock-movement/allocation.entity';
-import { Cancellation } from './stock-movement/cancellation.entity';
-import { Release } from './stock-movement/release.entity';
-import { Sale } from './stock-movement/sale.entity';
-import { StockAdjustment } from './stock-movement/stock-adjustment.entity';
-import { StockMovement } from './stock-movement/stock-movement.entity';
 import { Surcharge } from './surcharge/surcharge.entity';
 import { Tag } from './tag/tag.entity';
 import { TaxCategory } from './tax-category/tax-category.entity';
@@ -59,12 +51,10 @@ import { Zone } from './zone/zone.entity';
 export const coreEntitiesMap = {
     Address,
     Administrator,
-    Allocation,
     AnonymousSession,
     Asset,
     AuthenticatedSession,
     AuthenticationMethod,
-    Cancellation,
     Channel,
     Country,
     Customer,
@@ -96,14 +86,8 @@ export const coreEntitiesMap = {
     RefundLine,
     Region,
     RegionTranslation,
-    Release,
     Role,
-    Sale,
     Session,
-    StockAdjustment,
-    StockLevel,
-    StockLocation,
-    StockMovement,
     Surcharge,
     Tag,
     TaxCategory,

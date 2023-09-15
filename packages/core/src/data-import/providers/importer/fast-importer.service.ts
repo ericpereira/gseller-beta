@@ -24,7 +24,7 @@ import { ProductVariantPrice } from '../../../entity/product-variant/product-var
 import { ProductVariantTranslation } from '../../../entity/product-variant/product-variant-translation.entity';
 import { ProductVariant } from '../../../entity/product-variant/product-variant.entity';
 import { TranslatableSaver } from '../../../service/helpers/translatable-saver/translatable-saver';
-import { RequestContextService, StockMovementService } from '../../../service/index';
+import { RequestContextService } from '../../../service/index';
 import { ChannelService } from '../../../service/services/channel.service';
 
 /**
@@ -46,7 +46,6 @@ export class FastImporterService {
     constructor(
         private connection: TransactionalConnection,
         private channelService: ChannelService,
-        private stockMovementService: StockMovementService,
         private translatableSaver: TranslatableSaver,
         private requestContextService: RequestContextService,
     ) {}
@@ -182,11 +181,7 @@ export class FastImporterService {
                 .getRepository(this.importCtx, ProductVariantAsset)
                 .save(variantAssets, { reload: false });
         }
-        await this.stockMovementService.adjustProductVariantStock(
-            this.importCtx,
-            createdVariant.id,
-            input.stockOnHand ?? 0,
-        );
+        
         const assignedChannelIds = unique([this.defaultChannel, this.importCtx.channel], 'id').map(c => c.id);
         for (const channelId of assignedChannelIds) {
             const variantPrice = new ProductVariantPrice({
