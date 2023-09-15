@@ -43,7 +43,5 @@ export * from './services/search.service';
 export * from './services/seller.service';
 export * from './services/session.service';
 export * from './services/tag.service';
-export * from './services/tax-category.service';
-export * from './services/tax-rate.service';
 export * from './services/user.service';
 export * from './services/zone.service';

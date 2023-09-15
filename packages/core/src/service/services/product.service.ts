@@ -43,7 +43,6 @@ import { ChannelService } from './channel.service';
 import { ProductOptionGroupService } from './product-option-group.service';
 import { ProductVariantService } from './product-variant.service';
 import { RoleService } from './role.service';
-import { TaxRateService } from './tax-rate.service';
 
 /**
  * @description
@@ -61,7 +60,6 @@ export class ProductService {
         private roleService: RoleService,
         private assetService: AssetService,
         private productVariantService: ProductVariantService,
-        private taxRateService: TaxRateService,
         private listQueryBuilder: ListQueryBuilder,
         private translatableSaver: TranslatableSaver,
         private eventBus: EventBus,

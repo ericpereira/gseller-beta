@@ -38,10 +38,7 @@ import { Seller } from './seller/seller.entity';
 import { AnonymousSession } from './session/anonymous-session.entity';
 import { AuthenticatedSession } from './session/authenticated-session.entity';
 import { Session } from './session/session.entity';
-import { Surcharge } from './surcharge/surcharge.entity';
 import { Tag } from './tag/tag.entity';
-import { TaxCategory } from './tax-category/tax-category.entity';
-import { TaxRate } from './tax-rate/tax-rate.entity';
 import { User } from './user/user.entity';
 import { Zone } from './zone/zone.entity';
 
@@ -88,10 +85,7 @@ export const coreEntitiesMap = {
     RegionTranslation,
     Role,
     Session,
-    Surcharge,
     Tag,
-    TaxCategory,
-    TaxRate,
     User,
     Seller,
     Zone,

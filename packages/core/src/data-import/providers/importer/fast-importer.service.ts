@@ -162,7 +162,6 @@ export class FastImporterService {
                     variant.options = optionIds.map(id => ({ id } as any));
                 }
                 variant.product = { id: input.productId } as any;
-                variant.taxCategory = { id: input.taxCategoryId } as any;
                 if (input.featuredAssetId) {
                     variant.featuredAsset = { id: input.featuredAssetId } as any;
                 }

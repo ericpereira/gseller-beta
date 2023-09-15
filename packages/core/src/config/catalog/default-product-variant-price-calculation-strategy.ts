@@ -2,7 +2,6 @@ import { Injector } from '../../common/injector';
 import { roundMoney } from '../../common/round-money';
 import { PriceCalculationResult } from '../../common/types/common-types';
 import { idsAreEqual } from '../../common/utils';
-import { TaxRateService } from '../../service/services/tax-rate.service';
 
 import {
     ProductVariantPriceCalculationArgs,
@@ -16,14 +15,13 @@ import {
  * @docsCategory products & stock
  */
 export class DefaultProductVariantPriceCalculationStrategy implements ProductVariantPriceCalculationStrategy {
-    private taxRateService: TaxRateService;
 
     init(injector: Injector) {
-        this.taxRateService = injector.get(TaxRateService);
+        
     }
 
     async calculate(args: ProductVariantPriceCalculationArgs): Promise<PriceCalculationResult> {
-        const { inputPrice, activeTaxZone, ctx, taxCategory } = args;
+        const { inputPrice, activeTaxZone, ctx } = args;
         let price = inputPrice;
         let priceIncludesTax = false;
 
@@ -31,13 +29,6 @@ export class DefaultProductVariantPriceCalculationStrategy implements ProductVar
             const isDefaultZone = idsAreEqual(activeTaxZone.id, ctx.channel.defaultTaxZone.id);
             if (isDefaultZone) {
                 priceIncludesTax = true;
-            } else {
-                const taxRateForDefaultZone = await this.taxRateService.getApplicableTaxRate(
-                    ctx,
-                    ctx.channel.defaultTaxZone,
-                    taxCategory,
-                );
-                price = roundMoney(taxRateForDefaultZone.netPriceOf(inputPrice));
             }
         }
 

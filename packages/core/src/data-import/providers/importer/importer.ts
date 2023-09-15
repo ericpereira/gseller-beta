@@ -10,9 +10,7 @@ import { RequestContext } from '../../../api/common/request-context';
 import { InternalServerError } from '../../../common/error/errors';
 import { ConfigService } from '../../../config/config.service';
 import { CustomFieldConfig } from '../../../config/custom-field/custom-field-types';
-import { TaxCategory } from '../../../entity/tax-category/tax-category.entity';
 import { ChannelService } from '../../../service/services/channel.service';
-import { TaxCategoryService } from '../../../service/services/tax-category.service';
 import { AssetImporter } from '../asset-importer/asset-importer';
 import { ImportParser, ParsedProductWithVariants } from '../import-parser/import-parser';
 
@@ -45,7 +43,6 @@ export class Importer {
         private configService: ConfigService,
         private importParser: ImportParser,
         private channelService: ChannelService,
-        private taxCategoryService: TaxCategoryService,
         private assetImporter: AssetImporter,
         private fastImporter: FastImporterService,
     ) {}
@@ -150,7 +147,6 @@ export class Importer {
         let errors: string[] = [];
         let imported = 0;
         const languageCode = ctx.languageCode;
-        const taxCategories = await this.taxCategoryService.findAll(ctx);
         await this.fastImporter.initialize(ctx.channel);
         for (const { product, variants } of rows) {
             const productMainTranslation = this.getTranslationByCodeOrFirst(
@@ -247,7 +243,6 @@ export class Importer {
                     featuredAssetId: variantAssets.length ? variantAssets[0].id : undefined,
                     assetIds: variantAssets.map(a => a.id),
                     sku: variant.sku,
-                    taxCategoryId: this.getMatchingTaxCategoryId(variant.taxCategory, taxCategories.items),
                     stockOnHand: variant.stockOnHand,
                     trackInventory: variant.trackInventory,
                     optionIds,
@@ -297,21 +292,6 @@ export class Importer {
             }
         }
         return processed;
-    }
-
-    /**
-     * Attempts to match a TaxCategory entity against the name supplied in the import table. If no matches
-     * are found, the first TaxCategory id is returned.
-     */
-    private getMatchingTaxCategoryId(name: string, taxCategories: TaxCategory[]): ID {
-        if (this.taxCategoryMatches[name]) {
-            return this.taxCategoryMatches[name];
-        }
-        const regex = new RegExp(name, 'i');
-        const found = taxCategories.find(tc => !!tc.name.match(regex));
-        const match = found ? found : taxCategories[0];
-        this.taxCategoryMatches[name] = match.id;
-        return match.id;
     }
 
     private getTranslationByCodeOrFirst<Type extends { languageCode: LanguageCode }>(

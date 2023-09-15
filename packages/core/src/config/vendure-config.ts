@@ -41,8 +41,6 @@ import { PaymentMethodHandler } from './payment/payment-method-handler';
 import { PaymentProcess } from './payment/payment-process';
 import { SessionCacheStrategy } from './session-cache/session-cache-strategy';
 import { HealthCheckStrategy } from './system/health-check-strategy';
-import { TaxLineCalculationStrategy } from './tax/tax-line-calculation-strategy';
-import { TaxZoneStrategy } from './tax/tax-zone-strategy';
 
 /**
  * @description
@@ -725,27 +723,6 @@ export interface PaymentOptions {
 }
 
 /**
- * @docsCategory tax
- *
- * */
-export interface TaxOptions {
-    /**
-     * @description
-     * Defines the strategy used to determine the applicable Zone used in tax calculations.
-     *
-     * @default DefaultTaxZoneStrategy
-     */
-    taxZoneStrategy?: TaxZoneStrategy;
-    /**
-     * @description
-     * Defines the strategy used to calculate the TaxLines added to OrderItems.
-     *
-     * @default DefaultTaxLineCalculationStrategy
-     */
-    taxLineCalculationStrategy?: TaxLineCalculationStrategy;
-}
-
-/**
  * @description
  * Options related to importing & exporting data.
  *
@@ -1010,11 +987,7 @@ export interface VendureConfig {
      * @default DefaultLogger
      */
     logger?: VendureLogger;
-    /**
-     * @description
-     * Configures how taxes are calculated on products.
-     */
-    taxOptions?: TaxOptions;
+    
     /**
      * @description
      * Configures how the job queue is persisted and processed.
@@ -1046,7 +1019,6 @@ export interface RuntimeVendureConfig extends Required<VendureConfig> {
     importExportOptions: Required<ImportExportOptions>;
     jobQueueOptions: Required<JobQueueOptions>;
     orderOptions: Required<OrderOptions>;
-    taxOptions: Required<TaxOptions>;
     systemOptions: Required<SystemOptions>;
 }
 

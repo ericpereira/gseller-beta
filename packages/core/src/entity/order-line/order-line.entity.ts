@@ -15,7 +15,6 @@ import { EntityId } from '../entity-id.decorator';
 import { Money } from '../money.decorator';
 import { Order } from '../order/order.entity';
 import { ProductVariant } from '../product-variant/product-variant.entity';
-import { TaxCategory } from '../tax-category/tax-category.entity';
 
 /**
  * @description
@@ -54,10 +53,6 @@ export class OrderLine extends VendureEntity implements HasCustomFields {
 
     @EntityId()
     productVariantId: ID;
-
-    @Index()
-    @ManyToOne(type => TaxCategory)
-    taxCategory: TaxCategory;
 
     @Index()
     @ManyToOne(type => Asset)

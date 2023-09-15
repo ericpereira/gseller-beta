@@ -83,7 +83,6 @@ export class CustomFieldRelationResolverService {
             .relation('taxCategory')
             .of(variant)
             .loadOne();
-        variant.taxCategory = taxCategory;
         return this.productPriceApplicator.applyChannelPriceAndTax(variant, ctx);
     }
 }

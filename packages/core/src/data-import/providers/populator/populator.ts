@@ -9,7 +9,7 @@ import {
     Logger,
 } from '../../../config';
 import { TransactionalConnection } from '../../../connection/index';
-import { Channel, TaxCategory, User } from '../../../entity';
+import { Channel, User } from '../../../entity';
 import {
     PaymentMethodService,
     RequestContextService,
@@ -18,8 +18,6 @@ import {
 import { ChannelService } from '../../../service/services/channel.service';
 import { CountryService } from '../../../service/services/country.service';
 import { SearchService } from '../../../service/services/search.service';
-import { TaxCategoryService } from '../../../service/services/tax-category.service';
-import { TaxRateService } from '../../../service/services/tax-rate.service';
 import { ZoneService } from '../../../service/services/zone.service';
 import {
     CollectionFilterDefinition,
@@ -44,8 +42,6 @@ export class Populator {
         private countryService: CountryService,
         private zoneService: ZoneService,
         private channelService: ChannelService,
-        private taxRateService: TaxRateService,
-        private taxCategoryService: TaxCategoryService,
         private paymentMethodService: PaymentMethodService,
         private searchService: SearchService,
         private assetImporter: AssetImporter,
@@ -70,12 +66,6 @@ export class Populator {
             Logger.error('Could not populate countries');
             Logger.error(e, 'populator', e.stack);
             throw e;
-        }
-        try {
-            await this.populateTaxRates(ctx, data.taxRates, zoneMap);
-        } catch (e: any) {
-            Logger.error('Could not populate tax rates');
-            Logger.error(e, 'populator', e.stack);
         }
         try {
             await this.populatePaymentMethods(ctx, data.paymentMethods);
@@ -161,28 +151,6 @@ export class Populator {
         }
 
         return zoneMap;
-    }
-
-    private async populateTaxRates(
-        ctx: RequestContext,
-        taxRates: Array<{ name: string; percentage: number }>,
-        zoneMap: ZoneMap,
-    ) {
-        const taxCategories: TaxCategory[] = [];
-
-        for (const taxRate of taxRates) {
-            const category = await this.taxCategoryService.create(ctx, { name: taxRate.name });
-
-            for (const { entity } of zoneMap.values()) {
-                await this.taxRateService.create(ctx, {
-                    zoneId: entity.id,
-                    value: taxRate.percentage,
-                    categoryId: category.id,
-                    name: `${taxRate.name} ${entity.name}`,
-                    enabled: true,
-                });
-            }
-        }
     }
 
     private async populatePaymentMethods(ctx: RequestContext, paymentMethods: InitialData['paymentMethods']) {
