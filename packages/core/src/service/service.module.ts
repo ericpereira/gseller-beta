@@ -20,7 +20,6 @@ import { OrderSplitter } from './helpers/order-splitter/order-splitter';
 import { OrderStateMachine } from './helpers/order-state-machine/order-state-machine';
 import { PasswordCipher } from './helpers/password-cipher/password-cipher';
 import { ProductPriceApplicator } from './helpers/product-price-applicator/product-price-applicator';
-import { RefundStateMachine } from './helpers/refund-state-machine/refund-state-machine';
 import { RequestContextService } from './helpers/request-context/request-context.service';
 import { SlugValidator } from './helpers/slug-validator/slug-validator';
 import { TranslatableSaver } from './helpers/translatable-saver/translatable-saver';
@@ -83,7 +82,6 @@ const helpers = [
     OrderSplitter,
     ListQueryBuilder,
     VerificationTokenGenerator,
-    RefundStateMachine,
     ConfigArgService,
     SlugValidator,
     ExternalAuthenticationService,

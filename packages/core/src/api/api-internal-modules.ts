@@ -52,8 +52,6 @@ import {
     ProductVariantAdminEntityResolver,
     ProductVariantEntityResolver,
 } from './resolvers/entity/product-variant-entity.resolver';
-import { RefundEntityResolver } from './resolvers/entity/refund-entity.resolver';
-import { RefundLineEntityResolver } from './resolvers/entity/refund-line-entity.resolver';
 import { RoleEntityResolver } from './resolvers/entity/role-entity.resolver';
 import { UserEntityResolver } from './resolvers/entity/user-entity.resolver';
 import { ZoneEntityResolver } from './resolvers/entity/zone-entity.resolver';
@@ -105,8 +103,6 @@ export const entityResolvers = [
     ProductOptionEntityResolver,
     ProductOptionGroupEntityResolver,
     ProductVariantEntityResolver,
-    RefundEntityResolver,
-    RefundLineEntityResolver,
     RoleEntityResolver,
     UserEntityResolver,
     ZoneEntityResolver,

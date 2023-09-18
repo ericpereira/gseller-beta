@@ -247,18 +247,6 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
                 const modifications = await connection
                     .getRepository(ctx, OrderModification)
                     .find({ where: { order: { id: order.id } }, relations: ['refund', 'payment'] });
-                if (toState === 'ArrangingAdditionalPayment') {
-                    if (
-                        0 < modifications.length &&
-                        modifications.every(modification => modification.isSettled)
-                    ) {
-                        return 'message.cannot-transition-no-additional-payments-needed';
-                    }
-                } else {
-                    if (modifications.some(modification => !modification.isSettled)) {
-                        return 'message.cannot-transition-without-modification-payment';
-                    }
-                }
             }
             if (
                 options.checkAdditionalPaymentsAmount !== false &&

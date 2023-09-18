@@ -7,7 +7,6 @@ import { VendureEntity } from '../base/base.entity';
 import { Money } from '../money.decorator';
 import { Order } from '../order/order.entity';
 import { OrderModificationLine } from '../order-line-reference/order-modification-line.entity';
-import { Refund } from '../refund/refund.entity';
 
 /**
  * @description
@@ -35,19 +34,7 @@ export class OrderModification extends VendureEntity {
     @Money()
     priceChange: number;
 
-    @OneToOne(type => Refund)
-    @JoinColumn()
-    refund?: Refund;
-
     @Column('simple-json', { nullable: true }) shippingAddressChange: OrderAddress;
 
     @Column('simple-json', { nullable: true }) billingAddressChange: OrderAddress;
-
-    @Calculated()
-    get isSettled(): boolean {
-        if (this.priceChange === 0) {
-            return true;
-        }
-        return !!this.refund;
-    }
 }

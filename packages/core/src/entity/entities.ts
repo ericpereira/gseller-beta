@@ -12,7 +12,6 @@ import { Order } from './order/order.entity';
 import { OrderLine } from './order-line/order-line.entity';
 import { OrderLineReference } from './order-line-reference/order-line-reference.entity';
 import { OrderModificationLine } from './order-line-reference/order-modification-line.entity';
-import { RefundLine } from './order-line-reference/refund-line.entity';
 import { OrderModification } from './order-modification/order-modification.entity';
 import { ProductAsset } from './product/product-asset.entity';
 import { ProductTranslation } from './product/product-translation.entity';
@@ -25,7 +24,6 @@ import { ProductVariantAsset } from './product-variant/product-variant-asset.ent
 import { ProductVariantPrice } from './product-variant/product-variant-price.entity';
 import { ProductVariantTranslation } from './product-variant/product-variant-translation.entity';
 import { ProductVariant } from './product-variant/product-variant.entity';
-import { Refund } from './refund/refund.entity';
 import { Country } from './region/country.entity';
 import { Province } from './region/province.entity';
 import { RegionTranslation } from './region/region-translation.entity';
@@ -73,8 +71,6 @@ export const coreEntitiesMap = {
     ProductVariantPrice,
     ProductVariantTranslation,
     Province,
-    Refund,
-    RefundLine,
     Region,
     RegionTranslation,
     Role,

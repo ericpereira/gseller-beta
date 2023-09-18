@@ -35,7 +35,6 @@ export * from './events/product-option-group-change-event';
 export * from './events/product-option-group-event';
 export * from './events/product-variant-channel-event';
 export * from './events/product-variant-event';
-export * from './events/refund-state-transition-event';
 export * from './events/role-change-event';
 export * from './events/role-event';
 export * from './events/search-event';
