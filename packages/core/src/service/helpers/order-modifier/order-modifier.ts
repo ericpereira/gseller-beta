@@ -40,12 +40,10 @@ import { Order } from '../../../entity/order/order.entity';
 import { OrderLine } from '../../../entity/order-line/order-line.entity';
 import { OrderModificationLine } from '../../../entity/order-line-reference/order-modification-line.entity';
 import { OrderModification } from '../../../entity/order-modification/order-modification.entity';
-import { Payment } from '../../../entity/payment/payment.entity';
 import { ProductVariant } from '../../../entity/product-variant/product-variant.entity';
 import { EventBus } from '../../../event-bus/event-bus';
 import { OrderLineEvent } from '../../../event-bus/index';
 import { CountryService } from '../../services/country.service';
-import { PaymentService } from '../../services/payment.service';
 import { ProductVariantService } from '../../services/product-variant.service';
 import { CustomFieldRelationService } from '../custom-field-relation/custom-field-relation.service';
 import { EntityHydrator } from '../entity-hydrator/entity-hydrator.service';
@@ -73,7 +71,6 @@ export class OrderModifier {
         private connection: TransactionalConnection,
         private configService: ConfigService,
         private orderCalculator: OrderCalculator,
-        private paymentService: PaymentService,
         private countryService: CountryService,
         private productVariantService: ProductVariantService,
         private customFieldRelationService: CustomFieldRelationService,
@@ -359,17 +356,7 @@ export class OrderModifier {
             if (shippingDelta < 0) {
                 refundInput.shipping = shippingDelta * -1;
             }
-            refundInput.adjustment += await this.calculateRefundAdjustment(ctx, delta, refundInput);
-            const existingPayments = await this.getOrderPayments(ctx, order.id);
-            const payment = existingPayments.find(p => idsAreEqual(p.id, input.refund?.paymentId));
-            if (payment) {
-                const refund = await this.paymentService.createRefund(ctx, refundInput, order, payment);
-                if (!isGraphQlErrorResult(refund)) {
-                    modification.refund = refund;
-                } else {
-                    throw new InternalServerError(refund.message);
-                }
-            }
+            refundInput.adjustment += await this.calculateRefundAdjustment(ctx, delta, refundInput)
         }
 
         modification.priceChange = delta;
@@ -413,15 +400,6 @@ export class OrderModifier {
         const calculatedDelta = itemAmount + refundInput.shipping + existingAdjustment;
         const absDelta = Math.abs(delta);
         return absDelta !== calculatedDelta ? absDelta - calculatedDelta : 0;
-    }
-
-    private getOrderPayments(ctx: RequestContext, orderId: ID): Promise<Payment[]> {
-        return this.connection.getRepository(ctx, Payment).find({
-            relations: ['refunds'],
-            where: {
-                order: { id: orderId } as any,
-            },
-        });
     }
 
     private async customFieldsAreEqual(

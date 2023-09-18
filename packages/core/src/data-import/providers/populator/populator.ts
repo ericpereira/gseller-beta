@@ -11,7 +11,6 @@ import {
 import { TransactionalConnection } from '../../../connection/index';
 import { Channel, User } from '../../../entity';
 import {
-    PaymentMethodService,
     RequestContextService,
     RoleService,
 } from '../../../service';
@@ -42,7 +41,6 @@ export class Populator {
         private countryService: CountryService,
         private zoneService: ZoneService,
         private channelService: ChannelService,
-        private paymentMethodService: PaymentMethodService,
         private searchService: SearchService,
         private assetImporter: AssetImporter,
         private roleService: RoleService,
@@ -66,12 +64,6 @@ export class Populator {
             Logger.error('Could not populate countries');
             Logger.error(e, 'populator', e.stack);
             throw e;
-        }
-        try {
-            await this.populatePaymentMethods(ctx, data.paymentMethods);
-        } catch (e: any) {
-            Logger.error('Could not populate payment methods');
-            Logger.error(e, 'populator', e.stack);
         }
         try {
             await this.setChannelDefaults(zoneMap, data, ctx.channel);
@@ -151,17 +143,6 @@ export class Populator {
         }
 
         return zoneMap;
-    }
-
-    private async populatePaymentMethods(ctx: RequestContext, paymentMethods: InitialData['paymentMethods']) {
-        for (const method of paymentMethods) {
-            await this.paymentMethodService.create(ctx, {
-                code: normalizeString(method.name, '-'),
-                enabled: true,
-                handler: method.handler,
-                translations: [{ languageCode: ctx.languageCode, name: method.name, description: '' }],
-            });
-        }
     }
 
     private async populateRoles(ctx: RequestContext, roles?: RoleDefinition[]) {

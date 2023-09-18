@@ -7,7 +7,6 @@ import { TransactionalConnection } from '../../connection/transactional-connecti
 import { Order } from '../../entity/order/order.entity';
 import { OrderLine } from '../../entity/order-line/order-line.entity';
 import { OrderModification } from '../../entity/order-modification/order-modification.entity';
-import { Payment } from '../../entity/payment/payment.entity';
 import { ProductVariant } from '../../entity/product-variant/product-variant.entity';
 import { OrderPlacedEvent } from '../../event-bus/events/order-placed-event';
 import { OrderState } from '../../service/helpers/order-state-machine/order-state';
@@ -268,13 +267,6 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
                 if (toState === 'Cancelled') {
                     return;
                 }
-                const existingPayments = await connection.getRepository(ctx, Payment).find({
-                    relations: ['refunds'],
-                    where: {
-                        order: { id: order.id },
-                    },
-                });
-                order.payments = existingPayments;
                 const deficit = order.totalWithTax - totalCoveredByPayments(order);
                 if (0 < deficit) {
                     return 'message.cannot-transition-from-arranging-additional-payment';
@@ -327,17 +319,6 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
                             },
                         );
                     }
-                }
-            }
-            if (options.checkPaymentsCoverTotal !== false) {
-                if (toState === 'PaymentAuthorized') {
-                    const hasAnAuthorizedPayment = !!order.payments.find(p => p.state === 'Authorized');
-                    if (!orderTotalIsCovered(order, ['Authorized', 'Settled']) || !hasAnAuthorizedPayment) {
-                        return 'message.cannot-transition-without-authorized-payments';
-                    }
-                }
-                if (toState === 'PaymentSettled' && !orderTotalIsCovered(order, 'Settled')) {
-                    return 'message.cannot-transition-without-settled-payments';
                 }
             }
             if (options.checkAllItemsBeforeCancel !== false) {

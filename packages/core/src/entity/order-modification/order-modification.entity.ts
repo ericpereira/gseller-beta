@@ -7,7 +7,6 @@ import { VendureEntity } from '../base/base.entity';
 import { Money } from '../money.decorator';
 import { Order } from '../order/order.entity';
 import { OrderModificationLine } from '../order-line-reference/order-modification-line.entity';
-import { Payment } from '../payment/payment.entity';
 import { Refund } from '../refund/refund.entity';
 
 /**
@@ -36,10 +35,6 @@ export class OrderModification extends VendureEntity {
     @Money()
     priceChange: number;
 
-    @OneToOne(type => Payment)
-    @JoinColumn()
-    payment?: Payment;
-
     @OneToOne(type => Refund)
     @JoinColumn()
     refund?: Refund;
@@ -53,6 +48,6 @@ export class OrderModification extends VendureEntity {
         if (this.priceChange === 0) {
             return true;
         }
-        return !!this.payment || !!this.refund;
+        return !!this.refund;
     }
 }

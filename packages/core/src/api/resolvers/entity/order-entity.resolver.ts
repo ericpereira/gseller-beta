@@ -17,14 +17,6 @@ export class OrderEntityResolver {
     ) {}
 
     @ResolveField()
-    async payments(@Ctx() ctx: RequestContext, @Parent() order: Order) {
-        if (order.payments) {
-            return order.payments;
-        }
-        return this.orderService.getOrderPayments(ctx, order.id);
-    }
-
-    @ResolveField()
     async lines(@Ctx() ctx: RequestContext, @Parent() order: Order) {
         if (order.lines) {
             return order.lines;

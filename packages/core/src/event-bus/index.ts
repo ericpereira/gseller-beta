@@ -28,8 +28,6 @@ export * from './events/order-placed-event';
 export * from './events/order-state-transition-event';
 export * from './events/password-reset-event';
 export * from './events/password-reset-verified-event';
-export * from './events/payment-method-event';
-export * from './events/payment-state-transition-event';
 export * from './events/product-channel-event';
 export * from './events/product-event';
 export * from './events/product-option-event';

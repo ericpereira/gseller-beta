@@ -81,7 +81,6 @@ import { Customer } from '../../entity/customer/customer.entity';
 import { Order } from '../../entity/order/order.entity';
 import { OrderLine } from '../../entity/order-line/order-line.entity';
 import { OrderModification } from '../../entity/order-modification/order-modification.entity';
-import { Payment } from '../../entity/payment/payment.entity';
 import { ProductVariant } from '../../entity/product-variant/product-variant.entity';
 import { Refund } from '../../entity/refund/refund.entity';
 import { Session } from '../../entity/session/session.entity';
@@ -101,8 +100,6 @@ import { OrderMerger } from '../helpers/order-merger/order-merger';
 import { OrderModifier } from '../helpers/order-modifier/order-modifier';
 import { OrderState } from '../helpers/order-state-machine/order-state';
 import { OrderStateMachine } from '../helpers/order-state-machine/order-state-machine';
-import { PaymentState } from '../helpers/payment-state-machine/payment-state';
-import { PaymentStateMachine } from '../helpers/payment-state-machine/payment-state-machine';
 import { RefundStateMachine } from '../helpers/refund-state-machine/refund-state-machine';
 import { TranslatorService } from '../helpers/translator/translator.service';
 import { getOrdersFromLines, totalCoveredByPayments } from '../helpers/utils/order-utils';
@@ -111,8 +108,6 @@ import { patchEntity } from '../helpers/utils/patch-entity';
 import { ChannelService } from './channel.service';
 import { CountryService } from './country.service';
 import { CustomerService } from './customer.service';
-import { PaymentMethodService } from './payment-method.service';
-import { PaymentService } from './payment.service';
 import { ProductVariantService } from './product-variant.service';
 
 /**
@@ -132,9 +127,6 @@ export class OrderService {
         private orderCalculator: OrderCalculator,
         private orderStateMachine: OrderStateMachine,
         private orderMerger: OrderMerger,
-        private paymentService: PaymentService,
-        private paymentStateMachine: PaymentStateMachine,
-        private paymentMethodService: PaymentMethodService,
         private listQueryBuilder: ListQueryBuilder,
         private refundStateMachine: RefundStateMachine,
         private eventBus: EventBus,
@@ -303,19 +295,6 @@ export class OrderService {
                     totalItems,
                 };
             });
-    }
-
-    /**
-     * @description
-     * Returns all {@link Payment} entities associated with the Order.
-     */
-    getOrderPayments(ctx: RequestContext, orderId: ID): Promise<Payment[]> {
-        return this.connection.getRepository(ctx, Payment).find({
-            relations: ['refunds'],
-            where: {
-                order: { id: orderId } as any,
-            },
-        });
     }
 
     /**
@@ -701,15 +680,6 @@ export class OrderService {
 
     /**
      * @description
-     * Returns an array of quotes stating which {@link PaymentMethod}s may be used on this Order.
-     */
-    async getEligiblePaymentMethods(ctx: RequestContext, orderId: ID): Promise<PaymentMethodQuote[]> {
-        const order = await this.getOrderOrThrow(ctx, orderId);
-        return this.paymentMethodService.getEligiblePaymentMethods(ctx, order);
-    }
-
-    /**
-     * @description
      * Transitions the Order to the given state.
      */
     async transitionToState(
@@ -718,7 +688,6 @@ export class OrderService {
         state: OrderState,
     ): Promise<Order | OrderStateTransitionError> {
         const order = await this.getOrderOrThrow(ctx, orderId);
-        order.payments = await this.getOrderPayments(ctx, orderId);
         const fromState = order.state;
         let finalize: () => Promise<any>;
         try {
@@ -770,69 +739,6 @@ export class OrderService {
 
     /**
      * @description
-     * Transitions the given {@link Payment} to a new state. If the order totalWithTax price is then
-     * covered by Payments, the Order state will be automatically transitioned to `PaymentSettled`
-     * or `PaymentAuthorized`.
-     */
-    async transitionPaymentToState(
-        ctx: RequestContext,
-        paymentId: ID,
-        state: PaymentState,
-    ): Promise<ErrorResultUnion<TransitionPaymentToStateResult, Payment>> {
-        const result = await this.paymentService.transitionToState(ctx, paymentId, state);
-        if (isGraphQlErrorResult(result)) {
-            return result;
-        }
-        return result;
-    }
-
-    /**
-     * @description
-     * Adds a new Payment to the Order. If the Order totalWithTax is covered by Payments, then the Order
-     * state will get automatically transitioned to the `PaymentSettled` or `PaymentAuthorized` state.
-     */
-    async addPaymentToOrder(
-        ctx: RequestContext,
-        orderId: ID,
-        input: PaymentInput,
-    ): Promise<ErrorResultUnion<AddPaymentToOrderResult, Order>> {
-        const order = await this.getOrderOrThrow(ctx, orderId);
-        if (!this.canAddPaymentToOrder(order)) {
-            return new OrderPaymentStateError();
-        }
-        order.payments = await this.getOrderPayments(ctx, order.id);
-        const amountToPay = order.totalWithTax - totalCoveredByPayments(order);
-        const payment = await this.paymentService.createPayment(
-            ctx,
-            order,
-            amountToPay,
-            input.method,
-            input.metadata,
-        );
-
-        if (isGraphQlErrorResult(payment)) {
-            return payment;
-        }
-
-        await this.connection
-            .getRepository(ctx, Order)
-            .createQueryBuilder()
-            .relation('payments')
-            .of(order)
-            .add(payment);
-
-        if (payment.state === 'Error') {
-            return new PaymentFailedError({ paymentErrorMessage: payment.errorMessage || '' });
-        }
-        if (payment.state === 'Declined') {
-            return new PaymentDeclinedError({ paymentErrorMessage: payment.errorMessage || '' });
-        }
-
-        return assertFound(this.findOne(ctx, order.id));
-    }
-
-    /**
-     * @description
      * We can add a Payment to the order if:
      * 1. the Order is in the `ArrangingPayment` state or
      * 2. the Order's current state can transition to `PaymentAuthorized` and `PaymentSettled`
@@ -850,87 +756,6 @@ export class OrderService {
             'PaymentSettled',
         );
         return canTransitionToPaymentAuthorized && canTransitionToPaymentSettled;
-    }
-
-    /**
-     * @description
-     * This method is used after modifying an existing completed order using the `modifyOrder()` method. If the modifications
-     * cause the order total to increase (such as when adding a new OrderLine), then there will be an outstanding charge to
-     * pay.
-     *
-     * This method allows you to add a new Payment and assumes the actual processing has been done manually, e.g. in the
-     * dashboard of your payment provider.
-     */
-    async addManualPaymentToOrder(
-        ctx: RequestContext,
-        input: ManualPaymentInput,
-    ): Promise<ErrorResultUnion<AddManualPaymentToOrderResult, Order>> {
-        const order = await this.getOrderOrThrow(ctx, input.orderId);
-        if (order.state !== 'ArrangingAdditionalPayment' && order.state !== 'ArrangingPayment') {
-            return new ManualPaymentStateError();
-        }
-        const existingPayments = await this.getOrderPayments(ctx, order.id);
-        order.payments = existingPayments;
-        const amount = order.totalWithTax - totalCoveredByPayments(order);
-        const modifications = await this.getOrderModifications(ctx, order.id);
-        const unsettledModifications = modifications.filter(m => !m.isSettled);
-        if (0 < unsettledModifications.length) {
-            const outstandingModificationsTotal = summate(unsettledModifications, 'priceChange');
-            if (outstandingModificationsTotal !== amount) {
-                throw new InternalServerError(
-                    `The outstanding order amount (${amount}) should equal the unsettled OrderModifications total (${outstandingModificationsTotal})`,
-                );
-            }
-        }
-
-        const payment = await this.paymentService.createManualPayment(ctx, order, amount, input);
-        await this.connection
-            .getRepository(ctx, Order)
-            .createQueryBuilder('order')
-            .relation('payments')
-            .of(order)
-            .add(payment);
-        for (const modification of unsettledModifications) {
-            modification.payment = payment;
-            await this.connection.getRepository(ctx, OrderModification).save(modification);
-        }
-        return assertFound(this.findOne(ctx, order.id));
-    }
-
-    /**
-     * @description
-     * Settles a payment by invoking the {@link PaymentMethodHandler}'s `settlePayment()` method. Automatically
-     * transitions the Order state if all Payments are settled.
-     */
-    async settlePayment(
-        ctx: RequestContext,
-        paymentId: ID,
-    ): Promise<ErrorResultUnion<SettlePaymentResult, Payment>> {
-        const payment = await this.paymentService.settlePayment(ctx, paymentId);
-        if (!isGraphQlErrorResult(payment)) {
-            if (payment.state !== 'Settled') {
-                return new SettlePaymentError({ paymentErrorMessage: payment.errorMessage || '' });
-            }
-        }
-        return payment;
-    }
-
-    /**
-     * @description
-     * Cancels a payment by invoking the {@link PaymentMethodHandler}'s `cancelPayment()` method (if defined), and transitions the Payment to
-     * the `Cancelled` state.
-     */
-    async cancelPayment(
-        ctx: RequestContext,
-        paymentId: ID,
-    ): Promise<ErrorResultUnion<CancelPaymentResult, Payment>> {
-        const payment = await this.paymentService.cancelPayment(ctx, paymentId);
-        if (!isGraphQlErrorResult(payment)) {
-            if (payment.state !== 'Cancelled') {
-                return new CancelPaymentError({ paymentErrorMessage: payment.errorMessage || '' });
-            }
-        }
-        return payment;
     }
 
     /**
@@ -975,43 +800,6 @@ export class OrderService {
 
     /**
      * @description
-     * Creates a {@link Refund} against the order and in doing so invokes the `createRefund()` method of the
-     * {@link PaymentMethodHandler}.
-     */
-    async refundOrder(
-        ctx: RequestContext,
-        input: RefundOrderInput,
-    ): Promise<ErrorResultUnion<RefundOrderResult, Refund>> {
-        if (
-            (!input.lines || input.lines.length === 0 || summate(input.lines, 'quantity') === 0) &&
-            input.shipping === 0
-        ) {
-            return new NothingToRefundError();
-        }
-        const orders = await getOrdersFromLines(ctx, this.connection, input.lines ?? []);
-        if (1 < orders.length) {
-            return new MultipleOrderError();
-        }
-        const payment = await this.connection.getEntityOrThrow(ctx, Payment, input.paymentId, {
-            relations: ['order'],
-        });
-        if (orders && orders.length && !idsAreEqual(payment.order.id, orders[0].id)) {
-            return new PaymentOrderMismatchError();
-        }
-        const order = payment.order;
-        if (
-            order.state === 'AddingItems' ||
-            order.state === 'ArrangingPayment' ||
-            order.state === 'PaymentAuthorized'
-        ) {
-            return new RefundOrderStateError({ orderState: order.state });
-        }
-
-        return await this.paymentService.createRefund(ctx, input, order, payment);
-    }
-
-    /**
-     * @description
      * Settles a Refund by transitioning it to the `Settled` state.
      */
     async settleRefund(ctx: RequestContext, input: SettleRefundInput): Promise<Refund> {
@@ -1021,17 +809,7 @@ export class OrderService {
         refund.transactionId = input.transactionId;
         const fromState = refund.state;
         const toState = 'Settled';
-        const { finalize } = await this.refundStateMachine.transition(
-            ctx,
-            refund.payment.order,
-            refund,
-            toState,
-        );
         await this.connection.getRepository(ctx, Refund).save(refund);
-        await finalize();
-        this.eventBus.publish(
-            new RefundStateTransitionEvent(fromState, toState, ctx, refund, refund.payment.order),
-        );
         return refund;
     }
 

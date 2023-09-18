@@ -15,7 +15,6 @@ import {
     ImportExportOptions,
     JobQueueOptions,
     OrderOptions,
-    PaymentOptions,
     RuntimeVendureConfig,
     SystemOptions,
     VendureConfig,
@@ -71,10 +70,6 @@ export class ConfigService implements VendureConfig {
 
     get orderOptions(): Required<OrderOptions> {
         return this.activeConfig.orderOptions;
-    }
-
-    get paymentOptions(): Required<PaymentOptions> {
-        return this.activeConfig.paymentOptions as Required<PaymentOptions>;
     }
 
     get importExportOptions(): Required<ImportExportOptions> {

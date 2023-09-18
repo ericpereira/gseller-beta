@@ -30,10 +30,8 @@ import { PaginatedList } from '@vendure/common/lib/shared-types';
 import { ErrorResultUnion, isGraphQlErrorResult } from '../../../common/error/error-result';
 import { TransactionalConnection } from '../../../connection';
 import { Order } from '../../../entity/order/order.entity';
-import { Payment } from '../../../entity/payment/payment.entity';
 import { Refund } from '../../../entity/refund/refund.entity';
 import { OrderState } from '../../../service/helpers/order-state-machine/order-state';
-import { PaymentState } from '../../../service/helpers/payment-state-machine/payment-state';
 import { OrderService } from '../../../service/services/order.service';
 import { RequestContext } from '../../common/request-context';
 import { Allow } from '../../decorators/allow.decorator';
@@ -68,41 +66,11 @@ export class OrderResolver {
     @Transaction()
     @Mutation()
     @Allow(Permission.UpdateOrder)
-    async settlePayment(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationSettlePaymentArgs,
-    ): Promise<ErrorResultUnion<SettlePaymentResult, Payment>> {
-        return this.orderService.settlePayment(ctx, args.id);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder)
-    async cancelPayment(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationCancelPaymentArgs,
-    ): Promise<ErrorResultUnion<CancelPaymentResult, Payment>> {
-        return this.orderService.cancelPayment(ctx, args.id);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder)
     async cancelOrder(
         @Ctx() ctx: RequestContext,
         @Args() args: MutationCancelOrderArgs,
     ): Promise<ErrorResultUnion<CancelOrderResult, Order>> {
         return this.orderService.cancelOrder(ctx, args.input);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder)
-    async refundOrder(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationRefundOrderArgs,
-    ): Promise<ErrorResultUnion<RefundOrderResult, Refund>> {
-        return this.orderService.refundOrder(ctx, args.input);
     }
 
     @Transaction()
@@ -129,16 +97,6 @@ export class OrderResolver {
         return this.orderService.transitionToState(ctx, args.id, args.state as OrderState);
     }
 
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder)
-    async transitionPaymentToState(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationTransitionPaymentToStateArgs,
-    ): Promise<ErrorResultUnion<TransitionPaymentToStateResult, Payment>> {
-        return this.orderService.transitionPaymentToState(ctx, args.id, args.state as PaymentState);
-    }
-
     @Transaction('manual')
     @Mutation()
     @Allow(Permission.UpdateOrder)
@@ -153,15 +111,5 @@ export class OrderResolver {
         }
 
         return result;
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder)
-    async addManualPaymentToOrder(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationAddManualPaymentToOrderArgs,
-    ) {
-        return this.orderService.addManualPaymentToOrder(ctx, args.input);
     }
 }
