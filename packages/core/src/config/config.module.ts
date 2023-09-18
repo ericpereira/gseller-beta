@@ -93,7 +93,6 @@ export class ConfigModule implements OnApplicationBootstrap, OnApplicationShutdo
             guestCheckoutStrategy,
         } = this.configService.orderOptions;
         
-        const { customPaymentProcess, process: paymentProcess } = this.configService.paymentOptions;
         const { entityIdStrategy: entityIdStrategyDeprecated } = this.configService;
         const { entityIdStrategy } = this.configService.entityOptions;
         const { healthChecks } = this.configService.systemOptions;
@@ -118,8 +117,6 @@ export class ConfigModule implements OnApplicationBootstrap, OnApplicationShutdo
             productVariantPriceCalculationStrategy,
             orderItemPriceCalculationStrategy,
             ...orderProcess,
-            ...customPaymentProcess,
-            ...paymentProcess,
             stockAllocationStrategy,
             ...healthChecks,
             assetImportStrategy,
@@ -132,11 +129,8 @@ export class ConfigModule implements OnApplicationBootstrap, OnApplicationShutdo
     }
 
     private getConfigurableOperations(): Array<ConfigurableOperationDef<any>> {
-        const { paymentMethodHandlers, paymentMethodEligibilityCheckers } = this.configService.paymentOptions;
         const { collectionFilters } = this.configService.catalogOptions;
         return [
-            ...(paymentMethodEligibilityCheckers || []),
-            ...paymentMethodHandlers,
             ...collectionFilters,
         ];
     }

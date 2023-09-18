@@ -19,7 +19,6 @@ import { OrderModifier } from './helpers/order-modifier/order-modifier';
 import { OrderSplitter } from './helpers/order-splitter/order-splitter';
 import { OrderStateMachine } from './helpers/order-state-machine/order-state-machine';
 import { PasswordCipher } from './helpers/password-cipher/password-cipher';
-import { PaymentStateMachine } from './helpers/payment-state-machine/payment-state-machine';
 import { ProductPriceApplicator } from './helpers/product-price-applicator/product-price-applicator';
 import { RefundStateMachine } from './helpers/refund-state-machine/refund-state-machine';
 import { RequestContextService } from './helpers/request-context/request-context.service';
@@ -38,8 +37,6 @@ import { CustomerService } from './services/customer.service';
 import { GlobalSettingsService } from './services/global-settings.service';
 import { OrderTestingService } from './services/order-testing.service';
 import { OrderService } from './services/order.service';
-import { PaymentMethodService } from './services/payment-method.service';
-import { PaymentService } from './services/payment.service';
 import { ProductOptionGroupService } from './services/product-option-group.service';
 import { ProductOptionService } from './services/product-option.service';
 import { ProductVariantService } from './services/product-variant.service';
@@ -63,8 +60,6 @@ const services = [
     GlobalSettingsService,
     OrderService,
     OrderTestingService,
-    PaymentService,
-    PaymentMethodService,
     ProductOptionGroupService,
     ProductOptionService,
     ProductService,
@@ -86,7 +81,6 @@ const helpers = [
     OrderMerger,
     OrderModifier,
     OrderSplitter,
-    PaymentStateMachine,
     ListQueryBuilder,
     VerificationTokenGenerator,
     RefundStateMachine,

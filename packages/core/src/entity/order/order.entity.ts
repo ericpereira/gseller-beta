@@ -23,7 +23,6 @@ import { EntityId } from '../entity-id.decorator';
 import { Money } from '../money.decorator';
 import { OrderLine } from '../order-line/order-line.entity';
 import { OrderModification } from '../order-modification/order-modification.entity';
-import { Payment } from '../payment/payment.entity';
 
 /**
  * @description
@@ -106,9 +105,6 @@ export class Order extends VendureEntity implements ChannelAware, HasCustomField
     @Column('simple-json') shippingAddress: OrderAddress;
 
     @Column('simple-json') billingAddress: OrderAddress;
-
-    @OneToMany(type => Payment, payment => payment.order)
-    payments: Payment[];
 
     @Column('varchar')
     currencyCode: CurrencyCode;

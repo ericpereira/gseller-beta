@@ -190,9 +190,6 @@ export class ShopOrderResolver {
                 ctx,
                 args[ACTIVE_ORDER_INPUT_FIELD_NAME],
             );
-            if (sessionOrder) {
-                return this.orderService.getEligiblePaymentMethods(ctx, sessionOrder.id);
-            }
         }
         return [];
     }
@@ -338,35 +335,6 @@ export class ShopOrderResolver {
             true,
         );
         return this.orderService.removeCouponCode(ctx, order.id, args.couponCode);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder, Permission.Owner)
-    async addPaymentToOrder(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationAddPaymentToOrderArgs & ActiveOrderArgs,
-    ): Promise<ErrorResultUnion<AddPaymentToOrderResult, Order>> {
-        if (ctx.authorizedAsOwnerOnly) {
-            const sessionOrder = await this.activeOrderService.getActiveOrder(
-                ctx,
-                args[ACTIVE_ORDER_INPUT_FIELD_NAME],
-            );
-            if (sessionOrder) {
-                const order = await this.orderService.addPaymentToOrder(ctx, sessionOrder.id, args.input);
-                if (isGraphQlErrorResult(order)) {
-                    return order;
-                }
-                if (order.active === false) {
-                    await this.customerService.createAddressesForNewCustomer(ctx, order);
-                }
-                if (order.active === false && ctx.session?.activeOrderId === sessionOrder.id) {
-                    await this.sessionService.unsetActiveOrder(ctx, ctx.session);
-                }
-                return order;
-            }
-        }
-        return new NoActiveOrderError();
     }
 
     @Transaction()

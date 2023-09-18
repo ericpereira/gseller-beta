@@ -14,9 +14,6 @@ import { OrderLineReference } from './order-line-reference/order-line-reference.
 import { OrderModificationLine } from './order-line-reference/order-modification-line.entity';
 import { RefundLine } from './order-line-reference/refund-line.entity';
 import { OrderModification } from './order-modification/order-modification.entity';
-import { Payment } from './payment/payment.entity';
-import { PaymentMethodTranslation } from './payment-method/payment-method-translation.entity';
-import { PaymentMethod } from './payment-method/payment-method.entity';
 import { ProductAsset } from './product/product-asset.entity';
 import { ProductTranslation } from './product/product-translation.entity';
 import { Product } from './product/product.entity';
@@ -64,9 +61,6 @@ export const coreEntitiesMap = {
     OrderLine,
     OrderLineReference,
     OrderModification,
-    Payment,
-    PaymentMethod,
-    PaymentMethodTranslation,
     Product,
     ProductAsset,
     ProductOption,

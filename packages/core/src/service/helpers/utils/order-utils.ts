@@ -9,33 +9,20 @@ import { EntityNotFoundError, idsAreEqual } from '../../../common/index';
 import { TransactionalConnection } from '../../../connection/index';
 import { Order } from '../../../entity/order/order.entity';
 import { OrderLine } from '../../../entity/order-line/order-line.entity';
-import { PaymentState } from '../payment-state-machine/payment-state';
 
 /**
  * Returns true if the Order total is covered by Payments in the specified state.
  */
-export function orderTotalIsCovered(order: Order, state: PaymentState | PaymentState[]): boolean {
-    const paymentsTotal = totalCoveredByPayments(order, state);
+export function orderTotalIsCovered(order: Order): boolean {
+    const paymentsTotal = totalCoveredByPayments(order);
     return paymentsTotal >= order.totalWithTax;
 }
 
 /**
  * Returns the total amount covered by all Payments (minus any refunds)
  */
-export function totalCoveredByPayments(order: Order, state?: PaymentState | PaymentState[]): number {
-    const payments = state
-        ? Array.isArray(state)
-            ? order.payments.filter(p => state.includes(p.state))
-            : order.payments.filter(p => p.state === state)
-        : order.payments.filter(
-              p => p.state !== 'Error' && p.state !== 'Declined' && p.state !== 'Cancelled',
-          );
-    let total = 0;
-    for (const payment of payments) {
-        const refundTotal = summate(payment.refunds, 'total');
-        total += payment.amount - Math.abs(refundTotal);
-    }
-    return total;
+export function totalCoveredByPayments(order: Order): number {
+    return 0;
 }
 
 /**

@@ -23,7 +23,6 @@ import { GlobalSettingsResolver } from './resolvers/admin/global-settings.resolv
 import { ImportResolver } from './resolvers/admin/import.resolver';
 import { JobResolver } from './resolvers/admin/job.resolver';
 import { OrderResolver } from './resolvers/admin/order.resolver';
-import { PaymentMethodResolver } from './resolvers/admin/payment-method.resolver';
 import { ProductOptionResolver } from './resolvers/admin/product-option.resolver';
 import { ProductResolver } from './resolvers/admin/product.resolver';
 import { RoleResolver } from './resolvers/admin/role.resolver';
@@ -43,11 +42,6 @@ import { CustomerGroupEntityResolver } from './resolvers/entity/customer-group-e
 import { JobEntityResolver } from './resolvers/entity/job-entity.resolver';
 import { OrderAdminEntityResolver, OrderEntityResolver } from './resolvers/entity/order-entity.resolver';
 import { OrderLineEntityResolver } from './resolvers/entity/order-line-entity.resolver';
-import {
-    PaymentAdminEntityResolver,
-    PaymentEntityResolver,
-} from './resolvers/entity/payment-entity.resolver';
-import { PaymentMethodEntityResolver } from './resolvers/entity/payment-method-entity.resolver';
 import {
     ProductAdminEntityResolver,
     ProductEntityResolver,
@@ -82,7 +76,6 @@ const adminResolvers = [
     ImportResolver,
     JobResolver,
     OrderResolver,
-    PaymentMethodResolver,
     ProductOptionResolver,
     ProductResolver,
     RoleResolver,
@@ -108,7 +101,6 @@ export const entityResolvers = [
     CustomerGroupEntityResolver,
     OrderEntityResolver,
     OrderLineEntityResolver,
-    PaymentEntityResolver,
     ProductEntityResolver,
     ProductOptionEntityResolver,
     ProductOptionGroupEntityResolver,
@@ -124,8 +116,6 @@ export const adminEntityResolvers = [
     AdministratorEntityResolver,
     CustomerAdminEntityResolver,
     OrderAdminEntityResolver,
-    PaymentMethodEntityResolver,
-    PaymentAdminEntityResolver,
     ProductVariantAdminEntityResolver,
     ProductAdminEntityResolver,
     JobEntityResolver,

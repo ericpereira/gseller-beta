@@ -6,8 +6,6 @@ import { ConfigurableOperationDef } from '../../common/configurable-operation';
 import { InternalServerError } from '../../common/error/errors';
 import { CollectionFilter } from '../../config/catalog/collection-filter';
 import { ConfigService } from '../../config/config.service';
-import { PaymentMethodEligibilityChecker } from '../../config/payment/payment-method-eligibility-checker';
-import { PaymentMethodHandler } from '../../config/payment/payment-method-handler';
 
 import { IdCodecService } from './id-codec.service';
 
@@ -79,10 +77,6 @@ export class ConfigurableOperationCodec {
         switch (defType) {
             case CollectionFilter:
                 return this.configService.catalogOptions.collectionFilters;
-            case PaymentMethodHandler:
-                return this.configService.paymentOptions.paymentMethodHandlers;
-            case PaymentMethodEligibilityChecker:
-                return this.configService.paymentOptions.paymentMethodEligibilityCheckers || [];
             default:
                 throw new InternalServerError('error.unknown-configurable-operation-definition', {
                     name: defType.name,

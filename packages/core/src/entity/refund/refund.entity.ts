@@ -7,7 +7,6 @@ import { VendureEntity } from '../base/base.entity';
 import { EntityId } from '../entity-id.decorator';
 import { Money } from '../money.decorator';
 import { RefundLine } from '../order-line-reference/refund-line.entity';
-import { Payment } from '../payment/payment.entity';
 
 @Entity()
 export class Refund extends VendureEntity {
@@ -34,11 +33,6 @@ export class Refund extends VendureEntity {
     @OneToMany(type => RefundLine, line => line.refund)
     @JoinTable()
     lines: RefundLine[];
-
-    @Index()
-    @ManyToOne(type => Payment)
-    @JoinColumn()
-    payment: Payment;
 
     @EntityId()
     paymentId: ID;

@@ -36,9 +36,6 @@ import { OrderPlacedStrategy } from './order/order-placed-strategy';
 import { OrderProcess } from './order/order-process';
 import { OrderSellerStrategy } from './order/order-seller-strategy';
 import { StockAllocationStrategy } from './order/stock-allocation-strategy';
-import { PaymentMethodEligibilityChecker } from './payment/payment-method-eligibility-checker';
-import { PaymentMethodHandler } from './payment/payment-method-handler';
-import { PaymentProcess } from './payment/payment-process';
 import { SessionCacheStrategy } from './session-cache/session-cache-strategy';
 import { HealthCheckStrategy } from './system/health-check-strategy';
 
@@ -690,40 +687,6 @@ export interface SuperadminCredentials {
 
 /**
  * @description
- * Defines payment-related options in the {@link VendureConfig}.
- *
- * @docsCategory payment
- * */
-export interface PaymentOptions {
-    /**
-     * @description
-     * Defines which {@link PaymentMethodHandler}s are available when configuring
-     * {@link PaymentMethod}s
-     */
-    paymentMethodHandlers: PaymentMethodHandler[];
-    /**
-     * @description
-     * Defines which {@link PaymentMethodEligibilityChecker}s are available when configuring
-     * {@link PaymentMethod}s
-     */
-    paymentMethodEligibilityCheckers?: PaymentMethodEligibilityChecker[];
-    /**
-     * @deprecated use `process`
-     */
-    customPaymentProcess?: Array<PaymentProcess<any>>;
-    /**
-     * @description
-     * Allows the definition of custom states and transition logic for the payment process state machine.
-     * Takes an array of objects implementing the {@link PaymentProcess} interface.
-     *
-     * @default defaultPaymentProcess
-     * @since 2.0.0
-     */
-    process?: Array<PaymentProcess<any>>;
-}
-
-/**
- * @description
  * Options related to importing & exporting data.
  *
  * @docsCategory import-export
@@ -965,11 +928,6 @@ export interface VendureConfig {
      * Configuration settings governing how orders are handled.
      */
     orderOptions?: OrderOptions;
-    /**
-     * @description
-     * Configures available payment processing methods.
-     */
-    paymentOptions: PaymentOptions;
     /**
      * @description
      * An array of plugins.
