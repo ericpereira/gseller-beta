@@ -160,7 +160,6 @@ export type Channel = Node & {
     /** Not yet used - will be implemented in a future release. */
     outOfStockThreshold?: Maybe<Scalars['Int']>;
     pricesIncludeTax: Scalars['Boolean'];
-    seller?: Maybe<Seller>;
     token: Scalars['String'];
     /** Not yet used - will be implemented in a future release. */
     trackInventory?: Maybe<Scalars['Boolean']>;

@@ -42,7 +42,6 @@ import { ProductVariantService } from './services/product-variant.service';
 import { ProductService } from './services/product.service';
 import { RoleService } from './services/role.service';
 import { SearchService } from './services/search.service';
-import { SellerService } from './services/seller.service';
 import { SessionService } from './services/session.service';
 import { TagService } from './services/tag.service';
 import { UserService } from './services/user.service';
@@ -65,7 +64,6 @@ const services = [
     ProductVariantService,
     RoleService,
     SearchService,
-    SellerService,
     SessionService,
     TagService,
     UserService,

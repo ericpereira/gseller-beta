@@ -29,7 +29,6 @@ import { Province } from './region/province.entity';
 import { RegionTranslation } from './region/region-translation.entity';
 import { Region } from './region/region.entity';
 import { Role } from './role/role.entity';
-import { Seller } from './seller/seller.entity';
 import { AnonymousSession } from './session/anonymous-session.entity';
 import { AuthenticatedSession } from './session/authenticated-session.entity';
 import { Session } from './session/session.entity';
@@ -77,6 +76,5 @@ export const coreEntitiesMap = {
     Session,
     Tag,
     User,
-    Seller,
     Zone,
 };

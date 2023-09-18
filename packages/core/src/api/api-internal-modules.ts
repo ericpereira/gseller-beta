@@ -27,7 +27,6 @@ import { ProductOptionResolver } from './resolvers/admin/product-option.resolver
 import { ProductResolver } from './resolvers/admin/product.resolver';
 import { RoleResolver } from './resolvers/admin/role.resolver';
 import { SearchResolver } from './resolvers/admin/search.resolver';
-import { SellerResolver } from './resolvers/admin/seller.resolver';
 import { TagResolver } from './resolvers/admin/tag.resolver';
 import { ZoneResolver } from './resolvers/admin/zone.resolver';
 import { AdministratorEntityResolver } from './resolvers/entity/administrator-entity.resolver';
@@ -79,7 +78,6 @@ const adminResolvers = [
     RoleResolver,
     SearchResolver,
     TagResolver,
-    SellerResolver,
     ZoneResolver,
 ];
 

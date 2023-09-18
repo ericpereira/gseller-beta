@@ -377,7 +377,6 @@ export type Channel = Node & {
   /** Not yet used - will be implemented in a future release. */
   outOfStockThreshold?: Maybe<Scalars['Int']>;
   pricesIncludeTax: Scalars['Boolean'];
-  seller?: Maybe<Seller>;
   token: Scalars['String'];
   /** Not yet used - will be implemented in a future release. */
   trackInventory?: Maybe<Scalars['Boolean']>;
@@ -727,7 +726,6 @@ export type CreateChannelInput = {
   defaultTaxZoneId: Scalars['ID'];
   outOfStockThreshold?: InputMaybe<Scalars['Int']>;
   pricesIncludeTax: Scalars['Boolean'];
-  sellerId?: InputMaybe<Scalars['ID']>;
   token: Scalars['String'];
   trackInventory?: InputMaybe<Scalars['Boolean']>;
 };
@@ -3769,7 +3767,6 @@ export type Order = Node & {
   payments?: Maybe<Array<Payment>>;
   /** Promotions applied to the order. Only gets populated after the payment process has completed. */
   promotions: Array<Promotion>;
-  sellerOrders?: Maybe<Array<Order>>;
   shipping: Scalars['Money'];
   shippingAddress?: Maybe<OrderAddress>;
   shippingLines: Array<ShippingLine>;
@@ -4903,8 +4900,6 @@ export type Query = {
   role?: Maybe<Role>;
   roles: RoleList;
   search: SearchResponse;
-  seller?: Maybe<Seller>;
-  sellers: SellerList;
   shippingCalculators: Array<ConfigurableOperationDefinition>;
   shippingEligibilityCheckers: Array<ConfigurableOperationDefinition>;
   shippingMethod?: Maybe<ShippingMethod>;
@@ -6101,7 +6096,6 @@ export type UpdateChannelInput = {
   id: Scalars['ID'];
   outOfStockThreshold?: InputMaybe<Scalars['Int']>;
   pricesIncludeTax?: InputMaybe<Scalars['Boolean']>;
-  sellerId?: InputMaybe<Scalars['ID']>;
   token?: InputMaybe<Scalars['String']>;
   trackInventory?: InputMaybe<Scalars['Boolean']>;
 };

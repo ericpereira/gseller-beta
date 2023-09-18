@@ -5,7 +5,6 @@ import { Column, Entity, Index, ManyToOne } from 'typeorm';
 import { VendureEntity } from '../base/base.entity';
 import { CustomChannelFields } from '../custom-entity-fields';
 import { EntityId } from '../entity-id.decorator';
-import { Seller } from '../seller/seller.entity';
 import { Zone } from '../zone/zone.entity';
 
 /**
@@ -45,13 +44,6 @@ export class Channel extends VendureEntity {
 
     @Column({ default: '', nullable: true })
     description: string;
-
-    @Index()
-    @ManyToOne(type => Seller)
-    seller?: Seller;
-
-    @EntityId({ nullable: true })
-    sellerId?: ID;
 
     @Column('varchar') defaultLanguageCode: LanguageCode;
 

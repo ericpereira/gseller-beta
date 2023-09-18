@@ -27,7 +27,6 @@ export * from './product/product-asset.entity';
 export * from './product/product-translation.entity';
 export * from './product/product.entity';
 export * from './role/role.entity';
-export * from './seller/seller.entity';
 export * from './session/anonymous-session.entity';
 export * from './session/authenticated-session.entity';
 export * from './session/session.entity';

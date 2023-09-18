@@ -8,7 +8,6 @@ export const config: VendureConfig = {
     apiOptions,
     authOptions,
     dbConnectionOptions,
-    paymentOptions,
     customFields: {},
     plugins,
 };
