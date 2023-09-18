@@ -82,7 +82,6 @@ import { Order } from '../../entity/order/order.entity';
 import { OrderLine } from '../../entity/order-line/order-line.entity';
 import { OrderModification } from '../../entity/order-modification/order-modification.entity';
 import { ProductVariant } from '../../entity/product-variant/product-variant.entity';
-import { Refund } from '../../entity/refund/refund.entity';
 import { Session } from '../../entity/session/session.entity';
 import { User } from '../../entity/user/user.entity';
 import { EventBus } from '../../event-bus/event-bus';
@@ -91,7 +90,6 @@ import {
     OrderEvent,
     OrderLineEvent,
     OrderStateTransitionEvent,
-    RefundStateTransitionEvent,
 } from '../../event-bus/index';
 import { CustomFieldRelationService } from '../helpers/custom-field-relation/custom-field-relation.service';
 import { ListQueryBuilder } from '../helpers/list-query-builder/list-query-builder';
@@ -100,7 +98,6 @@ import { OrderMerger } from '../helpers/order-merger/order-merger';
 import { OrderModifier } from '../helpers/order-modifier/order-modifier';
 import { OrderState } from '../helpers/order-state-machine/order-state';
 import { OrderStateMachine } from '../helpers/order-state-machine/order-state-machine';
-import { RefundStateMachine } from '../helpers/refund-state-machine/refund-state-machine';
 import { TranslatorService } from '../helpers/translator/translator.service';
 import { getOrdersFromLines, totalCoveredByPayments } from '../helpers/utils/order-utils';
 import { patchEntity } from '../helpers/utils/patch-entity';
@@ -128,7 +125,6 @@ export class OrderService {
         private orderStateMachine: OrderStateMachine,
         private orderMerger: OrderMerger,
         private listQueryBuilder: ListQueryBuilder,
-        private refundStateMachine: RefundStateMachine,
         private eventBus: EventBus,
         private channelService: ChannelService,
         private orderModifier: OrderModifier,
@@ -307,18 +303,6 @@ export class OrderService {
                 order: { id: orderId },
             },
             relations: ['lines', 'payment', 'refund', 'surcharges'],
-        });
-    }
-
-    /**
-     * @description
-     * Returns any {@link Refund}s associated with a {@link Payment}.
-     */
-    getPaymentRefunds(ctx: RequestContext, paymentId: ID): Promise<Refund[]> {
-        return this.connection.getRepository(ctx, Refund).find({
-            where: {
-                paymentId,
-            },
         });
     }
 
@@ -796,21 +780,6 @@ export class OrderService {
                 quantity: l.quantity,
             }));
         }
-    }
-
-    /**
-     * @description
-     * Settles a Refund by transitioning it to the `Settled` state.
-     */
-    async settleRefund(ctx: RequestContext, input: SettleRefundInput): Promise<Refund> {
-        const refund = await this.connection.getEntityOrThrow(ctx, Refund, input.id, {
-            relations: ['payment', 'payment.order'],
-        });
-        refund.transactionId = input.transactionId;
-        const fromState = refund.state;
-        const toState = 'Settled';
-        await this.connection.getRepository(ctx, Refund).save(refund);
-        return refund;
     }
 
     /**

@@ -30,7 +30,6 @@ import { PaginatedList } from '@vendure/common/lib/shared-types';
 import { ErrorResultUnion, isGraphQlErrorResult } from '../../../common/error/error-result';
 import { TransactionalConnection } from '../../../connection';
 import { Order } from '../../../entity/order/order.entity';
-import { Refund } from '../../../entity/refund/refund.entity';
 import { OrderState } from '../../../service/helpers/order-state-machine/order-state';
 import { OrderService } from '../../../service/services/order.service';
 import { RequestContext } from '../../common/request-context';
@@ -71,13 +70,6 @@ export class OrderResolver {
         @Args() args: MutationCancelOrderArgs,
     ): Promise<ErrorResultUnion<CancelOrderResult, Order>> {
         return this.orderService.cancelOrder(ctx, args.input);
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder)
-    async settleRefund(@Ctx() ctx: RequestContext, @Args() args: MutationSettleRefundArgs) {
-        return this.orderService.settleRefund(ctx, args.input);
     }
 
     @Transaction()
