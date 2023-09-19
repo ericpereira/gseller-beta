@@ -17,16 +17,12 @@ import { NoAssetStorageStrategy } from './asset-storage-strategy/no-asset-storag
 import { BcryptPasswordHashingStrategy } from './auth/bcrypt-password-hashing-strategy';
 import { DefaultPasswordValidationStrategy } from './auth/default-password-validation-strategy';
 import { NativeAuthenticationStrategy } from './auth/native-authentication-strategy';
-import { defaultCollectionFilters } from './catalog/default-collection-filters';
-import { DefaultProductVariantPriceCalculationStrategy } from './catalog/default-product-variant-price-calculation-strategy';
-import { DefaultProductVariantPriceSelectionStrategy } from './catalog/default-product-variant-price-selection-strategy';
 import { AutoIncrementIdStrategy } from './entity/auto-increment-id-strategy';
 import { DefaultMoneyStrategy } from './entity/default-money-strategy';
 import { DefaultLogger } from './logger/default-logger';
 import { DefaultActiveOrderStrategy } from './order/default-active-order-strategy';
 import { DefaultChangedPriceHandlingStrategy } from './order/default-changed-price-handling-strategy';
 import { DefaultGuestCheckoutStrategy } from './order/default-guest-checkout-strategy';
-import { DefaultOrderItemPriceCalculationStrategy } from './order/default-order-item-price-calculation-strategy';
 import { DefaultOrderPlacedStrategy } from './order/default-order-placed-strategy';
 import { defaultOrderProcess } from './order/default-order-process';
 import { DefaultOrderSellerStrategy } from './order/default-order-seller-strategy';
@@ -94,11 +90,6 @@ export const defaultConfig: RuntimeVendureConfig = {
         passwordHashingStrategy: new BcryptPasswordHashingStrategy(),
         passwordValidationStrategy: new DefaultPasswordValidationStrategy({ minLength: 4 }),
     },
-    catalogOptions: {
-        collectionFilters: defaultCollectionFilters,
-        productVariantPriceSelectionStrategy: new DefaultProductVariantPriceSelectionStrategy(),
-        productVariantPriceCalculationStrategy: new DefaultProductVariantPriceCalculationStrategy(),
-    },
     entityIdStrategy: new AutoIncrementIdStrategy(),
     assetOptions: {
         assetNamingStrategy: new DefaultAssetNamingStrategy(),
@@ -121,7 +112,6 @@ export const defaultConfig: RuntimeVendureConfig = {
     orderOptions: {
         orderItemsLimit: 999,
         orderLineItemsLimit: 999,
-        orderItemPriceCalculationStrategy: new DefaultOrderItemPriceCalculationStrategy(),
         mergeStrategy: new MergeOrdersStrategy(),
         checkoutMergeStrategy: new UseGuestStrategy(),
         process: [defaultOrderProcess],

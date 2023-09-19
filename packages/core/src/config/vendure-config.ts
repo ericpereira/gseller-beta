@@ -16,9 +16,6 @@ import { AssetStorageStrategy } from './asset-storage-strategy/asset-storage-str
 import { AuthenticationStrategy } from './auth/authentication-strategy';
 import { PasswordHashingStrategy } from './auth/password-hashing-strategy';
 import { PasswordValidationStrategy } from './auth/password-validation-strategy';
-import { CollectionFilter } from './catalog/collection-filter';
-import { ProductVariantPriceCalculationStrategy } from './catalog/product-variant-price-calculation-strategy';
-import { ProductVariantPriceSelectionStrategy } from './catalog/product-variant-price-selection-strategy';
 import { CustomFields } from './custom-field/custom-field-types';
 import { EntityIdStrategy } from './entity/entity-id-strategy';
 import { MoneyStrategy } from './entity/money-strategy';
@@ -30,7 +27,6 @@ import { ChangedPriceHandlingStrategy } from './order/changed-price-handling-str
 import { GuestCheckoutStrategy } from './order/guest-checkout-strategy';
 import { OrderByCodeAccessStrategy } from './order/order-by-code-access-strategy';
 import { OrderCodeStrategy } from './order/order-code-strategy';
-import { OrderItemPriceCalculationStrategy } from './order/order-item-price-calculation-strategy';
 import { OrderMergeStrategy } from './order/order-merge-strategy';
 import { OrderPlacedStrategy } from './order/order-placed-strategy';
 import { OrderProcess } from './order/order-process';
@@ -471,14 +467,6 @@ export interface OrderOptions {
     orderLineItemsLimit?: number;
     /**
      * @description
-     * Defines the logic used to calculate the unit price of an OrderLine when adding an
-     * item to an Order.
-     *
-     * @default DefaultPriceCalculationStrategy
-     */
-    orderItemPriceCalculationStrategy?: OrderItemPriceCalculationStrategy;
-    /**
-     * @description
      * Allows the definition of custom states and transition logic for the order process state machine.
      * Takes an array of objects implementing the {@link OrderProcess} interface.
      *
@@ -627,39 +615,6 @@ export interface AssetOptions {
      * @default 20971520
      */
     uploadMaxFileSize?: number;
-}
-
-/**
- * @description
- * Options related to products and collections.
- *
- * @docsCategory products & stock
- */
-export interface CatalogOptions {
-    /**
-     * @description
-     * Allows custom {@link CollectionFilter}s to be defined.
-     *
-     * @default defaultCollectionFilters
-     */
-    collectionFilters?: Array<CollectionFilter<any>>;
-    /**
-     * @description
-     * Defines the strategy used to select the price of a ProductVariant, based on factors
-     * such as the active Channel and active CurrencyCode.
-     *
-     * @since 2.0.0
-     * @default DefaultProductVariantPriceSelectionStrategy
-     */
-    productVariantPriceSelectionStrategy?: ProductVariantPriceSelectionStrategy;
-    /**
-     * @description
-     * Defines the strategy used for calculating the price of ProductVariants based
-     * on the Channel settings and active tax Zone.
-     *
-     * @default DefaultTaxCalculationStrategy
-     */
-    productVariantPriceCalculationStrategy?: ProductVariantPriceCalculationStrategy;
 }
 
 /**
@@ -874,11 +829,6 @@ export interface VendureConfig {
     authOptions: AuthOptions;
     /**
      * @description
-     * Configuration for Products and Collections.
-     */
-    catalogOptions?: CatalogOptions;
-    /**
-     * @description
      * Defines custom fields which can be used to extend the built-in entities.
      *
      * @default {}
@@ -971,7 +921,6 @@ export interface RuntimeVendureConfig extends Required<VendureConfig> {
     apiOptions: Required<ApiOptions>;
     assetOptions: Required<AssetOptions>;
     authOptions: Required<AuthOptions>;
-    catalogOptions: Required<CatalogOptions>;
     customFields: Required<CustomFields>;
     entityOptions: Required<Omit<EntityOptions, 'entityIdStrategy'>> & EntityOptions;
     importExportOptions: Required<ImportExportOptions>;

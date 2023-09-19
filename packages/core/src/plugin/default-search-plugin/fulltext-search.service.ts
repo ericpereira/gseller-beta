@@ -8,7 +8,6 @@ import { TransactionalConnection } from '../../connection/transactional-connecti
 import { EventBus } from '../../event-bus/event-bus';
 import { SearchEvent } from '../../event-bus/events/search-event';
 import { Job } from '../../job-queue/job';
-import { ProductVariantService } from '../../service/services/product-variant.service';
 import { SearchService } from '../../service/services/search.service';
 
 import { PLUGIN_INIT_OPTIONS } from './constants';

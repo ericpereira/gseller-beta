@@ -8,7 +8,6 @@ import { ServiceModule } from '../service/service.module';
 import { AssetImporter } from './providers/asset-importer/asset-importer';
 import { ImportParser } from './providers/import-parser/import-parser';
 import { FastImporterService } from './providers/importer/fast-importer.service';
-import { Importer } from './providers/importer/importer';
 import { Populator } from './providers/populator/populator';
 
 @Module({
@@ -16,7 +15,7 @@ import { Populator } from './providers/populator/populator';
     // in order that overrides of Services (e.g. SearchService) are correctly
     // registered with the injector.
     imports: [PluginModule.forRoot(), ServiceModule, ConnectionModule.forPlugin(), ConfigModule],
-    exports: [ImportParser, Importer, Populator, FastImporterService, AssetImporter],
-    providers: [ImportParser, Importer, Populator, FastImporterService, AssetImporter],
+    exports: [ImportParser, Populator, FastImporterService, AssetImporter],
+    providers: [ImportParser, Populator, FastImporterService, AssetImporter],
 })
 export class DataImportModule {}

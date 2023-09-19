@@ -7,7 +7,6 @@ import { EventBusModule } from '../event-bus/event-bus.module';
 import { JobQueueModule } from '../job-queue/job-queue.module';
 
 import { ActiveOrderService } from './helpers/active-order/active-order.service';
-import { ConfigArgService } from './helpers/config-arg/config-arg.service';
 import { CustomFieldRelationService } from './helpers/custom-field-relation/custom-field-relation.service';
 import { EntityHydrator } from './helpers/entity-hydrator/entity-hydrator.service';
 import { ExternalAuthenticationService } from './helpers/external-authentication/external-authentication.service';
@@ -15,11 +14,9 @@ import { ListQueryBuilder } from './helpers/list-query-builder/list-query-builde
 import { LocaleStringHydrator } from './helpers/locale-string-hydrator/locale-string-hydrator';
 import { OrderCalculator } from './helpers/order-calculator/order-calculator';
 import { OrderMerger } from './helpers/order-merger/order-merger';
-import { OrderModifier } from './helpers/order-modifier/order-modifier';
 import { OrderSplitter } from './helpers/order-splitter/order-splitter';
 import { OrderStateMachine } from './helpers/order-state-machine/order-state-machine';
 import { PasswordCipher } from './helpers/password-cipher/password-cipher';
-import { ProductPriceApplicator } from './helpers/product-price-applicator/product-price-applicator';
 import { RequestContextService } from './helpers/request-context/request-context.service';
 import { SlugValidator } from './helpers/slug-validator/slug-validator';
 import { TranslatableSaver } from './helpers/translatable-saver/translatable-saver';
@@ -34,12 +31,7 @@ import { CountryService } from './services/country.service';
 import { CustomerGroupService } from './services/customer-group.service';
 import { CustomerService } from './services/customer.service';
 import { GlobalSettingsService } from './services/global-settings.service';
-import { OrderTestingService } from './services/order-testing.service';
 import { OrderService } from './services/order.service';
-import { ProductOptionGroupService } from './services/product-option-group.service';
-import { ProductOptionService } from './services/product-option.service';
-import { ProductVariantService } from './services/product-variant.service';
-import { ProductService } from './services/product.service';
 import { RoleService } from './services/role.service';
 import { SearchService } from './services/search.service';
 import { SessionService } from './services/session.service';
@@ -57,11 +49,6 @@ const services = [
     CustomerService,
     GlobalSettingsService,
     OrderService,
-    OrderTestingService,
-    ProductOptionGroupService,
-    ProductOptionService,
-    ProductService,
-    ProductVariantService,
     RoleService,
     SearchService,
     SessionService,
@@ -76,17 +63,14 @@ const helpers = [
     OrderCalculator,
     OrderStateMachine,
     OrderMerger,
-    OrderModifier,
     OrderSplitter,
     ListQueryBuilder,
     VerificationTokenGenerator,
-    ConfigArgService,
     SlugValidator,
     ExternalAuthenticationService,
     CustomFieldRelationService,
     LocaleStringHydrator,
     ActiveOrderService,
-    ProductPriceApplicator,
     EntityHydrator,
     RequestContextService,
     TranslatorService,

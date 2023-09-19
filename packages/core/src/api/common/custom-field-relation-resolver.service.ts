@@ -7,8 +7,6 @@ import { ConfigService } from '../../config/config.service';
 import { RelationCustomFieldConfig } from '../../config/custom-field/custom-field-types';
 import { TransactionalConnection } from '../../connection/transactional-connection';
 import { VendureEntity } from '../../entity/base/base.entity';
-import { ProductVariant } from '../../entity/product-variant/product-variant.entity';
-import { ProductPriceApplicator } from '../../service/helpers/product-price-applicator/product-price-applicator';
 import { TranslatorService } from '../../service/helpers/translator/translator.service';
 
 import { RequestContext } from './request-context';
@@ -25,7 +23,6 @@ export class CustomFieldRelationResolverService {
     constructor(
         private connection: TransactionalConnection,
         private configService: ConfigService,
-        private productPriceApplicator: ProductPriceApplicator,
         private translator: TranslatorService,
     ) {}
 
@@ -55,14 +52,6 @@ export class CustomFieldRelationResolverService {
 
         const result = fieldDef.list ? await qb.getMany() : await qb.getOne();
 
-        if (fieldDef.entity === ProductVariant) {
-            if (Array.isArray(result)) {
-                await Promise.all(result.map(r => this.applyVariantPrices(ctx, r as any)));
-            } else {
-                await this.applyVariantPrices(ctx, result as any);
-            }
-        }
-
         const translated: any = Array.isArray(result)
             ? result.map(r => (this.isTranslatable(r) ? this.translator.translate(r, ctx) : r))
             : this.isTranslatable(result)
@@ -74,15 +63,5 @@ export class CustomFieldRelationResolverService {
 
     private isTranslatable(input: unknown): input is Translatable {
         return typeof input === 'object' && input != null && input.hasOwnProperty('translations');
-    }
-
-    private async applyVariantPrices(ctx: RequestContext, variant: ProductVariant): Promise<ProductVariant> {
-        const taxCategory = await this.connection
-            .getRepository(ctx, ProductVariant)
-            .createQueryBuilder()
-            .relation('taxCategory')
-            .of(variant)
-            .loadOne();
-        return this.productPriceApplicator.applyChannelPriceAndTax(variant, ctx);
     }
 }

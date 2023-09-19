@@ -68,10 +68,6 @@ export class ConfigModule implements OnApplicationBootstrap, OnApplicationShutdo
         const { assetNamingStrategy, assetPreviewStrategy, assetStorageStrategy } =
             this.configService.assetOptions;
         const {
-            productVariantPriceCalculationStrategy,
-            productVariantPriceSelectionStrategy,
-        } = this.configService.catalogOptions;
-        const {
             adminAuthenticationStrategy,
             shopAuthenticationStrategy,
             sessionCacheStrategy,
@@ -82,7 +78,6 @@ export class ConfigModule implements OnApplicationBootstrap, OnApplicationShutdo
         const {
             mergeStrategy,
             checkoutMergeStrategy,
-            orderItemPriceCalculationStrategy,
             process: orderProcess,
             orderCodeStrategy,
             orderByCodeAccessStrategy,
@@ -114,8 +109,6 @@ export class ConfigModule implements OnApplicationBootstrap, OnApplicationShutdo
             orderByCodeAccessStrategy,
             entityIdStrategyDeprecated,
             ...[entityIdStrategy].filter(notNullOrUndefined),
-            productVariantPriceCalculationStrategy,
-            orderItemPriceCalculationStrategy,
             ...orderProcess,
             stockAllocationStrategy,
             ...healthChecks,
@@ -123,15 +116,11 @@ export class ConfigModule implements OnApplicationBootstrap, OnApplicationShutdo
             changedPriceHandlingStrategy,
             ...(Array.isArray(activeOrderStrategy) ? activeOrderStrategy : [activeOrderStrategy]),
             orderSellerStrategy,
-            productVariantPriceSelectionStrategy,
             guestCheckoutStrategy,
         ];
     }
 
     private getConfigurableOperations(): Array<ConfigurableOperationDef<any>> {
-        const { collectionFilters } = this.configService.catalogOptions;
-        return [
-            ...collectionFilters,
-        ];
+        return [];
     }
 }

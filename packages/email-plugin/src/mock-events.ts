@@ -9,7 +9,6 @@ import {
     OrderLine,
     OrderStateTransitionEvent,
     PasswordResetEvent,
-    ProductVariant,
     User,
 } from '@vendure/core';
 
@@ -38,11 +37,6 @@ export const mockOrderStateTransitionEvent = new OrderStateTransitionEvent(
                 featuredAsset: {
                     preview: '/mailbox/placeholder-image',
                 },
-                productVariant: new ProductVariant({
-                    id: '2',
-                    name: 'Curvy Monitor 24 inch',
-                    sku: 'C24F390',
-                }),
                 quantity: 1,
                 listPrice: 14374,
                 listPriceIncludesTax: true,
@@ -61,11 +55,6 @@ export const mockOrderStateTransitionEvent = new OrderStateTransitionEvent(
                 featuredAsset: {
                     preview: '/mailbox/placeholder-image',
                 },
-                productVariant: new ProductVariant({
-                    id: '4',
-                    name: 'Hard Drive 1TB',
-                    sku: 'IHD455T1',
-                }),
                 quantity: 1,
                 listPrice: 3799,
                 listPriceIncludesTax: true,
@@ -76,8 +65,6 @@ export const mockOrderStateTransitionEvent = new OrderStateTransitionEvent(
         subTotal: 15144,
         subTotalWithTax: 18173,
         shipping: 1000,
-        surcharges: [],
-        payments: [],
     }),
 );
 

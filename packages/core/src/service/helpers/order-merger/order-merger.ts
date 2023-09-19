@@ -34,7 +34,6 @@ export class OrderMerger {
             const mergedLines = mergeStrategy.merge(ctx, guestOrder, existingOrder);
             return {
                 order: existingOrder,
-                linesToInsert: this.getLinesToInsert(guestOrder, existingOrder, mergedLines),
                 linesToModify: this.getLinesToModify(guestOrder, existingOrder, mergedLines),
                 linesToDelete: this.getLinesToDelete(guestOrder, existingOrder, mergedLines),
                 orderToDelete: guestOrder,
@@ -54,26 +53,6 @@ export class OrderMerger {
                 orderToDelete: guestOrder,
             };
         }
-    }
-
-    private getLinesToInsert(
-        guestOrder: Order,
-        existingOrder: Order,
-        mergedLines: MergedOrderLine[],
-    ): Array<{ productVariantId: ID; quantity: number; customFields?: any }> {
-        return guestOrder.lines
-            .map(guestLine => {
-                const mergedLine = mergedLines.find(ml => idsAreEqual(ml.orderLineId, guestLine.id));
-                if (!mergedLine) {
-                    return;
-                }
-                return {
-                    productVariantId: guestLine.productVariant.id,
-                    quantity: mergedLine.quantity,
-                    customFields: mergedLine.customFields,
-                };
-            })
-            .filter(notNullOrUndefined);
     }
 
     private getLinesToModify(

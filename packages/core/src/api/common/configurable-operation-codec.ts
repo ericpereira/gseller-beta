@@ -4,7 +4,6 @@ import { Type } from '@vendure/common/lib/shared-types';
 
 import { ConfigurableOperationDef } from '../../common/configurable-operation';
 import { InternalServerError } from '../../common/error/errors';
-import { CollectionFilter } from '../../config/catalog/collection-filter';
 import { ConfigService } from '../../config/config.service';
 
 import { IdCodecService } from './id-codec.service';
@@ -75,8 +74,6 @@ export class ConfigurableOperationCodec {
 
     getAvailableDefsOfType(defType: Type<ConfigurableOperationDef>): ConfigurableOperationDef[] {
         switch (defType) {
-            case CollectionFilter:
-                return this.configService.catalogOptions.collectionFilters;
             default:
                 throw new InternalServerError('error.unknown-configurable-operation-definition', {
                     name: defType.name,

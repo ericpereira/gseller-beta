@@ -31,7 +31,6 @@ import { TransactionalConnection } from '../../connection/transactional-connecti
 import { VendureEntity } from '../../entity/base/base.entity';
 import { Channel } from '../../entity/channel/channel.entity';
 import { Order } from '../../entity/order/order.entity';
-import { ProductVariantPrice } from '../../entity/product-variant/product-variant-price.entity';
 import { Session } from '../../entity/session/session.entity';
 import { Zone } from '../../entity/zone/zone.entity';
 import { EventBus } from '../../event-bus';
@@ -310,24 +309,6 @@ export class ChannelService {
         if (input.currencyCode) {
             updatedChannel.defaultCurrencyCode = input.currencyCode;
         }
-        if (input.currencyCode || input.defaultCurrencyCode) {
-            const newCurrencyCode = input.defaultCurrencyCode || input.currencyCode;
-            if (originalDefaultCurrencyCode !== newCurrencyCode) {
-                // When updating the default currency code for a Channel, we also need to update
-                // and ProductVariantPrices in that channel which use the old currency code.
-                const qb = this.connection
-                    .getRepository(ctx, ProductVariantPrice)
-                    .createQueryBuilder('pvp')
-                    .update()
-                    .where('channelId = :channelId', { channelId: channel.id })
-                    .andWhere('currencyCode = :currencyCode', {
-                        currencyCode: originalDefaultCurrencyCode,
-                    })
-                    .set({ currencyCode: newCurrencyCode });
-
-                await qb.execute();
-            }
-        }
         await this.connection.getRepository(ctx, Channel).save(updatedChannel, { reload: false });
         await this.customFieldRelationService.updateRelations(ctx, Channel, input, updatedChannel);
         await this.allChannels.refresh(ctx);
@@ -340,9 +321,6 @@ export class ChannelService {
         const deletedChannel = new Channel(channel);
         await this.connection.getRepository(ctx, Session).delete({ activeChannelId: id });
         await this.connection.getRepository(ctx, Channel).delete(id);
-        await this.connection.getRepository(ctx, ProductVariantPrice).delete({
-            channelId: id,
-        });
         this.eventBus.publish(new ChannelEvent(ctx, deletedChannel, 'deleted', id));
 
         return {

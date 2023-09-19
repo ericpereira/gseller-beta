@@ -75,7 +75,6 @@ export class OrderSplitter {
             new OrderLine({
                 ...pick(line, [
                     'quantity',
-                    'productVariant',
                     'featuredAsset',
                     'shippingLineId',
                     'customFields',
