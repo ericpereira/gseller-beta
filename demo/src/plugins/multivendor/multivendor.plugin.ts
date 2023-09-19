@@ -8,7 +8,6 @@ import {
 
 import { ContextStrategy } from './context-auth-strategy';
 import { MultivendorPluginOptions } from './types';
-import { MultivendorSellerStrategy } from './config/order-seller-strategy';
 import { MultivendorShippingLineAssignmentStrategy } from './config/shipping-line-assignment-strategy';
 import { multivendorOrderProcess } from './config/order-process';
 import { multivendorPaymentMethodHandler } from './config/payment-handler';
@@ -25,15 +24,11 @@ import { multivendorShippingEligibilityChecker } from './config/shipping-eligibi
       type: 'string',
       public: false,
     });
-    config.paymentOptions.paymentMethodHandlers.push(multivendorPaymentMethodHandler);
 
     const customDefaultOrderProcess = configureDefaultOrderProcess({
       checkFulfillmentStates: false,
     });
     config.orderOptions.process = [customDefaultOrderProcess, multivendorOrderProcess];
-    config.orderOptions.orderSellerStrategy = new MultivendorSellerStrategy();
-    config.shippingOptions.shippingEligibilityCheckers.push(multivendorShippingEligibilityChecker);
-    config.shippingOptions.shippingLineAssignmentStrategy = new MultivendorShippingLineAssignmentStrategy();
     return config;
   },
   providers: [{ provide: MULTIVENDOR_PLUGIN_OPTIONS, useFactory: () => MultivendorPlugin.options }, ContextStrategy],

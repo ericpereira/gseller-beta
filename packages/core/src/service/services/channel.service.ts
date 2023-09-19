@@ -32,7 +32,6 @@ import { VendureEntity } from '../../entity/base/base.entity';
 import { Channel } from '../../entity/channel/channel.entity';
 import { Order } from '../../entity/order/order.entity';
 import { ProductVariantPrice } from '../../entity/product-variant/product-variant-price.entity';
-import { Seller } from '../../entity/seller/seller.entity';
 import { Session } from '../../entity/session/session.entity';
 import { Zone } from '../../entity/zone/zone.entity';
 import { EventBus } from '../../event-bus';
@@ -274,11 +273,6 @@ export class ChannelService {
             );
         }
         const newChannel = await this.connection.getRepository(ctx, Channel).save(channel);
-        if (input.sellerId) {
-            const seller = await this.connection.getEntityOrThrow(ctx, Seller, input.sellerId);
-            newChannel.seller = seller;
-            await this.connection.getRepository(ctx, Channel).save(newChannel);
-        }
         await this.customFieldRelationService.updateRelations(ctx, Channel, input, newChannel);
         await this.allChannels.refresh(ctx);
         this.eventBus.publish(new ChannelEvent(ctx, newChannel, 'created', input));
@@ -312,10 +306,6 @@ export class ChannelService {
                 Zone,
                 input.defaultShippingZoneId,
             );
-        }
-        if (input.sellerId) {
-            const seller = await this.connection.getEntityOrThrow(ctx, Seller, input.sellerId);
-            updatedChannel.seller = seller;
         }
         if (input.currencyCode) {
             updatedChannel.defaultCurrencyCode = input.currencyCode;
@@ -392,10 +382,9 @@ export class ChannelService {
         let defaultChannel = await this.connection.rawConnection.getRepository(Channel).findOne({
             where: {
                 code: DEFAULT_CHANNEL_CODE,
-            },
-            relations: ['seller'],
+            }
         });
-
+        
         if (!defaultChannel) {
             defaultChannel = new Channel({
                 code: DEFAULT_CHANNEL_CODE,
@@ -406,18 +395,13 @@ export class ChannelService {
                 availableCurrencyCodes: [CurrencyCode.USD],
                 token: defaultChannelToken,
             });
-        } else if (defaultChannelToken && defaultChannel.token !== defaultChannelToken) {
-            defaultChannel.token = defaultChannelToken;
+
             await this.connection.rawConnection
                 .getRepository(Channel)
                 .save(defaultChannel, { reload: false });
-        }
-        if (!defaultChannel.seller) {
-            const seller = await this.connection.rawConnection.getRepository(Seller).find();
-            if (seller.length === 0) {
-                throw new InternalServerError('No Sellers were found. Could not initialize default Channel.');
-            }
-            defaultChannel.seller = seller[0];
+
+        } else if (defaultChannelToken && defaultChannel.token !== defaultChannelToken) {
+            defaultChannel.token = defaultChannelToken;
             await this.connection.rawConnection
                 .getRepository(Channel)
                 .save(defaultChannel, { reload: false });

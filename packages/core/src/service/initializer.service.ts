@@ -10,7 +10,6 @@ import { AdministratorService } from './services/administrator.service';
 import { ChannelService } from './services/channel.service';
 import { GlobalSettingsService } from './services/global-settings.service';
 import { RoleService } from './services/role.service';
-import { SellerService } from './services/seller.service';
 import { ZoneService } from './services/zone.service';
 
 /**
@@ -26,7 +25,6 @@ export class InitializerService {
         private roleService: RoleService,
         private administratorService: AdministratorService,
         private globalSettingsService: GlobalSettingsService,
-        private sellerService: SellerService,
         private eventBus: EventBus,
     ) {}
 
@@ -40,7 +38,6 @@ export class InitializerService {
         // there is a default Channel to work with.
         await this.zoneService.initZones();
         await this.globalSettingsService.initGlobalSettings();
-        await this.sellerService.initSellers();
         await this.channelService.initChannels();
         await this.roleService.initRoles();
         await this.administratorService.initAdministrators();
