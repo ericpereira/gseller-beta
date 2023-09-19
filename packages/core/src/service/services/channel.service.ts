@@ -398,7 +398,7 @@ export class ChannelService {
 
             await this.connection.rawConnection
                 .getRepository(Channel)
-                .save(defaultChannel, { reload: true });
+                .save(defaultChannel, { reload: false });
 
         } else if (defaultChannelToken && defaultChannel.token !== defaultChannelToken) {
             defaultChannel.token = defaultChannelToken;
