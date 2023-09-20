@@ -25,7 +25,6 @@ import { Address } from '../../../entity/address/address.entity';
 import { Customer } from '../../../entity/customer/customer.entity';
 import { CustomerGroupService } from '../../../service/index';
 import { CustomerService } from '../../../service/services/customer.service';
-import { OrderService } from '../../../service/services/order.service';
 import { RequestContext } from '../../common/request-context';
 import { Allow } from '../../decorators/allow.decorator';
 import { RelationPaths, Relations } from '../../decorators/relations.decorator';
@@ -37,7 +36,6 @@ export class CustomerResolver {
     constructor(
         private customerService: CustomerService,
         private customerGroupService: CustomerGroupService,
-        private orderService: OrderService,
     ) {}
 
     @Query()
@@ -45,7 +43,7 @@ export class CustomerResolver {
     async customers(
         @Ctx() ctx: RequestContext,
         @Args() args: QueryCustomersArgs,
-        @Relations({ entity: Customer, omit: ['orders'] }) relations: RelationPaths<Customer>,
+        @Relations({ entity: Customer }) relations: RelationPaths<Customer>,
     ): Promise<PaginatedList<Customer>> {
         return this.customerService.findAll(ctx, args.options || undefined, relations);
     }
@@ -55,7 +53,7 @@ export class CustomerResolver {
     async customer(
         @Ctx() ctx: RequestContext,
         @Args() args: QueryCustomerArgs,
-        @Relations({ entity: Customer, omit: ['orders'] }) relations: RelationPaths<Customer>,
+        @Relations({ entity: Customer }) relations: RelationPaths<Customer>,
     ): Promise<Customer | undefined> {
         return this.customerService.findOne(ctx, args.id, relations);
     }

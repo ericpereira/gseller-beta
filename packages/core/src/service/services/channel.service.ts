@@ -30,7 +30,6 @@ import { ConfigService } from '../../config/config.service';
 import { TransactionalConnection } from '../../connection/transactional-connection';
 import { VendureEntity } from '../../entity/base/base.entity';
 import { Channel } from '../../entity/channel/channel.entity';
-import { Order } from '../../entity/order/order.entity';
 import { Session } from '../../entity/session/session.entity';
 import { Zone } from '../../entity/zone/zone.entity';
 import { EventBus } from '../../event-bus';
@@ -135,10 +134,7 @@ export class ChannelService {
         // This is a work-around for https://github.com/vendure-ecommerce/vendure/issues/1391
         // A better API would be to allow the consumer of this method to supply an entity instance
         // so that this join could be done prior to invoking this method.
-        // TODO: overload the assignToChannels method to allow it to take an entity instance
-        if (entityType === (Order as any)) {
-            relations.push('lines', 'shippingLines');
-        }
+        
         const entity = await this.connection.getEntityOrThrow(ctx, entityType, entityId, {
             relations,
         });

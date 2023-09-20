@@ -75,18 +75,6 @@ export class ConfigModule implements OnApplicationBootstrap, OnApplicationShutdo
             passwordValidationStrategy,
         } = this.configService.authOptions;
         const { jobQueueStrategy, jobBufferStorageStrategy } = this.configService.jobQueueOptions;
-        const {
-            mergeStrategy,
-            checkoutMergeStrategy,
-            process: orderProcess,
-            orderCodeStrategy,
-            orderByCodeAccessStrategy,
-            stockAllocationStrategy,
-            activeOrderStrategy,
-            changedPriceHandlingStrategy,
-            orderSellerStrategy,
-            guestCheckoutStrategy,
-        } = this.configService.orderOptions;
         
         const { entityIdStrategy: entityIdStrategyDeprecated } = this.configService;
         const { entityIdStrategy } = this.configService.entityOptions;
@@ -103,20 +91,10 @@ export class ConfigModule implements OnApplicationBootstrap, OnApplicationShutdo
             assetStorageStrategy,
             jobQueueStrategy,
             jobBufferStorageStrategy,
-            mergeStrategy,
-            checkoutMergeStrategy,
-            orderCodeStrategy,
-            orderByCodeAccessStrategy,
             entityIdStrategyDeprecated,
             ...[entityIdStrategy].filter(notNullOrUndefined),
-            ...orderProcess,
-            stockAllocationStrategy,
             ...healthChecks,
             assetImportStrategy,
-            changedPriceHandlingStrategy,
-            ...(Array.isArray(activeOrderStrategy) ? activeOrderStrategy : [activeOrderStrategy]),
-            orderSellerStrategy,
-            guestCheckoutStrategy,
         ];
     }
 

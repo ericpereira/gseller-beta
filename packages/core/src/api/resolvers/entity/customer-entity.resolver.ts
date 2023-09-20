@@ -4,9 +4,7 @@ import { PaginatedList } from '@vendure/common/lib/shared-types';
 
 import { Address } from '../../../entity/address/address.entity';
 import { Customer } from '../../../entity/customer/customer.entity';
-import { Order } from '../../../entity/order/order.entity';
 import { CustomerService } from '../../../service/services/customer.service';
-import { OrderService } from '../../../service/services/order.service';
 import { UserService } from '../../../service/services/user.service';
 import { ApiType } from '../../common/get-api-type';
 import { RequestContext } from '../../common/request-context';
@@ -18,7 +16,6 @@ import { Ctx } from '../../decorators/request-context.decorator';
 export class CustomerEntityResolver {
     constructor(
         private customerService: CustomerService,
-        private orderService: OrderService,
         private userService: UserService,
     ) {}
     @ResolveField()
@@ -32,21 +29,6 @@ export class CustomerEntityResolver {
             return [];
         }
         return this.customerService.findAddressesByCustomerId(ctx, customer.id);
-    }
-
-    @ResolveField()
-    async orders(
-        @Ctx() ctx: RequestContext,
-        @Parent() customer: Customer,
-        @Args() args: QueryOrdersArgs,
-        @Api() apiType: ApiType,
-        @Relations(Order) relations: RelationPaths<Order>,
-    ): Promise<PaginatedList<Order>> {
-        if (apiType === 'shop' && !ctx.activeUserId) {
-            // Guest customers should not be able to see this data
-            return { items: [], totalItems: 0 };
-        }
-        return this.orderService.findByCustomerId(ctx, customer.id, args.options || undefined, relations);
     }
 
     @ResolveField()

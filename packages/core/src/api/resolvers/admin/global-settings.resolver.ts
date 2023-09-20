@@ -33,7 +33,6 @@ import {
 import { GlobalSettings } from '../../../entity/global-settings/global-settings.entity';
 import { ChannelService } from '../../../service/services/channel.service';
 import { GlobalSettingsService } from '../../../service/services/global-settings.service';
-import { OrderService } from '../../../service/services/order.service';
 import { RequestContext } from '../../common/request-context';
 import { Allow } from '../../decorators/allow.decorator';
 import { Ctx } from '../../decorators/request-context.decorator';
@@ -45,7 +44,6 @@ export class GlobalSettingsResolver {
         private configService: ConfigService,
         private globalSettingsService: GlobalSettingsService,
         private channelService: ChannelService,
-        private orderService: OrderService,
     ) {}
 
     @Query()
@@ -64,7 +62,6 @@ export class GlobalSettingsResolver {
         ).filter(p => !p.internal);
         return {
             customFieldConfig: this.generateCustomFieldConfig(info),
-            orderProcess: this.orderService.getOrderProcessStates(),
             permittedAssetTypes: this.configService.assetOptions.permittedFileTypes,
             permissions,
         };

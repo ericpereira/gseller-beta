@@ -18,10 +18,8 @@ import { ChannelResolver } from './resolvers/admin/channel.resolver';
 import { CountryResolver } from './resolvers/admin/country.resolver';
 import { CustomerGroupResolver } from './resolvers/admin/customer-group.resolver';
 import { CustomerResolver } from './resolvers/admin/customer.resolver';
-import { DraftOrderResolver } from './resolvers/admin/draft-order.resolver';
 import { GlobalSettingsResolver } from './resolvers/admin/global-settings.resolver';
 import { JobResolver } from './resolvers/admin/job.resolver';
-import { OrderResolver } from './resolvers/admin/order.resolver';
 import { RoleResolver } from './resolvers/admin/role.resolver';
 import { SearchResolver } from './resolvers/admin/search.resolver';
 import { TagResolver } from './resolvers/admin/tag.resolver';
@@ -36,15 +34,12 @@ import {
 } from './resolvers/entity/customer-entity.resolver';
 import { CustomerGroupEntityResolver } from './resolvers/entity/customer-group-entity.resolver';
 import { JobEntityResolver } from './resolvers/entity/job-entity.resolver';
-import { OrderAdminEntityResolver, OrderEntityResolver } from './resolvers/entity/order-entity.resolver';
-import { OrderLineEntityResolver } from './resolvers/entity/order-line-entity.resolver';
 import { RoleEntityResolver } from './resolvers/entity/role-entity.resolver';
 import { UserEntityResolver } from './resolvers/entity/user-entity.resolver';
 import { ZoneEntityResolver } from './resolvers/entity/zone-entity.resolver';
 import { ShopAuthResolver } from './resolvers/shop/shop-auth.resolver';
 import { ShopCustomerResolver } from './resolvers/shop/shop-customer.resolver';
 import { ShopEnvironmentResolver } from './resolvers/shop/shop-environment.resolver';
-import { ShopOrderResolver } from './resolvers/shop/shop-order.resolver';
 
 const adminResolvers = [
     AdministratorResolver,
@@ -54,10 +49,8 @@ const adminResolvers = [
     CountryResolver,
     CustomerGroupResolver,
     CustomerResolver,
-    DraftOrderResolver,
     GlobalSettingsResolver,
     JobResolver,
-    OrderResolver,
     RoleResolver,
     SearchResolver,
     TagResolver,
@@ -67,7 +60,6 @@ const adminResolvers = [
 const shopResolvers = [
     ShopAuthResolver,
     ShopCustomerResolver,
-    ShopOrderResolver,
     ShopEnvironmentResolver,
 ];
 
@@ -77,8 +69,6 @@ export const entityResolvers = [
     CountryEntityResolver,
     CustomerEntityResolver,
     CustomerGroupEntityResolver,
-    OrderEntityResolver,
-    OrderLineEntityResolver,
     RoleEntityResolver,
     UserEntityResolver,
     ZoneEntityResolver,
@@ -87,7 +77,6 @@ export const entityResolvers = [
 export const adminEntityResolvers = [
     AdministratorEntityResolver,
     CustomerAdminEntityResolver,
-    OrderAdminEntityResolver,
     JobEntityResolver,
 ];
 

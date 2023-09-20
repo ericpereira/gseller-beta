@@ -20,17 +20,6 @@ import { NativeAuthenticationStrategy } from './auth/native-authentication-strat
 import { AutoIncrementIdStrategy } from './entity/auto-increment-id-strategy';
 import { DefaultMoneyStrategy } from './entity/default-money-strategy';
 import { DefaultLogger } from './logger/default-logger';
-import { DefaultActiveOrderStrategy } from './order/default-active-order-strategy';
-import { DefaultChangedPriceHandlingStrategy } from './order/default-changed-price-handling-strategy';
-import { DefaultGuestCheckoutStrategy } from './order/default-guest-checkout-strategy';
-import { DefaultOrderPlacedStrategy } from './order/default-order-placed-strategy';
-import { defaultOrderProcess } from './order/default-order-process';
-import { DefaultOrderSellerStrategy } from './order/default-order-seller-strategy';
-import { DefaultStockAllocationStrategy } from './order/default-stock-allocation-strategy';
-import { MergeOrdersStrategy } from './order/merge-orders-strategy';
-import { DefaultOrderByCodeAccessStrategy } from './order/order-by-code-access-strategy';
-import { DefaultOrderCodeStrategy } from './order/order-code-strategy';
-import { UseGuestStrategy } from './order/use-guest-strategy';
 import { InMemorySessionCacheStrategy } from './session-cache/in-memory-session-cache-strategy';
 import { RuntimeVendureConfig } from './vendure-config';
 
@@ -108,21 +97,6 @@ export const defaultConfig: RuntimeVendureConfig = {
         zoneCacheTtl: 30000,
         taxRateCacheTtl: 30000,
         metadataModifiers: [],
-    },
-    orderOptions: {
-        orderItemsLimit: 999,
-        orderLineItemsLimit: 999,
-        mergeStrategy: new MergeOrdersStrategy(),
-        checkoutMergeStrategy: new UseGuestStrategy(),
-        process: [defaultOrderProcess],
-        stockAllocationStrategy: new DefaultStockAllocationStrategy(),
-        orderCodeStrategy: new DefaultOrderCodeStrategy(),
-        orderByCodeAccessStrategy: new DefaultOrderByCodeAccessStrategy('2h'),
-        changedPriceHandlingStrategy: new DefaultChangedPriceHandlingStrategy(),
-        orderPlacedStrategy: new DefaultOrderPlacedStrategy(),
-        activeOrderStrategy: new DefaultActiveOrderStrategy(),
-        orderSellerStrategy: new DefaultOrderSellerStrategy(),
-        guestCheckoutStrategy: new DefaultGuestCheckoutStrategy(),
     },
     importExportOptions: {
         importAssetsDir: __dirname,

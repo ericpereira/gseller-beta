@@ -13,7 +13,6 @@ import {
     EntityOptions,
     ImportExportOptions,
     JobQueueOptions,
-    OrderOptions,
     RuntimeVendureConfig,
     SystemOptions,
     VendureConfig,
@@ -61,10 +60,6 @@ export class ConfigService implements VendureConfig {
 
     get dbConnectionOptions(): DataSourceOptions {
         return this.activeConfig.dbConnectionOptions;
-    }
-
-    get orderOptions(): Required<OrderOptions> {
-        return this.activeConfig.orderOptions;
     }
 
     get importExportOptions(): Required<ImportExportOptions> {

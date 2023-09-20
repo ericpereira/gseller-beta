@@ -5545,7 +5545,6 @@ export type SellerSortParameter = {
 export type ServerConfig = {
   __typename?: 'ServerConfig';
   customFieldConfig: CustomFields;
-  orderProcess: Array<OrderProcessState>;
   permissions: Array<PermissionDefinition>;
   permittedAssetTypes: Array<Scalars['String']>;
 };
