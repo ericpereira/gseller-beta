@@ -3,10 +3,7 @@ import { Column, Entity, Index, ManyToOne, TableInheritance } from 'typeorm';
 
 import { VendureEntity } from '../base/base.entity';
 import { Channel } from '../channel/channel.entity';
-import { Customer } from '../customer/customer.entity';
 import { EntityId } from '../entity-id.decorator';
-import { Order } from '../order/order.entity';
-import { User } from '../user/user.entity';
 
 /**
  * @description
@@ -28,10 +25,6 @@ export abstract class Session extends VendureEntity {
 
     @EntityId({ nullable: true })
     activeOrderId?: ID;
-
-    @Index()
-    @ManyToOne(type => Order)
-    activeOrder: Order | null;
 
     @EntityId({ nullable: true })
     activeChannelId?: ID;

@@ -9,15 +9,12 @@ import { ConfigService } from '../../config/config.service';
 import { CachedSession, SessionCacheStrategy } from '../../config/session-cache/session-cache-strategy';
 import { TransactionalConnection } from '../../connection/transactional-connection';
 import { Channel } from '../../entity/channel/channel.entity';
-import { Order } from '../../entity/order/order.entity';
 import { Role } from '../../entity/role/role.entity';
 import { AnonymousSession } from '../../entity/session/anonymous-session.entity';
 import { AuthenticatedSession } from '../../entity/session/authenticated-session.entity';
 import { Session } from '../../entity/session/session.entity';
 import { User } from '../../entity/user/user.entity';
 import { getUserChannelsPermissions } from '../helpers/utils/get-user-channels-permissions';
-
-import { OrderService } from './order.service';
 
 /**
  * @description
@@ -34,7 +31,6 @@ export class SessionService implements EntitySubscriberInterface {
     constructor(
         private connection: TransactionalConnection,
         private configService: ConfigService,
-        private orderService: OrderService,
     ) {
         this.sessionCacheStrategy = this.configService.authOptions.sessionCacheStrategy;
         this.sessionDurationInMs = ms(this.configService.authOptions.sessionDuration as string);
@@ -81,17 +77,10 @@ export class SessionService implements EntitySubscriberInterface {
         authenticationStrategyName: string,
     ): Promise<AuthenticatedSession> {
         const token = await this.generateSessionToken();
-        const guestOrder =
-            ctx.session && ctx.session.activeOrderId
-                ? await this.orderService.findOne(ctx, ctx.session.activeOrderId)
-                : undefined;
-        const existingOrder = await this.orderService.getActiveOrderForUser(ctx, user.id);
-        const activeOrder = await this.orderService.mergeOrders(ctx, user, guestOrder, existingOrder);
         const authenticatedSession = await this.connection.getRepository(ctx, AuthenticatedSession).save(
             new AuthenticatedSession({
                 token,
                 user,
-                activeOrder,
                 authenticationStrategy: authenticationStrategyName,
                 expires: this.getExpiryDate(this.sessionDurationInMs),
                 invalidated: false,
@@ -200,50 +189,6 @@ export class SessionService implements EntitySubscriberInterface {
             await this.updateSessionExpiry(session);
             return session;
         }
-    }
-
-    /**
-     * @description
-     * Sets the `activeOrder` on the given cached session object and updates the cache.
-     */
-    async setActiveOrder(
-        ctx: RequestContext,
-        serializedSession: CachedSession,
-        order: Order,
-    ): Promise<CachedSession> {
-        const session = await this.connection.getRepository(ctx, Session).findOne({
-            where: { id: serializedSession.id },
-            relations: ['user', 'user.roles', 'user.roles.channels'],
-        });
-        if (session) {
-            session.activeOrder = order;
-            await this.connection.getRepository(ctx, Session).save(session, { reload: false });
-            const updatedSerializedSession = this.serializeSession(session);
-            await this.withTimeout(this.sessionCacheStrategy.set(updatedSerializedSession));
-            return updatedSerializedSession;
-        }
-        return serializedSession;
-    }
-
-    /**
-     * @description
-     * Clears the `activeOrder` on the given cached session object and updates the cache.
-     */
-    async unsetActiveOrder(ctx: RequestContext, serializedSession: CachedSession): Promise<CachedSession> {
-        if (serializedSession.activeOrderId) {
-            const session = await this.connection.getRepository(ctx, Session).findOne({
-                where: { id: serializedSession.id },
-                relations: ['user', 'user.roles', 'user.roles.channels'],
-            });
-            if (session) {
-                session.activeOrder = null;
-                await this.connection.getRepository(ctx, Session).save(session);
-                const updatedSerializedSession = this.serializeSession(session);
-                await this.configService.authOptions.sessionCacheStrategy.set(updatedSerializedSession);
-                return updatedSerializedSession;
-            }
-        }
-        return serializedSession;
     }
 
     /**

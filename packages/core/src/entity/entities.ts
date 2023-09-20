@@ -8,11 +8,6 @@ import { Channel } from './channel/channel.entity';
 import { Customer } from './customer/customer.entity';
 import { CustomerGroup } from './customer-group/customer-group.entity';
 import { GlobalSettings } from './global-settings/global-settings.entity';
-import { Order } from './order/order.entity';
-import { OrderLine } from './order-line/order-line.entity';
-import { OrderLineReference } from './order-line-reference/order-line-reference.entity';
-import { OrderModificationLine } from './order-line-reference/order-modification-line.entity';
-import { OrderModification } from './order-modification/order-modification.entity';
 import { Country } from './region/country.entity';
 import { Province } from './region/province.entity';
 import { RegionTranslation } from './region/region-translation.entity';
@@ -41,12 +36,7 @@ export const coreEntitiesMap = {
     CustomerGroup,
     ExternalAuthenticationMethod,
     GlobalSettings,
-    OrderModificationLine,
     NativeAuthenticationMethod,
-    Order,
-    OrderLine,
-    OrderLineReference,
-    OrderModification,
     Province,
     Region,
     RegionTranslation,

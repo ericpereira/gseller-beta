@@ -22,16 +22,6 @@ import { MoneyStrategy } from './entity/money-strategy';
 import { EntityMetadataModifier } from './entity-metadata/entity-metadata-modifier';
 import { JobQueueStrategy } from './job-queue/job-queue-strategy';
 import { VendureLogger } from './logger/vendure-logger';
-import { ActiveOrderStrategy } from './order/active-order-strategy';
-import { ChangedPriceHandlingStrategy } from './order/changed-price-handling-strategy';
-import { GuestCheckoutStrategy } from './order/guest-checkout-strategy';
-import { OrderByCodeAccessStrategy } from './order/order-by-code-access-strategy';
-import { OrderCodeStrategy } from './order/order-code-strategy';
-import { OrderMergeStrategy } from './order/order-merge-strategy';
-import { OrderPlacedStrategy } from './order/order-placed-strategy';
-import { OrderProcess } from './order/order-process';
-import { OrderSellerStrategy } from './order/order-seller-strategy';
-import { StockAllocationStrategy } from './order/stock-allocation-strategy';
 import { SessionCacheStrategy } from './session-cache/session-cache-strategy';
 import { HealthCheckStrategy } from './system/health-check-strategy';
 
@@ -436,139 +426,6 @@ export interface AuthOptions {
 }
 
 /**
- * @docsCategory orders
- * @docsPage OrderOptions
- * */
-export interface OrderOptions {
-    /**
-     * @description
-     * The maximum number of individual items allowed in a single order. This option exists
-     * to prevent excessive resource usage when dealing with very large orders. For example,
-     * if an order contains a million items, then any operations on that order (modifying a quantity,
-     * adding or removing an item) will require Vendure to loop through all million items
-     * to perform price calculations against active promotions and taxes. This can have a significant
-     * performance impact for very large values.
-     *
-     * Attempting to exceed this limit will cause Vendure to throw a {@link OrderItemsLimitError}.
-     *
-     * @default 999
-     */
-    orderItemsLimit?: number;
-    /**
-     * @description
-     * The maximum number of items allowed per order line. This option is an addition
-     * on the `orderItemsLimit` for more granular control. Note `orderItemsLimit` is still
-     * important in order to prevent excessive resource usage.
-     *
-     * Attempting to exceed this limit will cause Vendure to throw a {@link OrderItemsLimitError}.
-     *
-     * @default 999
-     */
-    orderLineItemsLimit?: number;
-    /**
-     * @description
-     * Allows the definition of custom states and transition logic for the order process state machine.
-     * Takes an array of objects implementing the {@link OrderProcess} interface.
-     *
-     * @default []
-     */
-    process?: Array<OrderProcess<any>>;
-    /**
-     * @description
-     * Determines the point of the order process at which stock gets allocated.
-     *
-     * @default DefaultStockAllocationStrategy
-     */
-    stockAllocationStrategy?: StockAllocationStrategy;
-    /**
-     * @description
-     * Defines the strategy used to merge a guest Order and an existing Order when
-     * signing in.
-     *
-     * @default MergeOrdersStrategy
-     */
-    mergeStrategy?: OrderMergeStrategy;
-    /**
-     * @description
-     * Defines the strategy used to merge a guest Order and an existing Order when
-     * signing in as part of the checkout flow.
-     *
-     * @default UseGuestStrategy
-     */
-    checkoutMergeStrategy?: OrderMergeStrategy;
-    /**
-     * @description
-     * Allows a user-defined function to create Order codes. This can be useful when
-     * integrating with existing systems. By default, Vendure will generate a 16-character
-     * alphanumeric string.
-     *
-     * Note: when using a custom function for Order codes, bear in mind the database limit
-     * for string types (e.g. 255 chars for a varchar field in MySQL), and also the need
-     * for codes to be unique.
-     *
-     * @default DefaultOrderCodeStrategy
-     */
-    orderCodeStrategy?: OrderCodeStrategy;
-    /**
-     * @description
-     * Defines the strategy used to check if and how an Order may be retrieved via the orderByCode query.
-     *
-     * The default strategy permits permanent access to the Customer owning the Order and anyone
-     * within 2 hours after placing the Order.
-     *
-     * @since 1.1.0
-     * @default DefaultOrderByCodeAccessStrategy
-     */
-    orderByCodeAccessStrategy?: OrderByCodeAccessStrategy;
-    /**
-     * @description
-     * Defines how we handle the situation where an item exists in an Order, and
-     * then later on another is added but in the meantime the price of the ProductVariant has changed.
-     *
-     * By default, the latest price will be used. Any price changes resulting from using a newer price
-     * will be reflected in the GraphQL `OrderLine.unitPrice[WithTax]ChangeSinceAdded` field.
-     *
-     * @default DefaultChangedPriceHandlingStrategy
-     */
-    changedPriceHandlingStrategy?: ChangedPriceHandlingStrategy;
-    /**
-     * @description
-     * Defines the point of the order process at which the Order is set as "placed".
-     *
-     * @default DefaultOrderPlacedStrategy
-     */
-    orderPlacedStrategy?: OrderPlacedStrategy;
-    /**
-     * @description
-     * Defines the strategy used to determine the active Order when interacting with Shop API operations
-     * such as `activeOrder` and `addItemToOrder`. By default, the strategy uses the active Session.
-     *
-     * Note that if multiple strategies are defined, they will be checked in order and the first one that
-     * returns an Order will be used.
-     *
-     * @since 1.9.0
-     * @default DefaultActiveOrderStrategy
-     */
-    activeOrderStrategy?: ActiveOrderStrategy<any> | Array<ActiveOrderStrategy<any>>;
-    /**
-     * @description
-     * Defines how Orders will be split amongst multiple Channels in a multivendor scenario.
-     *
-     * @since 2.0.0
-     * @default DefaultOrderSellerStrategy
-     */
-    orderSellerStrategy?: OrderSellerStrategy;
-    /**
-     * @description
-     * Defines how we deal with guest checkouts.
-     *
-     * @since 2.0.0
-     * @default DefaultGuestCheckoutStrategy
-     */
-    guestCheckoutStrategy?: GuestCheckoutStrategy;
-}
-
-/**
  * @description
  * The AssetOptions define how assets (images and other files) are named and stored, and how preview images are generated.
  *
@@ -873,11 +730,7 @@ export interface VendureConfig {
      * Configuration settings for data import and export.
      */
     importExportOptions?: ImportExportOptions;
-    /**
-     * @description
-     * Configuration settings governing how orders are handled.
-     */
-    orderOptions?: OrderOptions;
+    
     /**
      * @description
      * An array of plugins.
@@ -925,7 +778,6 @@ export interface RuntimeVendureConfig extends Required<VendureConfig> {
     entityOptions: Required<Omit<EntityOptions, 'entityIdStrategy'>> & EntityOptions;
     importExportOptions: Required<ImportExportOptions>;
     jobQueueOptions: Required<JobQueueOptions>;
-    orderOptions: Required<OrderOptions>;
     systemOptions: Required<SystemOptions>;
 }
 

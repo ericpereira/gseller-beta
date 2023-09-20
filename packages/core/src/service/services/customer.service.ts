@@ -47,7 +47,6 @@ import { NativeAuthenticationMethod } from '../../entity/authentication-method/n
 import { Channel } from '../../entity/channel/channel.entity';
 import { Customer } from '../../entity/customer/customer.entity';
 import { CustomerGroup } from '../../entity/customer-group/customer-group.entity';
-import { Order } from '../../entity/order/order.entity';
 import { User } from '../../entity/user/user.entity';
 import { EventBus } from '../../event-bus/event-bus';
 import { AccountRegistrationEvent } from '../../event-bus/events/account-registration-event';
@@ -700,42 +699,43 @@ export class CustomerService {
      * this method will create new Address(es) based on the Order's shipping & billing
      * addresses.
      */
-    async createAddressesForNewCustomer(ctx: RequestContext, order: Order) {
-        if (!order.customer) {
-            return;
-        }
-        const addresses = await this.findAddressesByCustomerId(ctx, order.customer.id);
-        // If the Customer has no addresses yet, use the shipping/billing address data
-        // to populate the initial default Address.
-        if (addresses.length === 0 && order.shippingAddress?.country) {
-            const shippingAddress = order.shippingAddress;
-            const billingAddress = order.billingAddress;
-            const hasSeparateBillingAddress =
-                billingAddress?.streetLine1 && !this.addressesAreEqual(shippingAddress, billingAddress);
-            if (shippingAddress.streetLine1) {
-                await this.createAddress(ctx, order.customer.id, {
-                    ...shippingAddress,
-                    company: shippingAddress.company || '',
-                    streetLine1: shippingAddress.streetLine1 || '',
-                    streetLine2: shippingAddress.streetLine2 || '',
-                    countryCode: shippingAddress.countryCode || '',
-                    defaultBillingAddress: !hasSeparateBillingAddress,
-                    defaultShippingAddress: true,
-                });
-            }
-            if (hasSeparateBillingAddress) {
-                await this.createAddress(ctx, order.customer.id, {
-                    ...billingAddress,
-                    company: billingAddress.company || '',
-                    streetLine1: billingAddress.streetLine1 || '',
-                    streetLine2: billingAddress.streetLine2 || '',
-                    countryCode: billingAddress.countryCode || '',
-                    defaultBillingAddress: true,
-                    defaultShippingAddress: false,
-                });
-            }
-        }
-    }
+    //TODO: deixei porque talvez precisaremos dessa função no futuro
+    // async createAddressesForNewCustomer(ctx: RequestContext) {
+    //     if (!order.customer) {
+    //         return;
+    //     }
+    //     const addresses = await this.findAddressesByCustomerId(ctx, order.customer.id);
+    //     // If the Customer has no addresses yet, use the shipping/billing address data
+    //     // to populate the initial default Address.
+    //     if (addresses.length === 0 && order.shippingAddress?.country) {
+    //         const shippingAddress = order.shippingAddress;
+    //         const billingAddress = order.billingAddress;
+    //         const hasSeparateBillingAddress =
+    //             billingAddress?.streetLine1 && !this.addressesAreEqual(shippingAddress, billingAddress);
+    //         if (shippingAddress.streetLine1) {
+    //             await this.createAddress(ctx, order.customer.id, {
+    //                 ...shippingAddress,
+    //                 company: shippingAddress.company || '',
+    //                 streetLine1: shippingAddress.streetLine1 || '',
+    //                 streetLine2: shippingAddress.streetLine2 || '',
+    //                 countryCode: shippingAddress.countryCode || '',
+    //                 defaultBillingAddress: !hasSeparateBillingAddress,
+    //                 defaultShippingAddress: true,
+    //             });
+    //         }
+    //         if (hasSeparateBillingAddress) {
+    //             await this.createAddress(ctx, order.customer.id, {
+    //                 ...billingAddress,
+    //                 company: billingAddress.company || '',
+    //                 streetLine1: billingAddress.streetLine1 || '',
+    //                 streetLine2: billingAddress.streetLine2 || '',
+    //                 countryCode: billingAddress.countryCode || '',
+    //                 defaultBillingAddress: true,
+    //                 defaultShippingAddress: false,
+    //             });
+    //         }
+    //     }
+    // }
 
     private addressesAreEqual(address1: OrderAddress, address2: OrderAddress): boolean {
         return (

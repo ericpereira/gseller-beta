@@ -8,7 +8,6 @@ import { VendureEntity } from '../base/base.entity';
 import { Channel } from '../channel/channel.entity';
 import { CustomCustomerFields } from '../custom-entity-fields';
 import { CustomerGroup } from '../customer-group/customer-group.entity';
-import { Order } from '../order/order.entity';
 import { User } from '../user/user.entity';
 
 /**
@@ -47,9 +46,6 @@ export class Customer extends VendureEntity implements ChannelAware, HasCustomFi
 
     @OneToMany(type => Address, address => address.customer)
     addresses: Address[];
-
-    @OneToMany(type => Order, order => order.customer)
-    orders: Order[];
 
     @OneToOne(type => User, { eager: true })
     @JoinColumn()
