@@ -6,7 +6,7 @@ import fs from 'fs-extra';
 import path from 'path';
 
 import { logColored } from './cli-utils';
-import { importProductsFromCsv, populateInitialData } from './populate';
+import { populateInitialData } from './populate';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const version = require('../../package.json').version;
@@ -23,14 +23,6 @@ logColored(`
 
 program.version(`Vendure CLI v${version as string}`, '-v --version').name('vendure');
 
-program
-    .command('import-products <csvFile>')
-    .option('-l, --language', 'Specify ISO 639-1 language code, e.g. "de", "es". Defaults to "en"')
-    .description('Import product data from the specified csv file')
-    .action(async (csvPath, command) => {
-        const filePath = path.join(process.cwd(), csvPath);
-        await importProducts(filePath, command.language);
-    });
 program
     .command('init <initDataFile>')
     .description('Import initial data from the specified json file')
@@ -63,17 +55,6 @@ program
 program.parse(process.argv);
 if (!process.argv.slice(2).length) {
     program.help();
-}
-
-async function importProducts(csvPath: string, languageCode: import('@vendure/core').LanguageCode) {
-    logColored(`\nImporting from "${csvPath}"...\n`);
-    const app = await getApplicationRef();
-    if (app) {
-        await importProductsFromCsv(app, csvPath, languageCode);
-        logColored('\nDone!');
-        await app.close();
-        process.exit(0);
-    }
 }
 
 async function getApplicationRef(): Promise<INestApplication | undefined> {

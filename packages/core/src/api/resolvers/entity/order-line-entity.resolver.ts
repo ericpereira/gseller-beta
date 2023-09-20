@@ -1,7 +1,7 @@
 import { Parent, ResolveField, Resolver } from '@nestjs/graphql';
 
-import { Asset, Order, OrderLine, ProductVariant } from '../../../entity';
-import { AssetService, OrderService, ProductVariantService } from '../../../service';
+import { Asset, Order, OrderLine } from '../../../entity';
+import { AssetService, OrderService } from '../../../service';
 import { RequestContext } from '../../common/request-context';
 import { RelationPaths, Relations } from '../../decorators/relations.decorator';
 import { Ctx } from '../../decorators/request-context.decorator';
@@ -9,21 +9,9 @@ import { Ctx } from '../../decorators/request-context.decorator';
 @Resolver('OrderLine')
 export class OrderLineEntityResolver {
     constructor(
-        private productVariantService: ProductVariantService,
         private assetService: AssetService,
         private orderService: OrderService,
     ) {}
-
-    @ResolveField()
-    async productVariant(
-        @Ctx() ctx: RequestContext,
-        @Parent() orderLine: OrderLine,
-    ): Promise<ProductVariant> {
-        if (orderLine.productVariant) {
-            return orderLine.productVariant;
-        }
-        return this.productVariantService.getVariantByOrderLineId(ctx, orderLine.id);
-    }
 
     @ResolveField()
     async featuredAsset(

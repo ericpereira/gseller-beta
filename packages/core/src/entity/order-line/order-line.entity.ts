@@ -14,7 +14,6 @@ import { CustomOrderLineFields } from '../custom-entity-fields';
 import { EntityId } from '../entity-id.decorator';
 import { Money } from '../money.decorator';
 import { Order } from '../order/order.entity';
-import { ProductVariant } from '../product-variant/product-variant.entity';
 
 /**
  * @description
@@ -42,14 +41,6 @@ export class OrderLine extends VendureEntity implements HasCustomFields {
 
     @EntityId({ nullable: true })
     shippingLineId?: ID;
-
-    /**
-     * @description
-     * The {@link ProductVariant} which is being ordered.
-     */
-    @Index()
-    @ManyToOne(type => ProductVariant)
-    productVariant: ProductVariant;
 
     @EntityId()
     productVariantId: ID;

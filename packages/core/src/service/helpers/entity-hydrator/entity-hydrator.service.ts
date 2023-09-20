@@ -7,8 +7,6 @@ import { RequestContext } from '../../../api/common/request-context';
 import { InternalServerError } from '../../../common/error/errors';
 import { TransactionalConnection } from '../../../connection/transactional-connection';
 import { VendureEntity } from '../../../entity/base/base.entity';
-import { ProductVariant } from '../../../entity/product-variant/product-variant.entity';
-import { ProductPriceApplicator } from '../product-price-applicator/product-price-applicator';
 import { TranslatorService } from '../translator/translator.service';
 
 import { HydrateOptions } from './entity-hydrator-types';
@@ -54,7 +52,6 @@ import { HydrateOptions } from './entity-hydrator-types';
 export class EntityHydrator {
     constructor(
         private connection: TransactionalConnection,
-        private productPriceApplicator: ProductPriceApplicator,
         private translator: TranslatorService,
     ) {}
 
@@ -85,14 +82,6 @@ export class EntityHydrator {
         if (options.relations) {
             let missingRelations = this.getMissingRelations(target, options);
 
-            if (options.applyProductVariantPrices === true) {
-                const productVariantPriceRelations = this.getRequiredProductVariantRelations(
-                    target,
-                    missingRelations,
-                );
-                missingRelations = unique([...missingRelations, ...productVariantPriceRelations]);
-            }
-
             if (missingRelations.length) {
                 const hydrated = await this.connection.getRepository(ctx, target.constructor).findOne({
                     where: { id: target.id },
@@ -107,27 +96,6 @@ export class EntityHydrator {
                     entity: this.getRelationEntityAtPath(target, relation.split('.')),
                     relation,
                 }));
-
-                if (options.applyProductVariantPrices === true) {
-                    for (const relationWithEntities of relationsWithEntities) {
-                        const entity = relationWithEntities.entity;
-                        if (entity) {
-                            if (Array.isArray(entity)) {
-                                if (entity[0] instanceof ProductVariant) {
-                                    await Promise.all(
-                                        entity.map((e: any) =>
-                                            this.productPriceApplicator.applyChannelPriceAndTax(e, ctx),
-                                        ),
-                                    );
-                                }
-                            } else {
-                                if (entity instanceof ProductVariant) {
-                                    await this.productPriceApplicator.applyChannelPriceAndTax(entity, ctx);
-                                }
-                            }
-                        }
-                    }
-                }
 
                 const translateDeepRelations = relationsWithEntities
                     .filter(item => this.isTranslatable(item.entity))
@@ -188,20 +156,6 @@ export class EntityHydrator {
             }
         }
         return unique(missingRelations);
-    }
-
-    private getRequiredProductVariantRelations<Entity extends VendureEntity>(
-        target: Entity,
-        missingRelations: string[],
-    ): string[] {
-        const relationsToAdd: string[] = [];
-        for (const relation of missingRelations) {
-            const entityType = this.getRelationEntityTypeAtPath(target, relation);
-            if (entityType === ProductVariant) {
-                relationsToAdd.push([relation, 'taxCategory'].join('.'));
-            }
-        }
-        return relationsToAdd;
     }
 
     /**

@@ -20,11 +20,8 @@ import { CustomerGroupResolver } from './resolvers/admin/customer-group.resolver
 import { CustomerResolver } from './resolvers/admin/customer.resolver';
 import { DraftOrderResolver } from './resolvers/admin/draft-order.resolver';
 import { GlobalSettingsResolver } from './resolvers/admin/global-settings.resolver';
-import { ImportResolver } from './resolvers/admin/import.resolver';
 import { JobResolver } from './resolvers/admin/job.resolver';
 import { OrderResolver } from './resolvers/admin/order.resolver';
-import { ProductOptionResolver } from './resolvers/admin/product-option.resolver';
-import { ProductResolver } from './resolvers/admin/product.resolver';
 import { RoleResolver } from './resolvers/admin/role.resolver';
 import { SearchResolver } from './resolvers/admin/search.resolver';
 import { TagResolver } from './resolvers/admin/tag.resolver';
@@ -41,16 +38,6 @@ import { CustomerGroupEntityResolver } from './resolvers/entity/customer-group-e
 import { JobEntityResolver } from './resolvers/entity/job-entity.resolver';
 import { OrderAdminEntityResolver, OrderEntityResolver } from './resolvers/entity/order-entity.resolver';
 import { OrderLineEntityResolver } from './resolvers/entity/order-line-entity.resolver';
-import {
-    ProductAdminEntityResolver,
-    ProductEntityResolver,
-} from './resolvers/entity/product-entity.resolver';
-import { ProductOptionEntityResolver } from './resolvers/entity/product-option-entity.resolver';
-import { ProductOptionGroupEntityResolver } from './resolvers/entity/product-option-group-entity.resolver';
-import {
-    ProductVariantAdminEntityResolver,
-    ProductVariantEntityResolver,
-} from './resolvers/entity/product-variant-entity.resolver';
 import { RoleEntityResolver } from './resolvers/entity/role-entity.resolver';
 import { UserEntityResolver } from './resolvers/entity/user-entity.resolver';
 import { ZoneEntityResolver } from './resolvers/entity/zone-entity.resolver';
@@ -58,7 +45,6 @@ import { ShopAuthResolver } from './resolvers/shop/shop-auth.resolver';
 import { ShopCustomerResolver } from './resolvers/shop/shop-customer.resolver';
 import { ShopEnvironmentResolver } from './resolvers/shop/shop-environment.resolver';
 import { ShopOrderResolver } from './resolvers/shop/shop-order.resolver';
-import { ShopProductsResolver } from './resolvers/shop/shop-products.resolver';
 
 const adminResolvers = [
     AdministratorResolver,
@@ -70,11 +56,8 @@ const adminResolvers = [
     CustomerResolver,
     DraftOrderResolver,
     GlobalSettingsResolver,
-    ImportResolver,
     JobResolver,
     OrderResolver,
-    ProductOptionResolver,
-    ProductResolver,
     RoleResolver,
     SearchResolver,
     TagResolver,
@@ -85,7 +68,6 @@ const shopResolvers = [
     ShopAuthResolver,
     ShopCustomerResolver,
     ShopOrderResolver,
-    ShopProductsResolver,
     ShopEnvironmentResolver,
 ];
 
@@ -97,10 +79,6 @@ export const entityResolvers = [
     CustomerGroupEntityResolver,
     OrderEntityResolver,
     OrderLineEntityResolver,
-    ProductEntityResolver,
-    ProductOptionEntityResolver,
-    ProductOptionGroupEntityResolver,
-    ProductVariantEntityResolver,
     RoleEntityResolver,
     UserEntityResolver,
     ZoneEntityResolver,
@@ -110,8 +88,6 @@ export const adminEntityResolvers = [
     AdministratorEntityResolver,
     CustomerAdminEntityResolver,
     OrderAdminEntityResolver,
-    ProductVariantAdminEntityResolver,
-    ProductAdminEntityResolver,
     JobEntityResolver,
 ];
 

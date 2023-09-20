@@ -80,41 +80,6 @@ export class DraftOrderResolver {
     @Transaction()
     @Mutation()
     @Allow(Permission.CreateOrder)
-    async addItemToDraftOrder(
-        @Ctx() ctx: RequestContext,
-        @Args() { orderId, input }: MutationAddItemToDraftOrderArgs,
-    ): Promise<ErrorResultUnion<UpdateOrderItemsResult, Order>> {
-        return this.orderService.addItemToOrder(
-            ctx,
-            orderId,
-            input.productVariantId,
-            input.quantity,
-            (input as any).customFields,
-        );
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder, Permission.Owner)
-    async adjustDraftOrderLine(
-        @Ctx() ctx: RequestContext,
-        @Args() { orderId, input }: MutationAdjustDraftOrderLineArgs,
-    ): Promise<ErrorResultUnion<UpdateOrderItemsResult, Order>> {
-        if (input.quantity === 0) {
-            return this.removeDraftOrderLine(ctx, { orderId, orderLineId: input.orderLineId });
-        }
-        return this.orderService.adjustOrderLine(
-            ctx,
-            orderId,
-            input.orderLineId,
-            input.quantity,
-            (input as any).customFields,
-        );
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.CreateOrder)
     async removeDraftOrderLine(
         @Ctx() ctx: RequestContext,
         @Args() args: MutationRemoveDraftOrderLineArgs,

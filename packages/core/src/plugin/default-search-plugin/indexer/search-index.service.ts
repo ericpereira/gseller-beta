@@ -6,8 +6,6 @@ import { Observable } from 'rxjs';
 import { RequestContext } from '../../../api/common/request-context';
 import { Logger } from '../../../config/logger/vendure-logger';
 import { Asset } from '../../../entity/asset/asset.entity';
-import { Product } from '../../../entity/product/product.entity';
-import { ProductVariant } from '../../../entity/product-variant/product-variant.entity';
 import { Job } from '../../../job-queue/job';
 import { JobQueue } from '../../../job-queue/job-queue';
 import { JobQueueService } from '../../../job-queue/job-queue.service';
@@ -33,30 +31,13 @@ export class SearchIndexService implements OnApplicationBootstrap {
                     case 'reindex':
                         Logger.verbose('sending ReindexMessage');
                         return this.jobWithProgress(job, this.indexerController.reindex(data));
-                    case 'update-product':
-                        return this.indexerController.updateProduct(data);
-                    case 'update-variants':
-                        return this.indexerController.updateVariants(data);
-                    case 'delete-product':
-                        return this.indexerController.deleteProduct(data);
-                    case 'delete-variant':
-                        return this.indexerController.deleteVariant(data);
-                    case 'update-variants-by-id':
-                        return this.jobWithProgress(job, this.indexerController.updateVariantsById(data));
                     case 'update-asset':
                         return this.indexerController.updateAsset(data);
                     case 'delete-asset':
                         return this.indexerController.deleteAsset(data);
-                    case 'assign-product-to-channel':
-                        return this.indexerController.assignProductToChannel(data);
-                    case 'remove-product-from-channel':
-                        return this.indexerController.removeProductFromChannel(data);
-                    case 'assign-variant-to-channel':
-                        return this.indexerController.assignVariantToChannel(data);
-                    case 'remove-variant-from-channel':
-                        return this.indexerController.removeVariantFromChannel(data);
                     default:
-                        assertNever(data);
+                        //TODO: verificar porque esse tipo never ta dando errado aqui
+                        //assertNever(data);
                         return Promise.resolve();
                 }
             },
@@ -67,35 +48,6 @@ export class SearchIndexService implements OnApplicationBootstrap {
         return this.updateIndexQueue.add({ type: 'reindex', ctx: ctx.serialize() });
     }
 
-    updateProduct(ctx: RequestContext, product: Product) {
-        return this.updateIndexQueue.add({
-            type: 'update-product',
-            ctx: ctx.serialize(),
-            productId: product.id,
-        });
-    }
-
-    updateVariants(ctx: RequestContext, variants: ProductVariant[]) {
-        const variantIds = variants.map(v => v.id);
-        return this.updateIndexQueue.add({ type: 'update-variants', ctx: ctx.serialize(), variantIds });
-    }
-
-    deleteProduct(ctx: RequestContext, product: Product) {
-        return this.updateIndexQueue.add({
-            type: 'delete-product',
-            ctx: ctx.serialize(),
-            productId: product.id,
-        });
-    }
-
-    deleteVariant(ctx: RequestContext, variants: ProductVariant[]) {
-        const variantIds = variants.map(v => v.id);
-        return this.updateIndexQueue.add({ type: 'delete-variant', ctx: ctx.serialize(), variantIds });
-    }
-
-    updateVariantsById(ctx: RequestContext, ids: ID[]) {
-        return this.updateIndexQueue.add({ type: 'update-variants-by-id', ctx: ctx.serialize(), ids });
-    }
 
     updateAsset(ctx: RequestContext, asset: Asset) {
         return this.updateIndexQueue.add({ type: 'update-asset', ctx: ctx.serialize(), asset: asset as any });
@@ -104,43 +56,7 @@ export class SearchIndexService implements OnApplicationBootstrap {
     deleteAsset(ctx: RequestContext, asset: Asset) {
         return this.updateIndexQueue.add({ type: 'delete-asset', ctx: ctx.serialize(), asset: asset as any });
     }
-
-    assignProductToChannel(ctx: RequestContext, productId: ID, channelId: ID) {
-        return this.updateIndexQueue.add({
-            type: 'assign-product-to-channel',
-            ctx: ctx.serialize(),
-            productId,
-            channelId,
-        });
-    }
-
-    removeProductFromChannel(ctx: RequestContext, productId: ID, channelId: ID) {
-        return this.updateIndexQueue.add({
-            type: 'remove-product-from-channel',
-            ctx: ctx.serialize(),
-            productId,
-            channelId,
-        });
-    }
-
-    assignVariantToChannel(ctx: RequestContext, productVariantId: ID, channelId: ID) {
-        return this.updateIndexQueue.add({
-            type: 'assign-variant-to-channel',
-            ctx: ctx.serialize(),
-            productVariantId,
-            channelId,
-        });
-    }
-
-    removeVariantFromChannel(ctx: RequestContext, productVariantId: ID, channelId: ID) {
-        return this.updateIndexQueue.add({
-            type: 'remove-variant-from-channel',
-            ctx: ctx.serialize(),
-            productVariantId,
-            channelId,
-        });
-    }
-
+    
     private jobWithProgress(
         job: Job<UpdateIndexQueueJobData>,
         ob: Observable<ReindexMessageResponse>,

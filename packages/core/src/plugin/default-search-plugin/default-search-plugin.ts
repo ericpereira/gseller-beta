@@ -9,10 +9,6 @@ import { Injector } from '../../common';
 import { idsAreEqual } from '../../common/utils';
 import { EventBus } from '../../event-bus/event-bus';
 import { AssetEvent } from '../../event-bus/events/asset-event';
-import { ProductChannelEvent } from '../../event-bus/events/product-channel-event';
-import { ProductEvent } from '../../event-bus/events/product-event';
-import { ProductVariantChannelEvent } from '../../event-bus/events/product-variant-channel-event';
-import { ProductVariantEvent } from '../../event-bus/events/product-variant-event';
 import { JobQueueService } from '../../job-queue/job-queue.service';
 import { PluginCommonModule } from '../plugin-common.module';
 import { VendurePlugin } from '../vendure-plugin';
@@ -111,56 +107,12 @@ export class DefaultSearchPlugin implements OnApplicationBootstrap, OnApplicatio
 
     /** @internal */
     async onApplicationBootstrap() {
-        this.eventBus.ofType(ProductEvent).subscribe(event => {
-            if (event.type === 'deleted') {
-                return this.searchIndexService.deleteProduct(event.ctx, event.product);
-            } else {
-                return this.searchIndexService.updateProduct(event.ctx, event.product);
-            }
-        });
-        this.eventBus.ofType(ProductVariantEvent).subscribe(event => {
-            if (event.type === 'deleted') {
-                return this.searchIndexService.deleteVariant(event.ctx, event.variants);
-            } else {
-                return this.searchIndexService.updateVariants(event.ctx, event.variants);
-            }
-        });
         this.eventBus.ofType(AssetEvent).subscribe(event => {
             if (event.type === 'updated') {
                 return this.searchIndexService.updateAsset(event.ctx, event.asset);
             }
             if (event.type === 'deleted') {
                 return this.searchIndexService.deleteAsset(event.ctx, event.asset);
-            }
-        });
-        this.eventBus.ofType(ProductChannelEvent).subscribe(event => {
-            if (event.type === 'assigned') {
-                return this.searchIndexService.assignProductToChannel(
-                    event.ctx,
-                    event.product.id,
-                    event.channelId,
-                );
-            } else {
-                return this.searchIndexService.removeProductFromChannel(
-                    event.ctx,
-                    event.product.id,
-                    event.channelId,
-                );
-            }
-        });
-        this.eventBus.ofType(ProductVariantChannelEvent).subscribe(event => {
-            if (event.type === 'assigned') {
-                return this.searchIndexService.assignVariantToChannel(
-                    event.ctx,
-                    event.productVariant.id,
-                    event.channelId,
-                );
-            } else {
-                return this.searchIndexService.removeVariantFromChannel(
-                    event.ctx,
-                    event.productVariant.id,
-                    event.channelId,
-                );
             }
         });
 

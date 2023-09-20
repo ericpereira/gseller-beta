@@ -10,7 +10,6 @@ import {
     ApiOptions,
     AssetOptions,
     AuthOptions,
-    CatalogOptions,
     EntityOptions,
     ImportExportOptions,
     JobQueueOptions,
@@ -38,10 +37,6 @@ export class ConfigService implements VendureConfig {
 
     get authOptions(): Required<AuthOptions> {
         return this.activeConfig.authOptions;
-    }
-
-    get catalogOptions(): Required<CatalogOptions> {
-        return this.activeConfig.catalogOptions;
     }
 
     get defaultChannelToken(): string | null {

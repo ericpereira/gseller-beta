@@ -38,8 +38,6 @@ import { TransactionalConnection } from '../../connection/transactional-connecti
 import { Asset } from '../../entity/asset/asset.entity';
 import { OrderableAsset } from '../../entity/asset/orderable-asset.entity';
 import { VendureEntity } from '../../entity/base/base.entity';
-import { Product } from '../../entity/product/product.entity';
-import { ProductVariant } from '../../entity/product-variant/product-variant.entity';
 import { EventBus } from '../../event-bus/event-bus';
 import { AssetChannelEvent } from '../../event-bus/events/asset-channel-event';
 import { AssetEvent } from '../../event-bus/events/asset-event';
@@ -358,11 +356,12 @@ export class AssetService {
             variants: 0,
             collections: 0,
         };
-        for (const asset of assets) {
-            const usages = await this.findAssetUsages(ctx, asset);
-            usageCount.products += usages.products.length;
-            usageCount.variants += usages.variants.length;
-        }
+        //TODO: modificar essa abordagem para ser utilizada em outras entidades no futuro
+        // for (const asset of assets) {
+        //     const usages = await this.findAssetUsages(ctx, asset);
+        //     usageCount.products += usages.products.length;
+        //     usageCount.variants += usages.variants.length;
+        // }
         const hasUsages = !!(usageCount.products || usageCount.variants || usageCount.collections);
         if (hasUsages && !force) {
             return {
@@ -669,25 +668,26 @@ export class AssetService {
         return false;
     }
 
+    //TODO: Modificar essa função no futuro pra ser usada em outra entidade q utiliza os assets
     /**
      * Find the entities which reference the given Asset as a featuredAsset.
      */
-    private async findAssetUsages(
-        ctx: RequestContext,
-        asset: Asset,
-    ): Promise<{ products: Product[]; variants: ProductVariant[]; }> {
-        const products = await this.connection.getRepository(ctx, Product).find({
-            where: {
-                featuredAsset: { id: asset.id },
-                deletedAt: IsNull(),
-            },
-        });
-        const variants = await this.connection.getRepository(ctx, ProductVariant).find({
-            where: {
-                featuredAsset: { id: asset.id },
-                deletedAt: IsNull(),
-            },
-        });
-        return { products, variants };
-    }
+    // private async findAssetUsages(
+    //     ctx: RequestContext,
+    //     asset: Asset,
+    // ): Promise<{ products: Product[]; variants: ProductVariant[]; }> {
+    //     const products = await this.connection.getRepository(ctx, Product).find({
+    //         where: {
+    //             featuredAsset: { id: asset.id },
+    //             deletedAt: IsNull(),
+    //         },
+    //     });
+    //     const variants = await this.connection.getRepository(ctx, ProductVariant).find({
+    //         where: {
+    //             featuredAsset: { id: asset.id },
+    //             deletedAt: IsNull(),
+    //         },
+    //     });
+    //     return { products, variants };
+    // }
 }

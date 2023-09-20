@@ -7,7 +7,6 @@ import { TransactionalConnection } from '../../connection/transactional-connecti
 import { Order } from '../../entity/order/order.entity';
 import { OrderLine } from '../../entity/order-line/order-line.entity';
 import { OrderModification } from '../../entity/order-modification/order-modification.entity';
-import { ProductVariant } from '../../entity/product-variant/product-variant.entity';
 import { OrderPlacedEvent } from '../../event-bus/events/order-placed-event';
 import { OrderState } from '../../service/helpers/order-state-machine/order-state';
 import {
@@ -157,7 +156,6 @@ export interface DefaultOrderProcessOptions {
  */
 export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions) {
     let connection: TransactionalConnection;
-    let productVariantService: import('../../service/index').ProductVariantService;
     let configService: import('../config.service').ConfigService;
     let eventBus: import('../../event-bus/index').EventBus;
     let orderSplitter: import('../../service/index').OrderSplitter;
@@ -232,11 +230,7 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
             const ConfigService = await import('../config.service.js').then(m => m.ConfigService);
             const EventBus = await import('../../event-bus/index.js').then(m => m.EventBus);
             const OrderSplitter = await import('../../service/index.js').then(m => m.OrderSplitter);
-            const ProductVariantService = await import('../../service/index.js').then(
-                m => m.ProductVariantService,
-            );
             connection = injector.get(TransactionalConnection);
-            productVariantService = injector.get(ProductVariantService);
             configService = injector.get(ConfigService);
             eventBus = injector.get(EventBus);
             orderSplitter = injector.get(OrderSplitter);
@@ -260,53 +254,12 @@ export function configureDefaultOrderProcess(options: DefaultOrderProcessOptions
                     return 'message.cannot-transition-from-arranging-additional-payment';
                 }
             }
-            if (
-                options.checkAllVariantsExist !== false &&
-                fromState === 'AddingItems' &&
-                toState !== 'Cancelled' &&
-                order.lines.length > 0
-            ) {
-                const variantIds = unique(order.lines.map(l => l.productVariant.id));
-                const qb = connection
-                    .getRepository(ctx, ProductVariant)
-                    .createQueryBuilder('variant')
-                    .leftJoin('variant.product', 'product')
-                    .where('variant.deletedAt IS NULL')
-                    .andWhere('product.deletedAt IS NULL')
-                    .andWhere('variant.id IN (:...variantIds)', { variantIds });
-                const availableVariants = await qb.getMany();
-                if (availableVariants.length !== variantIds.length) {
-                    return 'message.cannot-transition-order-contains-products-which-are-unavailable';
-                }
-            }
             if (toState === 'ArrangingPayment') {
                 if (options.arrangingPaymentRequiresContents !== false && order.lines.length === 0) {
                     return 'message.cannot-transition-to-payment-when-order-is-empty';
                 }
                 if (options.arrangingPaymentRequiresCustomer !== false && !order.customer) {
                     return 'message.cannot-transition-to-payment-without-customer';
-                }
-                if (options.arrangingPaymentRequiresStock !== false) {
-                    const variantsWithInsufficientSaleableStock: ProductVariant[] = [];
-                    for (const line of order.lines) {
-                        const availableStock = await productVariantService.getSaleableStockLevel(
-                            ctx,
-                            line.productVariant,
-                        );
-                        if (line.quantity > availableStock) {
-                            variantsWithInsufficientSaleableStock.push(line.productVariant);
-                        }
-                    }
-                    if (variantsWithInsufficientSaleableStock.length) {
-                        return ctx.translate(
-                            'message.cannot-transition-to-payment-due-to-insufficient-stock',
-                            {
-                                productVariantNames: variantsWithInsufficientSaleableStock
-                                    .map(v => v.name)
-                                    .join(', '),
-                            },
-                        );
-                    }
                 }
             }
             if (options.checkAllItemsBeforeCancel !== false) {

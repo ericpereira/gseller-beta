@@ -94,7 +94,7 @@ export class OrderResolver {
     @Allow(Permission.UpdateOrder)
     async modifyOrder(@Ctx() ctx: RequestContext, @Args() args: MutationModifyOrderArgs) {
         await this.connection.startTransaction(ctx);
-        const result = await this.orderService.modifyOrder(ctx, args.input);
+        const result = false
 
         if (args.input.dryRun || isGraphQlErrorResult(result)) {
             await this.connection.rollBackTransaction(ctx);

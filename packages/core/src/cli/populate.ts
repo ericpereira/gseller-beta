@@ -78,25 +78,6 @@ export async function populate<T extends INestApplicationContext>(
 
     await populateInitialData(app, initialData, channel);
 
-    if (productsCsvPath) {
-        const importResult = await importProductsFromCsv(
-            app,
-            productsCsvPath,
-            initialData.defaultLanguage,
-            channel,
-        );
-        if (importResult.errors && importResult.errors.length) {
-            const errorFile = path.join(process.cwd(), 'vendure-import-error.log');
-            Logger.error(
-                `${importResult.errors.length} errors encountered when importing product data. See: ${errorFile}`,
-                loggerCtx,
-            );
-            await fs.writeFile(errorFile, importResult.errors.join('\n'));
-        }
-
-        Logger.info(`Imported ${importResult.imported} products`, loggerCtx);
-    }
-
     Logger.info('Done!', loggerCtx);
     return app;
 }
@@ -116,20 +97,3 @@ export async function populateInitialData(
     }
 }
 
-export async function importProductsFromCsv(
-    app: INestApplicationContext,
-    productsCsvPath: string,
-    languageCode: import('@vendure/core').LanguageCode,
-    channel?: import('@vendure/core').Channel,
-): Promise<import('@vendure/core').ImportProgress> {
-    const { Importer, RequestContextService } = await import('@vendure/core');
-    const importer = app.get(Importer);
-    const requestContextService = app.get(RequestContextService);
-    const productData = await fs.readFile(productsCsvPath, 'utf-8');
-    const ctx = await requestContextService.create({
-        apiType: 'admin',
-        languageCode,
-        channelOrToken: channel,
-    });
-    return lastValueFrom(importer.parseAndImport(productData, ctx, true));
-}

@@ -250,51 +250,6 @@ export class ShopOrderResolver {
     @Transaction()
     @Mutation()
     @Allow(Permission.UpdateOrder, Permission.Owner)
-    async addItemToOrder(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationAddItemToOrderArgs & ActiveOrderArgs,
-    ): Promise<ErrorResultUnion<UpdateOrderItemsResult, Order>> {
-        const order = await this.activeOrderService.getActiveOrder(
-            ctx,
-            args[ACTIVE_ORDER_INPUT_FIELD_NAME],
-            true,
-        );
-        return this.orderService.addItemToOrder(
-            ctx,
-            order.id,
-            args.productVariantId,
-            args.quantity,
-            (args as any).customFields,
-        );
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder, Permission.Owner)
-    async adjustOrderLine(
-        @Ctx() ctx: RequestContext,
-        @Args() args: MutationAdjustOrderLineArgs & ActiveOrderArgs,
-    ): Promise<ErrorResultUnion<UpdateOrderItemsResult, Order>> {
-        if (args.quantity === 0) {
-            return this.removeOrderLine(ctx, { orderLineId: args.orderLineId });
-        }
-        const order = await this.activeOrderService.getActiveOrder(
-            ctx,
-            args[ACTIVE_ORDER_INPUT_FIELD_NAME],
-            true,
-        );
-        return this.orderService.adjustOrderLine(
-            ctx,
-            order.id,
-            args.orderLineId,
-            args.quantity,
-            (args as any).customFields,
-        );
-    }
-
-    @Transaction()
-    @Mutation()
-    @Allow(Permission.UpdateOrder, Permission.Owner)
     async removeOrderLine(
         @Ctx() ctx: RequestContext,
         @Args() args: MutationRemoveOrderLineArgs & ActiveOrderArgs,

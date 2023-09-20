@@ -81,7 +81,6 @@ import { Customer } from '../../entity/customer/customer.entity';
 import { Order } from '../../entity/order/order.entity';
 import { OrderLine } from '../../entity/order-line/order-line.entity';
 import { OrderModification } from '../../entity/order-modification/order-modification.entity';
-import { ProductVariant } from '../../entity/product-variant/product-variant.entity';
 import { Session } from '../../entity/session/session.entity';
 import { User } from '../../entity/user/user.entity';
 import { EventBus } from '../../event-bus/event-bus';
@@ -95,7 +94,6 @@ import { CustomFieldRelationService } from '../helpers/custom-field-relation/cus
 import { ListQueryBuilder } from '../helpers/list-query-builder/list-query-builder';
 import { OrderCalculator } from '../helpers/order-calculator/order-calculator';
 import { OrderMerger } from '../helpers/order-merger/order-merger';
-import { OrderModifier } from '../helpers/order-modifier/order-modifier';
 import { OrderState } from '../helpers/order-state-machine/order-state';
 import { OrderStateMachine } from '../helpers/order-state-machine/order-state-machine';
 import { TranslatorService } from '../helpers/translator/translator.service';
@@ -105,7 +103,6 @@ import { patchEntity } from '../helpers/utils/patch-entity';
 import { ChannelService } from './channel.service';
 import { CountryService } from './country.service';
 import { CustomerService } from './customer.service';
-import { ProductVariantService } from './product-variant.service';
 
 /**
  * @description
@@ -118,7 +115,6 @@ export class OrderService {
     constructor(
         private connection: TransactionalConnection,
         private configService: ConfigService,
-        private productVariantService: ProductVariantService,
         private customerService: CustomerService,
         private countryService: CountryService,
         private orderCalculator: OrderCalculator,
@@ -127,7 +123,6 @@ export class OrderService {
         private listQueryBuilder: ListQueryBuilder,
         private eventBus: EventBus,
         private channelService: ChannelService,
-        private orderModifier: OrderModifier,
         private customFieldRelationService: CustomFieldRelationService,
         private requestCache: RequestContextCacheService,
         private translator: TranslatorService,
@@ -199,7 +194,6 @@ export class OrderService {
         ];
         if (
             relations &&
-            effectiveRelations.includes('lines.productVariant') &&
             !effectiveRelations.includes('lines.productVariant.taxCategory')
         ) {
             effectiveRelations.push('lines.productVariant.taxCategory');
@@ -220,18 +214,6 @@ export class OrderService {
 
         const order = await qb.getOne();
         if (order) {
-            if (effectiveRelations.includes('lines.productVariant')) {
-                for (const line of order.lines) {
-                    line.productVariant = this.translator.translate(
-                        await this.productVariantService.applyChannelPriceAndTax(
-                            line.productVariant,
-                            ctx,
-                            order,
-                        ),
-                        ctx,
-                    );
-                }
-            }
             return order;
         }
     }
@@ -426,120 +408,6 @@ export class OrderService {
         return updatedOrder;
     }
 
-    /**
-     * @description
-     * Adds an item to the Order, either creating a new OrderLine or
-     * incrementing an existing one.
-     */
-    async addItemToOrder(
-        ctx: RequestContext,
-        orderId: ID,
-        productVariantId: ID,
-        quantity: number,
-        customFields?: { [key: string]: any },
-    ): Promise<ErrorResultUnion<UpdateOrderItemsResult, Order>> {
-        const order = await this.getOrderOrThrow(ctx, orderId);
-        const existingOrderLine = await this.orderModifier.getExistingOrderLine(
-            ctx,
-            order,
-            productVariantId,
-            customFields,
-        );
-        const validationError =
-            this.assertQuantityIsPositive(quantity) ||
-            this.assertAddingItemsState(order) ||
-            this.assertNotOverOrderItemsLimit(order, quantity) ||
-            this.assertNotOverOrderLineItemsLimit(existingOrderLine, quantity);
-        if (validationError) {
-            return validationError;
-        }
-        const variant = await this.connection.getEntityOrThrow(ctx, ProductVariant, productVariantId, {
-            relations: ['product'],
-            where: {
-                enabled: true,
-                deletedAt: IsNull(),
-            },
-        });
-        if (variant.product.enabled === false) {
-            throw new EntityNotFoundError('ProductVariant', productVariantId);
-        }
-        const correctedQuantity = await this.orderModifier.constrainQuantityToSaleable(
-            ctx,
-            variant,
-            quantity,
-            existingOrderLine?.quantity,
-        );
-        if (correctedQuantity === 0) {
-            return new InsufficientStockError({ order, quantityAvailable: correctedQuantity });
-        }
-        const orderLine = await this.orderModifier.getOrCreateOrderLine(
-            ctx,
-            order,
-            productVariantId,
-            customFields,
-        );
-        if (correctedQuantity < quantity) {
-            const newQuantity = (existingOrderLine ? existingOrderLine?.quantity : 0) + correctedQuantity;
-        }
-        const quantityWasAdjustedDown = correctedQuantity < quantity;
-        const updatedOrder = await this.applyPriceAdjustments(ctx, order, [orderLine]);
-        if (quantityWasAdjustedDown) {
-            return new InsufficientStockError({ quantityAvailable: correctedQuantity, order: updatedOrder });
-        } else {
-            return updatedOrder;
-        }
-    }
-
-    /**
-     * @description
-     * Adjusts the quantity and/or custom field values of an existing OrderLine.
-     */
-    async adjustOrderLine(
-        ctx: RequestContext,
-        orderId: ID,
-        orderLineId: ID,
-        quantity: number,
-        customFields?: { [key: string]: any },
-    ): Promise<ErrorResultUnion<UpdateOrderItemsResult, Order>> {
-        const order = await this.getOrderOrThrow(ctx, orderId);
-        const orderLine = this.getOrderLineOrThrow(order, orderLineId);
-        const validationError =
-            this.assertAddingItemsState(order) ||
-            this.assertQuantityIsPositive(quantity) ||
-            this.assertNotOverOrderItemsLimit(order, quantity - orderLine.quantity) ||
-            this.assertNotOverOrderLineItemsLimit(orderLine, quantity - orderLine.quantity);
-        if (validationError) {
-            return validationError;
-        }
-        if (customFields != null) {
-            orderLine.customFields = customFields;
-            await this.customFieldRelationService.updateRelations(
-                ctx,
-                OrderLine,
-                { customFields },
-                orderLine,
-            );
-        }
-        const correctedQuantity = await this.orderModifier.constrainQuantityToSaleable(
-            ctx,
-            orderLine.productVariant,
-            quantity,
-        );
-        let updatedOrderLines = [orderLine];
-        if (correctedQuantity === 0) {
-            order.lines = order.lines.filter(l => !idsAreEqual(l.id, orderLine.id));
-            await this.connection.getRepository(ctx, OrderLine).remove(orderLine);
-            this.eventBus.publish(new OrderLineEvent(ctx, order, orderLine, 'deleted'));
-            updatedOrderLines = [];
-        }
-        const quantityWasAdjustedDown = correctedQuantity < quantity;
-        const updatedOrder = await this.applyPriceAdjustments(ctx, order, updatedOrderLines);
-        if (quantityWasAdjustedDown) {
-            return new InsufficientStockError({ quantityAvailable: correctedQuantity, order: updatedOrder });
-        } else {
-            return updatedOrder;
-        }
-    }
 
     /**
      * @description
@@ -690,39 +558,6 @@ export class OrderService {
 
     /**
      * @description
-     * Allows the Order to be modified, which allows several aspects of the Order to be changed:
-     *
-     * * Changes to OrderLine quantities
-     * * New OrderLines being added
-     * * Arbitrary {@link Surcharge}s being added
-     * * Shipping or billing address changes
-     *
-     * Setting the `dryRun` input property to `true` will apply all changes, including updating the price of the
-     * Order, except history entry and additional payment actions.
-     *
-     * __Using dryRun option, you must wrap function call in transaction manually.__
-     *
-     */
-    async modifyOrder(
-        ctx: RequestContext,
-        input: ModifyOrderInput,
-    ): Promise<ErrorResultUnion<ModifyOrderResult, Order>> {
-        const order = await this.getOrderOrThrow(ctx, input.orderId);
-        const result = await this.orderModifier.modifyOrder(ctx, input, order);
-
-        if (isGraphQlErrorResult(result)) {
-            return result;
-        }
-
-        if (input.dryRun) {
-            return result.order;
-        }
-
-        return this.getOrderOrThrow(ctx, input.orderId);
-    }
-
-    /**
-     * @description
      * We can add a Payment to the order if:
      * 1. the Order is in the `ArrangingPayment` state or
      * 2. the Order's current state can transition to `PaymentAuthorized` and `PaymentSettled`
@@ -848,33 +683,9 @@ export class OrderService {
         }
         if (order && linesToInsert) {
             const orderId = order.id;
-            for (const line of linesToInsert) {
-                const result = await this.addItemToOrder(
-                    ctx,
-                    orderId,
-                    line.productVariantId,
-                    line.quantity,
-                    line.customFields,
-                );
-                if (!isGraphQlErrorResult(result)) {
-                    order = result;
-                }
-            }
         }
         if (order && linesToModify) {
             const orderId = order.id;
-            for (const line of linesToModify) {
-                const result = await this.adjustOrderLine(
-                    ctx,
-                    orderId,
-                    line.orderLineId,
-                    line.quantity,
-                    line.customFields,
-                );
-                if (!isGraphQlErrorResult(result)) {
-                    order = result;
-                }
-            }
         }
         if (order && linesToDelete) {
             const orderId = order.id;
@@ -961,40 +772,6 @@ export class OrderService {
         order: Order,
         updatedOrderLines?: OrderLine[],
     ): Promise<Order> {
-        if (updatedOrderLines?.length) {
-            const { orderItemPriceCalculationStrategy, changedPriceHandlingStrategy } =
-                this.configService.orderOptions;
-            for (const updatedOrderLine of updatedOrderLines) {
-                const variant = await this.productVariantService.applyChannelPriceAndTax(
-                    updatedOrderLine.productVariant,
-                    ctx,
-                    order,
-                );
-                let priceResult = await orderItemPriceCalculationStrategy.calculateUnitPrice(
-                    ctx,
-                    variant,
-                    updatedOrderLine.customFields || {},
-                    order,
-                    updatedOrderLine.quantity,
-                );
-                const initialListPrice = updatedOrderLine.initialListPrice ?? priceResult.price;
-                if (initialListPrice !== priceResult.price) {
-                    priceResult = await changedPriceHandlingStrategy.handlePriceChange(
-                        ctx,
-                        priceResult,
-                        updatedOrderLine,
-                        order,
-                    );
-                }
-
-                if (updatedOrderLine.initialListPrice == null) {
-                    updatedOrderLine.initialListPrice = initialListPrice;
-                }
-                updatedOrderLine.listPrice = priceResult.price;
-                updatedOrderLine.listPriceIncludesTax = priceResult.priceIncludesTax;
-            }
-        }
-
         return assertFound(this.findOne(ctx, order.id));
     }
 }
