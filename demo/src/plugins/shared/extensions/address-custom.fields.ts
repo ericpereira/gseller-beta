@@ -1,4 +1,4 @@
-import { CustomFieldConfig, LanguageCode } from "@vendure/core";
+import { CustomFieldConfig, LanguageCode } from "@gseller/core";
 
 export default [
     {

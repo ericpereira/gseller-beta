@@ -11,7 +11,7 @@ This example shows how to modify the VendureConfig, in this case by adding a cus
 
 ```TypeScript
 // my-plugin.ts
-import { VendurePlugin } from '@vendure/core';
+import { VendurePlugin } from '@gseller/core';
 
 @VendurePlugin({
   configuration: config => {

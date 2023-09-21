@@ -1,4 +1,4 @@
-import { InternalServerError, Logger } from '@vendure/core';
+import { InternalServerError, Logger } from '@gseller/core';
 import { ApolloServerPlugin, GraphQLRequestListener } from 'apollo-server-plugin-base';
 import { GraphQLRequestContext } from 'apollo-server-types';
 import {

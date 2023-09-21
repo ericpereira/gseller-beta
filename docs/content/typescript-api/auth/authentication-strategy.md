@@ -13,7 +13,7 @@ generated: true
 
 # AuthenticationStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/auth/authentication-strategy.ts" sourceLine="16" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/auth/authentication-strategy.ts" sourceLine="16" packageName="@gseller/core">}}
 
 An AuthenticationStrategy defines how a User (which can be a Customer in the Shop API or
 and Administrator in the Admin API) may be authenticated.

@@ -13,7 +13,7 @@ generated: true
 
 # Role
 
-{{< generation-info sourceFile="packages/core/src/entity/role/role.entity.ts" sourceLine="16" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/role/role.entity.ts" sourceLine="16" packageName="@gseller/core">}}
 
 A Role represents a collection of permissions which determine the authorization
 level of a <a href='/typescript-api/entities/user#user'>User</a> on a given set of <a href='/typescript-api/entities/channel#channel'>Channel</a>s.

@@ -13,7 +13,7 @@ generated: true
 
 # CatalogOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="652" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="652" packageName="@gseller/core">}}
 
 Options related to products and collections.
 

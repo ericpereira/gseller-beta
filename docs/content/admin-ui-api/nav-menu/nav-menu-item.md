@@ -13,7 +13,7 @@ generated: true
 
 # NavMenuItem
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder-types.ts" sourceLine="36" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder-types.ts" sourceLine="36" packageName="@gseller/admin-ui">}}
 
 A NavMenuItem is a menu item in the main (left-hand side) nav
 bar.

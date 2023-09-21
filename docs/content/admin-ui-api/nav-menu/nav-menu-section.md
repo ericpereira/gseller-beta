@@ -13,7 +13,7 @@ generated: true
 
 # NavMenuSection
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder-types.ts" sourceLine="56" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder-types.ts" sourceLine="56" packageName="@gseller/admin-ui">}}
 
 A NavMenuSection is a grouping of links in the main
 (left-hand side) nav bar.

@@ -13,7 +13,7 @@ generated: true
 
 # SqlJobQueueStrategy
 
-{{< generation-info sourceFile="packages/core/src/plugin/default-job-queue-plugin/sql-job-queue-strategy.ts" sourceLine="22" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/plugin/default-job-queue-plugin/sql-job-queue-strategy.ts" sourceLine="22" packageName="@gseller/core">}}
 
 A <a href='/typescript-api/job-queue/job-queue-strategy#jobqueuestrategy'>JobQueueStrategy</a> which uses the configured SQL database to persist jobs in the queue.
 This strategy is used by the <a href='/typescript-api/job-queue/default-job-queue-plugin#defaultjobqueueplugin'>DefaultJobQueuePlugin</a>.

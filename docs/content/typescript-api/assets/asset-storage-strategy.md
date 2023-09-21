@@ -13,7 +13,7 @@ generated: true
 
 # AssetStorageStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/asset-storage-strategy/asset-storage-strategy.ts" sourceLine="13" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/asset-storage-strategy/asset-storage-strategy.ts" sourceLine="13" packageName="@gseller/core">}}
 
 The AssetPersistenceStrategy determines how Asset files are physically stored
 and retrieved.

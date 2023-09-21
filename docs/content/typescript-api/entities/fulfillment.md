@@ -13,7 +13,7 @@ generated: true
 
 # Fulfillment
 
-{{< generation-info sourceFile="packages/core/src/entity/fulfillment/fulfillment.entity.ts" sourceLine="17" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/fulfillment/fulfillment.entity.ts" sourceLine="17" packageName="@gseller/core">}}
 
 This entity represents a fulfillment of an Order or part of it, i.e. which <a href='/typescript-api/entities/order-line#orderline'>OrderLine</a>s have been
 delivered to the Customer after successful payment.

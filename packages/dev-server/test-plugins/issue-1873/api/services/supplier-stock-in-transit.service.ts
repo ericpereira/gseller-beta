@@ -3,8 +3,8 @@ import type {
   ListQueryOptions,
   PaginatedList,
   RequestContext,
-} from '@vendure/core';
-import { ListQueryBuilder } from '@vendure/core';
+} from '@gseller/core';
+import { ListQueryBuilder } from '@gseller/core';
 import { SupplierStockInTransit } from '../../entities/supplier-stock-in-transit.entity';
 
 @Injectable()

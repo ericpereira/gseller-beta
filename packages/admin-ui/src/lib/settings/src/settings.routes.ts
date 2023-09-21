@@ -9,7 +9,7 @@ import {
     GetProfileDetailDocument,
     PageComponent,
     PageService,
-} from '@vendure/admin-ui/core';
+} from '@gseller/admin-ui/core';
 import { of } from 'rxjs';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileResolver } from './providers/routing/profile-resolver';

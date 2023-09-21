@@ -13,7 +13,7 @@ generated: true
 
 # Money
 
-{{< generation-info sourceFile="packages/core/src/entity/money.decorator.ts" sourceLine="29" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/entity/money.decorator.ts" sourceLine="29" packageName="@gseller/core" since="2.0.0">}}
 
 Use this decorator for any entity field that is storing a monetary value.
 This allows the column type to be defined by the configured <a href='/typescript-api/money/money-strategy#moneystrategy'>MoneyStrategy</a>.

@@ -1,5 +1,5 @@
-import { LogicalOperator, SearchResult } from '@vendure/common/lib/generated-types';
-import { ID } from '@vendure/common/lib/shared-types';
+import { LogicalOperator, SearchResult } from '@gseller/common/lib/generated-types';
+import { ID } from '@gseller/common/lib/shared-types';
 import { Brackets, SelectQueryBuilder } from 'typeorm';
 
 import { PLUGIN_INIT_OPTIONS } from '../../..';

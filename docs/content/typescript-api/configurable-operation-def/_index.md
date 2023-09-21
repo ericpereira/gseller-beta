@@ -13,7 +13,7 @@ generated: true
 
 # ConfigurableOperationDef
 
-{{< generation-info sourceFile="packages/core/src/common/configurable-operation.ts" sourceLine="335" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/configurable-operation.ts" sourceLine="335" packageName="@gseller/core">}}
 
 A ConfigurableOperationDef is a special type of object used extensively by Vendure to define
 code blocks which have arguments which are configurable at run-time by the administrator.
@@ -55,7 +55,7 @@ Here's an example of a ShippingCalculator that injects a service which has been 
 *Example*
 
 ```TypeScript
-import { Injector, ShippingCalculator } from '@vendure/core';
+import { Injector, ShippingCalculator } from '@gseller/core';
 import { ShippingRatesService } from './shipping-rates.service';
 
 // We keep reference to our injected service by keeping it

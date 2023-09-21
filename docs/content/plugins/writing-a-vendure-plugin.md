@@ -24,7 +24,7 @@ This plugin will add a new mutation, `addRandomCat`, to the GraphQL API which al
 We need a place to store the url of the cat image, so we will add a custom field to the Product entity. This is done by modifying the VendureConfig object via the plugin's [`configuration` metadata property]({{< relref "vendure-plugin-metadata" >}}#configuration):
 
 ```TypeScript
-import { VendurePlugin } from '@vendure/core';
+import { VendurePlugin } from '@gseller/core';
 
 @VendurePlugin({
   configuration: config => {
@@ -94,8 +94,8 @@ Now that we've defined the new mutation, we'll need a resolver function to handl
 
 ```TypeScript
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
-import { Ctx, Allow, ProductService, RequestContext, Transaction } from '@vendure/core';
-import { Permission } from '@vendure/common/lib/generated-types';
+import { Ctx, Allow, ProductService, RequestContext, Transaction } from '@gseller/core';
+import { Permission } from '@gseller/common/lib/generated-types';
 
 @Resolver()
 export class RandomCatResolver {
@@ -191,7 +191,7 @@ export class RandomCatPlugin {}
 Finally, we need to add an instance of our plugin to the config object with which we bootstrap our Vendure server:
 
 ```TypeScript
-import { bootstrap } from '@vendure/core';
+import { bootstrap } from '@gseller/core';
 
 bootstrap({
   // .. config options
@@ -241,8 +241,8 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import gql from 'graphql-tag';
 import http from 'http';
 import { Allow, Ctx, PluginCommonModule, ProductService, 
-    RequestContext, VendureConfig, VendurePlugin } from '@vendure/core';
-import { Permission } from '@vendure/common/lib/generated-types';
+    RequestContext, VendureConfig, VendurePlugin } from '@gseller/core';
+import { Permission } from '@gseller/common/lib/generated-types';
 
 const schemaExtension = gql`
     extend type Mutation {

@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from "@vendure/core";
+import { PluginCommonModule, VendurePlugin } from "@gseller/core";
 
 import { ProductCustomFields } from "./custom-fields";
 

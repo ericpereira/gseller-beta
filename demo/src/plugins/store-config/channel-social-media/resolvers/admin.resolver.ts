@@ -1,8 +1,8 @@
 import { Mutation, Query, Resolver, Args } from '@nestjs/graphql';
-import { Ctx, RequestContext, Allow } from '@vendure/core';
+import { Ctx, RequestContext, Allow } from '@gseller/core';
 import { ChannelSocialMediaService } from '../services/admin.service';
 import { manageChannelSocialMediaPermission } from '../permission';
-import { CreateChannelSocialMediaInput, UpdateChannelSocialMediaInput } from '@vendure/common/lib/generated-types';
+import { CreateChannelSocialMediaInput, UpdateChannelSocialMediaInput } from '@gseller/common/lib/generated-types';
 
 @Resolver()
 export class AdminChannelSocialMediaResolver {

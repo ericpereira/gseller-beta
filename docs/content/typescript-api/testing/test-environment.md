@@ -13,7 +13,7 @@ generated: true
 
 # TestEnvironment
 
-{{< generation-info sourceFile="packages/testing/src/create-test-environment.ts" sourceLine="13" packageName="@vendure/testing">}}
+{{< generation-info sourceFile="packages/testing/src/create-test-environment.ts" sourceLine="13" packageName="@gseller/testing">}}
 
 The return value of <a href='/typescript-api/testing/create-test-environment#createtestenvironment'>createTestEnvironment</a>, containing the test server
 and clients for the Shop API and Admin API.

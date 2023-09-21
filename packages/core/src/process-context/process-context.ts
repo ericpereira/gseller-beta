@@ -11,7 +11,7 @@ let currentContext: ProcessContextType = 'server';
  * @example
  * ```TypeScript
  * import { Injectable, OnApplicationBootstrap } from '\@nestjs/common';
- * import { ProcessContext } from '\@vendure/core';
+ * import { ProcessContext } from '\@gseller/core';
  *
  * \@Injectable()
  * export class MyService implements OnApplicationBootstrap {

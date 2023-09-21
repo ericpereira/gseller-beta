@@ -13,7 +13,7 @@ generated: true
 
 # PaginatedList
 
-{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="66" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="66" packageName="@gseller/common">}}
 
 A type describing the shape of a paginated list response. In Vendure, almost all list queries
 (`products`, `collections`, `orders`, `customers` etc) return an object of this type.

@@ -13,7 +13,7 @@ generated: true
 
 # ApiOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="63" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="63" packageName="@gseller/core">}}
 
 The ApiOptions define how the Vendure GraphQL APIs are exposed, as well as allowing the API layer
 to be extended with middleware.

@@ -1,4 +1,4 @@
-import { bootstrap, runMigrations } from '@vendure/core';
+import { bootstrap, runMigrations } from '@gseller/core';
 import { config } from './vendure-config';
 
 runMigrations(config)

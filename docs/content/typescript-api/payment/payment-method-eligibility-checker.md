@@ -13,7 +13,7 @@ generated: true
 
 # PaymentMethodEligibilityChecker
 
-{{< generation-info sourceFile="packages/core/src/config/payment/payment-method-eligibility-checker.ts" sourceLine="47" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/payment/payment-method-eligibility-checker.ts" sourceLine="47" packageName="@gseller/core">}}
 
 The PaymentMethodEligibilityChecker class is used to check whether an order qualifies for a
 given <a href='/typescript-api/entities/payment-method#paymentmethod'>PaymentMethod</a>.
@@ -60,7 +60,7 @@ class PaymentMethodEligibilityChecker<T extends ConfigArgs = ConfigArgs> extends
 
 # PaymentMethodEligibilityCheckerConfig
 
-{{< generation-info sourceFile="packages/core/src/config/payment/payment-method-eligibility-checker.ts" sourceLine="20" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/payment/payment-method-eligibility-checker.ts" sourceLine="20" packageName="@gseller/core">}}
 
 Configuration passed into the constructor of a <a href='/typescript-api/payment/payment-method-eligibility-checker#paymentmethodeligibilitychecker'>PaymentMethodEligibilityChecker</a> to
 configure its behavior.
@@ -92,7 +92,7 @@ interface PaymentMethodEligibilityCheckerConfig<T extends ConfigArgs> extends Co
 
 # CheckPaymentMethodEligibilityCheckerFn
 
-{{< generation-info sourceFile="packages/core/src/config/payment/payment-method-eligibility-checker.ts" sourceLine="83" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/payment/payment-method-eligibility-checker.ts" sourceLine="83" packageName="@gseller/core">}}
 
 A function which implements logic to determine whether a given <a href='/typescript-api/entities/order#order'>Order</a> is eligible for
 a particular payment method. If the function resolves to `false` or a string, the check is

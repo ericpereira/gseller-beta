@@ -13,7 +13,7 @@ generated: true
 
 # registerFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/register-dynamic-input-components.ts" sourceLine="96" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/register-dynamic-input-components.ts" sourceLine="96" packageName="@gseller/admin-ui">}}
 
 Registers a custom FormInputComponent which can be used to control the argument inputs
 of a <a href='/typescript-api/configurable-operation-def/#configurableoperationdef'>ConfigurableOperationDef</a> (e.g. CollectionFilter, ShippingMethod etc) or for

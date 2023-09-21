@@ -1,5 +1,5 @@
 {
-  "name": "gseller-core",
+  "name": "gseller",
   "version": "1.0.0",
   "private": true,
   "engines": {
@@ -7,7 +7,7 @@
   },
   "scripts": {
     "watch": "lerna run watch --parallel",
-    "watch:core-common": "lerna run --scope @vendure/common --scope @vendure/core watch --parallel",
+    "watch:core-common": "lerna run --scope @gseller/common --scope @gseller/core watch --parallel",
     "lint": "yarn eslint --fix",
     "format": "prettier --write --html-whitespace-sensitivity ignore",
     "bootstrap": "lerna bootstrap",

@@ -1,6 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { CustomFieldType } from '@vendure/common/lib/shared-types';
-import { assertNever } from '@vendure/common/lib/shared-utils';
+import { CustomFieldType } from '@gseller/common/lib/shared-types';
+import { assertNever } from '@gseller/common/lib/shared-utils';
 import { Subject } from 'rxjs';
 import { CustomFieldConfig } from '../../common/generated-types';
 import { DataTableSort, DataTableSortOptions, DataTableSortOrder } from './data-table-sort';

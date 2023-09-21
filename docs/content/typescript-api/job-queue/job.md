@@ -13,7 +13,7 @@ generated: true
 
 # Job
 
-{{< generation-info sourceFile="packages/core/src/job-queue/job.ts" sourceLine="37" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/job-queue/job.ts" sourceLine="37" packageName="@gseller/core">}}
 
 A Job represents a piece of work to be run in the background, i.e. outside the request-response cycle.
 It is intended to be used for long-running work triggered by API requests. Jobs should now generally
@@ -206,7 +206,7 @@ destroyed before the job has been completed.{{< /member-description >}}
 
 # JobEventType
 
-{{< generation-info sourceFile="packages/core/src/job-queue/job.ts" sourceLine="15" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/job-queue/job.ts" sourceLine="15" packageName="@gseller/core">}}
 
 An event raised by a Job.
 
@@ -221,7 +221,7 @@ type JobEventType = 'progress'
 
 # JobEventListener
 
-{{< generation-info sourceFile="packages/core/src/job-queue/job.ts" sourceLine="24" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/job-queue/job.ts" sourceLine="24" packageName="@gseller/core">}}
 
 The signature of the event handler expected by the `Job.on()` method.
 

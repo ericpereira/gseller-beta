@@ -14,7 +14,7 @@ Let's add a new section to the Admin UI main nav bar containing a link to the "g
 ```TypeScript
 // project/ui-extensions/greeter-shared.module.ts
 import { NgModule } from '@angular/core';
-import { SharedModule, addNavMenuSection } from '@vendure/admin-ui/core';
+import { SharedModule, addNavMenuSection } from '@gseller/admin-ui/core';
 
 @NgModule({
   imports: [SharedModule],
@@ -73,7 +73,7 @@ You can add your own tabs to any of the Admin UI's list or detail pages using th
 
 ```TypeScript
 import { NgModule } from '@angular/core';
-import { SharedModule, registerPageTab } from '@vendure/admin-ui/core';
+import { SharedModule, registerPageTab } from '@gseller/admin-ui/core';
 
 import { ReviewListComponent } from './components/review-list/review-list.component';
 

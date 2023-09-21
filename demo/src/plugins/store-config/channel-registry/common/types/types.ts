@@ -1,6 +1,6 @@
-import { CustomOrderStates } from '@vendure/core';
+import { CustomOrderStates } from '@gseller/core';
 
-declare module '@vendure/core' {
+declare module '@gseller/core' {
   interface CustomOrderStates {
     ValidatingCustomer: never;
   }

@@ -1,4 +1,4 @@
-import { OrderProcess } from "@vendure/core";
+import { OrderProcess } from "@gseller/core";
 
 export const customOrderProcess: OrderProcess<'PaymentFailed' | 'PaymentRefunded'> = {
     transitions: {

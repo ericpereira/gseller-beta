@@ -13,7 +13,7 @@ generated: true
 
 # Transaction
 
-{{< generation-info sourceFile="packages/core/src/api/decorators/transaction.decorator.ts" sourceLine="77" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/api/decorators/transaction.decorator.ts" sourceLine="77" packageName="@gseller/core">}}
 
 Runs the decorated method in a TypeORM transaction. It works by creating a transactional
 QueryRunner which gets attached to the RequestContext object. When the RequestContext
@@ -46,7 +46,7 @@ async myMutation(@Ctx() ctx: RequestContext) {
 
 # TransactionMode
 
-{{< generation-info sourceFile="packages/core/src/api/decorators/transaction.decorator.ts" sourceLine="32" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/api/decorators/transaction.decorator.ts" sourceLine="32" packageName="@gseller/core">}}
 
 The Transaction decorator can handle transactions automatically (which is the default) or be set to
 "manual" mode, where the <a href='/typescript-api/data-access/transactional-connection#transactionalconnection'>TransactionalConnection</a> `.startTransaction()` and `.commitOpenTransaction()`
@@ -80,7 +80,7 @@ type TransactionMode = 'auto' | 'manual'
 
 # TransactionIsolationLevel
 
-{{< generation-info sourceFile="packages/core/src/api/decorators/transaction.decorator.ts" sourceLine="45" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/api/decorators/transaction.decorator.ts" sourceLine="45" packageName="@gseller/core">}}
 
 Transactions can be run at different isolation levels. The default is undefined, which
 falls back to the default of your database. See the documentation of your database for more

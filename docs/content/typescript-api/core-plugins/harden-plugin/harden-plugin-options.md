@@ -13,7 +13,7 @@ generated: true
 
 # HardenPluginOptions
 
-{{< generation-info sourceFile="packages/harden-plugin/src/types.ts" sourceLine="9" packageName="@vendure/harden-plugin">}}
+{{< generation-info sourceFile="packages/harden-plugin/src/types.ts" sourceLine="9" packageName="@gseller/harden-plugin">}}
 
 Options that can be passed to the `.init()` static method of the HardenPlugin.
 

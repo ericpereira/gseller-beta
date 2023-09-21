@@ -13,7 +13,7 @@ generated: true
 
 # HasPermissionPipe
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/has-permission.pipe.ts" sourceLine="17" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/has-permission.pipe.ts" sourceLine="17" packageName="@gseller/admin-ui">}}
 
 A pipe which checks the provided permission against all the permissions of the current user.
 Returns `true` if the current user has that permission.

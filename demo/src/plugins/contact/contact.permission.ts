@@ -1,4 +1,4 @@
-import { CrudPermissionDefinition } from "@vendure/core";
+import { CrudPermissionDefinition } from "@gseller/core";
 
 export const manageContact = new CrudPermissionDefinition(
   "manage_contact",

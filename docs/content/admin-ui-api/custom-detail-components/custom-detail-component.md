@@ -13,7 +13,7 @@ generated: true
 
 # CustomDetailComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/custom-detail-component/custom-detail-component-types.ts" sourceLine="14" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/custom-detail-component/custom-detail-component-types.ts" sourceLine="14" packageName="@gseller/admin-ui">}}
 
 CustomDetailComponents allow any arbitrary Angular components to be embedded in entity detail
 pages of the Admin UI.

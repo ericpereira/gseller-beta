@@ -6,7 +6,7 @@ import {
     Dialog,
     getCustomFieldsDefaults,
     ServerConfigService,
-} from '@vendure/admin-ui/core';
+} from '@gseller/admin-ui/core';
 
 @Component({
     selector: 'vdr-customer-group-detail-dialog',

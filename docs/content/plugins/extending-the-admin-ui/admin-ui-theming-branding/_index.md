@@ -13,8 +13,8 @@ The `AdminUiPlugin` allows you to specify your "brand" name, and allows you to c
 ```TypeScript
 // vendure-config.ts
 import path from 'path';
-import { VendureConfig } from '@vendure/core';
-import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
+import { VendureConfig } from '@gseller/core';
+import { AdminUiPlugin } from '@gseller/admin-ui-plugin';
 
 export const config: VendureConfig = {
   // ...
@@ -34,13 +34,13 @@ export const config: VendureConfig = {
 
 You can replace the Vendure logos and favicon with your own brand logo:
 
-1. Install `@vendure/ui-devkit`
+1. Install `@gseller/ui-devkit`
 2. Configure the AdminUiPlugin to compile a custom build featuring your logos:
     ```TypeScript
     import path from 'path';
-    import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
-    import { VendureConfig } from '@vendure/core';
-    import { compileUiExtensions, setBranding } from '@vendure/ui-devkit/compiler';
+    import { AdminUiPlugin } from '@gseller/admin-ui-plugin';
+    import { VendureConfig } from '@gseller/core';
+    import { compileUiExtensions, setBranding } from '@gseller/ui-devkit/compiler';
     
     export const config: VendureConfig = {
       // ...
@@ -67,7 +67,7 @@ You can replace the Vendure logos and favicon with your own brand logo:
 
 Much of the visual styling of the Admin UI can be customized by providing your own themes in a Sass stylesheet. For the most part, the Admin UI uses [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) to control colors and other styles. Here's a simple example which changes the color of links:
 
-1. Install `@vendure/ui-devkit`
+1. Install `@gseller/ui-devkit`
 2. Create a custom stylesheet which overrides one or more of the CSS custom properties used in the Admin UI:
     ```css
     /* my-theme.scss */
@@ -82,9 +82,9 @@ Much of the visual styling of the Admin UI can be customized by providing your o
 3. Set this as a globalStyles extension:   
     ```TypeScript
     import path from 'path';
-    import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
-    import { VendureConfig } from '@vendure/core';
-    import { compileUiExtensions } from '@vendure/ui-devkit/compiler';
+    import { AdminUiPlugin } from '@gseller/admin-ui-plugin';
+    import { VendureConfig } from '@gseller/core';
+    import { compileUiExtensions } from '@gseller/ui-devkit/compiler';
     
     export const config: VendureConfig = {
       // ...
@@ -103,7 +103,7 @@ Much of the visual styling of the Admin UI can be customized by providing your o
 
 Some customizable styles in [Clarity](https://clarity.design/), Admin UI's Design System framework, are controlled by Sass variables, which can be found on the [project's GitHub page](https://github.com/vmware-clarity/ng-clarity/blob/689a572344149aea90df1676eae04479795754f3/projects/angular/src/utils/_variables.clarity.scss). Similar to above, you can also provide your own values, which will override defaults set by the framework. Here's an example which changes the [height of the main header](https://github.com/vmware-clarity/ng-clarity/blob/689a572344149aea90df1676eae04479795754f3/projects/angular/src/layout/main-container/_variables.header.scss#L10):
 
-1. Install `@vendure/ui-devkit` if not already installed
+1. Install `@gseller/ui-devkit` if not already installed
 2. Create a custom stylesheet which overrides the target variable(s):
     ```css
     /* my-variables.scss */
@@ -112,9 +112,9 @@ Some customizable styles in [Clarity](https://clarity.design/), Admin UI's Desig
 3. Set this as a sassVariableOverrides extension:
     ```TypeScript
     import path from 'path';
-    import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
-    import { VendureConfig } from '@vendure/core';
-    import { compileUiExtensions } from '@vendure/ui-devkit/compiler';
+    import { AdminUiPlugin } from '@gseller/admin-ui-plugin';
+    import { VendureConfig } from '@gseller/core';
+    import { compileUiExtensions } from '@gseller/ui-devkit/compiler';
 
     export const config: VendureConfig = {
       // ...

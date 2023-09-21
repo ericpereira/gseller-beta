@@ -13,7 +13,7 @@ generated: true
 
 # registerInitializer
 
-{{< generation-info sourceFile="packages/testing/src/initializers/initializers.ts" sourceLine="16" packageName="@vendure/testing">}}
+{{< generation-info sourceFile="packages/testing/src/initializers/initializers.ts" sourceLine="16" packageName="@gseller/testing">}}
 
 Registers a <a href='/typescript-api/testing/test-db-initializer#testdbinitializer'>TestDbInitializer</a> for the given database type. Should be called before invoking
 <a href='/typescript-api/testing/create-test-environment#createtestenvironment'>createTestEnvironment</a>.

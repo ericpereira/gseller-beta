@@ -1,5 +1,5 @@
 import { Body, Controller, Param, Post } from '@nestjs/common';
-import { Ctx, Logger, RequestContext, Transaction } from '@vendure/core';
+import { Ctx, Logger, RequestContext, Transaction } from '@gseller/core';
 
 import { loggerCtx } from './constants';
 import { MollieService } from './mollie.service';

@@ -13,7 +13,7 @@ generated: true
 
 # StateMachineConfig
 
-{{< generation-info sourceFile="packages/core/src/common/finite-state-machine/types.ts" sourceLine="89" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/finite-state-machine/types.ts" sourceLine="89" packageName="@gseller/core">}}
 
 The config object used to instantiate a new <a href='/typescript-api/state-machine/fsm#fsm'>FSM</a> instance.
 
@@ -66,7 +66,7 @@ error message.{{< /member-description >}}
 
 # OnTransitionStartFn
 
-{{< generation-info sourceFile="packages/core/src/common/finite-state-machine/types.ts" sourceLine="48" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/finite-state-machine/types.ts" sourceLine="48" packageName="@gseller/core">}}
 
 Called before a transition takes place. If the function resolves to `false` or a string, then the transition
 will be cancelled. In the case of a string, the string (error message) will be forwarded to the onError handler.
@@ -89,7 +89,7 @@ type OnTransitionStartFn<T extends string, Data> = (
 
 # OnTransitionErrorFn
 
-{{< generation-info sourceFile="packages/core/src/common/finite-state-machine/types.ts" sourceLine="62" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/finite-state-machine/types.ts" sourceLine="62" packageName="@gseller/core">}}
 
 Called when a transition is prevented and the `onTransitionStart` handler has returned an
 error message.
@@ -109,7 +109,7 @@ type OnTransitionErrorFn<T extends string> = (
 
 # OnTransitionEndFn
 
-{{< generation-info sourceFile="packages/core/src/common/finite-state-machine/types.ts" sourceLine="75" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/finite-state-machine/types.ts" sourceLine="75" packageName="@gseller/core">}}
 
 Called after a transition has taken place.
 

@@ -13,7 +13,7 @@ generated: true
 
 # BcryptPasswordHashingStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/auth/bcrypt-password-hashing-strategy.ts" sourceLine="12" packageName="@vendure/core" since="1.3.0">}}
+{{< generation-info sourceFile="packages/core/src/config/auth/bcrypt-password-hashing-strategy.ts" sourceLine="12" packageName="@gseller/core" since="1.3.0">}}
 
 A hashing strategy which uses bcrypt (https://en.wikipedia.org/wiki/Bcrypt) to hash plaintext password strings.
 

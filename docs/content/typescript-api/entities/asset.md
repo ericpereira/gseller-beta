@@ -13,7 +13,7 @@ generated: true
 
 # Asset
 
-{{< generation-info sourceFile="packages/core/src/entity/asset/asset.entity.ts" sourceLine="19" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/asset/asset.entity.ts" sourceLine="19" packageName="@gseller/core">}}
 
 An Asset represents a file such as an image which can be associated with certain other entities
 such as Products.

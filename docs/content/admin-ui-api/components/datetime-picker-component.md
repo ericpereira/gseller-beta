@@ -13,7 +13,7 @@ generated: true
 
 # DatetimePickerComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/datetime-picker/datetime-picker.component.ts" sourceLine="39" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/datetime-picker/datetime-picker.component.ts" sourceLine="39" packageName="@gseller/admin-ui">}}
 
 A form input for selecting datetime values.
 

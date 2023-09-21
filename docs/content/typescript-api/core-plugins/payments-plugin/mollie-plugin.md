@@ -13,7 +13,7 @@ generated: true
 
 # MolliePlugin
 
-{{< generation-info sourceFile="packages/payments-plugin/src/mollie/mollie.plugin.ts" sourceLine="151" packageName="@vendure/payments-plugin">}}
+{{< generation-info sourceFile="packages/payments-plugin/src/mollie/mollie.plugin.ts" sourceLine="151" packageName="@gseller/payments-plugin">}}
 
 Plugin to enable payments through the [Mollie platform](https://docs.mollie.com/).
 This plugin uses the Order API from Mollie, not the Payments API.
@@ -23,17 +23,17 @@ This plugin uses the Order API from Mollie, not the Payments API.
 1. You will need to create a Mollie account and get your apiKey in the dashboard.
 2. Install the Payments plugin and the Mollie client:
 
-    `yarn add @vendure/payments-plugin @mollie/api-client`
+    `yarn add @gseller/payments-plugin @mollie/api-client`
 
     or
 
-    `npm install @vendure/payments-plugin @mollie/api-client`
+    `npm install @gseller/payments-plugin @mollie/api-client`
 
 ## Setup
 
 1. Add the plugin to your VendureConfig `plugins` array:
     ```TypeScript
-    import { MolliePlugin } from '@vendure/payments-plugin/package/mollie';
+    import { MolliePlugin } from '@gseller/payments-plugin/package/mollie';
 
     // ...
 
@@ -151,7 +151,7 @@ class MolliePlugin {
 
 # MolliePluginOptions
 
-{{< generation-info sourceFile="packages/payments-plugin/src/mollie/mollie.plugin.ts" sourceLine="17" packageName="@vendure/payments-plugin">}}
+{{< generation-info sourceFile="packages/payments-plugin/src/mollie/mollie.plugin.ts" sourceLine="17" packageName="@gseller/payments-plugin">}}
 
 Configuration options for the Mollie payments plugin.
 

@@ -13,7 +13,7 @@ generated: true
 
 # Injector
 
-{{< generation-info sourceFile="packages/core/src/common/injector.ts" sourceLine="15" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/injector.ts" sourceLine="15" packageName="@gseller/core">}}
 
 The Injector wraps the underlying Nestjs `ModuleRef`, allowing injection of providers
 known to the application's dependency injection container. This is intended to enable the injection

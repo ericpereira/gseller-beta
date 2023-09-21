@@ -13,7 +13,7 @@ generated: true
 
 # EmailPluginOptions
 
-{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="40" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="40" packageName="@gseller/email-plugin">}}
 
 Configuration for the EmailPlugin.
 
@@ -93,7 +93,7 @@ better match with custom email sending functionality.{{< /member-description >}}
 
 # EmailPluginDevModeOptions
 
-{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="110" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="110" packageName="@gseller/email-plugin">}}
 
 Configuration for running the EmailPlugin in development mode.
 

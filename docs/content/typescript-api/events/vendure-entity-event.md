@@ -13,7 +13,7 @@ generated: true
 
 # VendureEntityEvent
 
-{{< generation-info sourceFile="packages/core/src/event-bus/vendure-entity-event.ts" sourceLine="13" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/event-bus/vendure-entity-event.ts" sourceLine="13" packageName="@gseller/core">}}
 
 The base class for all entity events used by the EventBus system.
 * For event type `'updated'` the entity is the one before applying the patch (if not documented otherwise).

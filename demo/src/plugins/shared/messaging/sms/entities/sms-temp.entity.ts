@@ -1,7 +1,7 @@
 import { Column, Entity, } from "typeorm";
-import {  VendureEntity } from "@vendure/core";
+import {  VendureEntity } from "@gseller/core";
 
-import { DeepPartial } from "@vendure/common/lib/shared-types";
+import { DeepPartial } from "@gseller/common/lib/shared-types";
 
 @Entity()
 class TempSms extends VendureEntity {

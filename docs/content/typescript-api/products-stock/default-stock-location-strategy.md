@@ -13,7 +13,7 @@ generated: true
 
 # DefaultStockLocationStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/catalog/default-stock-location-strategy.ts" sourceLine="21" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/catalog/default-stock-location-strategy.ts" sourceLine="21" packageName="@gseller/core" since="2.0.0">}}
 
 The DefaultStockLocationStrategy is the default implementation of the <a href='/typescript-api/products-stock/stock-location-strategy#stocklocationstrategy'>StockLocationStrategy</a>.
 It assumes only a single StockLocation and that all stock is allocated from that location.

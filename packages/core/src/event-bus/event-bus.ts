@@ -1,6 +1,6 @@
 import { Injectable, OnModuleDestroy } from '@nestjs/common';
-import { Type } from '@vendure/common/lib/shared-types';
-import { notNullOrUndefined } from '@vendure/common/lib/shared-utils';
+import { Type } from '@gseller/common/lib/shared-types';
+import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
 import { Observable, Subject } from 'rxjs';
 import { filter, mergeMap, takeUntil } from 'rxjs/operators';
 import { EntityManager } from 'typeorm';
@@ -28,7 +28,7 @@ import { VendureEvent } from './vendure-event';
  * @example
  * ```TypeScript
  * import { OnApplicationBootstrap } from '\@nestjs/common';
- * import { EventBus, PluginCommonModule, VendurePlugin } from '\@vendure/core';
+ * import { EventBus, PluginCommonModule, VendurePlugin } from '\@gseller/core';
  * import { filter } from 'rxjs/operators';
  *
  * \@VendurePlugin({

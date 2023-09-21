@@ -7,10 +7,10 @@ import {
     DeletionResult,
     UpdateChannelInput,
     UpdateChannelResult,
-} from '@vendure/common/lib/generated-types';
-import { DEFAULT_CHANNEL_CODE } from '@vendure/common/lib/shared-constants';
-import { ID, PaginatedList, Type } from '@vendure/common/lib/shared-types';
-import { unique } from '@vendure/common/lib/unique';
+} from '@gseller/common/lib/generated-types';
+import { DEFAULT_CHANNEL_CODE } from '@gseller/common/lib/shared-constants';
+import { ID, PaginatedList, Type } from '@gseller/common/lib/shared-types';
+import { unique } from '@gseller/common/lib/unique';
 import { FindOneOptions } from 'typeorm';
 
 import { RelationPaths } from '../../api';

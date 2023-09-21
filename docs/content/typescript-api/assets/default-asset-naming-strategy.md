@@ -13,7 +13,7 @@ generated: true
 
 # DefaultAssetNamingStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/asset-naming-strategy/default-asset-naming-strategy.ts" sourceLine="15" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/asset-naming-strategy/default-asset-naming-strategy.ts" sourceLine="15" packageName="@gseller/core">}}
 
 The default strategy normalizes the file names to remove unwanted characters and
 in the case of conflicts, increments a counter suffix.

@@ -13,7 +13,7 @@ generated: true
 
 # LocaleCurrencyNamePipe
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/locale-currency-name.pipe.ts" sourceLine="18" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/locale-currency-name.pipe.ts" sourceLine="18" packageName="@gseller/admin-ui">}}
 
 Displays a human-readable name for a given ISO 4217 currency code.
 

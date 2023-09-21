@@ -1,5 +1,5 @@
-import { LanguageCode } from '@vendure/common/lib/generated-types';
-import { Channel, RequestContext } from '@vendure/core';
+import { LanguageCode } from '@gseller/common/lib/generated-types';
+import { Channel, RequestContext } from '@gseller/core';
 import { Request, Router } from 'express';
 import fs from 'fs-extra';
 import path from 'path';

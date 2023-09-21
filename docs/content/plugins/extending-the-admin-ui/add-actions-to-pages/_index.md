@@ -14,7 +14,7 @@ It may not always make sense to navigate to your extension view from the main na
 
 ```TypeScript
 import { NgModule } from '@angular/core';
-import { SharedModule, addActionBarItem } from '@vendure/admin-ui/core';
+import { SharedModule, addActionBarItem } from '@gseller/admin-ui/core';
 
 @NgModule({
   imports: [SharedModule],
@@ -78,7 +78,7 @@ The utility function `firstValueFrom` from the RxJS library is used in this exam
 
 ## Adding Bulk Actions
 
-Certain list views in the Admin UI support bulk actions. There are a default set of bulk actions that are defined by the Admin UI itself (e.g. delete, assign to channels), but using the `@vendure/ui-devit` package
+Certain list views in the Admin UI support bulk actions. There are a default set of bulk actions that are defined by the Admin UI itself (e.g. delete, assign to channels), but using the `@gseller/ui-devit` package
 you are also able to define your own bulk actions.
 
 {{< figure src="./bulk-actions-screenshot.webp" >}}
@@ -95,7 +95,7 @@ A bulk action must be provided to a [ui-extension shared module]({{< relref "ext
 
 ```TypeScript
 import { NgModule } from '@angular/core';
-import { ModalService, registerBulkAction, SharedModule } from '@vendure/admin-ui/core';
+import { ModalService, registerBulkAction, SharedModule } from '@gseller/admin-ui/core';
 
 @NgModule({
   imports: [SharedModule],
@@ -143,7 +143,7 @@ Sometimes a bulk action only makes sense in certain circumstances. For example, 
 We can conditionally control the display of a bulk action with the `isVisible` function, which should return a Promise resolving to a boolean:
 
 ```TypeScript
-import { registerBulkAction, DataService } from '@vendure/admin-ui/core';
+import { registerBulkAction, DataService } from '@gseller/admin-ui/core';
 
 registerBulkAction({
   location: 'product-list',

@@ -4,10 +4,10 @@ import {
   PaymentMethodHandler,
   SettlePaymentErrorResult,
   SettlePaymentResult,
-} from '@vendure/core';
+} from '@gseller/core';
 
 import { MyConnectSdk } from '../payment/connect-sdk';
-import { OrderType } from '@vendure/common/lib/generated-shop-types';
+import { OrderType } from '@gseller/common/lib/generated-shop-types';
 
 const sdk = new MyConnectSdk({ apiKey: 'MY_API_KEY' });
 

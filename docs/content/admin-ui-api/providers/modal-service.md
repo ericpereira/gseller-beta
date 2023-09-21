@@ -13,7 +13,7 @@ generated: true
 
 # ModalService
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/modal/modal.service.ts" sourceLine="21" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/modal/modal.service.ts" sourceLine="21" packageName="@gseller/admin-ui">}}
 
 This service is responsible for instantiating a ModalDialog component and
 embedding the specified component within.
@@ -93,7 +93,7 @@ class MyDialog implements Dialog {
 
 # Dialog
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/modal/modal.types.ts" sourceLine="9" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/modal/modal.types.ts" sourceLine="9" packageName="@gseller/admin-ui">}}
 
 Any component intended to be used with the ModalService.fromComponent() method must implement
 this interface.
@@ -122,7 +122,7 @@ to this method and then complete.{{< /member-description >}}
 
 # DialogConfig
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/modal/modal.types.ts" sourceLine="33" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/modal/modal.types.ts" sourceLine="33" packageName="@gseller/admin-ui">}}
 
 Configures a generic modal dialog.
 
@@ -176,7 +176,7 @@ interface DialogConfig<T> {
 
 # ModalOptions
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/modal/modal.types.ts" sourceLine="48" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/modal/modal.types.ts" sourceLine="48" packageName="@gseller/admin-ui">}}
 
 Options to configure the behaviour of the modal.
 

@@ -13,7 +13,7 @@ generated: true
 
 # BullMQJobQueuePlugin
 
-{{< generation-info sourceFile="packages/job-queue-plugin/src/bullmq/plugin.ts" sourceLine="102" packageName="@vendure/job-queue-plugin">}}
+{{< generation-info sourceFile="packages/job-queue-plugin/src/bullmq/plugin.ts" sourceLine="102" packageName="@gseller/job-queue-plugin">}}
 
 This plugin is a drop-in replacement of the DefaultJobQueuePlugin, which implements a push-based
 job queue strategy built on top of the popular [BullMQ](https://github.com/taskforcesh/bullmq) library.
@@ -34,18 +34,18 @@ in processing jobs.
 
 ## Installation
 
-`yarn add @vendure/job-queue-plugin bullmq@1`
+`yarn add @gseller/job-queue-plugin bullmq@1`
 
 or
 
-`npm install @vendure/job-queue-plugin bullmq@1`
+`npm install @gseller/job-queue-plugin bullmq@1`
 
 **Note:** The v1.x version of this plugin is designed to work with bullmq v1.x.
 
 *Example*
 
 ```ts
-import { BullMQJobQueuePlugin } from '@vendure/job-queue-plugin/package/bullmq';
+import { BullMQJobQueuePlugin } from '@gseller/job-queue-plugin/package/bullmq';
 
 const config: VendureConfig = {
   // Add an instance of the plugin to the plugins array

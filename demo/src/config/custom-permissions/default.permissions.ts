@@ -1,4 +1,4 @@
-import { Permission } from '@vendure/core';
+import { Permission } from '@gseller/core';
 
 export const defaultPermissions: Permission[] = [
     Permission.CreateCatalog,

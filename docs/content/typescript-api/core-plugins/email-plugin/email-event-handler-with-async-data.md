@@ -13,7 +13,7 @@ generated: true
 
 # EmailEventHandlerWithAsyncData
 
-{{< generation-info sourceFile="packages/email-plugin/src/event-handler.ts" sourceLine="438" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/event-handler.ts" sourceLine="438" packageName="@gseller/email-plugin">}}
 
 Identical to the <a href='/typescript-api/core-plugins/email-plugin/email-event-handler#emaileventhandler'>EmailEventHandler</a> but with a `data` property added to the `event` based on the result
 of the `.loadData()` function.

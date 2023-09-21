@@ -13,7 +13,7 @@ generated: true
 
 # dummyPaymentHandler
 
-{{< generation-info sourceFile="packages/core/src/config/payment/dummy-payment-method-handler.ts" sourceLine="27" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/payment/dummy-payment-method-handler.ts" sourceLine="27" packageName="@gseller/core">}}
 
 A dummy PaymentMethodHandler which simply creates a Payment without any integration
 with an external payment provider. Intended only for use in development.

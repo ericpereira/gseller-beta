@@ -13,7 +13,7 @@ generated: true
 
 # OrderPlacedStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/order-placed-strategy.ts" sourceLine="17" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/order/order-placed-strategy.ts" sourceLine="17" packageName="@gseller/core">}}
 
 This strategy is responsible for deciding at which stage in the order process
 the Order will be set as "placed" (i.e. the Customer has checked out, and

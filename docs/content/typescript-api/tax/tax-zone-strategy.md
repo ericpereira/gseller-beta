@@ -13,7 +13,7 @@ generated: true
 
 # TaxZoneStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/tax/tax-zone-strategy.ts" sourceLine="21" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/tax/tax-zone-strategy.ts" sourceLine="21" packageName="@gseller/core">}}
 
 Defines how the active <a href='/typescript-api/entities/zone#zone'>Zone</a> is determined for the purposes of calculating taxes.
 

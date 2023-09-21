@@ -13,7 +13,7 @@ generated: true
 
 # defaultPaymentProcess
 
-{{< generation-info sourceFile="packages/core/src/config/payment/default-payment-process.ts" sourceLine="26" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/payment/default-payment-process.ts" sourceLine="26" packageName="@gseller/core">}}
 
 The default <a href='/typescript-api/payment/payment-process#paymentprocess'>PaymentProcess</a>
 

@@ -13,7 +13,7 @@ generated: true
 
 # ProductVariant
 
-{{< generation-info sourceFile="packages/core/src/entity/product-variant/product-variant.entity.ts" sourceLine="37" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/product-variant/product-variant.entity.ts" sourceLine="37" packageName="@gseller/core">}}
 
 A ProductVariant represents a single stock keeping unit (SKU) in the store's inventory.
 Whereas a <a href='/typescript-api/entities/product#product'>Product</a> is a "container" of variants, the variant itself holds the

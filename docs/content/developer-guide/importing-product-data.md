@@ -7,7 +7,7 @@ showtoc: true
 
 If you have hundreds, thousands or more products, inputting all the data by hand via the Admin UI can be too inefficient. To solve this, Vendure supports bulk-importing product and other data.
 
-Data import is also useful for setting up test or demo environments, and is also used by the `@vendure/testing` package for end-to-end tests.
+Data import is also useful for setting up test or demo environments, and is also used by the `@gseller/testing` package for end-to-end tests.
 
 ## Product Import Format
 
@@ -87,7 +87,7 @@ Use of language codes has to be consistent throughout the file. You don't have t
 As well as product data, other initialization data can be populated using the [`InitialData` object]({{< relref "initial-data" >}}). **This format is intentionally limited**; more advanced requirements (e.g. setting up ShippingMethods that use custom checkers & calculators) should be carried out via scripts which interact with the [Admin GraphQL API]({{< relref "/graphql-api/admin" >}}).
 
 ```TypeScript
-import { InitialData, LanguageCode } from '@vendure/core';
+import { InitialData, LanguageCode } from '@gseller/core';
 
 export const initialData: InitialData = {
     paymentMethods: [
@@ -179,12 +179,12 @@ export const initialData: InitialData = {
 ## Populating The Server
 
 ### The `populate()` function
-The `@vendure/core` package exposes a [`populate()` function]({{< relref "populate" >}}) which can be used along with the data formats described above to populate your Vendure server:
+The `@gseller/core` package exposes a [`populate()` function]({{< relref "populate" >}}) which can be used along with the data formats described above to populate your Vendure server:
 
 ```TypeScript
 // populate-server.ts
-import { bootstrap, DefaultJobQueuePlugin } from '@vendure/core';
-import { populate } from '@vendure/core/cli';
+import { bootstrap, DefaultJobQueuePlugin } from '@gseller/core';
+import { populate } from '@gseller/core/cli';
 
 import { config } from './vendure-config.ts';
 import { initialData } from './my-initial-data.ts';

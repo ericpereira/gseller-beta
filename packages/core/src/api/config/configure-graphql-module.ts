@@ -1,7 +1,7 @@
 import { ApolloDriver } from '@nestjs/apollo';
 import { DynamicModule } from '@nestjs/common';
 import { GqlModuleOptions, GraphQLModule, GraphQLTypesLoader } from '@nestjs/graphql';
-import { notNullOrUndefined } from '@vendure/common/lib/shared-utils';
+import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
 import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
 import { buildSchema, extendSchema, GraphQLSchema, printSchema, ValidationContext } from 'graphql';
 import path from 'path';

@@ -13,7 +13,7 @@ generated: true
 
 # AdministratorService
 
-{{< generation-info sourceFile="packages/core/src/service/services/administrator.service.ts" sourceLine="40" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/administrator.service.ts" sourceLine="40" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/administrator#administrator'>Administrator</a> entities.
 

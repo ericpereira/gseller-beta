@@ -6,13 +6,13 @@ import {
   Product,
   ProductVariantAsset,
   TransactionalConnection,
-} from '@vendure/core';
+} from '@gseller/core';
 import { Filters, SortOptionsInput } from './dto/types';
 
 import { Brackets } from 'typeorm';
 import { ContextStrategy } from './context-auth-strategy';
 import { Injectable } from '@nestjs/common';
-import { SearchIndexItem } from '@vendure/core/dist/plugin/default-search-plugin/entities/search-index-item.entity';
+import { SearchIndexItem } from '@gseller/core/dist/plugin/default-search-plugin/entities/search-index-item.entity';
 
 @Injectable()
 export class SearchCustomService {

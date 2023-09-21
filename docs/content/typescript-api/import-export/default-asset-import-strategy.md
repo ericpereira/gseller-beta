@@ -13,7 +13,7 @@ generated: true
 
 # DefaultAssetImportStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/asset-import-strategy/default-asset-import-strategy.ts" sourceLine="50" packageName="@vendure/core" since="1.7.0">}}
+{{< generation-info sourceFile="packages/core/src/config/asset-import-strategy/default-asset-import-strategy.ts" sourceLine="50" packageName="@gseller/core" since="1.7.0">}}
 
 The DefaultAssetImportStrategy is able to import paths from the local filesystem (taking into account the
 `importExportOptions.importAssetsDir` setting) as well as remote http/https urls.

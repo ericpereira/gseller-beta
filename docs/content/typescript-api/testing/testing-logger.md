@@ -13,7 +13,7 @@ generated: true
 
 # TestingLogger
 
-{{< generation-info sourceFile="packages/testing/src/testing-logger.ts" sourceLine="55" packageName="@vendure/testing">}}
+{{< generation-info sourceFile="packages/testing/src/testing-logger.ts" sourceLine="55" packageName="@gseller/testing">}}
 
 The TestingLogger can be used in unit tests or e2e tests to make assertions on whether the various
 Logger methods have been called, and which arguments.
@@ -26,7 +26,7 @@ the Jest testing framework, but the TestingLogger should work with other similar
 
 ```TypeScript
 // e2e test example
-import { createTestEnvironment, TestingLogger } from '@vendure/testing';
+import { createTestEnvironment, TestingLogger } from '@gseller/testing';
 
 const testingLogger = new TestingLogger(() => jest.fn());
 
@@ -52,8 +52,8 @@ it('should log an error', async () => {
 ```TypeScript
 // unit test example
 import { Test } from '@nestjs/testing';
-import { Logger } from '@vendure/core';
-import { TestingLogger } from '@vendure/testing';
+import { Logger } from '@gseller/core';
+import { TestingLogger } from '@gseller/testing';
 
 beforeEach(async () => {
   const moduleRef = await Test.createTestingModule({

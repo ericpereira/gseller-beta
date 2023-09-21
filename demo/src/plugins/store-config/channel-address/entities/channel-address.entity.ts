@@ -1,7 +1,7 @@
-import { Channel, VendureEntity } from "@vendure/core";
+import { Channel, VendureEntity } from "@gseller/core";
 import { Column, Entity, ManyToOne } from "typeorm";
 
-import { DeepPartial } from "@vendure/common/lib/shared-types";
+import { DeepPartial } from "@gseller/common/lib/shared-types";
 
 @Entity()
 class ChannelAddress extends VendureEntity {

@@ -13,7 +13,7 @@ generated: true
 
 # DefaultOrderPlacedStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/default-order-placed-strategy.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/order/default-order-placed-strategy.ts" sourceLine="14" packageName="@gseller/core">}}
 
 The default <a href='/typescript-api/orders/order-placed-strategy#orderplacedstrategy'>OrderPlacedStrategy</a>. The order is set as "placed" when it transitions from
 'ArrangingPayment' to either 'PaymentAuthorized' or 'PaymentSettled'.

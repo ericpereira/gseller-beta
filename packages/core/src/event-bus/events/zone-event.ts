@@ -1,5 +1,5 @@
-import { CreateZoneInput, UpdateZoneInput } from '@vendure/common/lib/generated-types';
-import { ID } from '@vendure/common/lib/shared-types';
+import { CreateZoneInput, UpdateZoneInput } from '@gseller/common/lib/generated-types';
+import { ID } from '@gseller/common/lib/shared-types';
 
 import { RequestContext } from '../../api/common/request-context';
 import { Zone } from '../../entity';

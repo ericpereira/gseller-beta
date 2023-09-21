@@ -1,4 +1,4 @@
-import { AdjustmentType } from '@vendure/common/lib/generated-shop-types';
+import { AdjustmentType } from '@gseller/common/lib/generated-shop-types';
 import {
     AccountRegistrationEvent,
     CurrencyCode,
@@ -7,7 +7,7 @@ import {
     NativeAuthenticationMethod,
     PasswordResetEvent,
     User,
-} from '@vendure/core';
+} from '@gseller/core';
 
 
 export const mockAccountRegistrationEvent = new AccountRegistrationEvent(

@@ -13,7 +13,7 @@ generated: true
 
 # Transitions
 
-{{< generation-info sourceFile="packages/core/src/common/finite-state-machine/types.ts" sourceLine="30" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/finite-state-machine/types.ts" sourceLine="30" packageName="@gseller/core">}}
 
 A type which is used to define valid states and transitions for a state machine based
 on <a href='/typescript-api/state-machine/fsm#fsm'>FSM</a>.

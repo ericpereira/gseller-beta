@@ -13,7 +13,7 @@ generated: true
 
 # NotificationService
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/notification/notification.service.ts" sourceLine="54" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/notification/notification.service.ts" sourceLine="54" packageName="@gseller/admin-ui">}}
 
 Provides toast notification functionality.
 
@@ -88,7 +88,7 @@ class NotificationService {
 
 # NotificationType
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/notification/notification.service.ts" sourceLine="14" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/notification/notification.service.ts" sourceLine="14" packageName="@gseller/admin-ui">}}
 
 The types of notification available.
 
@@ -103,7 +103,7 @@ type NotificationType = 'info' | 'success' | 'error' | 'warning'
 
 # ToastConfig
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/notification/notification.service.ts" sourceLine="23" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/notification/notification.service.ts" sourceLine="23" packageName="@gseller/admin-ui">}}
 
 Configuration for a toast notification.
 

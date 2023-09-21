@@ -2,7 +2,7 @@ import { Resolver, Mutation } from '@nestjs/graphql';
 import {
   Ctx,
   RequestContext,
-} from '@vendure/core';
+} from '@gseller/core';
 import { VercelConnectService } from './service';
 @Resolver()
 export class VercelConnectResolver {

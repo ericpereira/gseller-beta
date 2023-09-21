@@ -13,7 +13,7 @@ generated: true
 
 # Session
 
-{{< generation-info sourceFile="packages/core/src/entity/session/session.entity.ts" sourceLine="18" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/session/session.entity.ts" sourceLine="18" packageName="@gseller/core">}}
 
 A Session is created when a user makes a request to restricted API operations. A Session can be an <a href='/typescript-api/entities/anonymous-session#anonymoussession'>AnonymousSession</a>
 in the case of un-authenticated users, otherwise it is an <a href='/typescript-api/entities/authenticated-session#authenticatedsession'>AuthenticatedSession</a>.

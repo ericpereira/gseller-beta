@@ -13,7 +13,7 @@ generated: true
 
 # DefaultMoneyStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/entity/default-money-strategy.ts" sourceLine="15" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/entity/default-money-strategy.ts" sourceLine="15" packageName="@gseller/core" since="2.0.0">}}
 
 A <a href='/typescript-api/money/money-strategy#moneystrategy'>MoneyStrategy</a> that stores monetary values as a `int` type in the database.
 The storage configuration and rounding logic replicates the behaviour of Vendure pre-2.0.

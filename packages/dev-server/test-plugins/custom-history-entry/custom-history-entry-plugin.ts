@@ -9,7 +9,7 @@ import {
     RequestContext,
     TransactionalConnection,
     VendurePlugin,
-} from '@vendure/core';
+} from '@gseller/core';
 import gql from 'graphql-tag';
 
 import { CUSTOM_TYPE } from './types';

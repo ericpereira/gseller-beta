@@ -13,7 +13,7 @@ generated: true
 
 # HydrateOptions
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/entity-hydrator/entity-hydrator-types.ts" sourceLine="12" packageName="@vendure/core" since="1.3.0">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/entity-hydrator/entity-hydrator-types.ts" sourceLine="12" packageName="@gseller/core" since="1.3.0">}}
 
 Options used to control which relations of the entity get hydrated
 when using the <a href='/typescript-api/data-access/entity-hydrator#entityhydrator'>EntityHydrator</a> helper.

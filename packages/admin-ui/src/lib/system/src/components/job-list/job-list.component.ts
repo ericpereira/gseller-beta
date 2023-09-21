@@ -10,7 +10,7 @@ import {
     ModalService,
     NotificationService,
     SortOrder,
-} from '@vendure/admin-ui/core';
+} from '@gseller/admin-ui/core';
 import { Observable, timer } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
 

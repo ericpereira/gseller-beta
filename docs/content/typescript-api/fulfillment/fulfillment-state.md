@@ -13,7 +13,7 @@ generated: true
 
 # FulfillmentState
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/fulfillment-state-machine/fulfillment-state.ts" sourceLine="29" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/fulfillment-state-machine/fulfillment-state.ts" sourceLine="29" packageName="@gseller/core">}}
 
 These are the default states of the fulfillment process. By default, they will be extended
 by the <a href='/typescript-api/fulfillment/fulfillment-process#defaultfulfillmentprocess'>defaultFulfillmentProcess</a> to also include `Shipped` and `Delivered`.

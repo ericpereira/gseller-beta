@@ -13,7 +13,7 @@ generated: true
 
 # ChipComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/chip/chip.component.ts" sourceLine="16" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/chip/chip.component.ts" sourceLine="16" packageName="@gseller/admin-ui">}}
 
 A chip component for displaying a label with an optional action icon.
 

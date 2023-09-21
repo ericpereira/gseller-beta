@@ -13,7 +13,7 @@ generated: true
 
 # ShippingLine
 
-{{< generation-info sourceFile="packages/core/src/entity/shipping-line/shipping-line.entity.ts" sourceLine="23" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/shipping-line/shipping-line.entity.ts" sourceLine="23" packageName="@gseller/core">}}
 
 A ShippingLine is created when a <a href='/typescript-api/entities/shipping-method#shippingmethod'>ShippingMethod</a> is applied to an <a href='/typescript-api/entities/order#order'>Order</a>.
 It contains information about the price of the shipping method, any discounts that were

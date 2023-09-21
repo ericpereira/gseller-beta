@@ -13,7 +13,7 @@ generated: true
 
 # TimeAgoPipe
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/time-ago.pipe.ts" sourceLine="18" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/time-ago.pipe.ts" sourceLine="18" packageName="@gseller/admin-ui">}}
 
 Converts a date into the format "3 minutes ago", "5 hours ago" etc.
 

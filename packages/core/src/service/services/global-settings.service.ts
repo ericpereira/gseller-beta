@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UpdateGlobalSettingsInput } from '@vendure/common/lib/generated-types';
+import { UpdateGlobalSettingsInput } from '@gseller/common/lib/generated-types';
 
 import { RequestContext } from '../../api/common/request-context';
 import { RequestContextCacheService } from '../../cache/index';

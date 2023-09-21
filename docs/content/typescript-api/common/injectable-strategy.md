@@ -13,7 +13,7 @@ generated: true
 
 # InjectableStrategy
 
-{{< generation-info sourceFile="packages/core/src/common/types/injectable-strategy.ts" sourceLine="10" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/types/injectable-strategy.ts" sourceLine="10" packageName="@gseller/core">}}
 
 This interface defines the setup and teardown hooks available to the
 various strategies used to configure Vendure.

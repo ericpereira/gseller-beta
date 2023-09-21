@@ -13,7 +13,7 @@ generated: true
 
 # AssetPreviewStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/asset-preview-strategy/asset-preview-strategy.ts" sourceLine="17" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/asset-preview-strategy/asset-preview-strategy.ts" sourceLine="17" packageName="@gseller/core">}}
 
 The AssetPreviewStrategy determines how preview images for assets are created. For image
 assets, this would usually typically involve resizing to sensible dimensions. Other file types

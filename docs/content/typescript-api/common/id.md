@@ -13,7 +13,7 @@ generated: true
 
 # ID
 
-{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="78" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="78" packageName="@gseller/common">}}
 
 An entity ID. Depending on the configured <a href='/typescript-api/configuration/entity-id-strategy#entityidstrategy'>EntityIdStrategy</a>, it will be either
 a `string` or a `number`;

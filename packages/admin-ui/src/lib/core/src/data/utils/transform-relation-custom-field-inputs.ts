@@ -1,5 +1,5 @@
-import { getGraphQlInputName } from '@vendure/common/lib/shared-utils';
-import { simpleDeepClone } from '@vendure/common/lib/simple-deep-clone';
+import { getGraphQlInputName } from '@gseller/common/lib/shared-utils';
+import { simpleDeepClone } from '@gseller/common/lib/simple-deep-clone';
 
 import { CustomFieldConfig } from '../../common/generated-types';
 

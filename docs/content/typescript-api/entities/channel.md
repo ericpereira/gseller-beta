@@ -13,7 +13,7 @@ generated: true
 
 # Channel
 
-{{< generation-info sourceFile="packages/core/src/entity/channel/channel.entity.ts" sourceLine="31" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/channel/channel.entity.ts" sourceLine="31" packageName="@gseller/core">}}
 
 A Channel represents a distinct sales channel and configures defaults for that
 channel.

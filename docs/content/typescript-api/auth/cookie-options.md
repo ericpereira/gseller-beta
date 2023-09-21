@@ -13,7 +13,7 @@ generated: true
 
 # CookieOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="220" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="220" packageName="@gseller/core">}}
 
 Options for the handling of the cookies used to track sessions (only applicable if
 `authOptions.tokenMethod` is set to `'cookie'`). These options are passed directly

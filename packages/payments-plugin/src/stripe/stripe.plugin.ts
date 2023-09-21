@@ -1,4 +1,4 @@
-import { LanguageCode, PluginCommonModule, Type, VendurePlugin } from '@vendure/core';
+import { LanguageCode, PluginCommonModule, Type, VendurePlugin } from '@gseller/core';
 import { gql } from 'graphql-tag';
 
 import { STRIPE_PLUGIN_OPTIONS } from './constants';
@@ -23,17 +23,17 @@ import { StripePluginOptions } from './types';
  * 3. Get the signing secret for the newly created webhook.
  * 4. Install the Payments plugin and the Stripe Node library:
  *
- *     `yarn add \@vendure/payments-plugin stripe`
+ *     `yarn add \@gseller/payments-plugin stripe`
  *
  *     or
  *
- *     `npm install \@vendure/payments-plugin stripe`
+ *     `npm install \@gseller/payments-plugin stripe`
  *
  * ## Setup
  *
  * 1. Add the plugin to your VendureConfig `plugins` array:
  *     ```TypeScript
- *     import { StripePlugin } from '\@vendure/payments-plugin/package/stripe';
+ *     import { StripePlugin } from '\@gseller/payments-plugin/package/stripe';
  *
  *     // ...
  *

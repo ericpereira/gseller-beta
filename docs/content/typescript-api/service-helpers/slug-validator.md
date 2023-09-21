@@ -13,7 +13,7 @@ generated: true
 
 # SlugValidator
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/slug-validator/slug-validator.ts" sourceLine="44" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/slug-validator/slug-validator.ts" sourceLine="44" packageName="@gseller/core">}}
 
 Used to validate slugs to ensure they are URL-safe and unique. Designed to be used with translatable
 entities such as <a href='/typescript-api/entities/product#product'>Product</a> and <a href='/typescript-api/entities/collection#collection'>Collection</a>.
@@ -47,7 +47,7 @@ class SlugValidator {
 
 # InputWithSlug
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/slug-validator/slug-validator.ts" sourceLine="16" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/slug-validator/slug-validator.ts" sourceLine="16" packageName="@gseller/core">}}
 
 
 
@@ -84,7 +84,7 @@ type InputWithSlug = {
 
 # TranslationEntity
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/slug-validator/slug-validator.ts" sourceLine="29" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/slug-validator/slug-validator.ts" sourceLine="29" packageName="@gseller/core">}}
 
 
 

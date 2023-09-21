@@ -1,4 +1,4 @@
-import { Asset, CustomFields, LanguageCode } from '@vendure/core';
+import { Asset, CustomFields, LanguageCode } from '@gseller/core';
 
 export const customFields: CustomFields['Administrator'] = [
   {

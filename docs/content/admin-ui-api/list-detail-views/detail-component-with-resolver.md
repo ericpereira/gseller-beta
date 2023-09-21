@@ -13,7 +13,7 @@ generated: true
 
 # detailComponentWithResolver
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/base-detail.component.ts" sourceLine="243" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/base-detail.component.ts" sourceLine="243" packageName="@gseller/admin-ui">}}
 
 A helper function for creating tabs that point to a <a href='/admin-ui-api/list-detail-views/typed-base-detail-component#typedbasedetailcomponent'>TypedBaseDetailComponent</a>. This takes
 care of the route resolver parts so that the detail component automatically has access to the

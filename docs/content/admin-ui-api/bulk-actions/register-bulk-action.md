@@ -13,7 +13,7 @@ generated: true
 
 # registerBulkAction
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/bulk-action-registry/register-bulk-action.ts" sourceLine="56" packageName="@vendure/admin-ui" since="1.8.0">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/bulk-action-registry/register-bulk-action.ts" sourceLine="56" packageName="@gseller/admin-ui" since="1.8.0">}}
 
 Registers a custom <a href='/admin-ui-api/bulk-actions/bulk-action#bulkaction'>BulkAction</a> which can be invoked from the bulk action menu
 of any supported list view.
@@ -29,7 +29,7 @@ translation via a custom service which integrates with the translation service's
 
 ```TypeScript
 import { NgModule } from '@angular/core';
-import { ModalService, registerBulkAction, SharedModule } from '@vendure/admin-ui/core';
+import { ModalService, registerBulkAction, SharedModule } from '@gseller/admin-ui/core';
 
 @NgModule({
   imports: [SharedModule],

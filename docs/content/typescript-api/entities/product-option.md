@@ -13,7 +13,7 @@ generated: true
 
 # ProductOption
 
-{{< generation-info sourceFile="packages/core/src/entity/product-option/product-option.entity.ts" sourceLine="20" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/product-option/product-option.entity.ts" sourceLine="20" packageName="@gseller/core">}}
 
 A ProductOption is used to differentiate <a href='/typescript-api/entities/product-variant#productvariant'>ProductVariant</a>s from one another.
 

@@ -13,7 +13,7 @@ generated: true
 
 # defaultVendureComplexityEstimator
 
-{{< generation-info sourceFile="packages/harden-plugin/src/middleware/query-complexity-plugin.ts" sourceLine="95" packageName="@vendure/harden-plugin">}}
+{{< generation-info sourceFile="packages/harden-plugin/src/middleware/query-complexity-plugin.ts" sourceLine="95" packageName="@gseller/harden-plugin">}}
 
 A complexity estimator which takes into account List and PaginatedList types and can
 be further configured by providing a customComplexityFactors object.

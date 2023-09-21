@@ -1,9 +1,9 @@
 import {
   CreateChannelSocialMediaInput,
   UpdateChannelSocialMediaInput,
-} from "@vendure/common/lib/generated-types";
+} from "@gseller/common/lib/generated-types";
 import { FindOneOptions, IsNull, UpdateResult } from "typeorm";
-import { ID, RequestContext, TransactionalConnection } from "@vendure/core";
+import { ID, RequestContext, TransactionalConnection } from "@gseller/core";
 import {
   SocialMediaAlreadyRegisteredError,
   SocialMediaNotFoundError,

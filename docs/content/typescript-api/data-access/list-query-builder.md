@@ -13,7 +13,7 @@ generated: true
 
 # ListQueryBuilder
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/list-query-builder/list-query-builder.ts" sourceLine="199" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/list-query-builder/list-query-builder.ts" sourceLine="199" packageName="@gseller/core">}}
 
 This helper class is used when fetching entities the database from queries which return a <a href='/typescript-api/common/paginated-list#paginatedlist'>PaginatedList</a> type.
 These queries all follow the same format:
@@ -115,7 +115,7 @@ class ListQueryBuilder implements OnApplicationBootstrap {
 
 # ExtendedListQueryOptions
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/list-query-builder/list-query-builder.ts" sourceLine="40" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/list-query-builder/list-query-builder.ts" sourceLine="40" packageName="@gseller/core">}}
 
 Options which can be passed to the ListQueryBuilder's `build()` method.
 

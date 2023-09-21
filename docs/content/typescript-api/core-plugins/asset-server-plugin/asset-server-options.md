@@ -13,7 +13,7 @@ generated: true
 
 # AssetServerOptions
 
-{{< generation-info sourceFile="packages/asset-server-plugin/src/types.ts" sourceLine="72" packageName="@vendure/asset-server-plugin">}}
+{{< generation-info sourceFile="packages/asset-server-plugin/src/types.ts" sourceLine="72" packageName="@gseller/asset-server-plugin">}}
 
 The configuration options for the AssetServerPlugin.
 

@@ -73,7 +73,7 @@ This tag should be used to include any code blocks. Remember to specify the lang
 so that it is not interpreted as a JSDoc tag:
 
 ```ts
-import { VendureConfig } from '\@vendure/core';
+import { VendureConfig } from '\@gseller/core';
 ```
 
 ##### `@default`

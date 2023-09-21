@@ -13,7 +13,7 @@ generated: true
 
 # OrderModifier
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/order-modifier/order-modifier.ts" sourceLine="80" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/order-modifier/order-modifier.ts" sourceLine="80" packageName="@gseller/core">}}
 
 This helper is responsible for modifying the contents of an Order.
 

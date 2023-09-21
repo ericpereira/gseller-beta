@@ -13,7 +13,7 @@ generated: true
 
 # EventBus
 
-{{< generation-info sourceFile="packages/core/src/event-bus/event-bus.ts" sourceLine="57" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/event-bus/event-bus.ts" sourceLine="57" packageName="@gseller/core">}}
 
 The EventBus is used to globally publish events which can then be subscribed to.
 
@@ -31,7 +31,7 @@ stream of events:
 
 ```TypeScript
 import { OnApplicationBootstrap } from '@nestjs/common';
-import { EventBus, PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { EventBus, PluginCommonModule, VendurePlugin } from '@gseller/core';
 import { filter } from 'rxjs/operators';
 
 @VendurePlugin({

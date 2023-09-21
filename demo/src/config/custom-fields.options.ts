@@ -1,4 +1,4 @@
-import { VendureConfig } from '@vendure/core';
+import { VendureConfig } from '@gseller/core';
 
 export const customFields: VendureConfig['customFields'] = {
 }

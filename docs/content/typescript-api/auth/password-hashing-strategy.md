@@ -13,7 +13,7 @@ generated: true
 
 # PasswordHashingStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/auth/password-hashing-strategy.ts" sourceLine="10" packageName="@vendure/core" since="1.3.0">}}
+{{< generation-info sourceFile="packages/core/src/config/auth/password-hashing-strategy.ts" sourceLine="10" packageName="@gseller/core" since="1.3.0">}}
 
 Defines how user passwords get hashed when using the <a href='/typescript-api/auth/native-authentication-strategy#nativeauthenticationstrategy'>NativeAuthenticationStrategy</a>.
 

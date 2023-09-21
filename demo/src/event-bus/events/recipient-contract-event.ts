@@ -1,5 +1,5 @@
-import { RecipientContractInput } from "@vendure/common/lib/generated-types";
-import { VendureEvent } from "@vendure/core";
+import { RecipientContractInput } from "@gseller/common/lib/generated-types";
+import { VendureEvent } from "@gseller/core";
 
 /**
  * @description

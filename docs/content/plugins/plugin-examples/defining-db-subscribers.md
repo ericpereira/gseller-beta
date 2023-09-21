@@ -14,7 +14,7 @@ If you need lower-level access to database changes that you get with the [Vendur
 The simplest way to register a subscriber is to pass it to the `dbConnectionOptions.subscribers` array:
 
 ```TypeScript
-import { Product, VendureConfig } from '@vendure/core';
+import { Product, VendureConfig } from '@gseller/core';
 import { EntitySubscriberInterface, EventSubscriber, UpdateEvent } from 'typeorm';
 
 @EventSubscriber()
@@ -51,7 +51,7 @@ import {
   TransactionalConnection,
   VendureConfig,
   VendurePlugin,
-} from '@vendure/core';
+} from '@gseller/core';
 import { Injectable } from '@nestjs/common';
 import { EntitySubscriberInterface, EventSubscriber, UpdateEvent } from 'typeorm';
 import { MyService } from './services/my.service';

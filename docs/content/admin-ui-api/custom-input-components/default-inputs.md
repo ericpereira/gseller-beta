@@ -13,7 +13,7 @@ generated: true
 
 # BooleanFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/boolean-form-input/boolean-form-input.component.ts" sourceLine="14" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/boolean-form-input/boolean-form-input.component.ts" sourceLine="14" packageName="@gseller/admin-ui">}}
 
 A checkbox input. The default input component for `boolean` fields.
 
@@ -65,7 +65,7 @@ class BooleanFormInputComponent implements FormInputComponent {
 
 # HtmlEditorFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/code-editor-form-input/html-editor-form-input.component.ts" sourceLine="23" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/code-editor-form-input/html-editor-form-input.component.ts" sourceLine="23" packageName="@gseller/admin-ui">}}
 
 A JSON editor input with syntax highlighting and error detection. Works well
 with `text` type fields.
@@ -118,7 +118,7 @@ class HtmlEditorFormInputComponent extends BaseCodeEditorFormInputComponent impl
 
 # JsonEditorFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/code-editor-form-input/json-editor-form-input.component.ts" sourceLine="33" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/code-editor-form-input/json-editor-form-input.component.ts" sourceLine="33" packageName="@gseller/admin-ui">}}
 
 A JSON editor input with syntax highlighting and error detection. Works well
 with `text` type fields.
@@ -171,7 +171,7 @@ class JsonEditorFormInputComponent extends BaseCodeEditorFormInputComponent impl
 
 # CombinationModeFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/combination-mode-form-input/combination-mode-form-input.component.ts" sourceLine="17" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/combination-mode-form-input/combination-mode-form-input.component.ts" sourceLine="17" packageName="@gseller/admin-ui">}}
 
 A special input used to display the "Combination mode" AND/OR toggle.
 
@@ -259,7 +259,7 @@ class CombinationModeFormInputComponent implements FormInputComponent, OnInit {
 
 # CurrencyFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/currency-form-input/currency-form-input.component.ts" sourceLine="17" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/currency-form-input/currency-form-input.component.ts" sourceLine="17" packageName="@gseller/admin-ui">}}
 
 An input for monetary values. Should be used with `int` type fields.
 
@@ -325,7 +325,7 @@ class CurrencyFormInputComponent implements FormInputComponent {
 
 # CustomerGroupFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/customer-group-form-input/customer-group-form-input.component.ts" sourceLine="20" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/customer-group-form-input/customer-group-form-input.component.ts" sourceLine="20" packageName="@gseller/admin-ui">}}
 
 Allows the selection of a Customer via an autocomplete select input.
 Should be used with `ID` type fields which represent Customer IDs.
@@ -414,7 +414,7 @@ class CustomerGroupFormInputComponent implements FormInputComponent, OnInit {
 
 # DateFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/date-form-input/date-form-input.component.ts" sourceLine="14" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/date-form-input/date-form-input.component.ts" sourceLine="14" packageName="@gseller/admin-ui">}}
 
 Allows selection of a datetime. Default input for `datetime` type fields.
 
@@ -487,7 +487,7 @@ class DateFormInputComponent implements FormInputComponent {
 
 # FacetValueFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/facet-value-form-input/facet-value-form-input.component.ts" sourceLine="16" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/facet-value-form-input/facet-value-form-input.component.ts" sourceLine="16" packageName="@gseller/admin-ui">}}
 
 Allows the selection of multiple FacetValues via an autocomplete select input.
 Should be used with `ID` type **list** fields which represent FacetValue IDs.
@@ -561,7 +561,7 @@ class FacetValueFormInputComponent implements FormInputComponent {
 
 # NumberFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/number-form-input/number-form-input.component.ts" sourceLine="14" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/number-form-input/number-form-input.component.ts" sourceLine="14" packageName="@gseller/admin-ui">}}
 
 Displays a number input. Default input for `int` and `float` type fields.
 
@@ -648,7 +648,7 @@ class NumberFormInputComponent implements FormInputComponent {
 
 # PasswordFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/password-form-input/password-form-input.component.ts" sourceLine="14" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/password-form-input/password-form-input.component.ts" sourceLine="14" packageName="@gseller/admin-ui">}}
 
 Displays a password text input. Should be used with `string` type fields.
 
@@ -700,7 +700,7 @@ class PasswordFormInputComponent implements FormInputComponent {
 
 # ProductSelectorFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/product-selector-form-input/product-selector-form-input.component.ts" sourceLine="20" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/product-selector-form-input/product-selector-form-input.component.ts" sourceLine="20" packageName="@gseller/admin-ui">}}
 
 Allows the selection of multiple ProductVariants via an autocomplete select input.
 Should be used with `ID` type **list** fields which represent ProductVariant IDs.
@@ -796,7 +796,7 @@ class ProductSelectorFormInputComponent implements FormInputComponent, OnInit {
 
 # RelationFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/relation-form-input/relation-form-input.component.ts" sourceLine="17" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/relation-form-input/relation-form-input.component.ts" sourceLine="17" packageName="@gseller/admin-ui">}}
 
 The default input component for `relation` type custom fields. Allows the selection
 of a ProductVariant, Product, Customer or Asset. For other entity types, a custom
@@ -850,7 +850,7 @@ class RelationFormInputComponent implements FormInputComponent {
 
 # RichTextFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/rich-text-form-input/rich-text-form-input.component.ts" sourceLine="14" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/rich-text-form-input/rich-text-form-input.component.ts" sourceLine="14" packageName="@gseller/admin-ui">}}
 
 Uses the <a href='/admin-ui-api/components/rich-text-editor-component#richtexteditorcomponent'>RichTextEditorComponent</a> as in input for `text` type fields.
 
@@ -902,7 +902,7 @@ class RichTextFormInputComponent implements FormInputComponent {
 
 # SelectFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/select-form-input/select-form-input.component.ts" sourceLine="18" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/select-form-input/select-form-input.component.ts" sourceLine="18" packageName="@gseller/admin-ui">}}
 
 Uses a select input to allow the selection of a string value. Should be used with
 `string` type fields with options.
@@ -991,7 +991,7 @@ class SelectFormInputComponent implements FormInputComponent, OnInit {
 
 # TextFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/text-form-input/text-form-input.component.ts" sourceLine="14" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/text-form-input/text-form-input.component.ts" sourceLine="14" packageName="@gseller/admin-ui">}}
 
 Uses a regular text form input. This is the default input for `string` and `localeString` type fields.
 
@@ -1057,7 +1057,7 @@ class TextFormInputComponent implements FormInputComponent {
 
 # TextareaFormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/textarea-form-input/textarea-form-input.component.ts" sourceLine="14" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/dynamic-form-inputs/textarea-form-input/textarea-form-input.component.ts" sourceLine="14" packageName="@gseller/admin-ui">}}
 
 Uses textarea form input. This is the default input for `text` type fields.
 

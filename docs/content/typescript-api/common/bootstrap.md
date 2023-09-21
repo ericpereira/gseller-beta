@@ -13,14 +13,14 @@ generated: true
 
 # bootstrap
 
-{{< generation-info sourceFile="packages/core/src/bootstrap.ts" sourceLine="44" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/bootstrap.ts" sourceLine="44" packageName="@gseller/core">}}
 
 Bootstraps the Vendure server. This is the entry point to the application.
 
 *Example*
 
 ```TypeScript
-import { bootstrap } from '@vendure/core';
+import { bootstrap } from '@gseller/core';
 import { config } from './vendure-config';
 
 bootstrap(config).catch(err => {

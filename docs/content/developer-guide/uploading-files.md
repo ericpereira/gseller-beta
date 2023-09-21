@@ -64,7 +64,7 @@ How about if you want to implement a custom mutation for file uploads? Let's tak
 Let's define a custom field to associate the avatar Asset with the Customer:
 
 ```TypeScript
-import { Asset } from '@vendure/core';
+import { Asset } from '@gseller/core';
 
 const config = {
   // ...
@@ -104,9 +104,9 @@ The resolver will make use of the built-in [AssetService]({{< relref "asset-serv
 ```TypeScript
 // customer-avatar.resolver.ts
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
-import { Asset } from '@vendure/common/lib/generated-types';
+import { Asset } from '@gseller/common/lib/generated-types';
 import { Allow, AssetService, Ctx, CustomerService, isGraphQlErrorResult,
-  Permission, RequestContext, Transaction } from '@vendure/core';
+  Permission, RequestContext, Transaction } from '@gseller/core';
 
 @Resolver()
 export class CustomerAvatarResolver {
@@ -157,7 +157,7 @@ export class CustomerAvatarResolver {
 We can group all of this together into a plugin:
 
 ```TypeScript
-import { Asset, PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { Asset, PluginCommonModule, VendurePlugin } from '@gseller/core';
 
 import { shopApiExtensions } from './api-extensions';
 import { CustomerAvatarResolver } from './customer-avatar.resolver';

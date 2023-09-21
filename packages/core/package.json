@@ -1,5 +1,5 @@
 {
-    "name": "@vendure/core",
+    "name": "@gseller/core",
     "version": "2.0.7",
     "description": "A modern, headless ecommerce framework",
     "repository": {
@@ -7,7 +7,7 @@
         "url": "https://github.com/vendure-ecommerce/vendure/"
     },
     "keywords": [
-        "vendure",
+        "gseller",
         "ecommerce",
         "headless",
         "graphql",
@@ -35,7 +35,7 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "bin": {
-        "vendure": "cli/vendure-cli.js"
+        "gseller": "cli/gseller-cli.js"
     },
     "files": [
         "dist/**/*",
@@ -52,7 +52,7 @@
         "@nestjs/testing": "9.3.9",
         "@nestjs/typeorm": "9.0.1",
         "@types/fs-extra": "^9.0.1",
-        "@vendure/common": "^2.0.7",
+        "@gseller/common": "^2.0.7",
         "apollo-server-express": "3.6.3",
         "bcrypt": "^5.1.0",
         "body-parser": "^1.19.0",

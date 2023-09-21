@@ -13,7 +13,7 @@ generated: true
 
 # FulfillmentService
 
-{{< generation-info sourceFile="packages/core/src/service/services/fulfillment.service.ts" sourceLine="33" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/fulfillment.service.ts" sourceLine="33" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/fulfillment#fulfillment'>Fulfillment</a> entities.
 

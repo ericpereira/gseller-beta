@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../../core/typings.d.ts" />
-import { bootstrap, JobQueueService, Logger } from '@vendure/core';
-import { populate } from '@vendure/core/cli/populate';
-import { clearAllTables, populateCustomers } from '@vendure/testing';
+import { bootstrap, JobQueueService, Logger } from '@gseller/core';
+import { populate } from '@gseller/core/cli/populate';
+import { clearAllTables, populateCustomers } from '@gseller/testing';
 import stringify from 'csv-stringify';
 import fs from 'fs';
 import path from 'path';

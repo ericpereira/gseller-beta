@@ -13,7 +13,7 @@ generated: true
 
 # Relations
 
-{{< generation-info sourceFile="packages/core/src/api/decorators/relations.decorator.ts" sourceLine="134" packageName="@vendure/core" since="1.6.0">}}
+{{< generation-info sourceFile="packages/core/src/api/decorators/relations.decorator.ts" sourceLine="134" packageName="@gseller/core" since="1.6.0">}}
 
 Resolver param decorator which returns an array of relation paths which can be passed through
 to the TypeORM data layer in order to join only the required relations. This works by inspecting

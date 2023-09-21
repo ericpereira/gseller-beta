@@ -13,7 +13,7 @@ generated: true
 
 # OrderMergeStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/order-merge-strategy.ts" sourceLine="41" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/order/order-merge-strategy.ts" sourceLine="41" packageName="@gseller/core">}}
 
 An OrderMergeStrategy defines what happens when a Customer with an existing Order
 signs in with a guest Order, where both Orders may contain differing OrderLines.
@@ -49,7 +49,7 @@ with the active customer.{{< /member-description >}}
 
 # MergedOrderLine
 
-{{< generation-info sourceFile="packages/core/src/config/order/order-merge-strategy.ts" sourceLine="15" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/order/order-merge-strategy.ts" sourceLine="15" packageName="@gseller/core">}}
 
 The result of the <a href='/typescript-api/orders/order-merge-strategy#ordermergestrategy'>OrderMergeStrategy</a> `merge` method.
 

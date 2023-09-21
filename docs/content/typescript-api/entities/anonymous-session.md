@@ -13,7 +13,7 @@ generated: true
 
 # AnonymousSession
 
-{{< generation-info sourceFile="packages/core/src/entity/session/anonymous-session.entity.ts" sourceLine="16" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/session/anonymous-session.entity.ts" sourceLine="16" packageName="@gseller/core">}}
 
 An anonymous session is created when a unauthenticated user interacts with restricted operations,
 such as calling the `activeOrder` query in the Shop API. Anonymous sessions allow a guest Customer

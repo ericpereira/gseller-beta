@@ -3,7 +3,7 @@ import {
   Channel,
   RequestContext,
   TransactionalConnection
-} from "@vendure/core";
+} from "@gseller/core";
 
 import { ChannelAddress } from "../../channel-address/entities/channel-address.entity";
 import { ChannelBanner } from "../../channel-banner/entities/channel-banner.entity";

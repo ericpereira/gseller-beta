@@ -1,4 +1,4 @@
-import { NativeAuthenticationStrategy, VendureConfig } from '@vendure/core';
+import { NativeAuthenticationStrategy, VendureConfig } from '@gseller/core';
 
 import { ShortMessageAuthenticationStrategy } from '../strategy/authentication/authenticate';
 

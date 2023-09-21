@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from "@vendure/core";
+import { PluginCommonModule, VendurePlugin } from "@gseller/core";
 import { RefundRequest } from "./entities/refund-request.entity";
 import AdminSchema from "./schema/admin.schema";
 import { RefundRequestShopResolver } from "./resolvers/shop.resolver";

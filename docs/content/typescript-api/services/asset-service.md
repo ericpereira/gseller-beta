@@ -13,7 +13,7 @@ generated: true
 
 # AssetService
 
-{{< generation-info sourceFile="packages/core/src/service/services/asset.service.ts" sourceLine="90" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/asset.service.ts" sourceLine="90" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/asset#asset'>Asset</a> entities.
 
@@ -136,7 +136,7 @@ by a Product, ProductVariant or Collection.{{< /member-description >}}
 
 # EntityWithAssets
 
-{{< generation-info sourceFile="packages/core/src/service/services/asset.service.ts" sourceLine="66" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/asset.service.ts" sourceLine="66" packageName="@gseller/core">}}
 
 Certain entities (Product, ProductVariant, Collection) use this interface
 to model a featured asset and then a list of assets with a defined order.
@@ -175,7 +175,7 @@ interface EntityWithAssets extends VendureEntity {
 
 # EntityAssetInput
 
-{{< generation-info sourceFile="packages/core/src/service/services/asset.service.ts" sourceLine="78" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/asset.service.ts" sourceLine="78" packageName="@gseller/core">}}
 
 Used when updating entities which implement <a href='/typescript-api/services/asset-service#entitywithassets'>EntityWithAssets</a>.
 

@@ -13,7 +13,7 @@ generated: true
 
 # PriceCalculationResult
 
-{{< generation-info sourceFile="packages/core/src/common/types/common-types.ts" sourceLine="171" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/types/common-types.ts" sourceLine="171" packageName="@gseller/core">}}
 
 The result of the price calculation from the <a href='/typescript-api/products-stock/product-variant-price-calculation-strategy#productvariantpricecalculationstrategy'>ProductVariantPriceCalculationStrategy</a> or the
 <a href='/typescript-api/orders/order-item-price-calculation-strategy#orderitempricecalculationstrategy'>OrderItemPriceCalculationStrategy</a>.

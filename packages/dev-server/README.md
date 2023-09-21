@@ -30,7 +30,7 @@ In order to compile ui extensions within this monorepo, you need to add the foll
 this package's `package.json` devDependencies:
 
 ```
- "@vendure/admin-ui": "./packages/admin-ui/package",
+ "@gseller/admin-ui": "./packages/admin-ui/package",
 ```
 
 and then run `yarn`. Make sure you already built the admin-ui package first.

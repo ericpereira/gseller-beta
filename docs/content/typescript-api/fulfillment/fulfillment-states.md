@@ -13,7 +13,7 @@ generated: true
 
 # FulfillmentStates
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/fulfillment-state-machine/fulfillment-state.ts" sourceLine="19" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/fulfillment-state-machine/fulfillment-state.ts" sourceLine="19" packageName="@gseller/core">}}
 
 An interface to extend standard <a href='/typescript-api/fulfillment/fulfillment-state#fulfillmentstate'>FulfillmentState</a>.
 

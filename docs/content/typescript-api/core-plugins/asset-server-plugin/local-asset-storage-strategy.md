@@ -13,7 +13,7 @@ generated: true
 
 # LocalAssetStorageStrategy
 
-{{< generation-info sourceFile="packages/asset-server-plugin/src/local-asset-storage-strategy.ts" sourceLine="15" packageName="@vendure/asset-server-plugin">}}
+{{< generation-info sourceFile="packages/asset-server-plugin/src/local-asset-storage-strategy.ts" sourceLine="15" packageName="@gseller/asset-server-plugin">}}
 
 A persistence strategy which saves files to the local file system.
 

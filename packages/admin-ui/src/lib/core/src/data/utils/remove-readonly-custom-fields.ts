@@ -1,4 +1,4 @@
-import { simpleDeepClone } from '@vendure/common/lib/simple-deep-clone';
+import { simpleDeepClone } from '@gseller/common/lib/simple-deep-clone';
 import { DocumentNode, getOperationAST, NamedTypeNode, TypeNode } from 'graphql';
 
 import { CustomFieldConfig } from '../../common/generated-types';

@@ -13,7 +13,7 @@ generated: true
 
 # TypedCustomSingleFieldConfig
 
-{{< generation-info sourceFile="packages/core/src/config/custom-field/custom-field-types.ts" sourceLine="55" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/custom-field/custom-field-types.ts" sourceLine="55" packageName="@gseller/core">}}
 
 Configures a custom field on an entity in the <a href='/typescript-api/custom-fields/#customfields'>CustomFields</a> config object.
 

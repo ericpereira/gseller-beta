@@ -13,7 +13,7 @@ generated: true
 
 # VendureEntity
 
-{{< generation-info sourceFile="packages/core/src/entity/base/base.entity.ts" sourceLine="13" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/base/base.entity.ts" sourceLine="13" packageName="@gseller/core">}}
 
 This is the base class from which all entities inherit. The type of
 the `id` property is defined by the <a href='/typescript-api/configuration/entity-id-strategy#entityidstrategy'>EntityIdStrategy</a>.

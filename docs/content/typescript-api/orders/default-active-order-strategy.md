@@ -13,7 +13,7 @@ generated: true
 
 # DefaultActiveOrderStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/default-active-order-strategy.ts" sourceLine="18" packageName="@vendure/core" since="1.9.0">}}
+{{< generation-info sourceFile="packages/core/src/config/order/default-active-order-strategy.ts" sourceLine="18" packageName="@gseller/core" since="1.9.0">}}
 
 The default <a href='/typescript-api/orders/active-order-strategy#activeorderstrategy'>ActiveOrderStrategy</a>, which uses the current <a href='/typescript-api/entities/session#session'>Session</a> to determine
 the active Order, and requires no additional input in the Shop API since it is based on the

@@ -13,7 +13,7 @@ generated: true
 
 # DefaultFormConfigHash
 
-{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="159" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="159" packageName="@gseller/common">}}
 
 Used to define the expected arguments for a given default form input component.
 

@@ -13,7 +13,7 @@ generated: true
 
 # ConfigurableOperationDefOptions
 
-{{< generation-info sourceFile="packages/core/src/common/configurable-operation.ts" sourceLine="230" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/configurable-operation.ts" sourceLine="230" packageName="@gseller/core">}}
 
 Common configuration options used when creating a new instance of a
 <a href='/typescript-api/configurable-operation-def/#configurableoperationdef'>ConfigurableOperationDef</a> (

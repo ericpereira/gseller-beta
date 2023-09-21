@@ -13,7 +13,7 @@ generated: true
 
 # CurrencyInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/currency-input/currency-input.component.ts" sourceLine="33" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/currency-input/currency-input.component.ts" sourceLine="33" packageName="@gseller/admin-ui">}}
 
 A form input control which displays currency in decimal format, whilst working
 with the integer cent value in the background.

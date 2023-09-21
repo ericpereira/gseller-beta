@@ -13,7 +13,7 @@ generated: true
 
 # AuthenticatedSession
 
-{{< generation-info sourceFile="packages/core/src/entity/session/authenticated-session.entity.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/session/authenticated-session.entity.ts" sourceLine="14" packageName="@gseller/core">}}
 
 An AuthenticatedSession is created upon successful authentication.
 

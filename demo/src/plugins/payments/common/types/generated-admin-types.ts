@@ -1,6 +1,6 @@
 import { IsBoolean, IsEmail, IsNotEmpty, IsString, MaxLength } from 'class-validator';
 
-declare module '@vendure/common/lib/generated-types' {
+declare module '@gseller/common/lib/generated-types' {
 
 
 

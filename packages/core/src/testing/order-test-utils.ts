@@ -1,6 +1,6 @@
-import { LanguageCode } from '@vendure/common/lib/generated-types';
-import { Omit } from '@vendure/common/lib/omit';
-import { ID } from '@vendure/common/lib/shared-types';
+import { LanguageCode } from '@gseller/common/lib/generated-types';
+import { Omit } from '@gseller/common/lib/omit';
+import { ID } from '@gseller/common/lib/shared-types';
 
 import { RequestContext } from '../api/common/request-context';
 import { Channel } from '../entity/channel/channel.entity';

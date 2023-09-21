@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { CustomFieldConfig, Dialog, ModifyOrderInput, OrderDetailFragment } from '@vendure/admin-ui/core';
+import { CustomFieldConfig, Dialog, ModifyOrderInput, OrderDetailFragment } from '@gseller/admin-ui/core';
 
 export enum OrderEditResultType {
     Refund,

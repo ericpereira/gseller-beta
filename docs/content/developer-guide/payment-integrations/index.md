@@ -35,8 +35,8 @@ import {
   CreatePaymentResult,
   SettlePaymentResult,
   SettlePaymentErrorResult
-} from '@vendure/core';
-import { CancelPaymentErrorResult } from '@vendure/core/src/index';
+} from '@gseller/core';
+import { CancelPaymentErrorResult } from '@gseller/core/src/index';
 import { sdk } from 'payment-provider-sdk';
 
 /**
@@ -187,12 +187,12 @@ import {
   LanguageCode,
   OrderPlacedStrategy,
   RequestContext
-} from '@vendure/core';
+} from '@gseller/core';
 
 /**
  * Declare your custom state in special interface to make it type-safe
  */
-declare module '@vendure/core' {
+declare module '@gseller/core' {
   interface PaymentStates {
     Validating: never;
   }

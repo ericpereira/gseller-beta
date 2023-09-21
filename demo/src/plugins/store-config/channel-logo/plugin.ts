@@ -1,4 +1,4 @@
-import { Asset, PluginCommonModule, VendurePlugin } from "@vendure/core";
+import { Asset, PluginCommonModule, VendurePlugin } from "@gseller/core";
 
 import { ChannelDetailsService } from "./services/shop.service";
 import { ChannelLogoResolver as ChannelLogoAdminResolver } from "./resolvers/admin.resolver";

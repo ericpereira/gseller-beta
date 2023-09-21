@@ -1,4 +1,4 @@
-import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
+import { AdminUiPlugin } from '@gseller/admin-ui-plugin';
 import {
     ChannelService,
     DefaultLogger,
@@ -9,8 +9,8 @@ import {
     OrderService,
     PaymentService,
     RequestContext,
-} from '@vendure/core';
-import { createTestEnvironment, registerInitializer, SqljsInitializer, testConfig } from '@vendure/testing';
+} from '@gseller/core';
+import { createTestEnvironment, registerInitializer, SqljsInitializer, testConfig } from '@gseller/testing';
 import gql from 'graphql-tag';
 import localtunnel from 'localtunnel';
 import path from 'path';

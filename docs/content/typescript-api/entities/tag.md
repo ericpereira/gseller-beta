@@ -13,7 +13,7 @@ generated: true
 
 # Tag
 
-{{< generation-info sourceFile="packages/core/src/entity/tag/tag.entity.ts" sourceLine="13" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/tag/tag.entity.ts" sourceLine="13" packageName="@gseller/core">}}
 
 A tag is an arbitrary label which can be applied to certain entities.
 It is used to help organize and filter those entities.

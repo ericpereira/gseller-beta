@@ -13,7 +13,7 @@ generated: true
 
 # FileSizePipe
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/file-size.pipe.ts" sourceLine="14" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/file-size.pipe.ts" sourceLine="14" packageName="@gseller/admin-ui">}}
 
 Formats a number into a human-readable file size string.
 

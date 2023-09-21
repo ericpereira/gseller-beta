@@ -4,7 +4,7 @@ import {
   RequestContextService,
   TransactionalConnection,
   User,
-} from '@vendure/core';
+} from '@gseller/core';
 
 import { Injectable } from '@nestjs/common';
 

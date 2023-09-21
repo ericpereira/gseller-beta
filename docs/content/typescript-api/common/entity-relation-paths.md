@@ -13,7 +13,7 @@ generated: true
 
 # EntityRelationPaths
 
-{{< generation-info sourceFile="packages/core/src/common/types/entity-relation-paths.ts" sourceLine="23" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/types/entity-relation-paths.ts" sourceLine="23" packageName="@gseller/core">}}
 
 This type allows type-safe access to entity relations using strings with dot notation.
 It works to 2 levels deep.

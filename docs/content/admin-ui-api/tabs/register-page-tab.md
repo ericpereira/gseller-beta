@@ -13,7 +13,7 @@ generated: true
 
 # registerPageTab
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/page/page.service.ts" sourceLine="78" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/page/page.service.ts" sourceLine="78" packageName="@gseller/admin-ui">}}
 
 Add a tab to an existing list or detail page.
 

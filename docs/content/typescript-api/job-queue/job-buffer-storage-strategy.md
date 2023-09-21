@@ -13,7 +13,7 @@ generated: true
 
 # JobBufferStorageStrategy
 
-{{< generation-info sourceFile="packages/core/src/job-queue/job-buffer/job-buffer-storage-strategy.ts" sourceLine="12" packageName="@vendure/core" since="1.3.0">}}
+{{< generation-info sourceFile="packages/core/src/job-queue/job-buffer/job-buffer-storage-strategy.ts" sourceLine="12" packageName="@gseller/core" since="1.3.0">}}
 
 This strategy defines where to store jobs that have been collected by a
 <a href='/typescript-api/job-queue/job-buffer#jobbuffer'>JobBuffer</a>.

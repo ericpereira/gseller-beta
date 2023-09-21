@@ -13,7 +13,7 @@ generated: true
 
 # JobQueueService
 
-{{< generation-info sourceFile="packages/core/src/job-queue/job-queue.service.ts" sourceLine="48" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/job-queue/job-queue.service.ts" sourceLine="48" packageName="@gseller/core">}}
 
 The JobQueueService is used to create new <a href='/typescript-api/job-queue/#jobqueue'>JobQueue</a> instances and access
 existing jobs.

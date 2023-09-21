@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { ID, VendureEntity } from "@vendure/core";
-import { DeepPartial } from "@vendure/common/lib/shared-types";
+import { ID, VendureEntity } from "@gseller/core";
+import { DeepPartial } from "@gseller/common/lib/shared-types";
 
 @Entity()
 class LayoutCategory extends VendureEntity {

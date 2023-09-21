@@ -13,7 +13,7 @@ generated: true
 
 # AssetNamingStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/asset-naming-strategy/asset-naming-strategy.ts" sourceLine="11" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/asset-naming-strategy/asset-naming-strategy.ts" sourceLine="11" packageName="@gseller/core">}}
 
 The AssetNamingStrategy determines how file names are generated based on the uploaded source file name,
 as well as how to handle naming conflicts.

@@ -1,2 +1,2 @@
-export * from "@vendure/core/dist/api/index"
+export * from "@gseller/core/dist/api/index"
 

@@ -1,6 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-import { LanguageCode, Permission } from '@vendure/common/lib/generated-types';
-import type { InitialData } from '@vendure/core';
+import { LanguageCode, Permission } from '@gseller/common/lib/generated-types';
+import type { InitialData } from '@gseller/core';
 
 export const initialData: InitialData = {
   defaultLanguage: LanguageCode.en,

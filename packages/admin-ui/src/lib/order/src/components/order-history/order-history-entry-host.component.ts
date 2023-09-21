@@ -16,7 +16,7 @@ import {
     OrderDetailFragment,
     OrderHistoryEntryComponent,
     TimelineHistoryEntry,
-} from '@vendure/admin-ui/core';
+} from '@gseller/admin-ui/core';
 
 @Component({
     selector: 'vdr-order-history-entry-host',

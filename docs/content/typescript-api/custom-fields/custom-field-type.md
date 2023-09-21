@@ -13,7 +13,7 @@ generated: true
 
 # CustomFieldType
 
-{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="102" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="102" packageName="@gseller/common">}}
 
 A data type for a custom field. The CustomFieldType determines the data types used in the generated
 database columns and GraphQL fields as follows (key: m = MySQL, p = Postgres, s = SQLite):

@@ -10,7 +10,7 @@ It is possible to create stand-alone scripts that can be run from the command-li
 ```TypeScript
 // run-sync.ts
 
-import { bootstrapWorker, Logger } from '@vendure/core';
+import { bootstrapWorker, Logger } from '@gseller/core';
 
 import { config } from './vendure-config';
 import { DataSyncPlugin, DataSyncService } from './plugins/data-sync';

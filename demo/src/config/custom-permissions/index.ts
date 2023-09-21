@@ -1,4 +1,4 @@
-import { Permission } from '@vendure/core';
+import { Permission } from '@gseller/core';
 import { customPermissions } from './custom.permissions'
 import { defaultPermissions } from './default.permissions';
 

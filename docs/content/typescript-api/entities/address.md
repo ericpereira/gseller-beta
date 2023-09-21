@@ -13,7 +13,7 @@ generated: true
 
 # Address
 
-{{< generation-info sourceFile="packages/core/src/entity/address/address.entity.ts" sourceLine="16" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/address/address.entity.ts" sourceLine="16" packageName="@gseller/core">}}
 
 Represents a <a href='/typescript-api/entities/customer#customer'>Customer</a>'s address.
 

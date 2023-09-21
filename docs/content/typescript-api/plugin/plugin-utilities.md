@@ -13,7 +13,7 @@ generated: true
 
 # createProxyHandler
 
-{{< generation-info sourceFile="packages/core/src/plugin/plugin-utils.ts" sourceLine="37" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/plugin/plugin-utils.ts" sourceLine="37" packageName="@gseller/core">}}
 
 Creates a proxy middleware which proxies the given route to the given port.
 Useful for plugins which start their own servers but should be accessible
@@ -59,7 +59,7 @@ function createProxyHandler(options: ProxyOptions): RequestHandler
 
 # ProxyOptions
 
-{{< generation-info sourceFile="packages/core/src/plugin/plugin-utils.ts" sourceLine="76" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/plugin/plugin-utils.ts" sourceLine="76" packageName="@gseller/core">}}
 
 Options to configure proxy middleware via <a href='/typescript-api/plugin/plugin-utilities#createproxyhandler'>createProxyHandler</a>.
 

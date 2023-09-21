@@ -1,4 +1,4 @@
-import { ErrorResult } from "@vendure/core";
+import { ErrorResult } from "@gseller/core";
 
 export class TemplateNotFoundError implements ErrorResult {
   readonly __typename = "TemplateNotFoundError";

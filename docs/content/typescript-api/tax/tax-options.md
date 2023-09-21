@@ -13,7 +13,7 @@ generated: true
 
 # TaxOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="825" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="825" packageName="@gseller/core">}}
 
 
 

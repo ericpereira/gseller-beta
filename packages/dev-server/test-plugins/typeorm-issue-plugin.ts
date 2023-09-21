@@ -8,7 +8,7 @@ import {
     TransactionalConnection,
     translateDeep,
     VendurePlugin,
-} from '@vendure/core';
+} from '@gseller/core';
 import { gql } from 'apollo-server-core';
 
 // Testing this issue https://github.com/typeorm/typeorm/issues/7707

@@ -13,7 +13,7 @@ generated: true
 
 # SuperadminCredentials
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="771" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="771" packageName="@gseller/core">}}
 
 These credentials will be used to create the Superadmin user & administrator
 when Vendure first bootstraps.

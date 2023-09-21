@@ -8,9 +8,9 @@ import {
 import {
   AccountHolderInput,
   UpdateAccountHolderInput,
-} from "@vendure/common/lib/generated-types";
+} from "@gseller/common/lib/generated-types";
 import { IsNull, UpdateResult } from "typeorm";
-import { RequestContext, TransactionalConnection } from "@vendure/core";
+import { RequestContext, TransactionalConnection } from "@gseller/core";
 
 import { AccountHolder } from "../entities/account.holder.entity";
 import { ChannelBankAccount } from "../entities/bank-account.entity";

@@ -7,9 +7,9 @@ import {
     UpdateProductOptionInput,
     createUpdatedTranslatable,
     Dialog,
-} from '@vendure/admin-ui/core';
+} from '@gseller/admin-ui/core';
 
-import { normalizeString } from '@vendure/common/lib/normalize-string';
+import { normalizeString } from '@gseller/common/lib/normalize-string';
 
 @Component({
     selector: 'vdr-update-product-option-dialog',

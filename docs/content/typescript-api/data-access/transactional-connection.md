@@ -13,7 +13,7 @@ generated: true
 
 # TransactionalConnection
 
-{{< generation-info sourceFile="packages/core/src/connection/transactional-connection.ts" sourceLine="38" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/connection/transactional-connection.ts" sourceLine="38" packageName="@gseller/core">}}
 
 The TransactionalConnection is a wrapper around the TypeORM `Connection` object which works in conjunction
 with the <a href='/typescript-api/request/transaction-decorator#transaction'>Transaction</a> decorator to implement per-request transactions. All services which access the

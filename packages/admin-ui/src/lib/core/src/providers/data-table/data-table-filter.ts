@@ -1,6 +1,6 @@
 import { Type as ComponentType } from '@angular/core';
-import { LocalizedString } from '@vendure/common/lib/generated-types';
-import { assertNever } from '@vendure/common/lib/shared-utils';
+import { LocalizedString } from '@gseller/common/lib/generated-types';
+import { assertNever } from '@gseller/common/lib/shared-utils';
 import { FormInputComponent } from '../../common/component-registry-types';
 import {
     BooleanOperators,

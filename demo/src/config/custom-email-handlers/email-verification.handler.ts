@@ -1,6 +1,6 @@
-import { AccountRegistrationEvent, NativeAuthenticationMethod } from "@vendure/core";
+import { AccountRegistrationEvent, NativeAuthenticationMethod } from "@gseller/core";
 
-import { EmailEventListener } from "@vendure/email-plugin";
+import { EmailEventListener } from "@gseller/email-plugin";
 
 export const emailVerificationHandler = new EmailEventListener('email-verification')
   .on(AccountRegistrationEvent)

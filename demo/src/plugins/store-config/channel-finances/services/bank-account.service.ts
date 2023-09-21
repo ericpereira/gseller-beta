@@ -14,7 +14,7 @@ import {
   RequestContext,
   RequestContextService,
   TransactionalConnection,
-} from "@vendure/core";
+} from "@gseller/core";
 
 import { AccountHolder } from "../entities/account.holder.entity";
 import { BankAccountEvent } from "../../../../event-bus/events/bank-account-event";
@@ -22,8 +22,8 @@ import { ChannelBankAccount } from "../entities/bank-account.entity";
 import { ContextStrategy } from "../context-auth-strategy";
 import { Injectable } from "@nestjs/common";
 import { IsNull } from "typeorm";
-import { PaymentAccountInput } from "@vendure/common/lib/generated-types";
-import { Seller } from "@vendure/core/dist/entity/seller/seller.entity";
+import { PaymentAccountInput } from "@gseller/common/lib/generated-types";
+import { Seller } from "@gseller/core/dist/entity/seller/seller.entity";
 
 @Injectable()
 export class FinancesService {

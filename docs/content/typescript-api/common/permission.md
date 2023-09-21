@@ -13,7 +13,7 @@ generated: true
 
 # Permission
 
-{{< generation-info sourceFile="packages/common/src/generated-types.ts" sourceLine="4197" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/generated-types.ts" sourceLine="4197" packageName="@gseller/common">}}
 
 Permissions for administrators and customers. Used to control access to
 GraphQL resolvers via the <a href='/typescript-api/request/allow-decorator#allow'>Allow</a> decorator.

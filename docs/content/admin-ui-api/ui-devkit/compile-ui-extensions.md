@@ -13,7 +13,7 @@ generated: true
 
 # compileUiExtensions
 
-{{< generation-info sourceFile="packages/ui-devkit/src/compiler/compile.ts" sourceLine="36" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/compiler/compile.ts" sourceLine="36" packageName="@gseller/ui-devkit">}}
 
 Compiles the Admin UI app with the specified extensions.
 

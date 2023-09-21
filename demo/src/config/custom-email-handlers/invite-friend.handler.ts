@@ -1,4 +1,4 @@
-import { EmailEventListener } from "@vendure/email-plugin";
+import { EmailEventListener } from "@gseller/email-plugin";
 import { InviteFriendEvent } from "../../event-bus/events/invite-friend-event";
 
 export const inviteFriendtHandler = new EmailEventListener('invite-friend')

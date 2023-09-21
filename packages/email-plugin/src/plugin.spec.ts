@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Test, TestingModule } from '@nestjs/testing';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { DEFAULT_CHANNEL_CODE } from '@vendure/common/lib/shared-constants';
+import { DEFAULT_CHANNEL_CODE } from '@gseller/common/lib/shared-constants';
 import {
     DefaultLogger,
     EventBus,
@@ -14,9 +14,9 @@ import {
     PluginCommonModule,
     RequestContext,
     VendureEvent,
-} from '@vendure/core';
-import { ensureConfigLoaded } from '@vendure/core/dist/config/config-helpers';
-import { TestingLogger } from '@vendure/testing';
+} from '@gseller/core';
+import { ensureConfigLoaded } from '@gseller/core/dist/config/config-helpers';
+import { TestingLogger } from '@gseller/testing';
 import { createReadStream, readFileSync } from 'fs';
 import path from 'path';
 import { Readable } from 'stream';

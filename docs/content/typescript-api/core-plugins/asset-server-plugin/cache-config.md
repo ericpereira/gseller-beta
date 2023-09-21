@@ -13,7 +13,7 @@ generated: true
 
 # CacheConfig
 
-{{< generation-info sourceFile="packages/asset-server-plugin/src/types.ts" sourceLine="52" packageName="@vendure/asset-server-plugin">}}
+{{< generation-info sourceFile="packages/asset-server-plugin/src/types.ts" sourceLine="52" packageName="@gseller/asset-server-plugin">}}
 
 A configuration option for the Cache-Control header in the AssetServerPlugin asset response.
 

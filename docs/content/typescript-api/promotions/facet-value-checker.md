@@ -13,7 +13,7 @@ generated: true
 
 # FacetValueChecker
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/utils/facet-value-checker.ts" sourceLine="48" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/utils/facet-value-checker.ts" sourceLine="48" packageName="@gseller/core">}}
 
 The FacetValueChecker is a helper class used to determine whether a given OrderLine consists
 of ProductVariants containing the given FacetValues.
@@ -21,7 +21,7 @@ of ProductVariants containing the given FacetValues.
 *Example*
 
 ```TypeScript
-import { FacetValueChecker, LanguageCode, PromotionCondition, TransactionalConnection } from '@vendure/core';
+import { FacetValueChecker, LanguageCode, PromotionCondition, TransactionalConnection } from '@gseller/core';
 
 let facetValueChecker: FacetValueChecker;
 

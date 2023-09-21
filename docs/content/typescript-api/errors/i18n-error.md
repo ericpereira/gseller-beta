@@ -13,7 +13,7 @@ generated: true
 
 # I18nError
 
-{{< generation-info sourceFile="packages/core/src/i18n/i18n-error.ts" sourceLine="18" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/i18n/i18n-error.ts" sourceLine="18" packageName="@gseller/core">}}
 
 All errors thrown in the Vendure server must use or extend this error class. This allows the
 error message to be translated before being served to the client.

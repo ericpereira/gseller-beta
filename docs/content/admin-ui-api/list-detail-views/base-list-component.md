@@ -13,7 +13,7 @@ generated: true
 
 # BaseListComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/base-list.component.ts" sourceLine="39" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/base-list.component.ts" sourceLine="39" packageName="@gseller/admin-ui">}}
 
 This is a base class which implements the logic required to fetch and manipulate
 a list of data from a query which returns a PaginatedList type.

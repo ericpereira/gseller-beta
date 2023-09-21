@@ -7,7 +7,7 @@ import {
     ItemOf,
     Permission,
     RemovePromotionsFromChannelDocument,
-} from '@vendure/admin-ui/core';
+} from '@gseller/admin-ui/core';
 import { gql } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 

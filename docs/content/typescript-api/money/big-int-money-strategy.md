@@ -13,7 +13,7 @@ generated: true
 
 # BigIntMoneyStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/entity/bigint-money-strategy.ts" sourceLine="18" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/entity/bigint-money-strategy.ts" sourceLine="18" packageName="@gseller/core" since="2.0.0">}}
 
 A <a href='/typescript-api/money/money-strategy#moneystrategy'>MoneyStrategy</a> that stores monetary values as a `bigint` type in the database, which
 allows values up to ~9 quadrillion to be stored (limited by JavaScript's `MAX_SAFE_INTEGER` limit).

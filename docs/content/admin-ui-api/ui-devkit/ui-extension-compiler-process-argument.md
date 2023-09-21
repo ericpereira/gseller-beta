@@ -13,7 +13,7 @@ generated: true
 
 # UiExtensionCompilerProcessArgument
 
-{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="299" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="299" packageName="@gseller/ui-devkit">}}
 
 Argument to configure process (watch or compile)
 

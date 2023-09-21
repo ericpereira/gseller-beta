@@ -13,7 +13,7 @@ generated: true
 
 # CheckShippingEligibilityCheckerFn
 
-{{< generation-info sourceFile="packages/core/src/config/shipping-method/shipping-eligibility-checker.ts" sourceLine="108" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/shipping-method/shipping-eligibility-checker.ts" sourceLine="108" packageName="@gseller/core">}}
 
 A function which implements logic to determine whether a given <a href='/typescript-api/entities/order#order'>Order</a> is eligible for
 a particular shipping method. Once a ShippingMethod has been assigned to an Order, this

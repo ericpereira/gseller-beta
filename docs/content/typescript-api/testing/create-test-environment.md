@@ -13,7 +13,7 @@ generated: true
 
 # createTestEnvironment
 
-{{< generation-info sourceFile="packages/testing/src/create-test-environment.ts" sourceLine="60" packageName="@vendure/testing">}}
+{{< generation-info sourceFile="packages/testing/src/create-test-environment.ts" sourceLine="60" packageName="@gseller/testing">}}
 
 Configures a <a href='/typescript-api/testing/test-server#testserver'>TestServer</a> and a <a href='/typescript-api/testing/simple-graph-qlclient#simplegraphqlclient'>SimpleGraphQLClient</a> for each of the GraphQL APIs
 for use in end-to-end tests. Returns a <a href='/typescript-api/testing/test-environment#testenvironment'>TestEnvironment</a> object.
@@ -21,7 +21,7 @@ for use in end-to-end tests. Returns a <a href='/typescript-api/testing/test-env
 *Example*
 
 ```TypeScript
-import { createTestEnvironment, testConfig } from '@vendure/testing';
+import { createTestEnvironment, testConfig } from '@gseller/testing';
 
 describe('some feature to test', () => {
 

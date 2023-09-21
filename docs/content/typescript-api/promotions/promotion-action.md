@@ -13,7 +13,7 @@ generated: true
 
 # PromotionAction
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="247" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="247" packageName="@gseller/core">}}
 
 An abstract class which is extended by <a href='/typescript-api/promotions/promotion-action#promotionitemaction'>PromotionItemAction</a>, <a href='/typescript-api/promotions/promotion-action#promotionorderaction'>PromotionOrderAction</a>,
 and <a href='/typescript-api/promotions/promotion-action#promotionshippingaction'>PromotionShippingAction</a>.
@@ -54,7 +54,7 @@ more information.{{< /member-description >}}
 
 # PromotionItemAction
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="320" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="320" packageName="@gseller/core">}}
 
 Represents a PromotionAction which applies to individual <a href='/typescript-api/entities/order-line#orderline'>OrderLine</a>s.
 
@@ -99,7 +99,7 @@ class PromotionItemAction<T extends ConfigArgs = ConfigArgs, U extends Array<Pro
 
 # PromotionOrderAction
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="375" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="375" packageName="@gseller/core">}}
 
 Represents a PromotionAction which applies to the <a href='/typescript-api/entities/order#order'>Order</a> as a whole.
 
@@ -144,7 +144,7 @@ class PromotionOrderAction<T extends ConfigArgs = ConfigArgs, U extends Promotio
 
 # PromotionShippingAction
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="417" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="417" packageName="@gseller/core">}}
 
 Represents a PromotionAction which applies to the shipping cost of an Order.
 
@@ -175,7 +175,7 @@ class PromotionShippingAction<T extends ConfigArgs = ConfigArgs, U extends Promo
 
 # ExecutePromotionItemActionFn
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="72" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="72" packageName="@gseller/core">}}
 
 The function which is used by a PromotionItemAction to calculate the
 discount on the OrderLine.
@@ -197,7 +197,7 @@ type ExecutePromotionItemActionFn<T extends ConfigArgs, U extends Array<Promotio
 
 # ExecutePromotionOrderActionFn
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="88" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="88" packageName="@gseller/core">}}
 
 The function which is used by a PromotionOrderAction to calculate the
 discount on the Order.
@@ -219,7 +219,7 @@ type ExecutePromotionOrderActionFn<T extends ConfigArgs, U extends Array<Promoti
 
 # ExecutePromotionShippingActionFn
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="104" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="104" packageName="@gseller/core">}}
 
 The function which is used by a PromotionOrderAction to calculate the
 discount on the Order.
@@ -242,7 +242,7 @@ type ExecutePromotionShippingActionFn<T extends ConfigArgs, U extends Array<Prom
 
 # PromotionActionSideEffectFn
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="125" packageName="@vendure/core" since="1.8.0" experimental="true">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="125" packageName="@gseller/core" since="1.8.0" experimental="true">}}
 
 The signature of a PromotionAction's side-effect functions `onActivate` and `onDeactivate`.
 
@@ -262,7 +262,7 @@ type PromotionActionSideEffectFn<T extends ConfigArgs> = (
 
 # PromotionActionConfig
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="139" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="139" packageName="@gseller/core">}}
 
 Configuration for all types of <a href='/typescript-api/promotions/promotion-action#promotionaction'>PromotionAction</a>.
 
@@ -326,7 +326,7 @@ or reverse any side effects as needed.{{< /member-description >}}
 
 # PromotionItemActionConfig
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="193" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="193" packageName="@gseller/core">}}
 
 Configuration for a <a href='/typescript-api/promotions/promotion-action#promotionitemaction'>PromotionItemAction</a>
 
@@ -359,7 +359,7 @@ the OrderLine, i.e. the number should be negative.{{< /member-description >}}
 
 # PromotionOrderActionConfig
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="210" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="210" packageName="@gseller/core">}}
 
 
 
@@ -392,7 +392,7 @@ the Order, i.e. the number should be negative.{{< /member-description >}}
 
 # PromotionShippingActionConfig
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="227" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-action.ts" sourceLine="227" packageName="@gseller/core">}}
 
 
 

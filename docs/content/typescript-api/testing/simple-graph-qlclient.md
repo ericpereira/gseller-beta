@@ -13,7 +13,7 @@ generated: true
 
 # SimpleGraphQLClient
 
-{{< generation-info sourceFile="packages/testing/src/simple-graphql-client.ts" sourceLine="40" packageName="@vendure/testing">}}
+{{< generation-info sourceFile="packages/testing/src/simple-graphql-client.ts" sourceLine="40" packageName="@gseller/testing">}}
 
 A minimalistic GraphQL client for populating and querying test data.
 

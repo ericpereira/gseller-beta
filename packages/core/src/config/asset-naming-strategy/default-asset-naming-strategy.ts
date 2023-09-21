@@ -1,4 +1,4 @@
-import { normalizeString } from '@vendure/common/lib/normalize-string';
+import { normalizeString } from '@gseller/common/lib/normalize-string';
 import path from 'path';
 
 import { RequestContext } from '../../api/common/request-context';

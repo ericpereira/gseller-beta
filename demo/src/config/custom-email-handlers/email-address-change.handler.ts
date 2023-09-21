@@ -1,5 +1,5 @@
-import { EmailEventListener } from "@vendure/email-plugin";
-import { IdentifierChangeRequestEvent } from "@vendure/core";
+import { EmailEventListener } from "@gseller/email-plugin";
+import { IdentifierChangeRequestEvent } from "@gseller/core";
 
 export const emailAddressChangeHandler = new EmailEventListener('email-address-change')
   .on(IdentifierChangeRequestEvent)

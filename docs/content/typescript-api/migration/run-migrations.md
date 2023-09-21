@@ -13,7 +13,7 @@ generated: true
 
 # runMigrations
 
-{{< generation-info sourceFile="packages/core/src/migrate.ts" sourceLine="40" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/migrate.ts" sourceLine="40" packageName="@gseller/core">}}
 
 Runs any pending database migrations. See [TypeORM migration docs](https://typeorm.io/#/migrations)
 for more information about the underlying migration mechanism.

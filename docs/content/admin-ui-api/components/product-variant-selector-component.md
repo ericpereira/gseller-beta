@@ -13,7 +13,7 @@ generated: true
 
 # ProductVariantSelectorComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/product-variant-selector/product-variant-selector.component.ts" sourceLine="21" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/product-variant-selector/product-variant-selector.component.ts" sourceLine="21" packageName="@gseller/admin-ui">}}
 
 A component for selecting product variants via an autocomplete-style select input.
 

@@ -13,7 +13,7 @@ generated: true
 
 # HashedAssetNamingStrategy
 
-{{< generation-info sourceFile="packages/asset-server-plugin/src/hashed-asset-naming-strategy.ts" sourceLine="20" packageName="@vendure/asset-server-plugin">}}
+{{< generation-info sourceFile="packages/asset-server-plugin/src/hashed-asset-naming-strategy.ts" sourceLine="20" packageName="@gseller/asset-server-plugin">}}
 
 An extension of the <a href='/typescript-api/assets/default-asset-naming-strategy#defaultassetnamingstrategy'>DefaultAssetNamingStrategy</a> which prefixes file names with
 the type (`'source'` or `'preview'`) as well as a 2-character sub-directory based on

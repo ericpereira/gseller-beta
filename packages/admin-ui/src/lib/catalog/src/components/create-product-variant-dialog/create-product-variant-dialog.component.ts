@@ -5,8 +5,8 @@ import {
     CurrencyCode,
     Dialog,
     GetProductVariantOptionsQuery,
-} from '@vendure/admin-ui/core';
-import { notNullOrUndefined } from '@vendure/common/lib/shared-utils';
+} from '@gseller/admin-ui/core';
+import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
 import { combineLatest } from 'rxjs';
 
 @Component({

@@ -13,7 +13,7 @@ generated: true
 
 # PaymentMethodService
 
-{{< generation-info sourceFile="packages/core/src/service/services/payment-method.service.ts" sourceLine="48" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/payment-method.service.ts" sourceLine="48" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/payment-method#paymentmethod'>PaymentMethod</a> entities.
 

@@ -13,16 +13,16 @@ For working examples of a UI extensions built with **Vue** and **React**, see th
 
 There is still a small amount of Angular "glue code" needed to let the compiler know how to integrate your extension, so let's take a look at how this is done.
 
-## 1. Install `@vendure/ui-devkit`
+## 1. Install `@gseller/ui-devkit`
 
-To create UI extensions, you'll need to install the `@vendure/ui-devkit` package. This package contains a compiler for building your customized version of the Admin UI, as well as the Angular dependencies you'll need to create your extensions.
+To create UI extensions, you'll need to install the `@gseller/ui-devkit` package. This package contains a compiler for building your customized version of the Admin UI, as well as the Angular dependencies you'll need to create your extensions.
 
 ```bash
-yarn add @vendure/ui-devkit
+yarn add @gseller/ui-devkit
 
 # or
 
-npm install @vendure/ui-devkit
+npm install @gseller/ui-devkit
 ```
 
 ## 2. Create the folder structure
@@ -47,7 +47,7 @@ Here's the Angular code needed to tell the compiler where to find your extension
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { hostExternalFrame } from '@vendure/admin-ui/core';
+import { hostExternalFrame } from '@gseller/admin-ui/core';
 
 @NgModule({
   imports: [
@@ -86,9 +86,9 @@ Next we will define an [AdminUiExtension]({{< relref "admin-ui-extension" >}}) o
 ```TypeScript
 // vendure-config.ts
 import path from 'path';
-import { VendureConfig } from '@vendure/core';
-import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
-import { compileUiExtensions } from '@vendure/ui-devkit/compiler';
+import { VendureConfig } from '@gseller/core';
+import { AdminUiPlugin } from '@gseller/admin-ui-plugin';
+import { compileUiExtensions } from '@gseller/ui-devkit/compiler';
 
 export const config: VendureConfig = {
   // ...
@@ -152,13 +152,13 @@ Now go to the Admin UI app in your browser and log in. You should now be able to
 ## Integrate with the Admin UI
 
 ### Styling
-The `@vendure/admin-ui` package (which will be installed alongside the ui-devkit) provides a stylesheet to allow your extension to fit visually with the rest of the Admin UI.
+The `@gseller/admin-ui` package (which will be installed alongside the ui-devkit) provides a stylesheet to allow your extension to fit visually with the rest of the Admin UI.
 
 If you have a build step (as in our Create React App example), you can import it into your app like this:
 
 ```TypeScript
 // src/ui-extension/react-app/src/App.tsx
-import '@vendure/admin-ui/static/theme.min.css';
+import '@gseller/admin-ui/static/theme.min.css';
 ```
 
 If your extension does not have a build step, you can still include the theme stylesheet as a local resource:
@@ -172,7 +172,7 @@ If your extension does not have a build step, you can still include the theme st
 
 ### UiDevkitClient
 
-The `@vendure/ui-devkit` package provides a number of helper methods which allow your extension to seamlessly interact with the underlying Admin UI infrastructure, collectively known as the [UiDevkitClient]({{< relref "ui-devkit-client" >}}). The client allows your extension to:
+The `@gseller/ui-devkit` package provides a number of helper methods which allow your extension to seamlessly interact with the underlying Admin UI infrastructure, collectively known as the [UiDevkitClient]({{< relref "ui-devkit-client" >}}). The client allows your extension to:
 
 * Make GraphQL queries & mutations, without the need for your own HTTP or GraphQL client, with full integration with the Admin UI client-side GraphQL cache.
 * Display toast notifications.
@@ -182,7 +182,7 @@ The `@vendure/ui-devkit` package provides a number of helper methods which allow
 The UiDevkitClient uses the browser's [postMessage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) to communicate between the Admin UI app and your extension. For security reasons this communication channel is restricted to a specific domain (where your extension app will be running from). To configure this, use the [setTargetOrigin]({{< relref "ui-devkit-client" >}}#settargetorigin) function:
 
 ```TypeScript
-import { setTargetOrigin } from '@vendure/ui-devkit';
+import { setTargetOrigin } from '@gseller/ui-devkit';
 
 setTargetOrigin('http://my-domain.com');
 
@@ -193,7 +193,7 @@ If this is mis-configured you will see an error along the lines of "Failed to ex
 For apps with a build step, you can use these functions like this:
 
 ```TypeScript
-import { graphQlMutation, notify } from '@vendure/ui-devkit';
+import { graphQlMutation, notify } from '@gseller/ui-devkit';
 
 // somewhere in your component
 const disableProduct = (id: string) => {

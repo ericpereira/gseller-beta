@@ -13,7 +13,7 @@ generated: true
 
 # PaymentOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="793" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="793" packageName="@gseller/core">}}
 
 Defines payment-related options in the <a href='/typescript-api/configuration/vendure-config#vendureconfig'>VendureConfig</a>.
 

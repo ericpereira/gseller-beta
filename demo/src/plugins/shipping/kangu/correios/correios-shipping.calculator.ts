@@ -2,7 +2,7 @@ import {
   LanguageCode,
   ShippingCalculator,
   TransactionalConnection,
-} from "@vendure/core";
+} from "@gseller/core";
 
 import axios, { AxiosResponse } from "axios";
 import { ChannelAddress } from "../../../../plugins/store-config/channel-address/entities/channel-address.entity";

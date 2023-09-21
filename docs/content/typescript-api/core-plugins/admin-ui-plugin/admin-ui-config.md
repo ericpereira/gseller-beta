@@ -13,7 +13,7 @@ generated: true
 
 # AdminUiConfig
 
-{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="214" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="214" packageName="@gseller/common">}}
 
 This interface describes JSON config file (vendure-ui-config.json) used by the Admin UI.
 The values are loaded at run-time by the Admin UI app, and allow core configuration to be

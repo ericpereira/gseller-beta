@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable } from "typeorm";
-import { Asset, ID, VendureEntity } from "@vendure/core";
-import { DeepPartial } from "@vendure/common/lib/shared-types";
+import { Asset, ID, VendureEntity } from "@gseller/core";
+import { DeepPartial } from "@gseller/common/lib/shared-types";
 import { LayoutCategory } from "./layout-category.entity";
 import { LayoutTypes } from "../types";
 

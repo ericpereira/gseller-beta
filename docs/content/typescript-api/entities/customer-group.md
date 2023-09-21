@@ -13,7 +13,7 @@ generated: true
 
 # CustomerGroup
 
-{{< generation-info sourceFile="packages/core/src/entity/customer-group/customer-group.entity.ts" sourceLine="16" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/customer-group/customer-group.entity.ts" sourceLine="16" packageName="@gseller/core">}}
 
 A grouping of <a href='/typescript-api/entities/customer#customer'>Customer</a>s which enables features such as group-based promotions
 or tax rules.

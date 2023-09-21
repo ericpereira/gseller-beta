@@ -13,7 +13,7 @@ generated: true
 
 # Facet
 
-{{< generation-info sourceFile="packages/core/src/entity/facet/facet.entity.ts" sourceLine="25" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/facet/facet.entity.ts" sourceLine="25" packageName="@gseller/core">}}
 
 A Facet is a class of properties which can be applied to a <a href='/typescript-api/entities/product#product'>Product</a> or <a href='/typescript-api/entities/product-variant#productvariant'>ProductVariant</a>.
 They are used to enable [faceted search](https://en.wikipedia.org/wiki/Faceted_search) whereby products

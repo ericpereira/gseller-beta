@@ -13,7 +13,7 @@ generated: true
 
 # RequestContext
 
-{{< generation-info sourceFile="packages/core/src/api/common/request-context.ts" sourceLine="44" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/api/common/request-context.ts" sourceLine="44" packageName="@gseller/core">}}
 
 The RequestContext holds information relevant to the current request, which may be
 required at various points of the stack.

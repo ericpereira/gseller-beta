@@ -9,10 +9,10 @@ import {
   orderItemsArePartiallyDelivered,
   orderItemsArePartiallyShipped,
   orderItemsAreShipped,
-} from '@vendure/core';
+} from '@gseller/core';
 
-import { ID } from '@vendure/common/lib/shared-types';
-import { OrderType } from '@vendure/common/lib/generated-shop-types';
+import { ID } from '@gseller/common/lib/shared-types';
+import { OrderType } from '@gseller/common/lib/generated-shop-types';
 
 let connection: TransactionalConnection;
 let orderService: OrderService;

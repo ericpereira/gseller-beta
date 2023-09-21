@@ -4,8 +4,8 @@ import {
   EventBus,
   RequestContext,
   TransactionalConnection,
-} from "@vendure/core";
-import { ChannelAddressInput } from "@vendure/common/lib/generated-types";
+} from "@gseller/core";
+import { ChannelAddressInput } from "@gseller/common/lib/generated-types";
 import { IsNull, UpdateResult } from "typeorm";
 
 import {

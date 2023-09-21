@@ -13,7 +13,7 @@ generated: true
 
 # AssetImporter
 
-{{< generation-info sourceFile="packages/core/src/data-import/providers/asset-importer/asset-importer.ts" sourceLine="18" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/data-import/providers/asset-importer/asset-importer.ts" sourceLine="18" packageName="@gseller/core">}}
 
 This service creates new <a href='/typescript-api/entities/asset#asset'>Asset</a> entities based on string paths provided in the CSV
 import format. The source files are resolved by joining the value of `importExportOptions.importAssetsDir`

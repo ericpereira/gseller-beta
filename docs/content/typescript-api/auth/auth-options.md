@@ -13,7 +13,7 @@ generated: true
 
 # AuthOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="307" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="307" packageName="@gseller/core">}}
 
 The AuthOptions define how authentication and authorization is managed.
 

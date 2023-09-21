@@ -13,7 +13,7 @@ generated: true
 
 # LogLevel
 
-{{< generation-info sourceFile="packages/core/src/config/logger/vendure-logger.ts" sourceLine="9" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/logger/vendure-logger.ts" sourceLine="9" packageName="@gseller/core">}}
 
 An enum of valid logging levels.
 

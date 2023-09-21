@@ -5,22 +5,22 @@ weight: 0
 
 # UI Extensions with Angular
 
-Writing your UI extensions with Angular results in the best-optimized and most seamless UI extensions, since you can re-use shared components exported by the `@vendure/admin-ui/core` library, and the Angular framework itself is already present in the app.
+Writing your UI extensions with Angular results in the best-optimized and most seamless UI extensions, since you can re-use shared components exported by the `@gseller/admin-ui/core` library, and the Angular framework itself is already present in the app.
 
 {{< alert warning >}}
 **Note:** an understanding of [Angular](https://angular.io/) is necessary for successfully working with Angular-based UI extensions. Try [Angular's "Getting Started" guide](https://angular.io/start) to learn more.
 {{< /alert >}}
 
-## 1. Install `@vendure/ui-devkit`
+## 1. Install `@gseller/ui-devkit`
 
-To create UI extensions, you'll need to install the `@vendure/ui-devkit` package. This package contains a compiler for building your customized version of the Admin UI, as well as the Angular dependencies you'll need to create your extensions.
+To create UI extensions, you'll need to install the `@gseller/ui-devkit` package. This package contains a compiler for building your customized version of the Admin UI, as well as the Angular dependencies you'll need to create your extensions.
 
 ```bash
-yarn add @vendure/ui-devkit
+yarn add @gseller/ui-devkit
 
 # or
 
-npm install @vendure/ui-devkit
+npm install @gseller/ui-devkit
 ```
 
 ## 2. Create a simple component
@@ -50,7 +50,7 @@ Next we need to declare an Angular module to house the component:
 // project/ui-extensions/greeter.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '@vendure/admin-ui/core';
+import { SharedModule } from '@gseller/admin-ui/core';
 import { GreeterComponent } from './greeter.component';
 
 @NgModule({
@@ -80,9 +80,9 @@ Now we need to tell the `compileUiExtensions` function where to find the extensi
 ```TypeScript
 // project/vendure-config.ts
 import path from 'path';
-import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
-import { VendureConfig } from '@vendure/core';
-import { compileUiExtensions } from '@vendure/ui-devkit/compiler';
+import { AdminUiPlugin } from '@gseller/admin-ui-plugin';
+import { VendureConfig } from '@gseller/core';
+import { compileUiExtensions } from '@gseller/ui-devkit/compiler';
 
 export const config: VendureConfig = {
   // ...

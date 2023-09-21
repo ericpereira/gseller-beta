@@ -13,7 +13,7 @@ generated: true
 
 # ProductPriceApplicator
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/product-price-applicator/product-price-applicator.ts" sourceLine="41" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/product-price-applicator/product-price-applicator.ts" sourceLine="41" packageName="@gseller/core">}}
 
 This helper is used to apply the correct price to a ProductVariant based on the current context
 including active Channel, any current Order, etc. If you use the <a href='/typescript-api/data-access/transactional-connection#transactionalconnection'>TransactionalConnection</a> to

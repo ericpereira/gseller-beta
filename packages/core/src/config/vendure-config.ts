@@ -1,6 +1,6 @@
 import { DynamicModule, Type } from '@nestjs/common';
 import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
-import { LanguageCode } from '@vendure/common/lib/generated-types';
+import { LanguageCode } from '@gseller/common/lib/generated-types';
 import { PluginDefinition } from 'apollo-server-core';
 import { ValidationContext } from 'graphql';
 import { DataSourceOptions } from 'typeorm';

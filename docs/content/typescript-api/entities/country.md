@@ -13,7 +13,7 @@ generated: true
 
 # Country
 
-{{< generation-info sourceFile="packages/core/src/entity/region/country.entity.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/region/country.entity.ts" sourceLine="14" packageName="@gseller/core">}}
 
 A country to which is available when creating / updating an <a href='/typescript-api/entities/address#address'>Address</a>. Countries are
 grouped together into <a href='/typescript-api/entities/zone#zone'>Zone</a>s which are in turn used to determine applicable shipping

@@ -13,7 +13,7 @@ generated: true
 
 # InMemorySessionCacheStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/session-cache/in-memory-session-cache-strategy.ts" sourceLine="16" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/session-cache/in-memory-session-cache-strategy.ts" sourceLine="16" packageName="@gseller/core">}}
 
 Caches session in memory, using a LRU cache implementation. Not suitable for
 multi-server setups since the cache will be local to each instance, reducing

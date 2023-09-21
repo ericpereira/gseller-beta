@@ -13,7 +13,7 @@ generated: true
 
 # CustomOrderStates
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/order-state-machine/order-state.ts" sourceLine="11" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/order-state-machine/order-state.ts" sourceLine="11" packageName="@gseller/core">}}
 
 An interface to extend standard <a href='/typescript-api/orders/order-process#orderstate'>OrderState</a>.
 

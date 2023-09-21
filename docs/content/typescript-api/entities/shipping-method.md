@@ -13,7 +13,7 @@ generated: true
 
 # ShippingMethod
 
-{{< generation-info sourceFile="packages/core/src/entity/shipping-method/shipping-method.entity.ts" sourceLine="33" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/shipping-method/shipping-method.entity.ts" sourceLine="33" packageName="@gseller/core">}}
 
 A ShippingMethod is used to apply a shipping price to an <a href='/typescript-api/entities/order#order'>Order</a>. It is composed of a
 <a href='/typescript-api/shipping/shipping-eligibility-checker#shippingeligibilitychecker'>ShippingEligibilityChecker</a> and a <a href='/typescript-api/shipping/shipping-calculator#shippingcalculator'>ShippingCalculator</a>. For a given Order,

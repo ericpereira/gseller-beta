@@ -1,5 +1,5 @@
 import { InitialDataDefinition } from '../types';
-import { LanguageCode } from '@vendure/core';
+import { LanguageCode } from '@gseller/core';
 
 export const initialData: InitialDataDefinition = {
   defaultLanguage: LanguageCode.pt_BR,

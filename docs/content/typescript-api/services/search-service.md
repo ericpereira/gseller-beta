@@ -13,7 +13,7 @@ generated: true
 
 # SearchService
 
-{{< generation-info sourceFile="packages/core/src/service/services/search.service.ts" sourceLine="15" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/search.service.ts" sourceLine="15" packageName="@gseller/core">}}
 
 This service allows a concrete search service to override its behaviour
 by passing itself to the `adopt()` method.

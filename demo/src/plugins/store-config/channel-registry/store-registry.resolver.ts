@@ -7,10 +7,10 @@ import {
   EmailAddressConflictError,
   RequestContext,
   Transaction,
-} from '@vendure/core';
+} from '@gseller/core';
 import { Context } from '@nestjs/graphql';
 
-import { CreateShopAdministratorInput } from '@vendure/common/lib/generated-types';
+import { CreateShopAdministratorInput } from '@gseller/common/lib/generated-types';
 
 @Resolver()
 export class StoreRegistryResolver {

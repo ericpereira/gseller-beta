@@ -13,7 +13,7 @@ generated: true
 
 # JobBuffer
 
-{{< generation-info sourceFile="packages/core/src/job-queue/job-buffer/job-buffer.ts" sourceLine="83" packageName="@vendure/core" since="1.3.0">}}
+{{< generation-info sourceFile="packages/core/src/job-queue/job-buffer/job-buffer.ts" sourceLine="83" packageName="@gseller/core" since="1.3.0">}}
 
 A JobBuffer is used to temporarily prevent jobs from being sent to the job queue for processing.
 Instead, it collects certain jobs (as specified by the `collect()` method), and stores them.

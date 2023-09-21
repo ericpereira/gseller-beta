@@ -13,7 +13,7 @@ generated: true
 
 # DefaultSearchPluginInitOptions
 
-{{< generation-info sourceFile="packages/core/src/plugin/default-search-plugin/types.ts" sourceLine="15" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/plugin/default-search-plugin/types.ts" sourceLine="15" packageName="@gseller/core">}}
 
 Options which configure the behaviour of the DefaultSearchPlugin
 

@@ -13,7 +13,7 @@ generated: true
 
 # registerCustomDetailComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/custom-detail-component/custom-detail-component.service.ts" sourceLine="12" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/custom-detail-component/custom-detail-component.service.ts" sourceLine="12" packageName="@gseller/admin-ui">}}
 
 Registers a <a href='/admin-ui-api/custom-detail-components/custom-detail-component#customdetailcomponent'>CustomDetailComponent</a> to be placed in a given location. This allows you
 to embed any type of custom Angular component in the entity detail pages of the Admin UI.

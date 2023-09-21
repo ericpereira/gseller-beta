@@ -13,7 +13,7 @@ generated: true
 
 # ElasticsearchOptions
 
-{{< generation-info sourceFile="packages/elasticsearch-plugin/src/options.ts" sourceLine="22" packageName="@vendure/elasticsearch-plugin">}}
+{{< generation-info sourceFile="packages/elasticsearch-plugin/src/options.ts" sourceLine="22" packageName="@gseller/elasticsearch-plugin">}}
 
 Configuration options for the <a href='/typescript-api/core-plugins/elasticsearch-plugin/#elasticsearchplugin'>ElasticsearchPlugin</a>.
 
@@ -384,7 +384,7 @@ extend input SearchResultSortParameter {
 
 # SearchConfig
 
-{{< generation-info sourceFile="packages/elasticsearch-plugin/src/options.ts" sourceLine="377" packageName="@vendure/elasticsearch-plugin">}}
+{{< generation-info sourceFile="packages/elasticsearch-plugin/src/options.ts" sourceLine="377" packageName="@gseller/elasticsearch-plugin">}}
 
 Configuration options for the internal Elasticsearch query which is generated when performing a search.
 
@@ -675,7 +675,7 @@ searchConfig: {
 
 # BoostFieldsConfig
 
-{{< generation-info sourceFile="packages/elasticsearch-plugin/src/options.ts" sourceLine="662" packageName="@vendure/elasticsearch-plugin">}}
+{{< generation-info sourceFile="packages/elasticsearch-plugin/src/options.ts" sourceLine="662" packageName="@gseller/elasticsearch-plugin">}}
 
 Configuration for [boosting](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html#field-boost)
 the scores of given fields when performing a search against a term.

@@ -13,7 +13,7 @@ generated: true
 
 # addActionBarItem
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder.service.ts" sourceLine="120" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder.service.ts" sourceLine="120" packageName="@gseller/admin-ui">}}
 
 Adds a button to the ActionBar at the top right of each list or detail view. The locationId can
 be determined by inspecting the DOM and finding the <vdr-action-bar> element and its

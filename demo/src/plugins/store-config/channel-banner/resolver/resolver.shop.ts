@@ -1,5 +1,5 @@
 import { Query, Resolver } from "@nestjs/graphql";
-import { Allow, Ctx, Permission, RequestContext } from "@vendure/core";
+import { Allow, Ctx, Permission, RequestContext } from "@gseller/core";
 import { ChannelBannerShopService } from "../services/service.shop";
 
 @Resolver()

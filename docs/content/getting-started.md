@@ -11,13 +11,13 @@ weight: 0
 * The [supported TypeScript version](https://github.com/vendure-ecommerce/vendure/blob/master/packages/create/src/constants.ts#L7) is set upon installation. Upgrading to a newer version of TypeScript might result in compilation errors.
 * If you want to use MySQL, MariaDB, or Postgres as your data store, then you'll need an instance available locally. However, if you are just testing out Vendure, we recommend using SQLite, which has no external requirements.
 
-## Installation with @vendure/create
+## Installation with @gseller/create
 
-The recommended way to get started with Vendure is by using the [@vendure/create](https://github.com/vendure-ecommerce/vendure/tree/master/packages/create) tool. This is a command-line tool which will scaffold and configure your new Vendure project and install all dependencies.
+The recommended way to get started with Vendure is by using the [@gseller/create](https://github.com/vendure-ecommerce/vendure/tree/master/packages/create) tool. This is a command-line tool which will scaffold and configure your new Vendure project and install all dependencies.
 
 {{% tab "npx" %}}
 ```sh
-npx @vendure/create my-app
+npx @gseller/create my-app
 ```
 
 {{< alert primary >}}
@@ -26,7 +26,7 @@ npx @vendure/create my-app
 {{% /tab %}}
 {{% tab "npm init" %}}
 ```sh
-npm init @vendure my-app
+npm init @gseller my-app
 ```
 {{< alert primary >}}
 `npm init <initializer>` is available in npm 6+
@@ -34,14 +34,14 @@ npm init @vendure my-app
 {{% /tab %}}
 {{% tab "yarn create" %}}
 ```sh
-yarn create @vendure my-app
+yarn create @gseller my-app
 ```
 {{< alert primary >}}
 `yarn create` is available in Yarn 0.25+
 {{< /alert >}}
 {{% /tab %}}
 
-*For other installation options see the [@vendure/create documentation](https://github.com/vendure-ecommerce/vendure/blob/master/packages/create/README.md).*
+*For other installation options see the [@gseller/create documentation](https://github.com/vendure-ecommerce/vendure/blob/master/packages/create/README.md).*
 
 
 "my-app" in the above command would be replaced by whatever you'd like to name your new project.

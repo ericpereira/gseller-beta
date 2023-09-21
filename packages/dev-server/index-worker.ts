@@ -1,4 +1,4 @@
-import { bootstrapWorker } from '@vendure/core';
+import { bootstrapWorker } from '@gseller/core';
 
 import { devConfig } from './dev-config';
 

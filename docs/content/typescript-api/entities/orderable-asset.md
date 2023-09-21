@@ -13,7 +13,7 @@ generated: true
 
 # OrderableAsset
 
-{{< generation-info sourceFile="packages/core/src/entity/asset/orderable-asset.entity.ts" sourceLine="18" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/asset/orderable-asset.entity.ts" sourceLine="18" packageName="@gseller/core">}}
 
 This base class is extended in order to enable specific ordering of the one-to-many
 Entity -> Assets relation. Using a many-to-many relation does not provide a way

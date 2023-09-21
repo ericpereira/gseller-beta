@@ -13,7 +13,7 @@ generated: true
 
 # DataTableComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/data-table/data-table.component.ts" sourceLine="86" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/data-table/data-table.component.ts" sourceLine="86" packageName="@gseller/admin-ui">}}
 
 A table for displaying PaginatedList results. It is designed to be used inside components which
 extend the <a href='/admin-ui-api/list-detail-views/base-list-component#baselistcomponent'>BaseListComponent</a> class.

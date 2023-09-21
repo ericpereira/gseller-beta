@@ -13,7 +13,7 @@ generated: true
 
 # ShippingEligibilityCheckerConfig
 
-{{< generation-info sourceFile="packages/core/src/config/shipping-method/shipping-eligibility-checker.ts" sourceLine="22" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/shipping-method/shipping-eligibility-checker.ts" sourceLine="22" packageName="@gseller/core">}}
 
 Configuration passed into the constructor of a <a href='/typescript-api/shipping/shipping-eligibility-checker#shippingeligibilitychecker'>ShippingEligibilityChecker</a> to
 configure its behavior.

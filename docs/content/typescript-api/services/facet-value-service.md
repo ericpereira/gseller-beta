@@ -13,7 +13,7 @@ generated: true
 
 # FacetValueService
 
-{{< generation-info sourceFile="packages/core/src/service/services/facet-value.service.ts" sourceLine="39" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/facet-value.service.ts" sourceLine="39" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/facet-value#facetvalue'>FacetValue</a> entities.
 

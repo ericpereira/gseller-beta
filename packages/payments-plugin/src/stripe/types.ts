@@ -1,11 +1,11 @@
-import { Injector, Order, RequestContext } from '@vendure/core';
-import '@vendure/core/dist/entity/custom-entity-fields';
+import { Injector, Order, RequestContext } from '@gseller/core';
+import '@gseller/core/dist/entity/custom-entity-fields';
 import { Request } from 'express';
 import Stripe from 'stripe';
 
 // Note: deep import is necessary here because CustomCustomerFields is also extended in the Braintree
 // plugin. Reference: https://github.com/microsoft/TypeScript/issues/46617
-declare module '@vendure/core/dist/entity/custom-entity-fields' {
+declare module '@gseller/core/dist/entity/custom-entity-fields' {
     interface CustomCustomerFields {
         stripeCustomerId?: string;
     }

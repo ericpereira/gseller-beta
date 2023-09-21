@@ -1,4 +1,4 @@
-import { ErrorResult, Scalars } from '@vendure/core';
+import { ErrorResult, Scalars } from '@gseller/core';
 
 export class DocumentNumberConflictError extends ErrorResult {
   readonly __typename = 'DocumentNumberConflictError';

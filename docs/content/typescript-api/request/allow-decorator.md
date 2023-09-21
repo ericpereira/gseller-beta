@@ -13,7 +13,7 @@ generated: true
 
 # Allow
 
-{{< generation-info sourceFile="packages/core/src/api/decorators/allow.decorator.ts" sourceLine="38" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/api/decorators/allow.decorator.ts" sourceLine="38" packageName="@gseller/core">}}
 
 Attaches metadata to the resolver defining which permissions are required to execute the
 operation, using one or more <a href='/typescript-api/common/permission#permission'>Permission</a> values.

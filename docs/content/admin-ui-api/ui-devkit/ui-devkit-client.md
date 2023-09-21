@@ -13,7 +13,7 @@ generated: true
 
 # setTargetOrigin
 
-{{< generation-info sourceFile="packages/ui-devkit/src/client/devkit-client-api.ts" sourceLine="24" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/client/devkit-client-api.ts" sourceLine="24" packageName="@gseller/ui-devkit">}}
 
 Set the [window.postMessage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
 `targetOrigin`. The Vendure ui-devkit uses the postMessage API to
@@ -37,7 +37,7 @@ function setTargetOrigin(value: string): void
 
 # getActivatedRoute
 
-{{< generation-info sourceFile="packages/ui-devkit/src/client/devkit-client-api.ts" sourceLine="43" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/client/devkit-client-api.ts" sourceLine="43" packageName="@gseller/ui-devkit">}}
 
 Retrieves information about the current route of the host application, since it is not possible
 to otherwise get this information from within the child iframe.
@@ -45,7 +45,7 @@ to otherwise get this information from within the child iframe.
 *Example*
 
 ```TypeScript
-import { getActivatedRoute } from '@vendure/ui-devkit';
+import { getActivatedRoute } from '@gseller/ui-devkit';
 
 const route = await getActivatedRoute();
 const slug = route.params.slug;
@@ -62,14 +62,14 @@ function getActivatedRoute(): Promise<ActiveRouteData>
 
 # graphQlQuery
 
-{{< generation-info sourceFile="packages/ui-devkit/src/client/devkit-client-api.ts" sourceLine="70" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/client/devkit-client-api.ts" sourceLine="70" packageName="@gseller/ui-devkit">}}
 
 Perform a GraphQL query and returns either an Observable or a Promise of the result.
 
 *Example*
 
 ```TypeScript
-import { graphQlQuery } from '@vendure/ui-devkit';
+import { graphQlQuery } from '@gseller/ui-devkit';
 
 const productList = await graphQlQuery(`
   query GetProducts($skip: Int, $take: Int) {
@@ -111,14 +111,14 @@ function graphQlQuery<T, V extends { [key: string]: any }>(document: string, var
 
 # graphQlMutation
 
-{{< generation-info sourceFile="packages/ui-devkit/src/client/devkit-client-api.ts" sourceLine="112" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/client/devkit-client-api.ts" sourceLine="112" packageName="@gseller/ui-devkit">}}
 
 Perform a GraphQL mutation and returns either an Observable or a Promise of the result.
 
 *Example*
 
 ```TypeScript
-import { graphQlMutation } from '@vendure/ui-devkit';
+import { graphQlMutation } from '@gseller/ui-devkit';
 
 const disableProduct = (id: string) => {
   return graphQlMutation(`
@@ -156,14 +156,14 @@ function graphQlMutation<T, V extends { [key: string]: any }>(document: string, 
 
 # notify
 
-{{< generation-info sourceFile="packages/ui-devkit/src/client/devkit-client-api.ts" sourceLine="147" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/client/devkit-client-api.ts" sourceLine="147" packageName="@gseller/ui-devkit">}}
 
 Display a toast notification.
 
 *Example*
 
 ```TypeScript
-import { notify } from '@vendure/ui-devkit';
+import { notify } from '@gseller/ui-devkit';
 
 notify({
   message: 'Updated Product',

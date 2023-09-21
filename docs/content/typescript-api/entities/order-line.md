@@ -13,7 +13,7 @@ generated: true
 
 # OrderLine
 
-{{< generation-info sourceFile="packages/core/src/entity/order-line/order-line.entity.ts" sourceLine="29" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/order-line/order-line.entity.ts" sourceLine="29" packageName="@gseller/core">}}
 
 A single line on an <a href='/typescript-api/entities/order#order'>Order</a> which contains information about the <a href='/typescript-api/entities/product-variant#productvariant'>ProductVariant</a> and
 quantity ordered, as well as the price and tax information.

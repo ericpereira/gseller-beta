@@ -18,9 +18,9 @@ import {
   TransactionalConnection,
   idsAreEqual,
   isGraphQlErrorResult,
-} from '@vendure/core';
+} from '@gseller/core';
 
-import { CustomSellerFields } from '@vendure/core/dist/entity/custom-entity-fields';
+import { CustomSellerFields } from '@gseller/core/dist/entity/custom-entity-fields';
 import { MultivendorPluginOptions } from '../types';
 
 export class MultivendorSellerStrategy implements OrderSellerStrategy {

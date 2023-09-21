@@ -13,7 +13,7 @@ generated: true
 
 # PluginCommonModule
 
-{{< generation-info sourceFile="packages/core/src/plugin/plugin-common.module.ts" sourceLine="30" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/plugin/plugin-common.module.ts" sourceLine="30" packageName="@gseller/core">}}
 
 This module provides the common services, configuration, and event bus capabilities
 required by a typical plugin. It should be imported into plugins to avoid having to

@@ -1,3 +1,3 @@
-import { CrudPermissionDefinition } from "@vendure/core";
+import { CrudPermissionDefinition } from "@gseller/core";
 
 export const manageChannelFinancesPermission = new CrudPermissionDefinition('channelFinances');

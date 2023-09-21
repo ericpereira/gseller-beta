@@ -13,7 +13,7 @@ generated: true
 
 # WorkerHealthCheckConfig
 
-{{< generation-info sourceFile="packages/core/src/worker/worker-health.service.ts" sourceLine="14" packageName="@vendure/core" since="1.2.0">}}
+{{< generation-info sourceFile="packages/core/src/worker/worker-health.service.ts" sourceLine="14" packageName="@gseller/core" since="1.2.0">}}
 
 Specifies the configuration for the Worker's HTTP health check endpoint.
 

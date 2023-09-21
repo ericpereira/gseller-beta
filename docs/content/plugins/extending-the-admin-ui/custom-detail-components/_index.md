@@ -15,14 +15,14 @@ Let's imagine that your project has an external content management system (CMS) 
 import { NgModule, Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs';
 import { FormGroup } from '@angular/forms';
-import { CustomFieldConfig } from '@vendure/common/lib/generated-types';
+import { CustomFieldConfig } from '@gseller/common/lib/generated-types';
 import {
     DataService,
     SharedModule,
     CustomDetailComponent,
     registerCustomDetailComponent,
     GetProductWithVariants
-} from '@vendure/admin-ui/core';
+} from '@gseller/admin-ui/core';
 
 @Component({
   template: `

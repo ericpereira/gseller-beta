@@ -1,7 +1,7 @@
-import { Administrator } from '@vendure/core';
+import { Administrator } from '@gseller/core';
 
-export * from '@vendure/common/lib/generated-types';
-declare module '@vendure/common/lib/generated-types' {
+export * from '@gseller/common/lib/generated-types';
+declare module '@gseller/common/lib/generated-types' {
   interface Producer {
     firstName: string;
     lastName: string;

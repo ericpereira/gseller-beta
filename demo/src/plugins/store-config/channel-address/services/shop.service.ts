@@ -2,7 +2,7 @@ import {
   ChannelService,
   RequestContext,
   TransactionalConnection,
-} from "@vendure/core";
+} from "@gseller/core";
 import { IsNull } from "typeorm";
 
 import {

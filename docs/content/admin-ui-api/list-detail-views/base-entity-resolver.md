@@ -13,7 +13,7 @@ generated: true
 
 # BaseEntityResolver
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/base-entity-resolver.ts" sourceLine="49" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/base-entity-resolver.ts" sourceLine="49" packageName="@gseller/admin-ui">}}
 
 A base resolver for an entity detail route. Resolves to an observable of the given entity, or a "blank"
 version if the route id equals "create". Should be used together with details views which extend the

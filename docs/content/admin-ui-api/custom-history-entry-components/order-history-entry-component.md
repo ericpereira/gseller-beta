@@ -13,7 +13,7 @@ generated: true
 
 # OrderHistoryEntryComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/custom-history-entry-component/history-entry-component-types.ts" sourceLine="53" packageName="@vendure/admin-ui" since="1.9.0">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/custom-history-entry-component/history-entry-component-types.ts" sourceLine="53" packageName="@gseller/admin-ui" since="1.9.0">}}
 
 Used to implement a <a href='/admin-ui-api/custom-history-entry-components/history-entry-component#historyentrycomponent'>HistoryEntryComponent</a> which requires access to the Order object.
 

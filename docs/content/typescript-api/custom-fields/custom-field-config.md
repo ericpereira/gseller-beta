@@ -13,7 +13,7 @@ generated: true
 
 # CustomFieldConfig
 
-{{< generation-info sourceFile="packages/core/src/config/custom-field/custom-field-types.ts" sourceLine="107" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/custom-field/custom-field-types.ts" sourceLine="107" packageName="@gseller/core">}}
 
 An object used to configure a custom field.
 

@@ -13,7 +13,7 @@ generated: true
 
 # RefundTransitionData
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/refund-state-machine/refund-state.ts" sourceLine="33" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/refund-state-machine/refund-state.ts" sourceLine="33" packageName="@gseller/core">}}
 
 The data which is passed to the state transition handlers of the RefundStateMachine.
 

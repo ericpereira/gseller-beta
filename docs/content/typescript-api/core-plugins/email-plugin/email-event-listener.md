@@ -13,7 +13,7 @@ generated: true
 
 # EmailEventListener
 
-{{< generation-info sourceFile="packages/email-plugin/src/event-listener.ts" sourceLine="13" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/event-listener.ts" sourceLine="13" packageName="@gseller/email-plugin">}}
 
 An EmailEventListener is used to listen for events and set up a <a href='/typescript-api/core-plugins/email-plugin/email-event-handler#emaileventhandler'>EmailEventHandler</a> which
 defines how an email will be generated from this event.

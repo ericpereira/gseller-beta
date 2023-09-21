@@ -13,7 +13,7 @@ generated: true
 
 # LocaleDatePipe
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/locale-date.pipe.ts" sourceLine="19" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/locale-date.pipe.ts" sourceLine="19" packageName="@gseller/admin-ui">}}
 
 A replacement of the Angular DatePipe which makes use of the Intl API
 to format dates according to the selected UI language.

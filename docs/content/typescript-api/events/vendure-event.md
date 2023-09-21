@@ -13,7 +13,7 @@ generated: true
 
 # VendureEvent
 
-{{< generation-info sourceFile="packages/core/src/event-bus/vendure-event.ts" sourceLine="7" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/event-bus/vendure-event.ts" sourceLine="7" packageName="@gseller/core">}}
 
 The base class for all events used by the EventBus system.
 

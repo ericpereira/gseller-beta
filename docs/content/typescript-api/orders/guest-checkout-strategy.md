@@ -13,7 +13,7 @@ generated: true
 
 # GuestCheckoutStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/guest-checkout-strategy.ts" sourceLine="25" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/order/guest-checkout-strategy.ts" sourceLine="25" packageName="@gseller/core" since="2.0.0">}}
 
 A strategy that determines how to deal with guest checkouts - i.e. when a customer
 checks out without being logged in. For example, a strategy could be used to implement

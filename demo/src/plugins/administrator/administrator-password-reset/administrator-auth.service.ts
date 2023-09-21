@@ -9,7 +9,7 @@ import {
   TransactionalConnection,
   UserService,
   isGraphQlErrorResult,
-} from '@vendure/core';
+} from '@gseller/core';
 import {
   PasswordResetTokenExpiredError,
   PasswordResetTokenInvalidError,

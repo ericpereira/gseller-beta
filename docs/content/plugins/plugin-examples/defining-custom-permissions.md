@@ -11,7 +11,7 @@ For example, let's imagine you are creating a plugin which exposes a new mutatio
 
 ```TypeScript
 // sync-permission.ts
-import { PermissionDefinition } from '@vendure/core';
+import { PermissionDefinition } from '@gseller/core';
 
 export const sync = new PermissionDefinition({
   name: 'SyncInventory',
@@ -23,7 +23,7 @@ This permission can then be used in conjuction with the [@Allow() decorator]({{<
 
 ```TypeScript
 // inventory-sync.resolver.ts
-import { Allow } from '@vendure/core';
+import { Allow } from '@gseller/core';
 import { Mutation, Resolver } from '@nestjs/graphql';
 import { sync } from './sync-permission';
 
@@ -43,7 +43,7 @@ Finally, the `sync` PermissionDefinition must be passed into the VendureConfig s
 ```TypeScript {hl_lines=[21]}
 // inventory-sync.plugin.ts
 import gql from 'graphql-tag';
-import { VendurePlugin } from '@vendure/core';
+import { VendurePlugin } from '@gseller/core';
 import { InventorySyncResolver } from './inventory-sync.resolver'
 import { sync } from './sync-permission';
 

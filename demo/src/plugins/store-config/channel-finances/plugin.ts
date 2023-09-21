@@ -1,4 +1,4 @@
-import { EventBus, PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { EventBus, PluginCommonModule, VendurePlugin } from '@gseller/core';
 
 import { AccountHolder } from './entities/account.holder.entity';
 import { AccountHolderService } from './services/account-holder.service';

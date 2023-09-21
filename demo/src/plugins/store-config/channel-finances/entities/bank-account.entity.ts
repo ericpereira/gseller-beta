@@ -1,8 +1,8 @@
-import { Channel, VendureEntity } from "@vendure/core";
+import { Channel, VendureEntity } from "@gseller/core";
 import { Column, Entity, JoinColumn, OneToOne } from "typeorm";
 
 import { AccountHolder } from "./account.holder.entity";
-import { DeepPartial } from "@vendure/common/lib/shared-types";
+import { DeepPartial } from "@gseller/common/lib/shared-types";
 
 @Entity()
 class ChannelBankAccount extends VendureEntity {

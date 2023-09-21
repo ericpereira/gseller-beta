@@ -13,7 +13,7 @@ generated: true
 
 # StockLocationStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/catalog/stock-location-strategy.ts" sourceLine="48" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/catalog/stock-location-strategy.ts" sourceLine="48" packageName="@gseller/core" since="2.0.0">}}
 
 The StockLocationStrategy is responsible for determining which <a href='/typescript-api/entities/stock-location#stocklocation'>StockLocation</a>s
 should be used to fulfill an <a href='/typescript-api/entities/order-line#orderline'>OrderLine</a> and how much stock should be allocated
@@ -104,7 +104,7 @@ of an OrderLine which has already been fulfilled.{{< /member-description >}}
 
 # AvailableStock
 
-{{< generation-info sourceFile="packages/core/src/config/catalog/stock-location-strategy.ts" sourceLine="18" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/catalog/stock-location-strategy.ts" sourceLine="18" packageName="@gseller/core" since="2.0.0">}}
 
 The overall available stock for a ProductVariant as determined by the logic of the
 <a href='/typescript-api/products-stock/stock-location-strategy#stocklocationstrategy'>StockLocationStrategy</a>'s `getAvailableStock` method.
@@ -138,7 +138,7 @@ interface AvailableStock {
 
 # LocationWithQuantity
 
-{{< generation-info sourceFile="packages/core/src/config/catalog/stock-location-strategy.ts" sourceLine="32" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/catalog/stock-location-strategy.ts" sourceLine="32" packageName="@gseller/core" since="2.0.0">}}
 
 Returned by the `StockLocationStrategy` methods to indicate how much stock from each
 location should be used in the allocation/sale/release/cancellation of an OrderLine.

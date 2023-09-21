@@ -13,7 +13,7 @@ generated: true
 
 # StockAllocationStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/stock-allocation-strategy.ts" sourceLine="13" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/order/stock-allocation-strategy.ts" sourceLine="13" packageName="@gseller/core">}}
 
 This strategy is responsible for deciding at which stage in the order process
 stock will be allocated.

@@ -105,7 +105,7 @@ If you want to use a completely custom form input component which is not provide
 Here's an example config demonstrating several ways to customize the UI controls for custom fields:
 
 ```TypeScript
-import { LanguageCode, VendureConfig } from '@vendure/core';
+import { LanguageCode, VendureConfig } from '@gseller/core';
 
 const config: VendureConfig = {
   // ...
@@ -225,7 +225,7 @@ Furthermore, the values of these OrderLine custom fields can even be used to mod
 
 ```TypeScript
 import { RequestContext, PriceCalculationResult,
-  ProductVariant, OrderItemPriceCalculationStrategy } from '@vendure/core';
+  ProductVariant, OrderItemPriceCalculationStrategy } from '@gseller/core';
 
 export class EngravingPriceStrategy implements OrderItemPriceCalculationStrategy {
 
@@ -256,7 +256,7 @@ access the custom field values on a Product entity.
 Attempting to access the custom field will result in a TS compiler error:
 
 ```TypeScript {hl_lines=[12,13]}
-import { RequestContext, TransactionalConnection, ID, Product } from '@vendure/core';
+import { RequestContext, TransactionalConnection, ID, Product } from '@gseller/core';
 
 export class MyService {
   constructor(private connection: TransactionalConnection) {}
@@ -282,12 +282,12 @@ However, this sacrifices type safety. To make our custom fields type-safe we can
 ```TypeScript
 // types.ts
 
-// Note: we are using deep a import here, rather than importing from `@vendure/core` due to
+// Note: we are using deep a import here, rather than importing from `@gseller/core` due to
 // a possible bug in TypeScript (https://github.com/microsoft/TypeScript/issues/46617) which
 // causes issues when multiple plugins extend the same custom fields interface.
-import { CustomProductFields } from '@vendure/core/dist/entity/custom-entity-fields';
+import { CustomProductFields } from '@gseller/core/dist/entity/custom-entity-fields';
 
-declare module '@vendure/core/dist/entity/custom-entity-fields' {
+declare module '@gseller/core/dist/entity/custom-entity-fields' {
   interface CustomProductFields {
     infoUrl: string;
     downloadable: boolean;

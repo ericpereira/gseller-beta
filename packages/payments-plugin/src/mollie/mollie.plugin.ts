@@ -1,4 +1,4 @@
-import { PluginCommonModule, RuntimeVendureConfig, VendurePlugin } from '@vendure/core';
+import { PluginCommonModule, RuntimeVendureConfig, VendurePlugin } from '@gseller/core';
 
 import { PLUGIN_INIT_OPTIONS } from './constants';
 import { shopSchema } from './mollie-shop-schema';
@@ -45,17 +45,17 @@ export interface MolliePluginOptions {
  * 1. You will need to create a Mollie account and get your apiKey in the dashboard.
  * 2. Install the Payments plugin and the Mollie client:
  *
- *     `yarn add \@vendure/payments-plugin \@mollie/api-client`
+ *     `yarn add \@gseller/payments-plugin \@mollie/api-client`
  *
  *     or
  *
- *     `npm install \@vendure/payments-plugin \@mollie/api-client`
+ *     `npm install \@gseller/payments-plugin \@mollie/api-client`
  *
  * ## Setup
  *
  * 1. Add the plugin to your VendureConfig `plugins` array:
  *     ```TypeScript
- *     import { MolliePlugin } from '\@vendure/payments-plugin/package/mollie';
+ *     import { MolliePlugin } from '\@gseller/payments-plugin/package/mollie';
  *
  *     // ...
  *

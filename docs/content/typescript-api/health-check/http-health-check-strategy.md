@@ -13,7 +13,7 @@ generated: true
 
 # HttpHealthCheckStrategy
 
-{{< generation-info sourceFile="packages/core/src/health-check/http-health-check-strategy.ts" sourceLine="36" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/health-check/http-health-check-strategy.ts" sourceLine="36" packageName="@gseller/core">}}
 
 A <a href='/typescript-api/health-check/health-check-strategy#healthcheckstrategy'>HealthCheckStrategy</a> used to check health by pinging a url. Internally it uses
 the [NestJS HttpHealthIndicator](https://docs.nestjs.com/recipes/terminus#http-healthcheck).
@@ -21,7 +21,7 @@ the [NestJS HttpHealthIndicator](https://docs.nestjs.com/recipes/terminus#http-h
 *Example*
 
 ```TypeScript
-import { HttpHealthCheckStrategy, TypeORMHealthCheckStrategy } from '@vendure/core';
+import { HttpHealthCheckStrategy, TypeORMHealthCheckStrategy } from '@gseller/core';
 
 export const config = {
   // ...

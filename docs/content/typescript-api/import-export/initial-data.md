@@ -13,7 +13,7 @@ generated: true
 
 # InitialData
 
-{{< generation-info sourceFile="packages/core/src/data-import/types.ts" sourceLine="46" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/data-import/types.ts" sourceLine="46" packageName="@gseller/core">}}
 
 An object defining initial settings for a new Vendure installation.
 

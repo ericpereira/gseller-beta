@@ -13,7 +13,7 @@ generated: true
 
 # CollectionService
 
-{{< generation-info sourceFile="packages/core/src/service/services/collection.service.ts" sourceLine="66" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/collection.service.ts" sourceLine="66" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/collection#collection'>Collection</a> entities.
 

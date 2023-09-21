@@ -13,7 +13,7 @@ generated: true
 
 # PaymentMethodConfigOptions
 
-{{< generation-info sourceFile="packages/core/src/config/payment/payment-method-handler.ts" sourceLine="255" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/payment/payment-method-handler.ts" sourceLine="255" packageName="@gseller/core">}}
 
 Defines the object which is used to construct the <a href='/typescript-api/payment/payment-method-handler#paymentmethodhandler'>PaymentMethodHandler</a>.
 

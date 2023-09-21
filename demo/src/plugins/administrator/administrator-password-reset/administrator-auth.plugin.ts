@@ -1,4 +1,4 @@
-import { Asset, PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { Asset, PluginCommonModule, VendurePlugin } from '@gseller/core';
 
 import { AdministratorAvatarResolver } from './administrator-auth.resolver';
 import { AdministratorAvatarService } from './administrator-auth.service';

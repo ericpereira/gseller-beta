@@ -1,4 +1,4 @@
-import { EventBus, PluginCommonModule, VendurePlugin } from "@vendure/core";
+import { EventBus, PluginCommonModule, VendurePlugin } from "@gseller/core";
 
 import { BankAccountEvent } from "../../event-bus/events/bank-account-event";
 import { OnApplicationBootstrap } from '@nestjs/common';

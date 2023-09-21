@@ -13,7 +13,7 @@ generated: true
 
 # PromotionOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="704" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="704" packageName="@gseller/core">}}
 
 
 

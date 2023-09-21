@@ -13,7 +13,7 @@ generated: true
 
 # PaymentState
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/payment-state-machine/payment-state.ts" sourceLine="27" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/payment-state-machine/payment-state.ts" sourceLine="27" packageName="@gseller/core">}}
 
 These are the default states of the payment process.
 

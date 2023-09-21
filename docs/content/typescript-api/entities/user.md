@@ -13,7 +13,7 @@ generated: true
 
 # User
 
-{{< generation-info sourceFile="packages/core/src/entity/user/user.entity.ts" sourceLine="20" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/user/user.entity.ts" sourceLine="20" packageName="@gseller/core">}}
 
 A User represents any authenticated user of the Vendure API. This includes both
 <a href='/typescript-api/entities/administrator#administrator'>Administrator</a>s as well as registered <a href='/typescript-api/entities/customer#customer'>Customer</a>s.

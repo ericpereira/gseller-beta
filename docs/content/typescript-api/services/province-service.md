@@ -13,7 +13,7 @@ generated: true
 
 # ProvinceService
 
-{{< generation-info sourceFile="packages/core/src/service/services/province.service.ts" sourceLine="31" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/province.service.ts" sourceLine="31" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/province#province'>Province</a> entities.
 

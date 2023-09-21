@@ -13,7 +13,7 @@ generated: true
 
 # ProductVariantPrice
 
-{{< generation-info sourceFile="packages/core/src/entity/product-variant/product-variant-price.entity.ts" sourceLine="18" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/product-variant/product-variant-price.entity.ts" sourceLine="18" packageName="@gseller/core">}}
 
 A ProductVariantPrice is a Channel-specific price for a ProductVariant. For every Channel to
 which a ProductVariant is assigned, there will be a corresponding ProductVariantPrice entity.

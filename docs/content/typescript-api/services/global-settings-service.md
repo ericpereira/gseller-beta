@@ -13,7 +13,7 @@ generated: true
 
 # GlobalSettingsService
 
-{{< generation-info sourceFile="packages/core/src/service/services/global-settings.service.ts" sourceLine="21" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/global-settings.service.ts" sourceLine="21" packageName="@gseller/core">}}
 
 Contains methods relating to the {@link GlobalSettings} entity.
 

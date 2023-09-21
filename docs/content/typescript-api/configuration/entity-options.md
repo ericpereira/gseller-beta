@@ -13,7 +13,7 @@ generated: true
 
 # EntityOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="913" packageName="@vendure/core" since="1.3.0">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="913" packageName="@gseller/core" since="1.3.0">}}
 
 Options relating to the internal handling of entities.
 
@@ -96,7 +96,7 @@ see <a href='/typescript-api/configuration/entity-options#entitymetadatamodifier
 
 # EntityMetadataModifier
 
-{{< generation-info sourceFile="packages/core/src/config/entity-metadata/entity-metadata-modifier.ts" sourceLine="56" packageName="@vendure/core" since="1.6.0">}}
+{{< generation-info sourceFile="packages/core/src/config/entity-metadata/entity-metadata-modifier.ts" sourceLine="56" packageName="@gseller/core" since="1.6.0">}}
 
 A function which allows TypeORM entity metadata to be manipulated prior to the DB schema being generated
 during bootstrap.
@@ -111,7 +111,7 @@ always check and modify your migration scripts as needed.
 
 ```TypeScript
 import { Index } from 'typeorm';
-import { EntityMetadataModifier, ProductVariant } from '@vendure/core';
+import { EntityMetadataModifier, ProductVariant } from '@gseller/core';
 
 // Adds a unique index to the ProductVariant.sku column
 export const addSkuUniqueIndex: EntityMetadataModifier = metadata => {
@@ -124,7 +124,7 @@ export const addSkuUniqueIndex: EntityMetadataModifier = metadata => {
 
 ```TypeScript
 import { Column } from 'typeorm';
-import { EntityMetadataModifier, ProductTranslation } from '@vendure/core';
+import { EntityMetadataModifier, ProductTranslation } from '@gseller/core';
 
 // Use the "mediumtext" datatype for the Product's description rather than
 // the default "text" type.

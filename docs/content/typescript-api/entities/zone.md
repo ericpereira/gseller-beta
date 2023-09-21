@@ -13,7 +13,7 @@ generated: true
 
 # Zone
 
-{{< generation-info sourceFile="packages/core/src/entity/zone/zone.entity.ts" sourceLine="17" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/zone/zone.entity.ts" sourceLine="17" packageName="@gseller/core">}}
 
 A Zone is a grouping of one or more <a href='/typescript-api/entities/country#country'>Country</a> entities. It is used for
 calculating applicable shipping and taxes.

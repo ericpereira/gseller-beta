@@ -13,7 +13,7 @@ generated: true
 
 # BraintreePlugin
 
-{{< generation-info sourceFile="packages/payments-plugin/src/braintree/braintree.plugin.ts" sourceLine="241" packageName="@vendure/payments-plugin">}}
+{{< generation-info sourceFile="packages/payments-plugin/src/braintree/braintree.plugin.ts" sourceLine="241" packageName="@gseller/payments-plugin">}}
 
 This plugin enables payments to be processed by [Braintree](https://www.braintreepayments.com/), a popular payment provider.
 
@@ -22,12 +22,12 @@ This plugin enables payments to be processed by [Braintree](https://www.braintre
 1. You will need to create a Braintree sandbox account as outlined in https://developers.braintreepayments.com/start/overview.
 2. Then install `braintree` and `@types/braintree` from npm. This plugin was written with `v3.x` of the Braintree lib.
     ```shell
-    yarn add @vendure/payments-plugin braintree
+    yarn add @gseller/payments-plugin braintree
     yarn add -D @types/braintree
     ```
     or
     ```shell
-    npm install @vendure/payments-plugin braintree
+    npm install @gseller/payments-plugin braintree
     npm install -D @types/braintree
     ```
 
@@ -35,7 +35,7 @@ This plugin enables payments to be processed by [Braintree](https://www.braintre
 
 1. Add the plugin to your VendureConfig `plugins` array:
     ```TypeScript
-    import { BraintreePlugin } from '@vendure/payments-plugin/package/braintree';
+    import { BraintreePlugin } from '@gseller/payments-plugin/package/braintree';
     import { Environment } from 'braintree';
 
     // ...
@@ -271,7 +271,7 @@ class BraintreePlugin {
 
 # BraintreePluginOptions
 
-{{< generation-info sourceFile="packages/payments-plugin/src/braintree/types.ts" sourceLine="25" packageName="@vendure/payments-plugin">}}
+{{< generation-info sourceFile="packages/payments-plugin/src/braintree/types.ts" sourceLine="25" packageName="@gseller/payments-plugin">}}
 
 Options for the Braintree plugin.
 

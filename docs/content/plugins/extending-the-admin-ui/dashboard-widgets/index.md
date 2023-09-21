@@ -22,7 +22,7 @@ A dashboard widget is an Angular component. This example features a simplified U
 
 ```TypeScript
 import { Component, NgModule, OnInit } from '@angular/core';
-import { DataService, SharedModule } from '@vendure/admin-ui/core';
+import { DataService, SharedModule } from '@gseller/admin-ui/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -73,7 +73,7 @@ export class ReviewsWidgetModule {}
 ```
 
 {{% alert %}}
-Note that we also need to define an `NgModule` for this component. This is because we will be lazy-loading the component at run-time, and the NgModule is required for us to use shared providers (e.g. `DataService`) and any shared components, directives or pipes defined in the `@vendure/admin-ui/core` package.
+Note that we also need to define an `NgModule` for this component. This is because we will be lazy-loading the component at run-time, and the NgModule is required for us to use shared providers (e.g. `DataService`) and any shared components, directives or pipes defined in the `@gseller/admin-ui/core` package.
 {{% /alert %}}
 
 ### Register the widget
@@ -82,7 +82,7 @@ Our widget now needs to be registered as part of a [shared module]({{< relref "e
 
 ```TypeScript
 import { NgModule } from '@angular/core';
-import { registerDashboardWidget } from '@vendure/admin-ui/core';
+import { registerDashboardWidget } from '@gseller/admin-ui/core';
 import { reviewPermission } from '../constants';
 
 @NgModule({
@@ -116,7 +116,7 @@ While administrators can customize which widgets they want to display on the das
 
 ```TypeScript
 import { NgModule } from '@angular/core';
-import { registerDashboardWidget, setDashboardWidgetLayout } from '@vendure/admin-ui/core';
+import { registerDashboardWidget, setDashboardWidgetLayout } from '@gseller/admin-ui/core';
 import { reviewPermission } from '../constants';
 
 @NgModule({
@@ -150,8 +150,8 @@ by overriding the definition like this:
 
 ```TypeScript
 import { NgModule } from '@angular/core';
-import { registerDashboardWidget } from '@vendure/admin-ui/core';
-import { OrderSummaryWidgetComponent } from '@vendure/admin-ui/dashboard';
+import { registerDashboardWidget } from '@gseller/admin-ui/core';
+import { OrderSummaryWidgetComponent } from '@gseller/admin-ui/dashboard';
 
 @NgModule({
   imports: [],

@@ -13,7 +13,7 @@ generated: true
 
 # TaxLineCalculationStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/tax/tax-line-calculation-strategy.ts" sourceLine="22" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/tax/tax-line-calculation-strategy.ts" sourceLine="22" packageName="@gseller/core">}}
 
 This strategy defines how the TaxLines on OrderItems are calculated. By default,
 the <a href='/typescript-api/tax/default-tax-line-calculation-strategy#defaulttaxlinecalculationstrategy'>DefaultTaxLineCalculationStrategy</a> is used, which directly applies
@@ -53,7 +53,7 @@ calling external APIs when absolutely necessary.{{< /member-description >}}
 
 # CalculateTaxLinesArgs
 
-{{< generation-info sourceFile="packages/core/src/config/tax/tax-line-calculation-strategy.ts" sourceLine="40" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/tax/tax-line-calculation-strategy.ts" sourceLine="40" packageName="@gseller/core">}}
 
 
 

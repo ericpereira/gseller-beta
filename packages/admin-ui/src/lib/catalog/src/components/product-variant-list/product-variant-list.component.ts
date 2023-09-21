@@ -4,7 +4,7 @@ import {
     LogicalOperator,
     ProductVariantListQueryDocument,
     TypedBaseListComponent,
-} from '@vendure/admin-ui/core';
+} from '@gseller/admin-ui/core';
 
 @Component({
     selector: 'vdr-product-variant-list',

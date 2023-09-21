@@ -8,7 +8,7 @@ import {
     SimpleChanges,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { assertNever } from '@vendure/common/lib/shared-utils';
+import { assertNever } from '@gseller/common/lib/shared-utils';
 import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 

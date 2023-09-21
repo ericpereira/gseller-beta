@@ -10,9 +10,9 @@ const find = require('find');
  * and go undetected) from getting into published releases of Vendure.
  */
 const illegalImportPatterns: RegExp[] = [
-    /@vendure\/common\/src/,
-    /@vendure\/core\/src/,
-    /@vendure\/admin-ui\/src/,
+    /@gseller\/common\/src/,
+    /@gseller\/core\/src/,
+    /@gseller\/admin-ui\/src/,
 ];
 
 const exclude: string[] = [

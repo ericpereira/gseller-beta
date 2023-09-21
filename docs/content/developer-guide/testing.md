@@ -7,7 +7,7 @@ showtoc: true
 
 Vendure plugins allow you to extend all aspects of the standard Vendure server. When a plugin gets somewhat complex (defining new entities, extending the GraphQL schema, implementing custom resolvers), you may wish to create automated tests to ensure your plugin is correct.
 
-The `@vendure/testing` package gives you some simple but powerful tooling for creating end-to-end tests for your custom Vendure code.
+The `@gseller/testing` package gives you some simple but powerful tooling for creating end-to-end tests for your custom Vendure code.
 
 {{< alert "primary" >}}
   For a working example of a Vendure plugin with e2e testing, see the [real-world-vendure Reviews plugin](https://github.com/vendure-ecommerce/real-world-vendure/tree/master/src/plugins/reviews)
@@ -17,7 +17,7 @@ The `@vendure/testing` package gives you some simple but powerful tooling for cr
 
 ### Install dependencies
 
-* [`@vendure/testing`](https://www.npmjs.com/package/@vendure/testing)
+* [`@gseller/testing`](https://www.npmjs.com/package/@gseller/testing)
 * [`vitest`](https://vitest.dev/) You'll need to install a testing framework. In this example, we will use [Vitest](https://vitest.dev/) as it has very good support for the modern JavaScript features that Vendure uses, and is very fast.
 * [`graphql-tag`](https://www.npmjs.com/package/graphql-tag) This is not strictly required but makes it much easier to create the DocumentNodes needed to query your server.
 * We also need to install some packages to allow us to compile TypeScript code that uses decorators:
@@ -79,7 +79,7 @@ and a `tsconfig.e2e.json` tsconfig file for the tests:
 
 ### Register database-specific initializers
 
-The `@vendure/testing` package uses "initializers" to create the test databases and populate them with initial data. We ship with initializers for `sqljs`, `postgres` and `mysql`. Custom initializers can be created to support running e2e tests against other databases supported by TypeORM. See the [`TestDbInitializer` docs]({{< relref "test-db-initializer" >}}) for more details.
+The `@gseller/testing` package uses "initializers" to create the test databases and populate them with initial data. We ship with initializers for `sqljs`, `postgres` and `mysql`. Custom initializers can be created to support running e2e tests against other databases supported by TypeORM. See the [`TestDbInitializer` docs]({{< relref "test-db-initializer" >}}) for more details.
 
 ```TypeScript
 import {
@@ -87,7 +87,7 @@ import {
   PostgresInitializer,
   SqljsInitializer,
   registerInitializer,
-} from '@vendure/testing';
+} from '@gseller/testing';
 
 const sqliteDataDir = path.join(__dirname, '__data__');
 
@@ -102,10 +102,10 @@ Note re. the `sqliteDataDir`: The first time this test suite is run with the `Sq
 
 ### Create a test environment
 
-The `@vendure/testing` package exports a [`createTestEnvironment` function]({{< relref "create-test-environment" >}}) which is used to set up a Vendure server and GraphQL clients to interact with both the Shop and Admin APIs:
+The `@gseller/testing` package exports a [`createTestEnvironment` function]({{< relref "create-test-environment" >}}) which is used to set up a Vendure server and GraphQL clients to interact with both the Shop and Admin APIs:
 
 ```TypeScript
-import { createTestEnvironment, testConfig } from '@vendure/testing';
+import { createTestEnvironment, testConfig } from '@gseller/testing';
 import { describe } from 'vitest';
 import { MyPlugin } from '../my-plugin.ts';
 
@@ -122,7 +122,7 @@ describe('my plugin', () => {
 Notice that we pass a [`VendureConfig`]({{< relref "vendure-config" >}}) object into the `createTestEnvironment` function. The testing package provides a special [`testConfig`]({{< relref "test-config" >}}) which is pre-configured for e2e tests, but any aspect can be overridden for your tests. Here we are configuring the server to load the plugin under test, `MyPlugin`. 
 
 {{< alert "warning" >}}
-**Note**: If you need to deeply merge in some custom configuration, use the [`mergeConfig` function]({{< relref "merge-config" >}}) which is provided by `@vendure/core`.
+**Note**: If you need to deeply merge in some custom configuration, use the [`mergeConfig` function]({{< relref "merge-config" >}}) which is provided by `@gseller/core`.
 {{< /alert >}}
 
 ### Initialize the server

@@ -13,7 +13,7 @@ generated: true
 
 # ZoneService
 
-{{< generation-info sourceFile="packages/core/src/service/services/zone.service.ts" sourceLine="36" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/zone.service.ts" sourceLine="36" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/zone#zone'>Zone</a> entities.
 

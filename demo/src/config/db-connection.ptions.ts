@@ -1,4 +1,4 @@
-import { VendureConfig } from '@vendure/core';
+import { VendureConfig } from '@gseller/core';
 import path from 'path';
 
 export const dbConnectionOptions: VendureConfig['dbConnectionOptions'] = {

@@ -13,7 +13,7 @@ generated: true
 
 # PromotionService
 
-{{< generation-info sourceFile="packages/core/src/service/services/promotion.service.ts" sourceLine="58" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/promotion.service.ts" sourceLine="58" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/promotion#promotion'>Promotion</a> entities.
 

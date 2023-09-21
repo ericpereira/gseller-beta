@@ -13,7 +13,7 @@ generated: true
 
 # populate
 
-{{< generation-info sourceFile="packages/core/src/cli/populate.ts" sourceLine="51" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/cli/populate.ts" sourceLine="51" packageName="@gseller/core">}}
 
 Populates the Vendure server with some initial data and (optionally) product data from
 a supplied CSV file. The format of the CSV file is described in the section
@@ -32,8 +32,8 @@ Internally the `populate()` function does the following:
 *Example*
 
 ```TypeScript
-import { bootstrap } from '@vendure/core';
-import { populate } from '@vendure/core/cli';
+import { bootstrap } from '@gseller/core';
+import { populate } from '@gseller/core/cli';
 import { config } from './vendure-config.ts'
 import { initialData } from './my-initial-data.ts';
 
@@ -57,7 +57,7 @@ populate(
 ## Signature
 
 ```TypeScript
-function populate<T extends INestApplicationContext>(bootstrapFn: () => Promise<T | undefined>, initialDataPathOrObject: string | object, productsCsvPath?: string, channelOrToken?: string | import('@vendure/core').Channel): Promise<T>
+function populate<T extends INestApplicationContext>(bootstrapFn: () => Promise<T | undefined>, initialDataPathOrObject: string | object, productsCsvPath?: string, channelOrToken?: string | import('@gseller/core').Channel): Promise<T>
 ```
 ## Parameters
 
@@ -75,6 +75,6 @@ function populate<T extends INestApplicationContext>(bootstrapFn: () => Promise<
 
 ### channelOrToken
 
-{{< member-info kind="parameter" type="string | import('@vendure/core').<a href='/typescript-api/entities/channel#channel'>Channel</a>" >}}
+{{< member-info kind="parameter" type="string | import('@gseller/core').<a href='/typescript-api/entities/channel#channel'>Channel</a>" >}}
 
 </div>

@@ -13,7 +13,7 @@ generated: true
 
 # IfPermissionsDirective
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/directives/if-permissions.directive.ts" sourceLine="33" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/directives/if-permissions.directive.ts" sourceLine="33" packageName="@gseller/admin-ui">}}
 
 Conditionally shows/hides templates based on the current active user having the specified permission.
 Based on the ngIf source. Also support "else" templates:

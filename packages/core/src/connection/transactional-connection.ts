@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/typeorm';
-import { ID, Type } from '@vendure/common/lib/shared-types';
+import { ID, Type } from '@gseller/common/lib/shared-types';
 import {
     Connection,
     EntityManager,

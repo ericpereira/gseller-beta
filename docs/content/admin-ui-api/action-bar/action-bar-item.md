@@ -13,7 +13,7 @@ generated: true
 
 # ActionBarItem
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder-types.ts" sourceLine="89" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder-types.ts" sourceLine="89" packageName="@gseller/admin-ui">}}
 
 A button in the ActionBar area at the top of one of the list or detail views.
 

@@ -13,7 +13,7 @@ generated: true
 
 # BullMQPluginOptions
 
-{{< generation-info sourceFile="packages/job-queue-plugin/src/bullmq/types.ts" sourceLine="14" packageName="@vendure/job-queue-plugin" since="1.2.0">}}
+{{< generation-info sourceFile="packages/job-queue-plugin/src/bullmq/types.ts" sourceLine="14" packageName="@gseller/job-queue-plugin" since="1.2.0">}}
 
 Configuration options for the <a href='/typescript-api/core-plugins/job-queue-plugin/bull-mqjob-queue-plugin#bullmqjobqueueplugin'>BullMQJobQueuePlugin</a>.
 
@@ -105,7 +105,7 @@ setBackoff: (queueName, job) => {
 
 # BackoffOptions
 
-{{< generation-info sourceFile="packages/job-queue-plugin/src/bullmq/types.ts" sourceLine="91" packageName="@vendure/job-queue-plugin" since="1.3.0">}}
+{{< generation-info sourceFile="packages/job-queue-plugin/src/bullmq/types.ts" sourceLine="91" packageName="@gseller/job-queue-plugin" since="1.3.0">}}
 
 Configuration for the backoff function when retrying failed jobs.
 

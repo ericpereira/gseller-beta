@@ -15,7 +15,7 @@ For a complete working example of a Vendure plugin that extends the Admin UI, se
 
 ## How It Works
 
-A UI extension is an [Angular module](https://angular.io/guide/ngmodules) that gets compiled into the Admin UI application bundle by the [`compileUiExtensions`]({{< relref "compile-ui-extensions" >}}) function exported by the `@vendure/ui-devkit` package. Internally, the ui-devkit package makes use of the Angular CLI to compile an optimized set of JavaScript bundles containing your extensions.
+A UI extension is an [Angular module](https://angular.io/guide/ngmodules) that gets compiled into the Admin UI application bundle by the [`compileUiExtensions`]({{< relref "compile-ui-extensions" >}}) function exported by the `@gseller/ui-devkit` package. Internally, the ui-devkit package makes use of the Angular CLI to compile an optimized set of JavaScript bundles containing your extensions.
 
 ## Use Your Favourite Framework
 
@@ -58,7 +58,7 @@ Although the examples so far all use the `compileUiExtensions` function in conju
 
 ```TypeScript
 // compile-admin-ui.ts
-import { compileUiExtensions } from '@vendure/ui-devkit/compiler';
+import { compileUiExtensions } from '@gseller/ui-devkit/compiler';
 import * as path from 'path';
 
 compileUiExtensions({

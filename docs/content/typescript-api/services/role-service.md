@@ -13,7 +13,7 @@ generated: true
 
 # RoleService
 
-{{< generation-info sourceFile="packages/core/src/service/services/role.service.ts" sourceLine="51" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/role.service.ts" sourceLine="51" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/role#role'>Role</a> entities.
 

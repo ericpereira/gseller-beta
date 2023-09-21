@@ -13,7 +13,7 @@ generated: true
 
 # OrderItemPriceCalculationStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/order-item-price-calculation-strategy.ts" sourceLine="53" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/order/order-item-price-calculation-strategy.ts" sourceLine="53" packageName="@gseller/core">}}
 
 The OrderItemPriceCalculationStrategy defines the listPrice of an OrderLine when adding an item to an Order. By default the
 <a href='/typescript-api/orders/default-order-item-price-calculation-strategy#defaultorderitempricecalculationstrategy'>DefaultOrderItemPriceCalculationStrategy</a> is used.

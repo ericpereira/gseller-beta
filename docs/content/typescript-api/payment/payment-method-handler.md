@@ -13,7 +13,7 @@ generated: true
 
 # PaymentMethodHandler
 
-{{< generation-info sourceFile="packages/core/src/config/payment/payment-method-handler.ts" sourceLine="354" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/payment/payment-method-handler.ts" sourceLine="354" packageName="@gseller/core">}}
 
 A PaymentMethodHandler contains the code which is used to generate a Payment when a call to the
 `addPaymentToOrder` mutation is made. It contains any necessary steps of interfacing with a
@@ -26,7 +26,7 @@ configures the business logic used to create, settle and refund payments.
 *Example*
 
 ```ts
-import { PaymentMethodHandler, CreatePaymentResult, SettlePaymentResult, LanguageCode } from '@vendure/core';
+import { PaymentMethodHandler, CreatePaymentResult, SettlePaymentResult, LanguageCode } from '@gseller/core';
 // A mock 3rd-party payment SDK
 import gripeSDK from 'gripe';
 

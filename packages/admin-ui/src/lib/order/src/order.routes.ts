@@ -7,7 +7,7 @@ import {
     OrderDetailFragment,
     PageComponent,
     PageService,
-} from '@vendure/admin-ui/core';
+} from '@gseller/admin-ui/core';
 import { map } from 'rxjs/operators';
 
 import { DraftOrderDetailComponent } from './components/draft-order-detail/draft-order-detail.component';

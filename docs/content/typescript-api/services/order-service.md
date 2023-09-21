@@ -13,7 +13,7 @@ generated: true
 
 # OrderService
 
-{{< generation-info sourceFile="packages/core/src/service/services/order.service.ts" sourceLine="137" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/order.service.ts" sourceLine="137" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/order#order'>Order</a> entities.
 

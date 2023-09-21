@@ -1,4 +1,4 @@
-import { ProductVariantService, RequestContext } from "@vendure/core";
+import { ProductVariantService, RequestContext } from "@gseller/core";
 
 import { Injectable } from "@nestjs/common";
 

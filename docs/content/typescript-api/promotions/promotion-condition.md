@@ -13,7 +13,7 @@ generated: true
 
 # PromotionCondition
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-condition.ts" sourceLine="66" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-condition.ts" sourceLine="66" packageName="@gseller/core">}}
 
 PromotionConditions are used to create <a href='/typescript-api/entities/promotion#promotion'>Promotion</a>s. The purpose of a PromotionCondition
 is to check the order against a particular predicate function (the `check` function) and to return
@@ -70,7 +70,7 @@ a Promotion should apply to an Order. See <a href='/typescript-api/promotions/pr
 
 # PromotionConditionConfig
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-condition.ts" sourceLine="46" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-condition.ts" sourceLine="46" packageName="@gseller/core">}}
 
 This object is used to configure a PromotionCondition.
 
@@ -115,7 +115,7 @@ interface PromotionConditionConfig<T extends ConfigArgs, C extends string, R ext
 
 # CheckPromotionConditionFn
 
-{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-condition.ts" sourceLine="31" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/promotion/promotion-condition.ts" sourceLine="31" packageName="@gseller/core">}}
 
 A function which checks whether or not a given <a href='/typescript-api/entities/order#order'>Order</a> satisfies the <a href='/typescript-api/promotions/promotion-condition#promotioncondition'>PromotionCondition</a>.
 

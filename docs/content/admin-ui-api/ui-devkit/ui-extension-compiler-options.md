@@ -13,7 +13,7 @@ generated: true
 
 # UiExtensionCompilerOptions
 
-{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="307" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="307" packageName="@gseller/ui-devkit">}}
 
 Options to configure how the Admin UI should be compiled.
 

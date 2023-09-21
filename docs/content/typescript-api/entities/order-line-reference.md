@@ -13,7 +13,7 @@ generated: true
 
 # FulfillmentLine
 
-{{< generation-info sourceFile="packages/core/src/entity/order-line-reference/fulfillment-line.entity.ts" sourceLine="16" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/order-line-reference/fulfillment-line.entity.ts" sourceLine="16" packageName="@gseller/core">}}
 
 This entity represents a line from an <a href='/typescript-api/entities/order#order'>Order</a> which has been fulfilled by a <a href='/typescript-api/entities/fulfillment#fulfillment'>Fulfillment</a>.
 
@@ -61,7 +61,7 @@ class FulfillmentLine extends OrderLineReference {
 
 # OrderLineReference
 
-{{< generation-info sourceFile="packages/core/src/entity/order-line-reference/order-line-reference.entity.ts" sourceLine="15" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/order-line-reference/order-line-reference.entity.ts" sourceLine="15" packageName="@gseller/core">}}
 
 This is an abstract base class for entities which reference an <a href='/typescript-api/entities/order-line#orderline'>OrderLine</a>.
 
@@ -110,7 +110,7 @@ class OrderLineReference extends VendureEntity {
 
 # OrderModificationLine
 
-{{< generation-info sourceFile="packages/core/src/entity/order-line-reference/order-modification-line.entity.ts" sourceLine="16" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/order-line-reference/order-modification-line.entity.ts" sourceLine="16" packageName="@gseller/core">}}
 
 This entity represents a line from an <a href='/typescript-api/entities/order#order'>Order</a> which has been modified by an <a href='/typescript-api/entities/order-modification#ordermodification'>OrderModification</a>.
 
@@ -158,7 +158,7 @@ class OrderModificationLine extends OrderLineReference {
 
 # RefundLine
 
-{{< generation-info sourceFile="packages/core/src/entity/order-line-reference/refund-line.entity.ts" sourceLine="16" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/order-line-reference/refund-line.entity.ts" sourceLine="16" packageName="@gseller/core">}}
 
 This entity represents a line from an <a href='/typescript-api/entities/order#order'>Order</a> which has been refunded by a {@link Refund}.
 

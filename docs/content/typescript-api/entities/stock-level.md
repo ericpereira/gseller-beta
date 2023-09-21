@@ -13,7 +13,7 @@ generated: true
 
 # StockLevel
 
-{{< generation-info sourceFile="packages/core/src/entity/stock-level/stock-level.entity.ts" sourceLine="16" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/stock-level/stock-level.entity.ts" sourceLine="16" packageName="@gseller/core">}}
 
 A StockLevel represents the number of a particular <a href='/typescript-api/entities/product-variant#productvariant'>ProductVariant</a> which are available
 at a particular <a href='/typescript-api/entities/stock-location#stocklocation'>StockLocation</a>.

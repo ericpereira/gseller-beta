@@ -4,8 +4,8 @@ import {
     QuerySearchArgs,
     SearchInput,
     SearchResponse,
-} from '@vendure/common/lib/generated-types';
-import { Omit } from '@vendure/common/lib/omit';
+} from '@gseller/common/lib/generated-types';
+import { Omit } from '@gseller/common/lib/omit';
 
 import { RequestContext } from '../../../api/common/request-context';
 import { Allow } from '../../../api/decorators/allow.decorator';

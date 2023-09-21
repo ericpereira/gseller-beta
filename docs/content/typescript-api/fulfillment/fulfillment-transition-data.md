@@ -13,7 +13,7 @@ generated: true
 
 # FulfillmentTransitionData
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/fulfillment-state-machine/fulfillment-state.ts" sourceLine="42" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/fulfillment-state-machine/fulfillment-state.ts" sourceLine="42" packageName="@gseller/core">}}
 
 The data which is passed to the state transition handlers of the FulfillmentStateMachine.
 

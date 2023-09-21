@@ -8,7 +8,7 @@ import {
     PaymentMetadata,
     TransactionalConnection,
     SellerService as VendureSellerService,
-  } from "@vendure/core";
+  } from "@gseller/core";
   import { Injectable, OnModuleInit } from "@nestjs/common";
   
 import { ContextStrategy } from "../context-auth-strategy";

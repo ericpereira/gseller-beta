@@ -13,7 +13,7 @@ generated: true
 
 # JobQueue
 
-{{< generation-info sourceFile="packages/core/src/job-queue/job-queue.ts" sourceLine="25" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/job-queue/job-queue.ts" sourceLine="25" packageName="@gseller/core">}}
 
 A JobQueue is used to process <a href='/typescript-api/job-queue/job#job'>Job</a>s. A job is added to the queue via the
 `.add()` method, and the configured <a href='/typescript-api/job-queue/job-queue-strategy#jobqueuestrategy'>JobQueueStrategy</a> will check for new jobs and process each

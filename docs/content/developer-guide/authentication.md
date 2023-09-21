@@ -82,7 +82,7 @@ import {
   Injector,
   RequestContext,
   User,
-} from '@vendure/core';
+} from '@gseller/core';
 import { OAuth2Client } from 'google-auth-library';
 import { DocumentNode } from 'graphql';
 import gql from 'graphql-tag';
@@ -231,7 +231,7 @@ import {
   RequestContext,
   User,
   UserService,
-} from '@vendure/core';
+} from '@gseller/core';
 
 import { DocumentNode } from 'graphql';
 import gql from 'graphql-tag';
@@ -382,7 +382,7 @@ import {
     RequestContext,
     RoleService,
     User,
-} from '@vendure/core';
+} from '@gseller/core';
 import { DocumentNode } from 'graphql';
 import gql from 'graphql-tag';
 

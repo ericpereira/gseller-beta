@@ -1,4 +1,4 @@
-import { FulfillmentHandler, LanguageCode } from "@vendure/core";
+import { FulfillmentHandler, LanguageCode } from "@gseller/core";
 
 export const customFulfillmentHandler = new FulfillmentHandler({
   code: "correios-fulfillment",

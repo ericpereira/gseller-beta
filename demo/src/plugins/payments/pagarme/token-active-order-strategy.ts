@@ -7,7 +7,7 @@ import {
   OrderService,
   RequestContext,
   TransactionalConnection,
-} from '@vendure/core';
+} from '@gseller/core';
 import gql from 'graphql-tag';
 
 type InputCreateActiveOrder = {

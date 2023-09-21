@@ -16,7 +16,7 @@ Vendure ships with a [defaultOrderProcess]({{< relref "order-process" >}}#defaul
 This can be done by creating a custom version of the default process using the [configureDefaultOrderProcess]({{< relref "order-process" >}}#configuredefaultorderprocess) function, and then passing it to the [`OrderOptions.process`]({{< relref "order-options" >}}#process) config property.
 
 ```TypeScript
-import { configureDefaultOrderProcess, VendureConfig } from '\@vendure/core';
+import { configureDefaultOrderProcess, VendureConfig } from '\@gseller/core';
 
 const myCustomOrderProcess = configureDefaultOrderProcess({
   // Disable the constraint that requires
@@ -58,7 +58,7 @@ Here's how we would define the new state:
 
 ```TypeScript
 // customer-validation-process.ts
-import { OrderProcess } from '@vendure/core';
+import { OrderProcess } from '@gseller/core';
 
 export const customerValidationProcess: OrderProcess<'ValidatingCustomer'> = {
   transitions: {
@@ -82,7 +82,7 @@ And then add this configuration to our main VendureConfig:
 
 ```TypeScript
 // vendure-config.ts
-import { defaultOrderProcess, VendureConfig } from '@vendure/core';
+import { defaultOrderProcess, VendureConfig } from '@gseller/core';
 import { customerValidationProcess } from './customer-validation-process';
 
 export const config: VendureConfig = {
@@ -97,7 +97,7 @@ Note that we also include the `defaultOrderProcess` in the array, otherwise we w
 
  To add multiple new States you need to extend the generic type like this:
  ```TypeScript
-import { OrderProcess } from '@vendure/core';
+import { OrderProcess } from '@gseller/core';
 
 export const customerValidationProcess: OrderProcess<'ValidatingCustomer'|'AnotherState'> = {...}
  ```
@@ -154,9 +154,9 @@ To make your custom states compatible with standard services you should declare 
 
 ```TypeScript
 // types.ts
-import { CustomOrderStates } from '@vendure/core';
+import { CustomOrderStates } from '@gseller/core';
 
-declare module '@vendure/core' {
+declare module '@gseller/core' {
   interface CustomOrderStates {
     ValidatingCustomer: never;
   }

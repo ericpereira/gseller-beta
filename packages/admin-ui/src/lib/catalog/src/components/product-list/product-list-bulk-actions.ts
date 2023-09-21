@@ -10,8 +10,8 @@ import {
     ModalService,
     NotificationService,
     Permission,
-} from '@vendure/admin-ui/core';
-import { unique } from '@vendure/common/lib/unique';
+} from '@gseller/admin-ui/core';
+import { unique } from '@gseller/common/lib/unique';
 import { EMPTY } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 

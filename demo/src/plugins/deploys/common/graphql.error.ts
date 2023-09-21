@@ -1,4 +1,4 @@
-import { ErrorResult } from "@vendure/core";
+import { ErrorResult } from "@gseller/core";
 
 export class DeployNotFoundError implements ErrorResult {
   readonly __typename = "DeployNotFoundError";

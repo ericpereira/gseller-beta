@@ -12,7 +12,7 @@ Put another way, the Worker executes jobs registered with the [JobQueueService](
 The worker is started by calling the [`bootstrapWorker()`]({{< relref "bootstrap-worker" >}}) function with the same configuration as is passed to the main server `bootstrap()`:
 
 ```TypeScript
-import { bootstrapWorker } from '@vendure/core';
+import { bootstrapWorker } from '@gseller/core';
 import { config } from './vendure-config';
 
 bootstrapWorker(config)
@@ -35,7 +35,7 @@ It is possible to run multiple workers in parallel to better handle heavy loads.
 For example, if your application does video transcoding, you might want to set up a dedicated worker just for that task:
 
 ```TypeScript
-import { bootstrapWorker, mergeConfig } from '@vendure/core';
+import { bootstrapWorker, mergeConfig } from '@gseller/core';
 import { config } from './vendure-config';
 
 const videoWorkerConfig = mergeConfig(config, {
@@ -57,7 +57,7 @@ bootstrapWorker(videoWorkerConfig)
 It is possible to run jobs from the Job Queue on the main server. This is mainly used for testing and automated tasks, and is not advised for production use, since it negates the benefits of running long tasks off of the main process. To do so, you need to manually start the JobQueueService:
 
 ```TypeScript
-import { bootstrap, JobQueueService } from '@vendure/core';
+import { bootstrap, JobQueueService } from '@gseller/core';
 import { config } from './vendure-config';
 
 bootstrap(config)
@@ -78,7 +78,7 @@ Sometimes your code may need to be aware of whether it is being run as part of a
 
 ```TypeScript
 import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
-import { ProcessContext } from '@vendure/core';
+import { ProcessContext } from '@gseller/core';
 
 @Injectable()
 export class MyService implements OnApplicationBootstrap {

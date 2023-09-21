@@ -13,7 +13,7 @@ generated: true
 
 # defaultConfig
 
-{{< generation-info sourceFile="packages/core/src/config/default-config.ts" sourceLine="57" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/default-config.ts" sourceLine="57" packageName="@gseller/core">}}
 
 The default configuration settings which are used if not explicitly overridden in the bootstrap() call.
 

@@ -9,8 +9,8 @@ import {
     OrderLineInput,
     PaymentWithRefundsFragment,
     RefundOrderInput,
-} from '@vendure/admin-ui/core';
-import { summate } from '@vendure/common/lib/shared-utils';
+} from '@gseller/admin-ui/core';
+import { summate } from '@gseller/common/lib/shared-utils';
 
 type SelectionLine = { quantity: number; refund: boolean; cancel: boolean };
 type Payment = NonNullable<OrderDetailFragment['payments']>[number];

@@ -13,7 +13,7 @@ generated: true
 
 # ChannelService
 
-{{< generation-info sourceFile="packages/core/src/service/services/channel.service.ts" sourceLine="53" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/channel.service.ts" sourceLine="53" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/channel#channel'>Channel</a> entities.
 

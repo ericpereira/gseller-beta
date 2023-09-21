@@ -13,7 +13,7 @@ generated: true
 
 # Region
 
-{{< generation-info sourceFile="packages/core/src/entity/region/region.entity.ts" sourceLine="22" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/region/region.entity.ts" sourceLine="22" packageName="@gseller/core">}}
 
 A Region represents a geographical administrative unit, such as a Country, Province, State, Prefecture etc.
 This is an abstract class which is extended by the <a href='/typescript-api/entities/country#country'>Country</a> and <a href='/typescript-api/entities/province#province'>Province</a> entities.

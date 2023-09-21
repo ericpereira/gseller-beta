@@ -13,7 +13,7 @@ generated: true
 
 # AdminUiAppConfig
 
-{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="331" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="331" packageName="@gseller/common">}}
 
 Configures the path to a custom-build of the Admin UI app.
 

@@ -13,7 +13,7 @@ generated: true
 
 # OrderByCodeAccessStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/order-by-code-access-strategy.ts" sourceLine="31" packageName="@vendure/core" since="1.1.0">}}
+{{< generation-info sourceFile="packages/core/src/config/order/order-by-code-access-strategy.ts" sourceLine="31" packageName="@gseller/core" since="1.1.0">}}
 
 The OrderByCodeAccessStrategy determines how access to a placed Order via the
 orderByCode query is granted.
@@ -61,7 +61,7 @@ interface OrderByCodeAccessStrategy extends InjectableStrategy {
 
 # DefaultOrderByCodeAccessStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/order-by-code-access-strategy.ts" sourceLine="50" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/order/order-by-code-access-strategy.ts" sourceLine="50" packageName="@gseller/core">}}
 
 The default OrderByCodeAccessStrategy used by Vendure. It permitts permanent access to
 the Customer owning the Order and anyone within a given time period after placing the Order

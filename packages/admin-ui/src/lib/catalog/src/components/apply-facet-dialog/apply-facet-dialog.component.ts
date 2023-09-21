@@ -10,7 +10,7 @@ import {
     FacetValue,
     FacetValueSelectorComponent,
     FacetWithValuesFragment,
-} from '@vendure/admin-ui/core';
+} from '@gseller/admin-ui/core';
 
 @Component({
     selector: 'vdr-apply-facet-dialog',

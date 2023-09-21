@@ -12,7 +12,7 @@ import {
     GetStockLocationDetailDocument,
     PageService,
     SharedModule,
-} from '@vendure/admin-ui/core';
+} from '@gseller/admin-ui/core';
 
 import { createRoutes } from './catalog.routes';
 import { ApplyFacetDialogComponent } from './components/apply-facet-dialog/apply-facet-dialog.component';

@@ -13,7 +13,7 @@ generated: true
 
 # ObjectTreeComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/object-tree/object-tree.component.ts" sourceLine="22" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/object-tree/object-tree.component.ts" sourceLine="22" packageName="@gseller/admin-ui">}}
 
 This component displays a plain JavaScript object as an expandable tree.
 

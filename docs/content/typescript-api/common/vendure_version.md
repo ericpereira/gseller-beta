@@ -13,7 +13,7 @@ generated: true
 
 # VENDURE_VERSION
 
-{{< generation-info sourceFile="packages/core/src/version.ts" sourceLine="17" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/version.ts" sourceLine="17" packageName="@gseller/core" since="2.0.0">}}
 
 A constant which holds the current version of the Vendure core. You can use
 this when your code needs to know the version of Vendure which is running.
@@ -21,7 +21,7 @@ this when your code needs to know the version of Vendure which is running.
 *Example*
 
 ```TypeScript
-import { VENDURE_VERSION } from '@vendure/core';
+import { VENDURE_VERSION } from '@gseller/core';
 
 console.log('Vendure version:', VENDURE_VERSION);
 ```

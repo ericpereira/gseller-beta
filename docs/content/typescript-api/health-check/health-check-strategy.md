@@ -13,7 +13,7 @@ generated: true
 
 # HealthCheckStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/system/health-check-strategy.ts" sourceLine="42" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/system/health-check-strategy.ts" sourceLine="42" packageName="@gseller/core">}}
 
 This strategy defines health checks which are included as part of the
 `/health` endpoint. They should only be used to monitor _critical_ systems
@@ -32,7 +32,7 @@ for adding a health check dependent on an HTTP ping.
 *Example*
 
 ```TypeScript
-import { HttpHealthCheckStrategy, TypeORMHealthCheckStrategy } from '@vendure/core';
+import { HttpHealthCheckStrategy, TypeORMHealthCheckStrategy } from '@gseller/core';
 import { MyCustomHealthCheckStrategy } from './config/custom-health-check-strategy';
 
 export const config = {

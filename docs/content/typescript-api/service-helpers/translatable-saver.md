@@ -13,7 +13,7 @@ generated: true
 
 # TranslatableSaver
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/translatable-saver/translatable-saver.ts" sourceLine="57" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/translatable-saver/translatable-saver.ts" sourceLine="57" packageName="@gseller/core">}}
 
 A helper which contains methods for creating and updating entities which implement the <a href='/typescript-api/entities/interfaces#translatable'>Translatable</a> interface.
 

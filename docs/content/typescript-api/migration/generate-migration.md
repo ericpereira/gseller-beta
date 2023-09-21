@@ -13,7 +13,7 @@ generated: true
 
 # generateMigration
 
-{{< generation-info sourceFile="packages/core/src/migrate.ts" sourceLine="107" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/migrate.ts" sourceLine="107" packageName="@gseller/core">}}
 
 Generates a new migration file based on any schema changes (e.g. adding or removing CustomFields).
 See [TypeORM migration docs](https://typeorm.io/#/migrations) for more information about the

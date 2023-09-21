@@ -13,7 +13,7 @@ generated: true
 
 # JobQueueStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/job-queue/job-queue-strategy.ts" sourceLine="16" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/job-queue/job-queue-strategy.ts" sourceLine="16" packageName="@gseller/core">}}
 
 Defines how the jobs in the <a href='/typescript-api/job-queue/job-queue-service#jobqueueservice'>JobQueueService</a> are persisted and
 accessed. Custom strategies can be defined to make use of external

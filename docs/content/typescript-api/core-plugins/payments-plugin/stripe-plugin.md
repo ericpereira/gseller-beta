@@ -13,7 +13,7 @@ generated: true
 
 # StripePlugin
 
-{{< generation-info sourceFile="packages/payments-plugin/src/stripe/stripe.plugin.ts" sourceLine="159" packageName="@vendure/payments-plugin">}}
+{{< generation-info sourceFile="packages/payments-plugin/src/stripe/stripe.plugin.ts" sourceLine="159" packageName="@gseller/payments-plugin">}}
 
 Plugin to enable payments through [Stripe](https://stripe.com/docs) via the Payment Intents API.
 
@@ -27,17 +27,17 @@ the Stripe CLI to test your webhook locally. See the _local development_ section
 3. Get the signing secret for the newly created webhook.
 4. Install the Payments plugin and the Stripe Node library:
 
-    `yarn add @vendure/payments-plugin stripe`
+    `yarn add @gseller/payments-plugin stripe`
 
     or
 
-    `npm install @vendure/payments-plugin stripe`
+    `npm install @gseller/payments-plugin stripe`
 
 ## Setup
 
 1. Add the plugin to your VendureConfig `plugins` array:
     ```TypeScript
-    import { StripePlugin } from '@vendure/payments-plugin/package/stripe';
+    import { StripePlugin } from '@gseller/payments-plugin/package/stripe';
 
     // ...
 
@@ -186,7 +186,7 @@ class StripePlugin {
 
 # StripePluginOptions
 
-{{< generation-info sourceFile="packages/payments-plugin/src/stripe/types.ts" sourceLine="21" packageName="@vendure/payments-plugin">}}
+{{< generation-info sourceFile="packages/payments-plugin/src/stripe/types.ts" sourceLine="21" packageName="@gseller/payments-plugin">}}
 
 Configuration options for the Stripe payments plugin.
 

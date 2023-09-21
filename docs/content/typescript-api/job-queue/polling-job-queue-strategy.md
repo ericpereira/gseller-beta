@@ -13,7 +13,7 @@ generated: true
 
 # PollingJobQueueStrategy
 
-{{< generation-info sourceFile="packages/core/src/job-queue/polling-job-queue-strategy.ts" sourceLine="192" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/job-queue/polling-job-queue-strategy.ts" sourceLine="192" packageName="@gseller/core">}}
 
 This class allows easier implementation of <a href='/typescript-api/job-queue/job-queue-strategy#jobqueuestrategy'>JobQueueStrategy</a> in a polling style.
 Instead of providing <a href='/typescript-api/job-queue/job-queue-strategy#jobqueuestrategy'>JobQueueStrategy</a> `start()` you should provide a `next` method.

@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from "@vendure/core";
+import { PluginCommonModule, VendurePlugin } from "@gseller/core";
 
 import { ChannelDetailsService } from "./services/shop.service";
 import { ShopChannelDetailsResolver } from "./resolver/shop.resolver";

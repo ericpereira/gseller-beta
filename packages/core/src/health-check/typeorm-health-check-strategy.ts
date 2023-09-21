@@ -18,7 +18,7 @@ export interface TypeORMHealthCheckOptions {
  *
  * @example
  * ```TypeScript
- * import { TypeORMHealthCheckStrategy } from '\@vendure/core';
+ * import { TypeORMHealthCheckStrategy } from '\@gseller/core';
  *
  * export const config = {
  *   // ...

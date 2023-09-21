@@ -13,7 +13,7 @@ generated: true
 
 # DefaultJobQueuePlugin
 
-{{< generation-info sourceFile="packages/core/src/plugin/default-job-queue-plugin/default-job-queue-plugin.ts" sourceLine="171" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/plugin/default-job-queue-plugin/default-job-queue-plugin.ts" sourceLine="171" packageName="@gseller/core">}}
 
 A plugin which configures Vendure to use the SQL database to persist the JobQueue jobs using the <a href='/typescript-api/job-queue/sql-job-queue-strategy#sqljobqueuestrategy'>SqlJobQueueStrategy</a>. If you add this
 plugin to an existing Vendure installation, you'll need to run a [database migration](/docs/developer-guide/migrations), since this
@@ -22,7 +22,7 @@ plugin will add a new "job_record" table to the database.
 *Example*
 
 ```TypeScript
-import { DefaultJobQueuePlugin, VendureConfig } from '@vendure/core';
+import { DefaultJobQueuePlugin, VendureConfig } from '@gseller/core';
 
 export const config: VendureConfig = {
   // Add an instance of the plugin to the plugins array
@@ -125,7 +125,7 @@ class DefaultJobQueuePlugin {
 
 # DefaultJobQueueOptions
 
-{{< generation-info sourceFile="packages/core/src/plugin/default-job-queue-plugin/default-job-queue-plugin.ts" sourceLine="21" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/plugin/default-job-queue-plugin/default-job-queue-plugin.ts" sourceLine="21" packageName="@gseller/core">}}
 
 Configuration options for the DefaultJobQueuePlugin. These values get passed into the
 <a href='/typescript-api/job-queue/sql-job-queue-strategy#sqljobqueuestrategy'>SqlJobQueueStrategy</a>.

@@ -1,4 +1,4 @@
-import { EventBus, ID, RequestContext, TransactionalConnection } from "@vendure/core";
+import { EventBus, ID, RequestContext, TransactionalConnection } from "@gseller/core";
 import { In, Not } from 'typeorm';
 import { LayoutIDInvalid, LayoutInvalid } from "../graphql.errors";
 

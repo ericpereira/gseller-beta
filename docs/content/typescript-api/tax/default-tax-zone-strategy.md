@@ -13,7 +13,7 @@ generated: true
 
 # DefaultTaxZoneStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/tax/default-tax-zone-strategy.ts" sourceLine="12" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/tax/default-tax-zone-strategy.ts" sourceLine="12" packageName="@gseller/core">}}
 
 A default method of determining Zone for tax calculations.
 

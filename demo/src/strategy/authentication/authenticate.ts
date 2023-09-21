@@ -5,7 +5,7 @@ import {
   RequestContext,
   TransactionalConnection,
   User,
-} from '@vendure/core';
+} from '@gseller/core';
 
 import { DocumentNode } from 'graphql';
 import { FindOneOptions } from 'typeorm';

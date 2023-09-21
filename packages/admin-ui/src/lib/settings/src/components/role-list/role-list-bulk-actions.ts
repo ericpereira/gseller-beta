@@ -1,4 +1,4 @@
-import { createBulkDeleteAction, GetRolesQuery, ItemOf, Permission } from '@vendure/admin-ui/core';
+import { createBulkDeleteAction, GetRolesQuery, ItemOf, Permission } from '@gseller/admin-ui/core';
 import { map } from 'rxjs/operators';
 
 export const deleteRolesBulkAction = createBulkDeleteAction<ItemOf<GetRolesQuery, 'roles'>>({

@@ -13,7 +13,7 @@ generated: true
 
 # DefaultFormComponentId
 
-{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="134" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="134" packageName="@gseller/common">}}
 
 The ids of the default form input components that ship with the
 Admin UI.

@@ -13,7 +13,7 @@ generated: true
 
 # EmailGenerator
 
-{{< generation-info sourceFile="packages/email-plugin/src/email-generator.ts" sourceLine="13" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/email-generator.ts" sourceLine="13" packageName="@gseller/email-plugin">}}
 
 An EmailGenerator generates the subject and body details of an email.
 
@@ -57,7 +57,7 @@ interpolated email text.{{< /member-description >}}
 
 # HandlebarsMjmlGenerator
 
-{{< generation-info sourceFile="packages/email-plugin/src/handlebars-mjml-generator.ts" sourceLine="23" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/handlebars-mjml-generator.ts" sourceLine="23" packageName="@gseller/email-plugin">}}
 
 Uses Handlebars (https://handlebarsjs.com/) to output MJML (https://mjml.io) which is then
 compiled down to responsive email HTML.

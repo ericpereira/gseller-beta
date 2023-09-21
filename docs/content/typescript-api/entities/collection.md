@@ -13,7 +13,7 @@ generated: true
 
 # Collection
 
-{{< generation-info sourceFile="packages/core/src/entity/collection/collection.entity.ts" sourceLine="35" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/collection/collection.entity.ts" sourceLine="35" packageName="@gseller/core">}}
 
 A Collection is a grouping of <a href='/typescript-api/entities/product#product'>Product</a>s based on various configurable criteria.
 

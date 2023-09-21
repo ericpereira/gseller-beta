@@ -1,5 +1,5 @@
-import { JobListOptions, JobState } from '@vendure/common/lib/generated-types';
-import { notNullOrUndefined } from '@vendure/common/lib/shared-utils';
+import { JobListOptions, JobState } from '@gseller/common/lib/generated-types';
+import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
 import {
     ID,
     Injector,
@@ -9,7 +9,7 @@ import {
     JobData,
     Logger,
     PaginatedList,
-} from '@vendure/core';
+} from '@gseller/core';
 import Bull, { ConnectionOptions, JobType, Processor, Queue, Worker, WorkerOptions } from 'bullmq';
 import { EventEmitter } from 'events';
 import { Cluster, Redis, RedisOptions } from 'ioredis';

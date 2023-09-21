@@ -6,7 +6,7 @@
  *
  * @example
  * ```TypeScript
- * import { VENDURE_VERSION } from '\@vendure/core';
+ * import { VENDURE_VERSION } from '\@gseller/core';
  *
  * console.log('Vendure version:', VENDURE_VERSION);
  * ```

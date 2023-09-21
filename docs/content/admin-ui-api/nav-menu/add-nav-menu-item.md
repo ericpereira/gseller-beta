@@ -13,7 +13,7 @@ generated: true
 
 # addNavMenuItem
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder.service.ts" sourceLine="84" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder.service.ts" sourceLine="84" packageName="@gseller/admin-ui">}}
 
 Add a menu item to an existing section specified by `sectionId`. The id of the section
 can be found by inspecting the DOM and finding the `data-section-id` attribute.

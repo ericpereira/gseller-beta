@@ -11,7 +11,7 @@ If your plugin involves long-running tasks, you can take advantage of the [job q
 ```TypeScript
 // product-video.resolver.ts
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
-import { Ctx, RequestContext } from '@vendure/core'
+import { Ctx, RequestContext } from '@gseller/core'
 import { ProductVideoService } from './product-video.service';
 
 @Resolver()
@@ -33,7 +33,7 @@ The resolver just defines how to handle the new `addVideoToProduct` mutation, de
 ```TypeScript
 // product-video.service.ts
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { JobQueue, JobQueueService, ID, Product, TransactionalConnection } from '@vendure/core';
+import { JobQueue, JobQueueService, ID, Product, TransactionalConnection } from '@gseller/core';
 import { transcode } from 'third-party-video-sdk';
 
 @Injectable()
@@ -92,7 +92,7 @@ what context you are in. This can be done with the [ProcessContext]({{< relref "
 ```TypeScript
 // product-video.plugin.ts
 import gql from 'graphql-tag';
-import { PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { PluginCommonModule, VendurePlugin } from '@gseller/core';
 import { ProductVideoService } from './product-video.service'
 import { ProductVideoResolver } from './product-video.resolver'
 

@@ -1,4 +1,4 @@
-import { LanguageCode, ShippingEligibilityChecker } from "@vendure/core";
+import { LanguageCode, ShippingEligibilityChecker } from "@gseller/core";
 
 export const correiosEligibilityChecker = new ShippingEligibilityChecker({
   code: "jamef-eligibility-checker",

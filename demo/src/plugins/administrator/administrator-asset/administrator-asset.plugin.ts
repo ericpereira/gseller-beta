@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { PluginCommonModule, VendurePlugin } from '@gseller/core';
 
 import { AdministratorAssetService } from './administrator-asset.service';
 import { CustomAssetPlugin } from '../../asset/asset.plugin';

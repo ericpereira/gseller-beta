@@ -6,7 +6,7 @@ import {
     Permission,
     ServerConfig,
     UpdateGlobalSettingsResult,
-} from '@vendure/common/lib/generated-types';
+} from '@gseller/common/lib/generated-types';
 import {
     GraphQLOutputType,
     GraphQLResolveInfo,

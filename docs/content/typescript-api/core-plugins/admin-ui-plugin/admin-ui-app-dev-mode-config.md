@@ -13,7 +13,7 @@ generated: true
 
 # AdminUiAppDevModeConfig
 
-{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="359" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="359" packageName="@gseller/common">}}
 
 Information about the Admin UI app dev server.
 

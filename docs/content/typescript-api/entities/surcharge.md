@@ -13,7 +13,7 @@ generated: true
 
 # Surcharge
 
-{{< generation-info sourceFile="packages/core/src/entity/surcharge/surcharge.entity.ts" sourceLine="20" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/surcharge/surcharge.entity.ts" sourceLine="20" packageName="@gseller/core">}}
 
 A Surcharge represents an arbitrary extra item on an <a href='/typescript-api/entities/order#order'>Order</a> which is not
 a ProductVariant. It can be used to e.g. represent payment-related surcharges.

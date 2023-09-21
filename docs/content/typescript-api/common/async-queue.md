@@ -13,7 +13,7 @@ generated: true
 
 # AsyncQueue
 
-{{< generation-info sourceFile="packages/core/src/common/async-queue.ts" sourceLine="13" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/async-queue.ts" sourceLine="13" packageName="@gseller/core">}}
 
 A queue class for limiting concurrent async tasks. This can be used e.g. to prevent
 race conditions when working on a shared resource such as writing to a database.

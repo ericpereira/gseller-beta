@@ -13,7 +13,7 @@ generated: true
 
 # ErrorResultGuard
 
-{{< generation-info sourceFile="packages/testing/src/error-result-guard.ts" sourceLine="50" packageName="@vendure/testing">}}
+{{< generation-info sourceFile="packages/testing/src/error-result-guard.ts" sourceLine="50" packageName="@gseller/testing">}}
 
 A utility class which is used to assert the success of an operation
 which returns a union type of `SuccessType | ErrorResponse [ | ErrorResponse ]`.

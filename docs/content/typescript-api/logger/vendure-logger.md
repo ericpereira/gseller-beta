@@ -13,7 +13,7 @@ generated: true
 
 # VendureLogger
 
-{{< generation-info sourceFile="packages/core/src/config/logger/vendure-logger.ts" sourceLine="47" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/logger/vendure-logger.ts" sourceLine="47" packageName="@gseller/core">}}
 
 The VendureLogger interface defines the shape of a logger service which may be provided in
 the config.

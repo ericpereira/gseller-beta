@@ -7,8 +7,8 @@ import {
     GetProductVariantOptionsQuery,
     LanguageCode,
     ServerConfigService,
-} from '@vendure/admin-ui/core';
-import { normalizeString } from '@vendure/common/lib/normalize-string';
+} from '@gseller/admin-ui/core';
+import { normalizeString } from '@gseller/common/lib/normalize-string';
 
 @Component({
     selector: 'vdr-create-product-option-group-dialog',

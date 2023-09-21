@@ -13,7 +13,7 @@ generated: true
 
 # TaxRate
 
-{{< generation-info sourceFile="packages/core/src/entity/tax-rate/tax-rate.entity.ts" sourceLine="25" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/tax-rate/tax-rate.entity.ts" sourceLine="25" packageName="@gseller/core">}}
 
 A TaxRate defines the rate of tax to apply to a <a href='/typescript-api/entities/product-variant#productvariant'>ProductVariant</a> based on three factors:
 

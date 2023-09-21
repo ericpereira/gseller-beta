@@ -13,7 +13,7 @@ generated: true
 
 # PaymentProcess
 
-{{< generation-info sourceFile="packages/core/src/config/payment/payment-process.ts" sourceLine="26" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/payment/payment-process.ts" sourceLine="26" packageName="@gseller/core" since="2.0.0">}}
 
 A PaymentProcess is used to define the way the payment process works as in: what states a Payment can be
 in, and how it may transition from one state to another. Using the `onTransitionStart()` hook, a

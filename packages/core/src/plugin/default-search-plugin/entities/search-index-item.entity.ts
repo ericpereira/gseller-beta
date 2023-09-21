@@ -1,5 +1,5 @@
-import { CurrencyCode, LanguageCode } from '@vendure/common/lib/generated-types';
-import { ID } from '@vendure/common/lib/shared-types';
+import { CurrencyCode, LanguageCode } from '@gseller/common/lib/generated-types';
+import { ID } from '@gseller/common/lib/shared-types';
 import { Column, Entity, Index, PrimaryColumn } from 'typeorm';
 
 import { EntityId } from '../../../entity/entity-id.decorator';

@@ -1,4 +1,4 @@
-// import { VendureConfig, dummyPaymentHandler } from '@vendure/core';
+// import { VendureConfig, dummyPaymentHandler } from '@gseller/core';
 
 // export const paymentOptions: VendureConfig['paymentOptions'] = {
 //     paymentMethodHandlers: [dummyPaymentHandler],

@@ -13,7 +13,7 @@ generated: true
 
 # ShippingOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="720" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="720" packageName="@gseller/core">}}
 
 
 

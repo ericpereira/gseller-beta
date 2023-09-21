@@ -22,10 +22,10 @@ Migration will consist of these main steps:
    {
      // ...
      "dependencies": {
-   -    "@vendure/common": "1.9.7",
-   -    "@vendure/core": "1.9.7",
-   +    "@vendure/common": "2.0.0",
-   +    "@vendure/core": "2.0.0",
+   -    "@gseller/common": "1.9.7",
+   -    "@gseller/core": "1.9.7",
+   +    "@gseller/common": "2.0.0",
+   +    "@gseller/core": "2.0.0",
         // etc.
      },
      "devDependencies": {

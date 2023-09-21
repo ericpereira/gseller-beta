@@ -13,7 +13,7 @@ generated: true
 
 # ApiType
 
-{{< generation-info sourceFile="packages/core/src/api/common/get-api-type.ts" sourceLine="9" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/api/common/get-api-type.ts" sourceLine="9" packageName="@gseller/core">}}
 
 Which of the GraphQL APIs the current request came via.
 

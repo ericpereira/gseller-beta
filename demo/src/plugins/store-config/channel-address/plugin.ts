@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from "@vendure/core";
+import { PluginCommonModule, VendurePlugin } from "@gseller/core";
 
 import { AdminChannelAddressResolver } from "./resolvers/admin.resolver";
 import AdminSchema from "./schemas/admin.schema";

@@ -38,7 +38,7 @@ To create a custom condition, you need to define a new [`PromotionCondition` obj
 Here is an annotated example of one of the built-in PromotionsConditions:
 
 ```TypeScript
-import { LanguageCode, PromotionCondition } from '@vendure/core';
+import { LanguageCode, PromotionCondition } from '@gseller/core';
 
 export const minimumOrderAmount = new PromotionCondition({
   /** A unique identifier for the condition */
@@ -85,7 +85,7 @@ export const minimumOrderAmount = new PromotionCondition({
 Custom PromotionConditions are then passed into the VendureConfig [PromotionOptions]({{< relref "promotion-options" >}}) to make them available when setting up Promotions:
 
 ```TypeScript
-import { defaultPromotionConditions, VendureConfig } from '@vendure/core';
+import { defaultPromotionConditions, VendureConfig } from '@gseller/core';
 import { minimumOrderAmount } from './minimum-order-amount';
 
 export const config: VendureConfig = {
@@ -112,7 +112,7 @@ Their implementations are similar, with the difference being the arguments passe
 Here's an example of a simple PromotionOrderAction.
 
 ```TypeScript
-import { LanguageCode, PromotionOrderAction } from '@vendure/core';
+import { LanguageCode, PromotionOrderAction } from '@gseller/core';
 
 export const orderPercentageDiscount = new PromotionOrderAction({
   // See the custom condition example above for explanations
@@ -144,7 +144,7 @@ export const orderPercentageDiscount = new PromotionOrderAction({
 Custom PromotionActions are then passed into the VendureConfig [PromotionOptions]({{< relref "promotion-options" >}}) to make them available when setting up Promotions:
 
 ```TypeScript
-import { defaultPromotionActions, VendureConfig } from '@vendure/core';
+import { defaultPromotionActions, VendureConfig } from '@gseller/core';
 import { orderPercentageDiscount } from './order-percentage-discount';
 
 export const config: VendureConfig = {
@@ -168,7 +168,7 @@ A primary use-case of this API is to add a free gift to the Order. Here's an exa
 import {
   ID, idsAreEqual, isGraphQlErrorResult, LanguageCode,
   Logger, OrderLine, OrderService, PromotionItemAction, VendurePlugin,
-} from '@vendure/core';
+} from '@gseller/core';
 import { createHash } from 'crypto';
 
 let orderService: OrderService;

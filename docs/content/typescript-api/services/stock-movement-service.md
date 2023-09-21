@@ -13,7 +13,7 @@ generated: true
 
 # StockMovementService
 
-{{< generation-info sourceFile="packages/core/src/service/services/stock-movement.service.ts" sourceLine="43" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/stock-movement.service.ts" sourceLine="43" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/stock-movement#stockmovement'>StockMovement</a> entities.
 

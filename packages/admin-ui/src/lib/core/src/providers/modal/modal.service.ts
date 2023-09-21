@@ -1,5 +1,5 @@
 import { ComponentFactoryResolver, Injectable } from '@angular/core';
-import { Type } from '@vendure/common/lib/shared-types';
+import { Type } from '@gseller/common/lib/shared-types';
 import { from, Observable } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 

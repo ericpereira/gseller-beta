@@ -9,8 +9,8 @@ This example shows how new [TypeORM database entities](https://typeorm.io/entiti
 
 ```TypeScript
 // product-review.entity.ts
-import { DeepPartial } from '@vendure/common/lib/shared-types';
-import { VendureEntity } from '@vendure/core';
+import { DeepPartial } from '@gseller/common/lib/shared-types';
+import { VendureEntity } from '@gseller/core';
 import { Column, Entity } from 'typeorm';
 
 @Entity()
@@ -35,7 +35,7 @@ The new entity is then passed to the `entities` array of the VendurePlugin metad
 
 ```TypeScript {hl_lines=[6]}
 // reviews-plugin.ts
-import { VendurePlugin } from '@vendure/core';
+import { VendurePlugin } from '@gseller/core';
 import { ProductReview } from './product-review.entity';
 
 @VendurePlugin({

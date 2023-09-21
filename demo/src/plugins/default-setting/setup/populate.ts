@@ -18,7 +18,7 @@ import {
   TransactionalConnection,
   Zone,
   ZoneService,
-} from '@vendure/core';
+} from '@gseller/core';
 
 import { ContextStrategy } from '../context-auth-strategy';
 import { Injectable } from '@nestjs/common';

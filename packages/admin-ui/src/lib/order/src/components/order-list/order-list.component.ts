@@ -9,8 +9,8 @@ import {
     OrderType,
     ServerConfigService,
     TypedBaseListComponent,
-} from '@vendure/admin-ui/core';
-import { Order } from '@vendure/common/lib/generated-types';
+} from '@gseller/admin-ui/core';
+import { Order } from '@gseller/common/lib/generated-types';
 import { tap } from 'rxjs/operators';
 
 @Component({

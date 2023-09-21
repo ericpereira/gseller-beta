@@ -13,7 +13,7 @@ generated: true
 
 # DefaultStockAllocationStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/default-stock-allocation-strategy.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/order/default-stock-allocation-strategy.ts" sourceLine="14" packageName="@gseller/core">}}
 
 Allocates stock when the Order transitions from `ArrangingPayment` to either
 `PaymentAuthorized` or `PaymentSettled`.

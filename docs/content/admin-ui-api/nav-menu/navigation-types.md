@@ -13,7 +13,7 @@ generated: true
 
 # NavMenuBadge
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder-types.ts" sourceLine="18" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder-types.ts" sourceLine="18" packageName="@gseller/admin-ui">}}
 
 A color-coded notification badge which will be displayed by the
 NavMenuItem's icon.

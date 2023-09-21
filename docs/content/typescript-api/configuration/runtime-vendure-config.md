@@ -13,7 +13,7 @@ generated: true
 
 # RuntimeVendureConfig
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="1142" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="1142" packageName="@gseller/core">}}
 
 This interface represents the VendureConfig object available at run-time, i.e. the user-supplied
 config values have been merged with the <a href='/typescript-api/configuration/default-config#defaultconfig'>defaultConfig</a> values.

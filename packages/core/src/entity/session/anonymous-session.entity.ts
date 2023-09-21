@@ -1,4 +1,4 @@
-import { DeepPartial } from '@vendure/common/lib/shared-types';
+import { DeepPartial } from '@gseller/common/lib/shared-types';
 import { ChildEntity, ManyToOne } from 'typeorm';
 
 import { Session } from './session.entity';

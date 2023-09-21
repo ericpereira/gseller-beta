@@ -22,8 +22,8 @@ import {
     UpdateCustomerAddressMutation,
     UpdateCustomerInput,
     UpdateCustomerMutation,
-} from '@vendure/admin-ui/core';
-import { notNullOrUndefined } from '@vendure/common/lib/shared-utils';
+} from '@gseller/admin-ui/core';
+import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
 import { gql } from 'apollo-angular';
 import { EMPTY, forkJoin, from, Observable, Subject } from 'rxjs';
 import {

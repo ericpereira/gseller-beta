@@ -1,4 +1,4 @@
-import { Channel, ID, RequestContext, SerializedRequestContext } from '@vendure/core';
+import { Channel, ID, RequestContext, SerializedRequestContext } from '@gseller/core';
 
 /**
  * @description

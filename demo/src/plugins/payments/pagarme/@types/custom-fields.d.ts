@@ -1,5 +1,5 @@
-import { CustomCustomerFields, Order } from "@vendure/core/dist/entity/custom-entity-fields";
-import { CustomOrderFields } from "@vendure/core/dist/entity/custom-entity-fields";
+import { CustomCustomerFields, Order } from "@gseller/core/dist/entity/custom-entity-fields";
+import { CustomOrderFields } from "@gseller/core/dist/entity/custom-entity-fields";
 
 class CustomOrderFields {
   orderCode: string;
@@ -9,6 +9,6 @@ class CustomOrderFields {
   pagarmePaymentType?: string;
 }
 
-declare module '@vendure/core/dist/entity/custom-entity-fields' {
+declare module '@gseller/core/dist/entity/custom-entity-fields' {
   export class Order implements CustomOrderFields { }
 }

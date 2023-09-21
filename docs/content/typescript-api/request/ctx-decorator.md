@@ -13,7 +13,7 @@ generated: true
 
 # Ctx
 
-{{< generation-info sourceFile="packages/core/src/api/decorators/request-context.decorator.ts" sourceLine="21" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/api/decorators/request-context.decorator.ts" sourceLine="21" packageName="@gseller/core">}}
 
 Resolver param decorator which extracts the <a href='/typescript-api/request/request-context#requestcontext'>RequestContext</a> from the incoming
 request object.

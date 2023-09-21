@@ -25,9 +25,9 @@ import {
     TypedBaseDetailComponent,
     UpdateFacetInput,
     UpdateFacetValueInput,
-} from '@vendure/admin-ui/core';
-import { normalizeString } from '@vendure/common/lib/normalize-string';
-import { notNullOrUndefined } from '@vendure/common/lib/shared-utils';
+} from '@gseller/admin-ui/core';
+import { normalizeString } from '@gseller/common/lib/normalize-string';
+import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
 import { gql } from 'apollo-angular';
 import { combineLatest, EMPTY, forkJoin, Observable } from 'rxjs';
 import { map, mergeMap, switchMap, take } from 'rxjs/operators';

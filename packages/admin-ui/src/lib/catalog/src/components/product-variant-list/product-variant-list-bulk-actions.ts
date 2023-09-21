@@ -11,8 +11,8 @@ import {
     createBulkRemoveFromChannelAction,
     isMultiChannel,
     ProductVariant,
-} from '@vendure/admin-ui/core';
-import { unique } from '@vendure/common/lib/unique';
+} from '@gseller/admin-ui/core';
+import { unique } from '@gseller/common/lib/unique';
 import { EMPTY } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { AssignProductsToChannelDialogComponent } from '../assign-products-to-channel-dialog/assign-products-to-channel-dialog.component';

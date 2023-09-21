@@ -13,7 +13,7 @@ generated: true
 
 # EmailTransportOptions
 
-{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="131" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="131" packageName="@gseller/email-plugin">}}
 
 A union of all the possible transport options for sending emails.
 
@@ -33,7 +33,7 @@ type EmailTransportOptions = | SMTPTransportOptions
 
 # SMTPTransportOptions
 
-{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="146" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="146" packageName="@gseller/email-plugin">}}
 
 The SMTP transport options of [Nodemailer](https://nodemailer.com/smtp/)
 
@@ -72,7 +72,7 @@ the SMTP server.{{< /member-description >}}
 
 # SESTransportOptions
 
-{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="195" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="195" packageName="@gseller/email-plugin">}}
 
 The SES transport options of [Nodemailer](https://nodemailer.com/transports/ses//)
 
@@ -135,7 +135,7 @@ interface SESTransportOptions extends SESTransport.Options {
 
 # SendmailTransportOptions
 
-{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="206" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="206" packageName="@gseller/email-plugin">}}
 
 Uses the local Sendmail program to send the email.
 
@@ -175,7 +175,7 @@ interface SendmailTransportOptions {
 
 # FileTransportOptions
 
-{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="221" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="221" packageName="@gseller/email-plugin">}}
 
 Outputs the email as an HTML file for development purposes.
 
@@ -215,7 +215,7 @@ interface FileTransportOptions {
 
 # NoopTransportOptions
 
-{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="237" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="237" packageName="@gseller/email-plugin">}}
 
 Does nothing with the generated email. Intended for use in testing where we don't care about the email transport,
 or when using a custom <a href='/typescript-api/core-plugins/email-plugin/email-sender#emailsender'>EmailSender</a> which does not require transport options.
@@ -242,7 +242,7 @@ interface NoopTransportOptions {
 
 # TestingTransportOptions
 
-{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="266" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/types.ts" sourceLine="266" packageName="@gseller/email-plugin">}}
 
 Forwards the raw GeneratedEmailContext object to a provided callback, for use in testing.
 

@@ -13,7 +13,7 @@ generated: true
 
 # CustomerService
 
-{{< generation-info sourceFile="packages/core/src/service/services/customer.service.ts" sourceLine="79" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/customer.service.ts" sourceLine="79" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/customer#customer'>Customer</a> entities.
 

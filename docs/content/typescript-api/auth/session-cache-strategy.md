@@ -13,7 +13,7 @@ generated: true
 
 # SessionCacheStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/session-cache/session-cache-strategy.ts" sourceLine="147" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/session-cache/session-cache-strategy.ts" sourceLine="147" packageName="@gseller/core">}}
 
 This strategy defines how sessions get cached. Since most requests will need the Session
 object for permissions data, it can become a bottleneck to go to the database and do a multi-join
@@ -31,7 +31,7 @@ Here's an example implementation using Redis. To use this, you need to add the
 *Example*
 
 ```TypeScript
-import { CachedSession, Logger, SessionCacheStrategy, VendurePlugin } from '@vendure/core';
+import { CachedSession, Logger, SessionCacheStrategy, VendurePlugin } from '@gseller/core';
 import { Redis, RedisOptions } from 'ioredis';
 
 export interface RedisSessionCachePluginOptions {
@@ -161,7 +161,7 @@ get it into a state to be stored, e.g. JSON.stringify().{{< /member-description 
 
 # CachedSessionUser
 
-{{< generation-info sourceFile="packages/core/src/config/session-cache/session-cache-strategy.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/session-cache/session-cache-strategy.ts" sourceLine="14" packageName="@gseller/core">}}
 
 A simplified representation of the User associated with the
 current Session.
@@ -209,7 +209,7 @@ type CachedSessionUser = {
 
 # CachedSession
 
-{{< generation-info sourceFile="packages/core/src/config/session-cache/session-cache-strategy.ts" sourceLine="29" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/session-cache/session-cache-strategy.ts" sourceLine="29" packageName="@gseller/core">}}
 
 A simplified representation of a Session which is easy to
 store.

@@ -13,7 +13,7 @@ generated: true
 
 # TypeORMHealthCheckStrategy
 
-{{< generation-info sourceFile="packages/core/src/health-check/typeorm-health-check-strategy.ts" sourceLine="36" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/health-check/typeorm-health-check-strategy.ts" sourceLine="36" packageName="@gseller/core">}}
 
 A <a href='/typescript-api/health-check/health-check-strategy#healthcheckstrategy'>HealthCheckStrategy</a> used to check the health of the database. This health
 check is included by default, but can be customized by explicitly adding it to the
@@ -22,7 +22,7 @@ check is included by default, but can be customized by explicitly adding it to t
 *Example*
 
 ```TypeScript
-import { TypeORMHealthCheckStrategy } from '@vendure/core';
+import { TypeORMHealthCheckStrategy } from '@gseller/core';
 
 export const config = {
   // ...

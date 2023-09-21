@@ -13,7 +13,7 @@ generated: true
 
 # HistoryService
 
-{{< generation-info sourceFile="packages/core/src/service/services/history.service.ts" sourceLine="241" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/history.service.ts" sourceLine="241" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/history-entry#historyentry'>HistoryEntry</a> entities. Histories are timelines of actions
 related to a particular Customer or Order, recording significant events such as creation, state changes,
@@ -32,7 +32,7 @@ First of all we'd extend the GraphQL `HistoryEntryType` enum for our new type as
 *Example*
 
 ```TypeScript
-import { PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { PluginCommonModule, VendurePlugin } from '@gseller/core';
 import { VerificationService } from './verification.service';
 
 @VendurePlugin({
@@ -57,11 +57,11 @@ and [ambient modules](https://www.typescriptlang.org/docs/handbook/modules.html#
 
 ```TypeScript
 // types.ts
-import { CustomerHistoryEntryData } from '@vendure/core';
+import { CustomerHistoryEntryData } from '@gseller/core';
 
 export const CUSTOMER_TAX_ID_VERIFICATION = 'CUSTOMER_TAX_ID_VERIFICATION';
 
-declare module '@vendure/core' {
+declare module '@gseller/core' {
   interface CustomerHistoryEntryData {
     [CUSTOMER_TAX_ID_VERIFICATION]: {
       taxId: string;
@@ -83,7 +83,7 @@ Now that we have our types set up, we can use the HistoryService to add a new Hi
 ```TypeScript
 // verification.service.ts
 import { Injectable } from '@nestjs/common';
-import { RequestContext } from '@vendure/core';
+import { RequestContext } from '@gseller/core';
 import { CUSTOMER_TAX_ID_VERIFICATION } from './types';
 
 @Injectable()

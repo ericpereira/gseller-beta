@@ -18,7 +18,7 @@ export interface HttpHealthCheckOptions {
  *
  * @example
  * ```TypeScript
- * import { HttpHealthCheckStrategy, TypeORMHealthCheckStrategy } from '\@vendure/core';
+ * import { HttpHealthCheckStrategy, TypeORMHealthCheckStrategy } from '\@gseller/core';
  *
  * export const config = {
  *   // ...

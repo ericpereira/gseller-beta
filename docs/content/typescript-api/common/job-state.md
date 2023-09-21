@@ -13,7 +13,7 @@ generated: true
 
 # JobState
 
-{{< generation-info sourceFile="packages/common/src/generated-types.ts" sourceLine="2072" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/generated-types.ts" sourceLine="2072" packageName="@gseller/common">}}
 
 The state of a Job in the JobQueue
 

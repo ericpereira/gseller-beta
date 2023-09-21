@@ -13,7 +13,7 @@ generated: true
 
 # Product
 
-{{< generation-info sourceFile="packages/core/src/entity/product/product.entity.ts" sourceLine="25" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/product/product.entity.ts" sourceLine="25" packageName="@gseller/core">}}
 
 A Product contains one or more <a href='/typescript-api/entities/product-variant#productvariant'>ProductVariant</a>s and serves as a container for those variants,
 providing an overall name, description etc.

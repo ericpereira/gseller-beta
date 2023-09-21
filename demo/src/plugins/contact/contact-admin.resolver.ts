@@ -1,6 +1,6 @@
 import { Query, Resolver } from '@nestjs/graphql';
 
-import { Allow } from '@vendure/core';
+import { Allow } from '@gseller/core';
 import { ContactService } from './contact.service';
 import { ContactUsTdo } from './dto';
 import { manageContact } from './contact.permission';

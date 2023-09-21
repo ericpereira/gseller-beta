@@ -13,7 +13,7 @@ generated: true
 
 # EntityHydrator
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/entity-hydrator/entity-hydrator.service.ts" sourceLine="53" packageName="@vendure/core" since="1.3.0">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/entity-hydrator/entity-hydrator.service.ts" sourceLine="53" packageName="@gseller/core" since="1.3.0">}}
 
 This is a helper class which is used to "hydrate" entity instances, which means to populate them
 with the specified relations. This is useful when writing plugin code which receives an entity

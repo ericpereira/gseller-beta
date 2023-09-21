@@ -13,7 +13,7 @@ generated: true
 
 # EmailPlugin
 
-{{< generation-info sourceFile="packages/email-plugin/src/plugin.ts" sourceLine="277" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/plugin.ts" sourceLine="277" packageName="@gseller/email-plugin">}}
 
 The EmailPlugin creates and sends transactional emails based on Vendure events. By default, it uses an [MJML](https://mjml.io/)-based
 email generator to generate the email body and [Nodemailer](https://nodemailer.com/about/) to send the emails.
@@ -33,16 +33,16 @@ You can also create your own handlers and register them with the plugin - see th
 
 ## Installation
 
-`yarn add @vendure/email-plugin`
+`yarn add @gseller/email-plugin`
 
 or
 
-`npm install @vendure/email-plugin`
+`npm install @gseller/email-plugin`
 
 *Example*
 
 ```ts
-import { defaultEmailHandlers, EmailPlugin } from '@vendure/email-plugin';
+import { defaultEmailHandlers, EmailPlugin } from '@gseller/email-plugin';
 
 const config: VendureConfig = {
   // Add an instance of the plugin to the plugins array
@@ -67,11 +67,11 @@ const config: VendureConfig = {
 ## Email templates
 
 In the example above, the plugin has been configured to look in `<app-root>/static/email/templates`
-for the email template files. If you used `@vendure/create` to create your application, the templates will have
+for the email template files. If you used `@gseller/create` to create your application, the templates will have
 been copied to that location during setup.
 
 If you are installing the EmailPlugin separately, then you'll need to copy the templates manually from
-`node_modules/@vendure/email-plugin/templates` to a location of your choice, and then point the `templatePath` config
+`node_modules/@gseller/email-plugin/templates` to a location of your choice, and then point the `templatePath` config
 property at that directory.
 
 * ### Dynamic Email Templates
@@ -133,8 +133,8 @@ import {
   emailVerificationHandler,
   passwordResetHandler,
   emailAddressChangeHandler,
-} from '@vendure/email-plugin';
-import { CustomerService } from '@vendure/core';
+} from '@gseller/email-plugin';
+import { CustomerService } from '@gseller/core';
 
 // This allows you to then customize each handler to your needs.
 // For example, let's set a new subject line to the order confirmation:
@@ -177,7 +177,7 @@ channel aware transport settings.
 *Example*
 
 ```ts
-import { defaultEmailHandlers, EmailPlugin } from '@vendure/email-plugin';
+import { defaultEmailHandlers, EmailPlugin } from '@gseller/email-plugin';
 import { MyTransportService } from './transport.services.ts';
 const config: VendureConfig = {
   plugins: [

@@ -13,7 +13,7 @@ generated: true
 
 # MigrationOptions
 
-{{< generation-info sourceFile="packages/core/src/migrate.ts" sourceLine="19" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/migrate.ts" sourceLine="19" packageName="@gseller/core">}}
 
 Configuration for generating a new migration script via <a href='/typescript-api/migration/generate-migration#generatemigration'>generateMigration</a>.
 

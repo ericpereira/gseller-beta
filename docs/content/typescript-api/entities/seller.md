@@ -13,7 +13,7 @@ generated: true
 
 # Seller
 
-{{< generation-info sourceFile="packages/core/src/entity/seller/seller.entity.ts" sourceLine="16" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/seller/seller.entity.ts" sourceLine="16" packageName="@gseller/core">}}
 
 A Seller represents the person or organization who is selling the goods on a given <a href='/typescript-api/entities/channel#channel'>Channel</a>.
 By default, a single-channel Vendure installation will have a single default Seller.

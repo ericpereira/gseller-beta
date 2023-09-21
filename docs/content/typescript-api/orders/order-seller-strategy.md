@@ -13,7 +13,7 @@ generated: true
 
 # OrderSellerStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/order-seller-strategy.ts" sourceLine="38" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/order/order-seller-strategy.ts" sourceLine="38" packageName="@gseller/core" since="2.0.0">}}
 
 This strategy defines how an Order can be split into multiple sub-orders for the use-case of
 a multivendor application.
@@ -73,7 +73,7 @@ needed.{{< /member-description >}}
 
 # DefaultOrderSellerStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/default-order-seller-strategy.ts" sourceLine="11" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/order/default-order-seller-strategy.ts" sourceLine="11" packageName="@gseller/core" since="2.0.0">}}
 
 The DefaultOrderSellerStrategy treats the Order as single-vendor.
 
@@ -95,7 +95,7 @@ class DefaultOrderSellerStrategy implements OrderSellerStrategy {
 
 # SplitOrderContents
 
-{{< generation-info sourceFile="packages/core/src/config/order/order-seller-strategy.ts" sourceLine="21" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/order/order-seller-strategy.ts" sourceLine="21" packageName="@gseller/core" since="2.0.0">}}
 
 The contents of the aggregate Order which make up a single seller Order.
 

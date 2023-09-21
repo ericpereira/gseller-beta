@@ -13,7 +13,7 @@ generated: true
 
 # IfMultichannelDirective
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/directives/if-multichannel.directive.ts" sourceLine="21" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/directives/if-multichannel.directive.ts" sourceLine="21" packageName="@gseller/admin-ui">}}
 
 Structural directive that displays the given element if the Vendure instance has multiple channels
 configured.

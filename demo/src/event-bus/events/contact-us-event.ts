@@ -1,4 +1,4 @@
-import { RequestContext, VendureEvent } from "@vendure/core";
+import { RequestContext, VendureEvent } from "@gseller/core";
 
 import { ContactUs } from "../../plugins/shared/types/generated-types";
 

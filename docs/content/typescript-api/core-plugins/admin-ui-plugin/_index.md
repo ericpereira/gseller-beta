@@ -13,7 +13,7 @@ generated: true
 
 # AdminUiPlugin
 
-{{< generation-info sourceFile="packages/admin-ui-plugin/src/plugin.ts" sourceLine="125" packageName="@vendure/admin-ui-plugin">}}
+{{< generation-info sourceFile="packages/admin-ui-plugin/src/plugin.ts" sourceLine="125" packageName="@gseller/admin-ui-plugin">}}
 
 This plugin starts a static server for the Admin UI app, and proxies it via the `/admin/` path of the main Vendure server.
 
@@ -22,16 +22,16 @@ store administrators on a day-to-day basis for the management of the store.
 
 ## Installation
 
-`yarn add @vendure/admin-ui-plugin`
+`yarn add @gseller/admin-ui-plugin`
 
 or
 
-`npm install @vendure/admin-ui-plugin`
+`npm install @gseller/admin-ui-plugin`
 
 *Example*
 
 ```ts
-import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
+import { AdminUiPlugin } from '@gseller/admin-ui-plugin';
 
 const config: VendureConfig = {
   // Add an instance of the plugin to the plugins array
@@ -51,7 +51,7 @@ you can still use the `metricSummary` query by adding the `AdminUiPlugin` to the
 *Example*
 
 ```TypeScript
-import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
+import { AdminUiPlugin } from '@gseller/admin-ui-plugin';
 
 const config: VendureConfig = {
   plugins: [

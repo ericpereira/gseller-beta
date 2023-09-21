@@ -13,7 +13,7 @@ generated: true
 
 # DefaultLogger
 
-{{< generation-info sourceFile="packages/core/src/config/logger/default-logger.ts" sourceLine="25" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/logger/default-logger.ts" sourceLine="25" packageName="@gseller/core">}}
 
 The default logger, which logs to the console (stdout) with optional timestamps. Since this logger is part of the
 default Vendure configuration, you do not need to specify it explicitly in your server config. You would only need
@@ -22,7 +22,7 @@ to specify it if you wish to change the log level (which defaults to `LogLevel.I
 *Example*
 
 ```ts
-import { DefaultLogger, LogLevel, VendureConfig } from '@vendure/core';
+import { DefaultLogger, LogLevel, VendureConfig } from '@gseller/core';
 
 export config: VendureConfig = {
     // ...

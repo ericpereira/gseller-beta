@@ -1,3 +1,3 @@
-export * from '@vendure/common/lib/generated-shop-types.d';
+export * from '@gseller/common/lib/generated-shop-types.d';
 
-declare module '@vendure/common/lib/generated-shop-types.d' { }
+declare module '@gseller/common/lib/generated-shop-types.d' { }

@@ -1,4 +1,4 @@
-import { ErrorResult } from '@vendure/core';
+import { ErrorResult } from '@gseller/core';
 export class AddressAlreadyRegisteredError extends ErrorResult {
   readonly __typename = 'AddressAlreadyRegisteredError';
   readonly errorCode = 'ADDRESS_ALREADY_REGISTERED';

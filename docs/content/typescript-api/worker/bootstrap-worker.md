@@ -13,7 +13,7 @@ generated: true
 
 # bootstrapWorker
 
-{{< generation-info sourceFile="packages/core/src/bootstrap.ts" sourceLine="102" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/bootstrap.ts" sourceLine="102" packageName="@gseller/core">}}
 
 Bootstraps a Vendure worker. Resolves to a <a href='/typescript-api/worker/vendure-worker#vendureworker'>VendureWorker</a> object containing a reference to the underlying
 NestJs [standalone application](https://docs.nestjs.com/standalone-applications) as well as convenience
@@ -24,7 +24,7 @@ Read more about the [Vendure Worker]({{< relref "vendure-worker" >}}).
 *Example*
 
 ```TypeScript
-import { bootstrapWorker } from '@vendure/core';
+import { bootstrapWorker } from '@gseller/core';
 import { config } from './vendure-config';
 
 bootstrapWorker(config)

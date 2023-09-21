@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from "@vendure/core";
+import { PluginCommonModule, VendurePlugin } from "@gseller/core";
 
 import { ChannelBanner } from "./entities/channel-banner.entity";
 import { ChannelBannerAdminService } from "./services/service.admin";

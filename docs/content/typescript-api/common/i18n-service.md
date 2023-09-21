@@ -13,7 +13,7 @@ generated: true
 
 # I18nService
 
-{{< generation-info sourceFile="packages/core/src/i18n/i18n.service.ts" sourceLine="44" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/i18n/i18n.service.ts" sourceLine="44" packageName="@gseller/core">}}
 
 
 
@@ -51,7 +51,7 @@ class I18nService implements OnModuleInit {
 
 # VendureTranslationResources
 
-{{< generation-info sourceFile="packages/core/src/i18n/i18n.service.ts" sourceLine="24" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/i18n/i18n.service.ts" sourceLine="24" packageName="@gseller/core">}}
 
 I18n resources used for translations
 

@@ -13,7 +13,7 @@ generated: true
 
 # CustomFields
 
-{{< generation-info sourceFile="packages/core/src/config/custom-field/custom-field-types.ts" sourceLine="205" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/custom-field/custom-field-types.ts" sourceLine="205" packageName="@gseller/core">}}
 
 Most entities can have additional fields added to them by defining an array of <a href='/typescript-api/custom-fields/custom-field-config#customfieldconfig'>CustomFieldConfig</a>
 objects on against the corresponding key.

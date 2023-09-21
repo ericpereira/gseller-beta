@@ -1,5 +1,5 @@
 {
-    "name": "@vendure/common",
+    "name": "@gseller/common",
     "version": "2.0.7",
     "main": "index.js",
     "license": "MIT",

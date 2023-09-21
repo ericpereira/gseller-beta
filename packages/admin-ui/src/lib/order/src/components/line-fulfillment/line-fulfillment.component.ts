@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { OrderDetailFragment } from '@vendure/admin-ui/core';
-import { notNullOrUndefined } from '@vendure/common/lib/shared-utils';
-import { unique } from '@vendure/common/lib/unique';
+import { OrderDetailFragment } from '@gseller/admin-ui/core';
+import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
+import { unique } from '@gseller/common/lib/unique';
 
 export type FulfillmentStatus = 'full' | 'partial' | 'none';
 type Fulfillment = NonNullable<OrderDetailFragment['fulfillments']>[number];

@@ -1,5 +1,5 @@
-import { CreateCountryInput, UpdateCountryInput } from '@vendure/common/lib/generated-types';
-import { ID } from '@vendure/common/lib/shared-types';
+import { CreateCountryInput, UpdateCountryInput } from '@gseller/common/lib/generated-types';
+import { ID } from '@gseller/common/lib/shared-types';
 
 import { RequestContext } from '../../api';
 import { Country } from '../../entity';

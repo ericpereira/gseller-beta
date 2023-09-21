@@ -29,7 +29,7 @@ Vendure uses 5 log levels, in order of increasing severity:
 Vendure ships with a [DefaultLogger]({{< relref "default-logger" >}}) which logs to the console (process.stdout). It can be configured with the desired log level:
 
 ```TypeScript
-import { DefaultLogger, VendureConfig } from '@vendure/core';
+import { DefaultLogger, VendureConfig } from '@gseller/core';
 
 const config: VendureConfig = {
     // ...
@@ -42,7 +42,7 @@ const config: VendureConfig = {
 To log database queries, set the `logging` property of the `dbConnectionOptions` as well as setting the logger to `Debug` level.
 
 ```TypeScript
-import { DefaultLogger, LogLevel, VendureConfig } from '@vendure/core';
+import { DefaultLogger, LogLevel, VendureConfig } from '@gseller/core';
 
 const config: VendureConfig = {
     // ...
@@ -61,10 +61,10 @@ More information about the `logging` option can be found in the [TypeORM logging
 
 ## Logging in your own plugins
 
-When you extend Vendure by creating your own plugins, it's a good idea to log useful information about what your plugin is doing. To do this, you need to import the [Logger]({{< relref "logger" >}}) class from `@vendure/core` and use it in your plugin:
+When you extend Vendure by creating your own plugins, it's a good idea to log useful information about what your plugin is doing. To do this, you need to import the [Logger]({{< relref "logger" >}}) class from `@gseller/core` and use it in your plugin:
 
 ```TypeScript
-import { Logger } from '@vendure/core';
+import { Logger } from '@gseller/core';
 
 // It is customary to define a logger context for your plugin
 // so that the log messages can be easily identified.

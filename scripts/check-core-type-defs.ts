@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 /**
- * For some unknown reason, a v1.2.2 of @vendure/core included incorrect type definitions for some types.
+ * For some unknown reason, a v1.2.2 of @gseller/core included incorrect type definitions for some types.
  * Namely, _some_ of the `ConfigurableOperationDef` types had their specific string literal & enum types
  * replaced with just `string`, which caused the published package to fail to build.
  *

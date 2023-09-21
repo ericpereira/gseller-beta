@@ -13,7 +13,7 @@ generated: true
 
 # Importer
 
-{{< generation-info sourceFile="packages/core/src/data-import/providers/importer/importer.ts" sourceLine="41" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/data-import/providers/importer/importer.ts" sourceLine="41" packageName="@gseller/core">}}
 
 Parses and imports Products using the CSV import format.
 

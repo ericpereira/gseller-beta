@@ -1,4 +1,4 @@
-import { EmailEventListener } from "@vendure/email-plugin";
+import { EmailEventListener } from "@gseller/email-plugin";
 import { NewShopEvent } from "../../event-bus/events/new-shop-event";
 
 export const newShopHandler = new EmailEventListener("new-shop")

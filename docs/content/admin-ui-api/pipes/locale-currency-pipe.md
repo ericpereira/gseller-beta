@@ -13,7 +13,7 @@ generated: true
 
 # LocaleCurrencyPipe
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/locale-currency.pipe.ts" sourceLine="19" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/locale-currency.pipe.ts" sourceLine="19" packageName="@gseller/admin-ui">}}
 
 Formats a Vendure monetary value (in cents) into the correct format for the configured currency and display
 locale.

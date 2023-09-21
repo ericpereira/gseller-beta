@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { PluginCommonModule, VendurePlugin } from '@gseller/core';
 
 import { Contact } from './entities/contact.entities';
 import { ContactAdminResolver } from './contact-admin.resolver';

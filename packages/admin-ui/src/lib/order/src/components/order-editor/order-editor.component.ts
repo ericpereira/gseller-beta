@@ -21,9 +21,9 @@ import {
     SortOrder,
     SurchargeInput,
     transformRelationCustomFieldInputs,
-} from '@vendure/admin-ui/core';
-import { assertNever, notNullOrUndefined } from '@vendure/common/lib/shared-utils';
-import { simpleDeepClone } from '@vendure/common/lib/simple-deep-clone';
+} from '@gseller/admin-ui/core';
+import { assertNever, notNullOrUndefined } from '@gseller/common/lib/shared-utils';
+import { simpleDeepClone } from '@gseller/common/lib/simple-deep-clone';
 import { EMPTY, Observable, of } from 'rxjs';
 import { mapTo, shareReplay, switchMap, takeUntil } from 'rxjs/operators';
 

@@ -13,7 +13,7 @@ generated: true
 
 # JobQueueOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="872" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="872" packageName="@gseller/core">}}
 
 Options related to the built-in job queue.
 

@@ -13,7 +13,7 @@ generated: true
 
 # OrderTestingService
 
-{{< generation-info sourceFile="packages/core/src/service/services/order-testing.service.ts" sourceLine="34" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/order-testing.service.ts" sourceLine="34" packageName="@gseller/core">}}
 
 This service is responsible for creating temporary mock Orders against which tests can be run, such as
 testing a ShippingMethod or Promotion.

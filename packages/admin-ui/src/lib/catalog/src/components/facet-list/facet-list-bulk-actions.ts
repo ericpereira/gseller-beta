@@ -14,8 +14,8 @@ import {
     Permission,
     RemoveFacetFromChannelResult,
     RemoveFacetsFromChannelMutation,
-} from '@vendure/admin-ui/core';
-import { unique } from '@vendure/common/lib/unique';
+} from '@gseller/admin-ui/core';
+import { unique } from '@gseller/common/lib/unique';
 import { EMPTY, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 

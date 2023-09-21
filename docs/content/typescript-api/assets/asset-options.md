@@ -13,7 +13,7 @@ generated: true
 
 # AssetOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="605" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="605" packageName="@gseller/core">}}
 
 The AssetOptions define how assets (images and other files) are named and stored, and how preview images are generated.
 

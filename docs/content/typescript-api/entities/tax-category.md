@@ -13,7 +13,7 @@ generated: true
 
 # TaxCategory
 
-{{< generation-info sourceFile="packages/core/src/entity/tax-category/tax-category.entity.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/tax-category/tax-category.entity.ts" sourceLine="14" packageName="@gseller/core">}}
 
 A TaxCategory defines what type of taxes to apply to a <a href='/typescript-api/entities/product-variant#productvariant'>ProductVariant</a>.
 

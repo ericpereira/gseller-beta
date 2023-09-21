@@ -13,7 +13,7 @@ generated: true
 
 # TestServer
 
-{{< generation-info sourceFile="packages/testing/src/test-server.ts" sourceLine="18" packageName="@vendure/testing">}}
+{{< generation-info sourceFile="packages/testing/src/test-server.ts" sourceLine="18" packageName="@gseller/testing">}}
 
 A real Vendure server against which the e2e tests should be run.
 

@@ -13,7 +13,7 @@ generated: true
 
 # ChangedPriceHandlingStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/changed-price-handling-strategy.ts" sourceLine="17" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/order/changed-price-handling-strategy.ts" sourceLine="17" packageName="@gseller/core">}}
 
 This strategy defines how we handle the situation where an item exists in an Order, and
 then later on another is added but in the meantime the price of the ProductVariant has changed.

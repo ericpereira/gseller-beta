@@ -13,7 +13,7 @@ generated: true
 
 # HistoryEntryConfig
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/custom-history-entry-component/history-entry-component-types.ts" sourceLine="75" packageName="@vendure/admin-ui" since="1.9.0">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/custom-history-entry-component/history-entry-component-types.ts" sourceLine="75" packageName="@gseller/admin-ui" since="1.9.0">}}
 
 Configuration for registering a custom <a href='/admin-ui-api/custom-history-entry-components/history-entry-component#historyentrycomponent'>HistoryEntryComponent</a>.
 

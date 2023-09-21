@@ -1,4 +1,4 @@
-import { CustomFields, LanguageCode } from '@vendure/core';
+import { CustomFields, LanguageCode } from '@gseller/core';
 
 const ProductCustomFields: CustomFields['Product'] = [
     {

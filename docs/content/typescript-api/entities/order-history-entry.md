@@ -13,7 +13,7 @@ generated: true
 
 # OrderHistoryEntry
 
-{{< generation-info sourceFile="packages/core/src/entity/history-entry/order-history-entry.entity.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/history-entry/order-history-entry.entity.ts" sourceLine="14" packageName="@gseller/core">}}
 
 Represents an event in the history of a particular <a href='/typescript-api/entities/order#order'>Order</a>.
 

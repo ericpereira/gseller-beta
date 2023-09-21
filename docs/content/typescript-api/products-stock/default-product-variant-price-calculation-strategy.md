@@ -13,7 +13,7 @@ generated: true
 
 # DefaultProductVariantPriceCalculationStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/catalog/default-product-variant-price-calculation-strategy.ts" sourceLine="18" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/catalog/default-product-variant-price-calculation-strategy.ts" sourceLine="18" packageName="@gseller/core">}}
 
 A default ProductVariant price calculation function.
 

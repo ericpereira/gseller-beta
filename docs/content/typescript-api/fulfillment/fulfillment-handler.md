@@ -13,7 +13,7 @@ generated: true
 
 # FulfillmentHandler
 
-{{< generation-info sourceFile="packages/core/src/config/fulfillment/fulfillment-handler.ts" sourceLine="150" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/fulfillment/fulfillment-handler.ts" sourceLine="150" packageName="@gseller/core">}}
 
 A FulfillmentHandler is used when creating a new <a href='/typescript-api/entities/fulfillment#fulfillment'>Fulfillment</a>. When the `addFulfillmentToOrder` mutation
 is executed, the specified handler will be used and it's `createFulfillment` method is called. This method
@@ -116,7 +116,7 @@ class FulfillmentHandler<T extends ConfigArgs = ConfigArgs> extends Configurable
 
 # FulfillmentHandlerConfig
 
-{{< generation-info sourceFile="packages/core/src/config/fulfillment/fulfillment-handler.ts" sourceLine="49" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/fulfillment/fulfillment-handler.ts" sourceLine="49" packageName="@gseller/core">}}
 
 The configuration object used to instantiate a <a href='/typescript-api/fulfillment/fulfillment-handler#fulfillmenthandler'>FulfillmentHandler</a>.
 
@@ -163,7 +163,7 @@ shipping API.{{< /member-description >}}
 
 # CreateFulfillmentFn
 
-{{< generation-info sourceFile="packages/core/src/config/fulfillment/fulfillment-handler.ts" sourceLine="34" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/fulfillment/fulfillment-handler.ts" sourceLine="34" packageName="@gseller/core">}}
 
 The function called when creating a new Fulfillment
 
@@ -183,7 +183,7 @@ type CreateFulfillmentFn<T extends ConfigArgs> = (
 
 # CreateFulfillmentResult
 
-{{< generation-info sourceFile="packages/core/src/config/fulfillment/fulfillment-handler.ts" sourceLine="24" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/fulfillment/fulfillment-handler.ts" sourceLine="24" packageName="@gseller/core">}}
 
 
 

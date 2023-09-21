@@ -1,4 +1,3 @@
-import { bankAccountChangeHandler } from "./bank-account-change"
 import { contactHandler } from "./contact.handler";
 import { emailAddressChangeHandler } from "./email-address-change.handler"
 import { emailVerificationHandler } from "./email-verification.handler"
@@ -14,6 +13,5 @@ export default [
   inviteFriendtHandler,
   emailAddressChangeHandler,
   emailVerificationHandler,
-  bankAccountChangeHandler,
   recipientContractConfirmationHandler,
 ];

@@ -13,7 +13,7 @@ generated: true
 
 # DurationPipe
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/duration.pipe.ts" sourceLine="18" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/pipes/duration.pipe.ts" sourceLine="18" packageName="@gseller/admin-ui">}}
 
 Displays a number of milliseconds in a more human-readable format,
 e.g. "12ms", "33s", "2:03m"

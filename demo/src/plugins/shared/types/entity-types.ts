@@ -1,2 +1,2 @@
 
-declare module '@vendure/core/dist/entity' { }
+declare module '@gseller/core/dist/entity' { }

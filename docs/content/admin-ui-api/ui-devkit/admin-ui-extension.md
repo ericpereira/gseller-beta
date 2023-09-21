@@ -13,7 +13,7 @@ generated: true
 
 # AdminUiExtension
 
-{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="98" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="98" packageName="@gseller/ui-devkit">}}
 
 Defines extensions to the Admin UI application by specifying additional
 Angular [NgModules](https://angular.io/guide/ngmodules) which are compiled
@@ -85,7 +85,7 @@ well as linting.
 ```ts
 // packages/common-ui-module/src/ui/ui-shared.module.ts
 import { NgModule } from '@angular/core';
-import { SharedModule } from '@vendure/admin-ui/core';
+import { SharedModule } from '@gseller/admin-ui/core';
 import { CommonUiComponent } from './components/common-ui/common-ui.component';
 
 export { CommonUiComponent };
@@ -102,7 +102,7 @@ export class CommonSharedUiModule {}
 // packages/common-ui-module/src/index.ts
 import path from 'path';
 
-import { AdminUiExtension } from '@vendure/ui-devkit/compiler';
+import { AdminUiExtension } from '@gseller/ui-devkit/compiler';
 
 export const uiExtensions: AdminUiExtension = {
   pathAlias: '@common-ui-module',     // this is the important part
@@ -132,7 +132,7 @@ export const uiExtensions: AdminUiExtension = {
 ```ts
 // packages/sample-plugin/src/ui/ui-extension.module.ts
 import { NgModule } from '@angular/core';
-import { SharedModule } from '@vendure/admin-ui/core';
+import { SharedModule } from '@gseller/admin-ui/core';
 // the import below works both in the context of the custom Admin UI app as well as the main project
 // '@common-ui-module' is the value of "pathAlias" and 'ui-shared.module' is the file we want to reference inside "extensionPath"
 import { CommonSharedUiModule, CommonUiComponent } from '@common-ui-module/ui-shared.module';
@@ -173,7 +173,7 @@ exclude: ['**/*.spec.ts']
 
 # TranslationExtension
 
-{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="18" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="18" packageName="@gseller/ui-devkit">}}
 
 Defines extensions to the Admin UI translations. Can be used as a stand-alone extension definition which only adds translations
 without adding new UI functionality, or as part of a full <a href='/admin-ui-api/ui-devkit/admin-ui-extension#adminuiextension'>AdminUiExtension</a>.
@@ -212,7 +212,7 @@ translations: {
 
 # StaticAssetExtension
 
-{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="44" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="44" packageName="@gseller/ui-devkit">}}
 
 Defines extensions which copy static assets to the custom Admin UI application source asset directory.
 
@@ -239,7 +239,7 @@ directory.{{< /member-description >}}
 
 # GlobalStylesExtension
 
-{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="60" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="60" packageName="@gseller/ui-devkit">}}
 
 Defines extensions which add global styles to the custom Admin UI application.
 
@@ -266,7 +266,7 @@ incorporated into the Admin UI app global stylesheet.{{< /member-description >}}
 
 # SassVariableOverridesExtension
 
-{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="76" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="76" packageName="@gseller/ui-devkit">}}
 
 Defines an extension which allows overriding Clarity Design System's Sass variables used in styles on the Admin UI.
 
@@ -293,7 +293,7 @@ default values defined in Clarity.{{< /member-description >}}
 
 # StaticAssetDefinition
 
-{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="231" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="231" packageName="@gseller/ui-devkit">}}
 
 A static asset can be provided as a path to the asset, or as an object containing a path and a new
 name, which will cause the compiler to copy and then rename the asset.
@@ -309,7 +309,7 @@ type StaticAssetDefinition = string | { path: string; rename: string }
 
 # AdminUiExtensionSharedModule
 
-{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="240" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="240" packageName="@gseller/ui-devkit">}}
 
 Configuration defining a single NgModule with which to extend the Admin UI.
 
@@ -351,7 +351,7 @@ navigation items.{{< /member-description >}}
 
 # AdminUiExtensionLazyModule
 
-{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="267" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/compiler/types.ts" sourceLine="267" packageName="@gseller/ui-devkit">}}
 
 Configuration defining a single NgModule with which to extend the Admin UI.
 

@@ -23,7 +23,7 @@ import {
   SharedModule,
   TimelineDisplayType,
   TimelineHistoryEntry,
-} from '@vendure/admin-ui/core';
+} from '@gseller/admin-ui/core';
 
 @Component({
   selector: 'tax-id-verification-component',

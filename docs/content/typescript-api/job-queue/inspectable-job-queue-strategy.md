@@ -13,7 +13,7 @@ generated: true
 
 # InspectableJobQueueStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/job-queue/inspectable-job-queue-strategy.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/job-queue/inspectable-job-queue-strategy.ts" sourceLine="14" packageName="@gseller/core">}}
 
 Defines a job queue strategy that can be inspected using the default admin ui
 

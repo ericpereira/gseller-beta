@@ -13,7 +13,7 @@ generated: true
 
 # OrderModification
 
-{{< generation-info sourceFile="packages/core/src/entity/order-modification/order-modification.entity.ts" sourceLine="21" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/order-modification/order-modification.entity.ts" sourceLine="21" packageName="@gseller/core">}}
 
 An entity which represents a modification to an order which has been placed, and
 then modified afterwards by an administrator.

@@ -1,6 +1,6 @@
 
 import { Args, Resolver, Mutation, Query } from '@nestjs/graphql';
-import { Allow, Ctx, Permission, RequestContext } from '@vendure/core';
+import { Allow, Ctx, Permission, RequestContext } from '@gseller/core';
 import { InviteFriendService } from './invite-friend.service';
 import { BaseResult } from '../shared/types/generated-types';
 

@@ -13,7 +13,7 @@ generated: true
 
 # LanguageCode
 
-{{< generation-info sourceFile="packages/common/src/generated-types.ts" sourceLine="2090" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/generated-types.ts" sourceLine="2090" packageName="@gseller/common">}}
 
 Languages in the form of a ISO 639-1 language code with optional
 region or script modifier (e.g. de_AT). The selection available is based

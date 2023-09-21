@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MutationUpdaterFn, SingleExecutionResult, WatchQueryFetchPolicy } from '@apollo/client/core';
 import { TypedDocumentNode } from '@graphql-typed-document-node/core';
-import { simpleDeepClone } from '@vendure/common/lib/simple-deep-clone';
+import { simpleDeepClone } from '@gseller/common/lib/simple-deep-clone';
 import { Apollo } from 'apollo-angular';
 import { DocumentNode } from 'graphql/language/ast';
 import { Observable } from 'rxjs';

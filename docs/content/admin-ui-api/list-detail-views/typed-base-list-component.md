@@ -13,7 +13,7 @@ generated: true
 
 # TypedBaseListComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/base-list.component.ts" sourceLine="199" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/base-list.component.ts" sourceLine="199" packageName="@gseller/admin-ui">}}
 
 A version of the <a href='/admin-ui-api/list-detail-views/base-list-component#baselistcomponent'>BaseListComponent</a> which is designed to be used with a
 [TypedDocumentNode](https://the-guild.dev/graphql/codegen/plugins/typescript/typed-document-node).

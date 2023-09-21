@@ -13,7 +13,7 @@ generated: true
 
 # CollectionFilter
 
-{{< generation-info sourceFile="packages/core/src/config/catalog/collection-filter.ts" sourceLine="64" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/catalog/collection-filter.ts" sourceLine="64" packageName="@gseller/core">}}
 
 A CollectionFilter defines a rule which can be used to associate ProductVariants with a Collection.
 The filtering is done by defining the `apply()` function, which receives a TypeORM
@@ -27,7 +27,7 @@ Here's a simple example of a custom CollectionFilter:
 *Example*
 
 ```TypeScript
-import { CollectionFilter, LanguageCode } from '@vendure/core';
+import { CollectionFilter, LanguageCode } from '@gseller/core';
 
 export const skuCollectionFilter = new CollectionFilter({
   args: {

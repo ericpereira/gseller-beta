@@ -13,7 +13,7 @@ generated: true
 
 # FormInputComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/component-registry-types.ts" sourceLine="10" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/component-registry-types.ts" sourceLine="10" packageName="@gseller/admin-ui">}}
 
 This interface should be implemented by any component being used as a custom input. For example,
 inputs for custom fields, or for configurable arguments.

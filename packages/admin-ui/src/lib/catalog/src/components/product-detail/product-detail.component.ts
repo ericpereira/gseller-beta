@@ -28,10 +28,10 @@ import {
     UpdateProductOptionInput,
     UpdateProductVariantInput,
     UpdateProductVariantsMutation,
-} from '@vendure/admin-ui/core';
-import { normalizeString } from '@vendure/common/lib/normalize-string';
-import { DEFAULT_CHANNEL_CODE } from '@vendure/common/lib/shared-constants';
-import { unique } from '@vendure/common/lib/unique';
+} from '@gseller/admin-ui/core';
+import { normalizeString } from '@gseller/common/lib/normalize-string';
+import { DEFAULT_CHANNEL_CODE } from '@gseller/common/lib/shared-constants';
+import { unique } from '@gseller/common/lib/unique';
 import { gql } from 'apollo-angular';
 import { combineLatest, concat, EMPTY, from, Observable } from 'rxjs';
 import {

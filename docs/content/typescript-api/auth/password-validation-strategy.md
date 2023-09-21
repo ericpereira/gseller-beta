@@ -13,7 +13,7 @@ generated: true
 
 # PasswordValidationStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/auth/password-validation-strategy.ts" sourceLine="12" packageName="@vendure/core" since="1.5.0">}}
+{{< generation-info sourceFile="packages/core/src/config/auth/password-validation-strategy.ts" sourceLine="12" packageName="@gseller/core" since="1.5.0">}}
 
 Defines validation to apply to new password (when creating an account or updating an existing account's
 password when using the <a href='/typescript-api/auth/native-authentication-strategy#nativeauthenticationstrategy'>NativeAuthenticationStrategy</a>.

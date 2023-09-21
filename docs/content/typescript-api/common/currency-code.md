@@ -13,7 +13,7 @@ generated: true
 
 # CurrencyCode
 
-{{< generation-info sourceFile="packages/common/src/generated-types.ts" sourceLine="949" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/generated-types.ts" sourceLine="949" packageName="@gseller/common">}}
 
 ISO 4217 currency code
 

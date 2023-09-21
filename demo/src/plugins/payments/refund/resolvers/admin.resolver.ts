@@ -10,7 +10,7 @@ import {
     ID,
     Permission,
     RequestContext
-  } from '@vendure/core';
+  } from '@gseller/core';
   import { RefundRequest } from '../entities/refund-request.entity';
   import { RefundRequestAdminService } from '../service/admin.service';
 import { InputCreateRefundRequest } from '../types';

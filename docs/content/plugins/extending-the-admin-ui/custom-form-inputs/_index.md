@@ -31,7 +31,7 @@ But let's say we want to display a range slider instead. Here's how we can do th
 // project/ui-extensions/shared.module.ts
 import { NgModule, Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { IntCustomFieldConfig ,SharedModule, FormInputComponent, registerFormInputComponent } from '@vendure/admin-ui/core';
+import { IntCustomFieldConfig ,SharedModule, FormInputComponent, registerFormInputComponent } from '@gseller/admin-ui/core';
 
 @Component({
   template: `
@@ -124,8 +124,8 @@ Here is a simple example taken from the [real-world-vendure](https://github.com/
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { RelationCustomFieldConfig } from '@vendure/common/lib/generated-types';
-import { CustomFieldControl, DataService } from '@vendure/admin-ui/core';
+import { RelationCustomFieldConfig } from '@gseller/common/lib/generated-types';
+import { CustomFieldControl, DataService } from '@gseller/admin-ui/core';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 

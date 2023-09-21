@@ -13,7 +13,7 @@ generated: true
 
 # setBranding
 
-{{< generation-info sourceFile="packages/ui-devkit/src/compiler/helpers.ts" sourceLine="26" packageName="@vendure/ui-devkit">}}
+{{< generation-info sourceFile="packages/ui-devkit/src/compiler/helpers.ts" sourceLine="26" packageName="@gseller/ui-devkit">}}
 
 A helper function to simplify the process of setting custom branding images.
 

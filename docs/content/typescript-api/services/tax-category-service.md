@@ -13,7 +13,7 @@ generated: true
 
 # TaxCategoryService
 
-{{< generation-info sourceFile="packages/core/src/service/services/tax-category.service.ts" sourceLine="29" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/tax-category.service.ts" sourceLine="29" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/tax-category#taxcategory'>TaxCategory</a> entities.
 

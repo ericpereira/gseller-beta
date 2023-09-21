@@ -1,4 +1,4 @@
-import { RequestContext, TransactionalConnection, Administrator, AdministratorService, ID } from '@vendure/core';
+import { RequestContext, TransactionalConnection, Administrator, AdministratorService, ID } from '@gseller/core';
 import { Injectable } from '@nestjs/common';
 import { CustomAssetService } from '../../asset/asset.service';
 

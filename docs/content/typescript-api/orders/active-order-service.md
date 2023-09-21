@@ -13,7 +13,7 @@ generated: true
 
 # ActiveOrderService
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/active-order/active-order.service.ts" sourceLine="17" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/active-order/active-order.service.ts" sourceLine="17" packageName="@gseller/core">}}
 
 This helper class is used to get a reference to the active Order from the current RequestContext.
 

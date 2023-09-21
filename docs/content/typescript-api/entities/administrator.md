@@ -13,7 +13,7 @@ generated: true
 
 # Administrator
 
-{{< generation-info sourceFile="packages/core/src/entity/administrator/administrator.entity.ts" sourceLine="18" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/administrator/administrator.entity.ts" sourceLine="18" packageName="@gseller/core">}}
 
 An administrative user who has access to the Admin UI and Admin API. The
 specific permissions of the Administrator are determined by the assigned

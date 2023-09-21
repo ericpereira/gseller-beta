@@ -13,7 +13,7 @@ generated: true
 
 # ZoneSelectorComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/zone-selector/zone-selector.component.ts" sourceLine="40" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/zone-selector/zone-selector.component.ts" sourceLine="40" packageName="@gseller/admin-ui">}}
 
 A form control for selecting zones.
 

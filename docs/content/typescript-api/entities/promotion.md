@@ -13,7 +13,7 @@ generated: true
 
 # Promotion
 
-{{< generation-info sourceFile="packages/core/src/entity/promotion/promotion.entity.ts" sourceLine="57" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/promotion/promotion.entity.ts" sourceLine="57" packageName="@gseller/core">}}
 
 A Promotion is used to define a set of conditions under which promotions actions (typically discounts)
 will be applied to an Order.

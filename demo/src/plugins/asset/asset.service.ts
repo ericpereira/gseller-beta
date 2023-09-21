@@ -1,4 +1,4 @@
-import { AssetService, ID, RequestContext, isGraphQlErrorResult } from '@vendure/core';
+import { AssetService, ID, RequestContext, isGraphQlErrorResult } from '@gseller/core';
 
 import { Injectable } from '@nestjs/common';
 

@@ -13,7 +13,7 @@ generated: true
 
 # AuthenticationMethod
 
-{{< generation-info sourceFile="packages/core/src/entity/authentication-method/authentication-method.entity.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/authentication-method/authentication-method.entity.ts" sourceLine="14" packageName="@gseller/core">}}
 
 An AuthenticationMethod represents the means by which a <a href='/typescript-api/entities/user#user'>User</a> is authenticated. There are two kinds:
 <a href='/typescript-api/entities/authentication-method#nativeauthenticationmethod'>NativeAuthenticationMethod</a> and <a href='/typescript-api/entities/authentication-method#externalauthenticationmethod'>ExternalAuthenticationMethod</a>.
@@ -47,7 +47,7 @@ class AuthenticationMethod extends VendureEntity {
 
 # ExternalAuthenticationMethod
 
-{{< generation-info sourceFile="packages/core/src/entity/authentication-method/external-authentication-method.entity.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/authentication-method/external-authentication-method.entity.ts" sourceLine="14" packageName="@gseller/core">}}
 
 This method is used when an external authentication service is used to authenticate Vendure Users.
 Examples of external auth include social logins or corporate identity servers.
@@ -103,7 +103,7 @@ class ExternalAuthenticationMethod extends AuthenticationMethod {
 
 # NativeAuthenticationMethod
 
-{{< generation-info sourceFile="packages/core/src/entity/authentication-method/native-authentication-method.entity.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/authentication-method/native-authentication-method.entity.ts" sourceLine="14" packageName="@gseller/core">}}
 
 This is the default, built-in authentication method which uses a identifier (typically username or email address)
 and password combination to authenticate a User.

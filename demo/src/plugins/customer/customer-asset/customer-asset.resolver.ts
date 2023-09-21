@@ -1,6 +1,6 @@
 // customer-avatar.resolver.ts
 import { Args, Mutation, Resolver, ResolveField } from '@nestjs/graphql';
-import { Allow, Asset, Asset as AssetEntity, Ctx, Permission, RequestContext, Transaction } from '@vendure/core';
+import { Allow, Asset, Asset as AssetEntity, Ctx, Permission, RequestContext, Transaction } from '@gseller/core';
 import { Upload } from '../../shared/types/upload';
 import { CustomerAssetService } from './customer-asset.service';
 

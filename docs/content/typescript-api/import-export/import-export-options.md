@@ -13,7 +13,7 @@ generated: true
 
 # ImportExportOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="848" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="848" packageName="@gseller/core">}}
 
 Options related to importing & exporting data.
 

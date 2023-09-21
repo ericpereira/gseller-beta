@@ -13,7 +13,7 @@ generated: true
 
 # DropdownComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/dropdown/dropdown.component.ts" sourceLine="28" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/dropdown/dropdown.component.ts" sourceLine="28" packageName="@gseller/admin-ui">}}
 
 Used for building dropdown menus.
 

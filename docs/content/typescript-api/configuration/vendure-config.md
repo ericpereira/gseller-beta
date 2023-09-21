@@ -13,7 +13,7 @@ generated: true
 
 # VendureConfig
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="1012" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="1012" packageName="@gseller/core">}}
 
 All possible configuration options are defined by the
 [`VendureConfig`](https://github.com/vendure-ecommerce/vendure/blob/master/server/src/config/vendure-config.ts) interface.

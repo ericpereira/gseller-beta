@@ -13,7 +13,7 @@ generated: true
 
 # getSuperadminContext
 
-{{< generation-info sourceFile="packages/testing/src/utils/get-superadmin-context.ts" sourceLine="11" packageName="@vendure/testing">}}
+{{< generation-info sourceFile="packages/testing/src/utils/get-superadmin-context.ts" sourceLine="11" packageName="@gseller/testing">}}
 
 Creates a <a href='/typescript-api/request/request-context#requestcontext'>RequestContext</a> configured for the default Channel with the activeUser set
 as the superadmin user. Useful for populating data.

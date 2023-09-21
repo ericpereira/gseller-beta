@@ -4,7 +4,7 @@ import {
     IdentifierChangeRequestEvent,
     NativeAuthenticationMethod,
     PasswordResetEvent,
-} from '@vendure/core';
+} from '@gseller/core';
 
 import { EmailEventHandler } from './event-handler';
 import { EmailEventListener } from './event-listener';

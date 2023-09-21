@@ -1,6 +1,6 @@
-import { RequestContext, VendureEvent } from "@vendure/core";
+import { RequestContext, VendureEvent } from "@gseller/core";
 
-import { PaymentAccountInput } from "@vendure/common/lib/generated-types";
+import { PaymentAccountInput } from "@gseller/common/lib/generated-types";
 
 /**
  * @description

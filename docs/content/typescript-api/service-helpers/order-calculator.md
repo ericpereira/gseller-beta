@@ -13,7 +13,7 @@ generated: true
 
 # OrderCalculator
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/order-calculator/order-calculator.ts" sourceLine="32" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/order-calculator/order-calculator.ts" sourceLine="32" packageName="@gseller/core">}}
 
 This helper is used when making changes to an Order, to apply all applicable price adjustments to that Order,
 including:

@@ -13,7 +13,7 @@ generated: true
 
 # defaultFulfillmentProcess
 
-{{< generation-info sourceFile="packages/core/src/config/fulfillment/default-fulfillment-process.ts" sourceLine="42" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/fulfillment/default-fulfillment-process.ts" sourceLine="42" packageName="@gseller/core" since="2.0.0">}}
 
 The default <a href='/typescript-api/fulfillment/fulfillment-process#fulfillmentprocess'>FulfillmentProcess</a>. This process includes the following actions:
 
@@ -30,7 +30,7 @@ The default <a href='/typescript-api/fulfillment/fulfillment-process#fulfillment
 
 # FulfillmentProcess
 
-{{< generation-info sourceFile="packages/core/src/config/fulfillment/fulfillment-process.ts" sourceLine="26" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/fulfillment/fulfillment-process.ts" sourceLine="26" packageName="@gseller/core" since="2.0.0">}}
 
 A FulfillmentProcess is used to define the way the fulfillment process works as in: what states a Fulfillment can be
 in, and how it may transition from one state to another. Using the `onTransitionStart()` hook, a

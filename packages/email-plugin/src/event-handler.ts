@@ -1,6 +1,6 @@
-import { LanguageCode } from '@vendure/common/lib/generated-types';
-import { Type } from '@vendure/common/lib/shared-types';
-import { Injector, Logger } from '@vendure/core';
+import { LanguageCode } from '@gseller/common/lib/generated-types';
+import { Type } from '@gseller/common/lib/shared-types';
+import { Injector, Logger } from '@gseller/core';
 
 import { serializeAttachments } from './attachment-utils';
 import { loggerCtx } from './constants';
@@ -71,7 +71,7 @@ import {
  * ### 1. Create a new handler
  *
  * ```TypeScript
- * import { EmailEventListener } from `\@vendure/email-plugin`;
+ * import { EmailEventListener } from `\@gseller/email-plugin`;
  * import { QuoteRequestedEvent } from `./events`;
  *
  * const quoteRequestedHandler = new EmailEventListener('quote-requested')
@@ -111,7 +111,7 @@ import {
  * Finally, you need to register the handler with the EmailPlugin:
  *
  * ```TypeScript {hl_lines=[8]}
- * import { defaultEmailHandlers, EmailPlugin } from '\@vendure/email-plugin';
+ * import { defaultEmailHandlers, EmailPlugin } from '\@gseller/email-plugin';
  * import { quoteRequestedHandler } from './plugins/quote-plugin';
  *
  * const config: VendureConfig = {

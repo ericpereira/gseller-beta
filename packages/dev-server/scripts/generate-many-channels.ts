@@ -7,7 +7,7 @@ import {
     LanguageCode,
     RequestContextService,
     RoleService,
-} from '@vendure/core';
+} from '@gseller/core';
 
 import { devConfig } from '../dev-config';
 

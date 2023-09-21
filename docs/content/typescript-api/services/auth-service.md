@@ -13,7 +13,7 @@ generated: true
 
 # AuthService
 
-{{< generation-info sourceFile="packages/core/src/service/services/auth.service.ts" sourceLine="36" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/auth.service.ts" sourceLine="36" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/session#session'>Session</a>, <a href='/typescript-api/entities/authenticated-session#authenticatedsession'>AuthenticatedSession</a> & <a href='/typescript-api/entities/anonymous-session#anonymoussession'>AnonymousSession</a> entities.
 

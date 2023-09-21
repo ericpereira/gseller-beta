@@ -13,9 +13,9 @@ import {
     ModalService,
     NotificationService,
     SelectionManager,
-} from '@vendure/admin-ui/core';
-import { normalizeString } from '@vendure/common/lib/normalize-string';
-import { unique } from '@vendure/common/lib/unique';
+} from '@gseller/admin-ui/core';
+import { normalizeString } from '@gseller/common/lib/normalize-string';
+import { unique } from '@gseller/common/lib/unique';
 import { EMPTY, Observable, Subject } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 

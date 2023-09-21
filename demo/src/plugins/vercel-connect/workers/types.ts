@@ -1,4 +1,4 @@
-import { Job } from "@vendure/core";
+import { Job } from "@gseller/core";
 
 interface VercelDeploymentJobData {
     shopName: string;

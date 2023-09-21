@@ -13,7 +13,7 @@ generated: true
 
 # OrderCodeStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/order-code-strategy.ts" sourceLine="32" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/order/order-code-strategy.ts" sourceLine="32" packageName="@gseller/core">}}
 
 The OrderCodeStrategy determines how Order codes are generated.
 A custom strategy can be defined which e.g. integrates with an
@@ -65,7 +65,7 @@ interface OrderCodeStrategy extends InjectableStrategy {
 
 # DefaultOrderCodeStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/order-code-strategy.ts" sourceLine="48" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/order/order-code-strategy.ts" sourceLine="48" packageName="@gseller/core">}}
 
 The default OrderCodeStrategy generates a random string consisting
 of 16 uppercase letters and numbers.

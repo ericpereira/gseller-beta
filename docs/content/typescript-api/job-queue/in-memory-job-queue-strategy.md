@@ -13,7 +13,7 @@ generated: true
 
 # InMemoryJobQueueStrategy
 
-{{< generation-info sourceFile="packages/core/src/job-queue/in-memory-job-queue-strategy.ts" sourceLine="42" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/job-queue/in-memory-job-queue-strategy.ts" sourceLine="42" packageName="@gseller/core">}}
 
 An in-memory <a href='/typescript-api/job-queue/job-queue-strategy#jobqueuestrategy'>JobQueueStrategy</a>. This is the default strategy if not using a dedicated
 JobQueue plugin (e.g. <a href='/typescript-api/job-queue/default-job-queue-plugin#defaultjobqueueplugin'>DefaultJobQueuePlugin</a>). Not recommended for production, since

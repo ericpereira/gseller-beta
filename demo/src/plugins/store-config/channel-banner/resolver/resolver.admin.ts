@@ -5,13 +5,13 @@ import {
   Permission,
   RequestContext,
   Transaction,
-} from "@vendure/core";
+} from "@gseller/core";
 import { ChannelBannerAdminService } from "../services/service.admin";
 import {
   CreateChannelBannerWithAssetIdInput,
   CreateChannelBannerWithAssetInput,
   UpdateChannelBanner,
-} from "@vendure/common/lib/generated-types";
+} from "@gseller/common/lib/generated-types";
 import { manageChannelBannerPermission } from "../permission";
 
 @Resolver()

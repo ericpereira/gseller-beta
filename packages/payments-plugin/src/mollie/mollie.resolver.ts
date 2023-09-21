@@ -1,5 +1,5 @@
 import { Args, Mutation, Query, ResolveField, Resolver } from '@nestjs/graphql';
-import { Allow, Ctx, Permission, RequestContext } from '@vendure/core';
+import { Allow, Ctx, Permission, RequestContext } from '@gseller/core';
 
 import {
     MolliePaymentIntent,

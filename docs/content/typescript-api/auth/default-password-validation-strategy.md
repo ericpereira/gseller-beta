@@ -13,7 +13,7 @@ generated: true
 
 # DefaultPasswordValidationStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/auth/default-password-validation-strategy.ts" sourceLine="18" packageName="@vendure/core" since="1.5.0">}}
+{{< generation-info sourceFile="packages/core/src/config/auth/default-password-validation-strategy.ts" sourceLine="18" packageName="@gseller/core" since="1.5.0">}}
 
 The DefaultPasswordValidationStrategy allows you to specify a minimum length and/or
 a regular expression to match passwords against.

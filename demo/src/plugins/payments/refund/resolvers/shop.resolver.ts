@@ -11,7 +11,7 @@ import {
     Permission,
     RequestContext,
     Transaction
-  } from '@vendure/core';
+  } from '@gseller/core';
   import { RefundRequestService } from '../service/shop.service';
 import { InputCreateRefundRequest } from '../types';
 

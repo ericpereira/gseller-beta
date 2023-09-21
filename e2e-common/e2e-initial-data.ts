@@ -1,5 +1,5 @@
-import { LanguageCode } from '@vendure/common/lib/generated-types';
-import { InitialData } from '@vendure/core/dist/data-import/index';
+import { LanguageCode } from '@gseller/common/lib/generated-types';
+import { InitialData } from '@gseller/core/dist/data-import/index';
 
 export const initialData: InitialData = {
     defaultLanguage: LanguageCode.en,

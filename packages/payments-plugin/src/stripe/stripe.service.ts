@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
-import { ConfigArg } from '@vendure/common/lib/generated-types';
+import { ConfigArg } from '@gseller/common/lib/generated-types';
 import {
     Ctx,
     Customer,
@@ -12,7 +12,7 @@ import {
     RequestContext,
     TransactionalConnection,
     UserInputError,
-} from '@vendure/core';
+} from '@gseller/core';
 import Stripe from 'stripe';
 
 import { loggerCtx, STRIPE_PLUGIN_OPTIONS } from './constants';

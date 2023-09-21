@@ -13,7 +13,7 @@ generated: true
 
 # Api
 
-{{< generation-info sourceFile="packages/core/src/api/decorators/api.decorator.ts" sourceLine="26" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/api/decorators/api.decorator.ts" sourceLine="26" packageName="@gseller/core">}}
 
 Resolver param decorator which returns which Api the request came though.
 This is useful because sometimes the same resolver will have different behaviour

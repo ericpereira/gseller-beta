@@ -21,8 +21,8 @@ import {
     Validator,
     Validators,
 } from '@angular/forms';
-import { ConfigArgType } from '@vendure/common/lib/shared-types';
-import { assertNever } from '@vendure/common/lib/shared-utils';
+import { ConfigArgType } from '@gseller/common/lib/shared-types';
+import { assertNever } from '@gseller/common/lib/shared-utils';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
 import { InputComponentConfig } from '../../../common/component-registry-types';

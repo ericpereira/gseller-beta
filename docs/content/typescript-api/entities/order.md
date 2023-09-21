@@ -13,7 +13,7 @@ generated: true
 
 # Order
 
-{{< generation-info sourceFile="packages/core/src/entity/order/order.entity.ts" sourceLine="43" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/order/order.entity.ts" sourceLine="43" packageName="@gseller/core">}}
 
 An Order is created whenever a <a href='/typescript-api/entities/customer#customer'>Customer</a> adds an item to the cart. It contains all the
 information required to fulfill an order: which <a href='/typescript-api/entities/product-variant#productvariant'>ProductVariant</a>s in what quantities;

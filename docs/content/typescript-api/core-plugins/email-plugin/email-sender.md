@@ -13,7 +13,7 @@ generated: true
 
 # EmailSender
 
-{{< generation-info sourceFile="packages/email-plugin/src/email-sender.ts" sourceLine="45" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/email-sender.ts" sourceLine="45" packageName="@gseller/email-plugin">}}
 
 An EmailSender is responsible for sending the email, e.g. via an SMTP connection
 or using some other mail-sending API. By default, the EmailPlugin uses the
@@ -77,7 +77,7 @@ interface EmailSender extends InjectableStrategy {
 
 # NodemailerEmailSender
 
-{{< generation-info sourceFile="packages/email-plugin/src/nodemailer-email-sender.ts" sourceLine="38" packageName="@vendure/email-plugin">}}
+{{< generation-info sourceFile="packages/email-plugin/src/nodemailer-email-sender.ts" sourceLine="38" packageName="@gseller/email-plugin">}}
 
 Uses the configured transport to send the generated email.
 

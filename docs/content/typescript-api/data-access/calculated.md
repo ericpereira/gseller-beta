@@ -13,7 +13,7 @@ generated: true
 
 # Calculated
 
-{{< generation-info sourceFile="packages/core/src/common/calculated-decorator.ts" sourceLine="43" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/calculated-decorator.ts" sourceLine="43" packageName="@gseller/core">}}
 
 Used to define calculated entity getters. The decorator simply attaches an array of "calculated"
 property names to the entity's prototype. This array is then used by the {@link CalculatedPropertySubscriber}to transfer the getter function from the prototype to the entity instance.
@@ -35,7 +35,7 @@ function Calculated(queryInstruction?: CalculatedColumnQueryInstruction): Method
 
 # CalculatedColumnQueryInstruction
 
-{{< generation-info sourceFile="packages/core/src/common/calculated-decorator.ts" sourceLine="17" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/calculated-decorator.ts" sourceLine="17" packageName="@gseller/core">}}
 
 Optional metadata used to tell the <a href='/typescript-api/data-access/list-query-builder#listquerybuilder'>ListQueryBuilder</a> & <a href='/typescript-api/request/relations-decorator#relations'>Relations</a> decorator how to deal with
 calculated columns when sorting, filtering and deriving required relations from GraphQL operations.

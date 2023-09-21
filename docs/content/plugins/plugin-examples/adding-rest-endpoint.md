@@ -9,7 +9,7 @@ This plugin adds a single REST endpoint at `http://localhost:3000/products` whic
 ```TypeScript
 // products.controller.ts
 import { Controller, Get } from '@nestjs/common';
-import { Ctx, ProductService, RequestContext } from '@vendure/core'; 
+import { Ctx, ProductService, RequestContext } from '@gseller/core'; 
 
 @Controller('products')
 export class ProductsController {
@@ -23,7 +23,7 @@ export class ProductsController {
 ```
 ```TypeScript
 // rest.plugin.ts
-import { PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { PluginCommonModule, VendurePlugin } from '@gseller/core';
 import { ProductsController } from './products.controller';
 
 @VendurePlugin({
@@ -45,7 +45,7 @@ You can use the [Allow decorator]({{< relref "allow-decorator" >}}) to declare t
 
 ```TypeScript {hl_lines=[8]}
 import { Controller, Get } from '@nestjs/common';
-import { Allow, Permission, Ctx, ProductService, RequestContext } from '@vendure/core'; 
+import { Allow, Permission, Ctx, ProductService, RequestContext } from '@gseller/core'; 
 
 @Controller('products')
 export class ProductsController {

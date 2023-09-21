@@ -13,7 +13,7 @@ generated: true
 
 # mergeConfig
 
-{{< generation-info sourceFile="packages/core/src/config/merge-config.ts" sourceLine="30" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/merge-config.ts" sourceLine="30" packageName="@gseller/core">}}
 
 Performs a deep merge of two VendureConfig objects. Unlike `Object.assign()` the `target` object is
 not mutated, instead the function returns a new object which is the result of deeply merging the

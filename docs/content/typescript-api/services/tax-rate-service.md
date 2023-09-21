@@ -13,7 +13,7 @@ generated: true
 
 # TaxRateService
 
-{{< generation-info sourceFile="packages/core/src/service/services/tax-rate.service.ts" sourceLine="34" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/tax-rate.service.ts" sourceLine="34" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/tax-rate#taxrate'>TaxRate</a> entities.
 

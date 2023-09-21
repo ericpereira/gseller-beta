@@ -3,8 +3,8 @@ import {
     CreateAdministratorInput,
     DeletionResult,
     UpdateAdministratorInput,
-} from '@vendure/common/lib/generated-types';
-import { ID, PaginatedList } from '@vendure/common/lib/shared-types';
+} from '@gseller/common/lib/generated-types';
+import { ID, PaginatedList } from '@gseller/common/lib/shared-types';
 import { In, IsNull } from 'typeorm';
 
 import { RequestContext } from '../../api/common/request-context';

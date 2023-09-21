@@ -13,7 +13,7 @@ generated: true
 
 # OrderOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="460" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="460" packageName="@gseller/core">}}
 
 
 

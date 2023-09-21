@@ -1,5 +1,5 @@
-import { CreateCustomerInput, UpdateCustomerInput } from '@vendure/common/lib/generated-types';
-import { ID } from '@vendure/common/lib/shared-types';
+import { CreateCustomerInput, UpdateCustomerInput } from '@gseller/common/lib/generated-types';
+import { ID } from '@gseller/common/lib/shared-types';
 
 import { RequestContext } from '../../api/common/request-context';
 import { Customer } from '../../entity/customer/customer.entity';

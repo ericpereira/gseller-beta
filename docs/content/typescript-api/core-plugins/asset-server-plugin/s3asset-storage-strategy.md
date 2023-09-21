@@ -13,7 +13,7 @@ generated: true
 
 # S3AssetStorageStrategy
 
-{{< generation-info sourceFile="packages/asset-server-plugin/src/s3-asset-storage-strategy.ts" sourceLine="155" packageName="@vendure/asset-server-plugin">}}
+{{< generation-info sourceFile="packages/asset-server-plugin/src/s3-asset-storage-strategy.ts" sourceLine="155" packageName="@gseller/asset-server-plugin">}}
 
 An <a href='/typescript-api/assets/asset-storage-strategy#assetstoragestrategy'>AssetStorageStrategy</a> which uses [Amazon S3](https://aws.amazon.com/s3/) object storage service.
 To us this strategy you must first have access to an AWS account.
@@ -114,7 +114,7 @@ class S3AssetStorageStrategy implements AssetStorageStrategy {
 
 # S3Config
 
-{{< generation-info sourceFile="packages/asset-server-plugin/src/s3-asset-storage-strategy.ts" sourceLine="19" packageName="@vendure/asset-server-plugin">}}
+{{< generation-info sourceFile="packages/asset-server-plugin/src/s3-asset-storage-strategy.ts" sourceLine="19" packageName="@gseller/asset-server-plugin">}}
 
 Configuration for connecting to AWS S3.
 
@@ -168,7 +168,7 @@ Using type `any` in order to avoid the need to include `aws-sdk` dependency in g
 
 # configureS3AssetStorage
 
-{{< generation-info sourceFile="packages/asset-server-plugin/src/s3-asset-storage-strategy.ts" sourceLine="119" packageName="@vendure/asset-server-plugin">}}
+{{< generation-info sourceFile="packages/asset-server-plugin/src/s3-asset-storage-strategy.ts" sourceLine="119" packageName="@gseller/asset-server-plugin">}}
 
 Returns a configured instance of the <a href='/typescript-api/core-plugins/asset-server-plugin/s3asset-storage-strategy#s3assetstoragestrategy'>S3AssetStorageStrategy</a> which can then be passed to the <a href='/typescript-api/core-plugins/asset-server-plugin/asset-server-options#assetserveroptions'>AssetServerOptions</a>`storageStrategyFactory` property.
 
@@ -180,8 +180,8 @@ npm install
 *Example*
 
 ```TypeScript
-import { AssetServerPlugin, configureS3AssetStorage } from '@vendure/asset-server-plugin';
-import { DefaultAssetNamingStrategy } from '@vendure/core';
+import { AssetServerPlugin, configureS3AssetStorage } from '@gseller/asset-server-plugin';
+import { DefaultAssetNamingStrategy } from '@gseller/core';
 import { fromEnv } from '@aws-sdk/credential-providers';
 
 // ...
@@ -208,8 +208,8 @@ Reference: [How to use AWS SDK for Javascript with MinIO Server](https://docs.mi
 *Example*
 
 ```TypeScript
-import { AssetServerPlugin, configureS3AssetStorage } from '@vendure/asset-server-plugin';
-import { DefaultAssetNamingStrategy } from '@vendure/core';
+import { AssetServerPlugin, configureS3AssetStorage } from '@gseller/asset-server-plugin';
+import { DefaultAssetNamingStrategy } from '@gseller/core';
 
 // ...
 

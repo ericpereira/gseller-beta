@@ -16,8 +16,8 @@ import {
     ServerConfigService,
     TypedBaseDetailComponent,
     UpdateChannelInput,
-} from '@vendure/admin-ui/core';
-import { DEFAULT_CHANNEL_CODE } from '@vendure/common/lib/shared-constants';
+} from '@gseller/admin-ui/core';
+import { DEFAULT_CHANNEL_CODE } from '@gseller/common/lib/shared-constants';
 import { gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map, mergeMap, take } from 'rxjs/operators';

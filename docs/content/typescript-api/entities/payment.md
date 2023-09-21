@@ -13,7 +13,7 @@ generated: true
 
 # Payment
 
-{{< generation-info sourceFile="packages/core/src/entity/payment/payment.entity.ts" sourceLine="18" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/payment/payment.entity.ts" sourceLine="18" packageName="@gseller/core">}}
 
 A Payment represents a single payment transaction and exists in a well-defined state
 defined by the <a href='/typescript-api/payment/payment-state#paymentstate'>PaymentState</a> type.

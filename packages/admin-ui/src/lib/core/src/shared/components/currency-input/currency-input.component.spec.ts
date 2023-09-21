@@ -2,7 +2,7 @@ import { Component, Injectable } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { Type } from '@vendure/common/lib/shared-types';
+import { Type } from '@gseller/common/lib/shared-types';
 import { of } from 'rxjs';
 
 import { LanguageCode } from '../../../common/generated-types';

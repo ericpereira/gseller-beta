@@ -52,11 +52,11 @@ The [`revertLastMigration` function]({{< relref "revert-last-migration" >}}) wil
 
 ## Example
 
-Here is an example script (which ships with projects generated with `@vendure/create`) which provides a command-line program for managing migrations:
+Here is an example script (which ships with projects generated with `@gseller/create`) which provides a command-line program for managing migrations:
 
 ```TypeScript
 // migrations.ts
-import { generateMigration, revertLastMigration, runMigrations } from '@vendure/core';
+import { generateMigration, revertLastMigration, runMigrations } from '@gseller/core';
 import program from 'commander';
 
 import { config } from './src/config';

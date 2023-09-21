@@ -13,7 +13,7 @@ generated: true
 
 # ConfigArgType
 
-{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="125" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="125" packageName="@gseller/common">}}
 
 Certain entities (those which implement <a href='/typescript-api/configurable-operation-def/#configurableoperationdef'>ConfigurableOperationDef</a>) allow arbitrary
 configuration arguments to be specified which can then be set in the admin-ui and used in

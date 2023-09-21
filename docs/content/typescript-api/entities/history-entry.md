@@ -13,7 +13,7 @@ generated: true
 
 # HistoryEntry
 
-{{< generation-info sourceFile="packages/core/src/entity/history-entry/history-entry.entity.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/history-entry/history-entry.entity.ts" sourceLine="14" packageName="@gseller/core">}}
 
 An abstract entity representing an entry in the history of an Order (<a href='/typescript-api/entities/order-history-entry#orderhistoryentry'>OrderHistoryEntry</a>)
 or a Customer (<a href='/typescript-api/entities/customer-history-entry#customerhistoryentry'>CustomerHistoryEntry</a>).

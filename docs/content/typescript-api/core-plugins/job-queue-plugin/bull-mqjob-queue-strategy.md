@@ -13,7 +13,7 @@ generated: true
 
 # BullMQJobQueueStrategy
 
-{{< generation-info sourceFile="packages/job-queue-plugin/src/bullmq/bullmq-job-queue-strategy.ts" sourceLine="31" packageName="@vendure/job-queue-plugin">}}
+{{< generation-info sourceFile="packages/job-queue-plugin/src/bullmq/bullmq-job-queue-strategy.ts" sourceLine="31" packageName="@gseller/job-queue-plugin">}}
 
 This JobQueueStrategy uses [BullMQ](https://docs.bullmq.io/) to implement a push-based job queue
 on top of Redis. It should not be used alone, but as part of the <a href='/typescript-api/core-plugins/job-queue-plugin/bull-mqjob-queue-plugin#bullmqjobqueueplugin'>BullMQJobQueuePlugin</a>.

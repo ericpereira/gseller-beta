@@ -13,7 +13,7 @@ generated: true
 
 # revertLastMigration
 
-{{< generation-info sourceFile="packages/core/src/migrate.ts" sourceLine="82" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/migrate.ts" sourceLine="82" packageName="@gseller/core">}}
 
 Reverts the last applied database migration. See [TypeORM migration docs](https://typeorm.io/#/migrations)
 for more information about the underlying migration mechanism.

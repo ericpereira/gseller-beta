@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, ActivationStart, Router, RouterStateSnapshot } from '@angular/router';
-import { DataService, OrderDetailFragment } from '@vendure/admin-ui/core';
-import { notNullOrUndefined } from '@vendure/common/lib/shared-utils';
+import { DataService, OrderDetailFragment } from '@gseller/admin-ui/core';
+import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
 import { EMPTY, Observable } from 'rxjs';
 import { filter, map, shareReplay, switchMap, take, takeUntil } from 'rxjs/operators';
 

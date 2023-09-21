@@ -13,7 +13,7 @@ generated: true
 
 # BaseDetailComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/base-detail.component.ts" sourceLine="56" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/base-detail.component.ts" sourceLine="56" packageName="@gseller/admin-ui">}}
 
 A base class for entity detail views. It should be used in conjunction with the
 <a href='/admin-ui-api/list-detail-views/base-entity-resolver#baseentityresolver'>BaseEntityResolver</a>.

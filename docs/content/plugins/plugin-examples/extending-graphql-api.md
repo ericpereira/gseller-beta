@@ -13,7 +13,7 @@ Extension to the GraphQL API consists of two parts:
 The Shop API and Admin APIs can be extended independently:
 
 ```TypeScript {hl_lines=["16-22"]}
-import { PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { PluginCommonModule, VendurePlugin } from '@gseller/core';
 import gql from 'graphql-tag';
 import { TopSellersResolver } from './top-products.resolver';
 
@@ -47,7 +47,7 @@ This example adds a new query to the GraphQL Admin API. It also demonstrates how
 ```TypeScript
 // top-sellers.resolver.ts
 import { Args, Query, Resolver } from '@nestjs/graphql';
-import { Ctx, RequestContext } from '@vendure/core'
+import { Ctx, RequestContext } from '@gseller/core'
 
 @Resolver()
 class TopSellersResolver {
@@ -68,7 +68,7 @@ class TopSellersResolver {
 ```TypeScript
 // top-sellers.service.ts
 import { Injectable } from '@nestjs/common';
-import { RequestContext } from '@vendure/core';
+import { RequestContext } from '@gseller/core';
 
 @Injectable()
 class TopSellersService {
@@ -83,7 +83,7 @@ The GraphQL schema is extended with the `topSellers` query (the query name shoul
 ```TypeScript
 // top-sellers.plugin.ts
 import gql from 'graphql-tag';
-import { PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { PluginCommonModule, VendurePlugin } from '@gseller/core';
 import { TopSellersService } from './top-sellers.service'
 import { TopSellersResolver } from './top-sellers.resolver'
 
@@ -115,7 +115,7 @@ If you have [defined a new database entity]({{< relref "defining-db-entity" >}})
 
 ```TypeScript
 import gql from 'graphql-tag';
-import { PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { PluginCommonModule, VendurePlugin } from '@gseller/core';
 import { ReviewsResolver } from './reviews.resolver';
 import { ProductReview } from './product-review.entity';
 
@@ -152,7 +152,7 @@ Let's say you want to add a new field, "availability" to the ProductVariant type
 
 ```TypeScript
 import { Parent, ResolveField, Resolver } from '@nestjs/graphql';
-import { Ctx, RequestContext, ProductVariant } from '@vendure/core';
+import { Ctx, RequestContext, ProductVariant } from '@gseller/core';
 
 @Resolver('ProductVariant')
 export class ProductVariantEntityResolver {
@@ -174,7 +174,7 @@ Then in the plugin metadata, we extend the ProductVariant type and pass the reso
 
 ```TypeScript
 import gql from 'graphql-tag';
-import { PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { PluginCommonModule, VendurePlugin } from '@gseller/core';
 import { ProductVariantEntityResolver } from './product-variant-entity.resolver'
 
 @VendurePlugin({
@@ -196,7 +196,7 @@ It is also possible to override an existing built-in resolver function with one 
 
 ```TypeScript
 import { Args, Query, Mutation, Resolver } from '@nestjs/graphql';
-import { Ctx, RequestContext } from '@vendure/core'
+import { Ctx, RequestContext } from '@gseller/core'
 
 @Resolver()
 class OverrideExampleResolver {
@@ -221,7 +221,7 @@ The same can be done for resolving fields:
 
 ```TypeScript
 import { Parent, ResolveField, Resolver } from '@nestjs/graphql';
-import { Ctx, RequestContext, Product } from '@vendure/core';
+import { Ctx, RequestContext, Product } from '@gseller/core';
 
 @Resolver('Product')
 export class FieldOverrideExampleResolver {
@@ -269,7 +269,7 @@ In order to implement a `__resolveType` function as part of your plugin, you nee
 
 ```TypeScript
 import { Parent, ResolveField, Resolver } from '@nestjs/graphql';
-import { Ctx, RequestContext, ProductVariant } from '@vendure/core';
+import { Ctx, RequestContext, ProductVariant } from '@gseller/core';
 
 @Resolver('MyCustomMutationResult')
 export class MyCustomMutationResultResolver {

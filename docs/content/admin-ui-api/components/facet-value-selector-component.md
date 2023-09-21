@@ -13,7 +13,7 @@ generated: true
 
 # FacetValueSelectorComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/facet-value-selector/facet-value-selector.component.ts" sourceLine="42" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/facet-value-selector/facet-value-selector.component.ts" sourceLine="42" packageName="@gseller/admin-ui">}}
 
 A form control for selecting facet values.
 

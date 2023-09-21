@@ -1,4 +1,4 @@
-import { ID } from "@vendure/core";
+import { ID } from "@gseller/core";
 import { LayoutCategory } from "./entities/layout-category.entity";
 
 export enum LayoutTypes {

@@ -13,7 +13,7 @@ generated: true
 
 # PageTabConfig
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/page/page.service.ts" sourceLine="14" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/page/page.service.ts" sourceLine="14" packageName="@gseller/admin-ui">}}
 
 The object used to configure a new page tab.
 

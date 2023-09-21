@@ -13,7 +13,7 @@ generated: true
 
 # RichTextEditorComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/rich-text-editor/rich-text-editor.component.ts" sourceLine="32" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/rich-text-editor/rich-text-editor.component.ts" sourceLine="32" packageName="@gseller/admin-ui">}}
 
 A rich text (HTML) editor based on Prosemirror (https://prosemirror.net/)
 

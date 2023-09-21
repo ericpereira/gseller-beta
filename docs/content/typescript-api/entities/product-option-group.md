@@ -13,7 +13,7 @@ generated: true
 
 # ProductOptionGroup
 
-{{< generation-info sourceFile="packages/core/src/entity/product-option-group/product-option-group.entity.ts" sourceLine="20" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/product-option-group/product-option-group.entity.ts" sourceLine="20" packageName="@gseller/core">}}
 
 A grouping of one or more <a href='/typescript-api/entities/product-option#productoption'>ProductOption</a>s.
 

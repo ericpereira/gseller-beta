@@ -13,7 +13,7 @@ generated: true
 
 # ChannelAware
 
-{{< generation-info sourceFile="packages/core/src/common/types/common-types.ts" sourceLine="17" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/types/common-types.ts" sourceLine="17" packageName="@gseller/core">}}
 
 Entities which can be assigned to Channels should implement this interface.
 
@@ -39,7 +39,7 @@ interface ChannelAware {
 
 # SoftDeletable
 
-{{< generation-info sourceFile="packages/core/src/common/types/common-types.ts" sourceLine="28" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/types/common-types.ts" sourceLine="28" packageName="@gseller/core">}}
 
 Entities which can be soft deleted should implement this interface.
 
@@ -65,7 +65,7 @@ interface SoftDeletable {
 
 # Orderable
 
-{{< generation-info sourceFile="packages/core/src/common/types/common-types.ts" sourceLine="39" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/types/common-types.ts" sourceLine="39" packageName="@gseller/core">}}
 
 Entities which can be ordered relative to their siblings in a list.
 
@@ -91,7 +91,7 @@ interface Orderable {
 
 # Taggable
 
-{{< generation-info sourceFile="packages/core/src/common/types/common-types.ts" sourceLine="50" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/types/common-types.ts" sourceLine="50" packageName="@gseller/core">}}
 
 Entities which can have Tags applied to them.
 
@@ -117,7 +117,7 @@ interface Taggable {
 
 # Translatable
 
-{{< generation-info sourceFile="packages/core/src/common/types/locale-types.ts" sourceLine="29" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/types/locale-types.ts" sourceLine="29" packageName="@gseller/core">}}
 
 Entities which have localizable string properties should implement this type.
 

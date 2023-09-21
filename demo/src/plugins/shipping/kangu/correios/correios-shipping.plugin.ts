@@ -5,7 +5,7 @@ import {
   ShippingMethodService,
   EventBus,
   LanguageCode,
-} from "@vendure/core";
+} from "@gseller/core";
 
 import { customFulfillmentHandler } from "./correios-shipping.fulfillment-handler";
 import { flatRateCalculator } from "./correios-shipping.calculator";

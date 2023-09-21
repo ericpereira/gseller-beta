@@ -1,4 +1,4 @@
-import { ErrorResult } from "@vendure/core";
+import { ErrorResult } from "@gseller/core";
 
 export class LogoDoesExistError implements ErrorResult {
   readonly __typename = "LogoDoesntExistError";

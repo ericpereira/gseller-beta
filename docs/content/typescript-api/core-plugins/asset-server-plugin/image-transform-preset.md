@@ -13,7 +13,7 @@ generated: true
 
 # ImageTransformPreset
 
-{{< generation-info sourceFile="packages/asset-server-plugin/src/types.ts" sourceLine="39" packageName="@vendure/asset-server-plugin">}}
+{{< generation-info sourceFile="packages/asset-server-plugin/src/types.ts" sourceLine="39" packageName="@gseller/asset-server-plugin">}}
 
 A configuration option for an image size preset for the AssetServerPlugin.
 

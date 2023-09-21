@@ -13,7 +13,7 @@ generated: true
 
 # ImageTransformMode
 
-{{< generation-info sourceFile="packages/asset-server-plugin/src/types.ts" sourceLine="21" packageName="@vendure/asset-server-plugin">}}
+{{< generation-info sourceFile="packages/asset-server-plugin/src/types.ts" sourceLine="21" packageName="@gseller/asset-server-plugin">}}
 
 Specifies the way in which an asset preview image will be resized to fit in the
 proscribed dimensions:

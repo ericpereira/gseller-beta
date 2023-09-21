@@ -1,6 +1,6 @@
 import { ActivatedRouteSnapshot, ActivationStart, ResolveData, Router, RouterStateSnapshot } from '@angular/router';
-import { Type } from '@vendure/common/lib/shared-types';
-import { notNullOrUndefined } from '@vendure/common/lib/shared-utils';
+import { Type } from '@gseller/common/lib/shared-types';
+import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
 import { Observable, of } from 'rxjs';
 import { filter, map, shareReplay, take, takeUntil } from 'rxjs/operators';
 

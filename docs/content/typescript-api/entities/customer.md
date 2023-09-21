@@ -13,7 +13,7 @@ generated: true
 
 # Customer
 
-{{< generation-info sourceFile="packages/core/src/entity/customer/customer.entity.ts" sourceLine="22" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/customer/customer.entity.ts" sourceLine="22" packageName="@gseller/core">}}
 
 This entity represents a customer of the store, typically an individual person. A Customer can be
 a guest, in which case it has no associated <a href='/typescript-api/entities/user#user'>User</a>. Customers with registered account will

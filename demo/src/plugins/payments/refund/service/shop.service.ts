@@ -1,4 +1,4 @@
-import { Asset, AssetService, Customer, CustomerService, EventBus, ID, OrderService, RequestContext, TransactionalConnection, isGraphQlErrorResult } from "@vendure/core";
+import { Asset, AssetService, Customer, CustomerService, EventBus, ID, OrderService, RequestContext, TransactionalConnection, isGraphQlErrorResult } from "@gseller/core";
 
 import { FindOneOptions } from "typeorm";
 import { Injectable } from '@nestjs/common';

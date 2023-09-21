@@ -13,7 +13,7 @@ generated: true
 
 # AdminUiPluginOptions
 
-{{< generation-info sourceFile="packages/admin-ui-plugin/src/plugin.ts" sourceLine="39" packageName="@vendure/admin-ui-plugin">}}
+{{< generation-info sourceFile="packages/admin-ui-plugin/src/plugin.ts" sourceLine="39" packageName="@gseller/admin-ui-plugin">}}
 
 Configuration options for the <a href='/typescript-api/core-plugins/admin-ui-plugin/#adminuiplugin'>AdminUiPlugin</a>.
 

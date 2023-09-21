@@ -13,7 +13,7 @@ generated: true
 
 # AssetPickerDialogComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/asset-picker-dialog/asset-picker-dialog.component.ts" sourceLine="52" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/asset-picker-dialog/asset-picker-dialog.component.ts" sourceLine="52" packageName="@gseller/admin-ui">}}
 
 A dialog which allows the creation and selection of assets.
 

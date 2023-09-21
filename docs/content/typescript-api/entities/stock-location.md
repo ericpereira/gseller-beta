@@ -13,7 +13,7 @@ generated: true
 
 # StockLocation
 
-{{< generation-info sourceFile="packages/core/src/entity/stock-location/stock-location.entity.ts" sourceLine="21" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/entity/stock-location/stock-location.entity.ts" sourceLine="21" packageName="@gseller/core">}}
 
 A StockLocation represents a physical location where stock is held. For example, a warehouse or a shop.
 

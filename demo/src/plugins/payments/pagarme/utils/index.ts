@@ -1,5 +1,5 @@
-import type { PaymentState } from "@vendure/core";
-import { RefundState } from "@vendure/core/dist/service/helpers/refund-state-machine/refund-state";
+import type { PaymentState } from "@gseller/core";
+import { RefundState } from "@gseller/core/dist/service/helpers/refund-state-machine/refund-state";
 // @ts-ignore
 import type { Transaction, Refund } from "pagarme";
 

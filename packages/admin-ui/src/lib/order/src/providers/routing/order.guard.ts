@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { DataService } from '@vendure/admin-ui/core';
+import { DataService } from '@gseller/admin-ui/core';
 import { EMPTY, Observable } from 'rxjs';
 import { map, mergeMapTo, tap } from 'rxjs/operators';
 

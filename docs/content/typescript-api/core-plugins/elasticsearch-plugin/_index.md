@@ -13,7 +13,7 @@ generated: true
 
 # ElasticsearchPlugin
 
-{{< generation-info sourceFile="packages/elasticsearch-plugin/src/plugin.ts" sourceLine="222" packageName="@vendure/elasticsearch-plugin">}}
+{{< generation-info sourceFile="packages/elasticsearch-plugin/src/plugin.ts" sourceLine="222" packageName="@gseller/elasticsearch-plugin">}}
 
 This plugin allows your product search to be powered by [Elasticsearch](https://github.com/elastic/elasticsearch) - a powerful Open Source search
 engine. This is a drop-in replacement for the DefaultSearchPlugin which exposes many powerful configuration options enabling your storefront
@@ -25,11 +25,11 @@ advanced Elasticsearch features like spacial search.
 **Requires Elasticsearch v7.0 < required Elasticsearch version < 7.10 **
 Elasticsearch version 7.10.2 will throw error due to incompatibility with elasticsearch-js client.
 [Check here for more info](https://github.com/elastic/elasticsearch-js/issues/1519)
-`yarn add @elastic/elasticsearch @vendure/elasticsearch-plugin`
+`yarn add @elastic/elasticsearch @gseller/elasticsearch-plugin`
 
 or
 
-`npm install @elastic/elasticsearch @vendure/elasticsearch-plugin`
+`npm install @elastic/elasticsearch @gseller/elasticsearch-plugin`
 
 Make sure to remove the `DefaultSearchPlugin` if it is still in the VendureConfig plugins array.
 
@@ -38,7 +38,7 @@ Then add the `ElasticsearchPlugin`, calling the `.init()` method with <a href='/
 *Example*
 
 ```ts
-import { ElasticsearchPlugin } from '@vendure/elasticsearch-plugin';
+import { ElasticsearchPlugin } from '@gseller/elasticsearch-plugin';
 
 const config: VendureConfig = {
   // Add an instance of the plugin to the plugins array

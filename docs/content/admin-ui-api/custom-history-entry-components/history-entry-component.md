@@ -13,7 +13,7 @@ generated: true
 
 # HistoryEntryComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/custom-history-entry-component/history-entry-component-types.ts" sourceLine="16" packageName="@vendure/admin-ui" since="1.9.0">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/custom-history-entry-component/history-entry-component-types.ts" sourceLine="16" packageName="@gseller/admin-ui" since="1.9.0">}}
 
 This interface should be implemented by components intended to display a history entry in the
 Order or Customer history timeline. If the component needs access to the Order or Customer object itself,

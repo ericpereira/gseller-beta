@@ -1,5 +1,5 @@
-import { ConfigArgType, CustomFieldType } from '@vendure/common/lib/shared-types';
-import { assertNever } from '@vendure/common/lib/shared-utils';
+import { ConfigArgType, CustomFieldType } from '@gseller/common/lib/shared-types';
+import { assertNever } from '@gseller/common/lib/shared-utils';
 
 import {
     ConfigArgDefinition,

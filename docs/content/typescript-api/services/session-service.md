@@ -13,7 +13,7 @@ generated: true
 
 # SessionService
 
-{{< generation-info sourceFile="packages/core/src/service/services/session.service.ts" sourceLine="28" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/session.service.ts" sourceLine="28" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/session#session'>Session</a> entities.
 

@@ -1,7 +1,7 @@
 import { INestApplication, INestApplicationContext } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { getConnectionToken } from '@nestjs/typeorm';
-import { Type } from '@vendure/common/lib/shared-types';
+import { Type } from '@gseller/common/lib/shared-types';
 import cookieSession = require('cookie-session');
 import { satisfies } from 'semver';
 import { Connection, DataSourceOptions, EntitySubscriberInterface } from 'typeorm';
@@ -32,7 +32,7 @@ export type VendureBootstrapFunction = (config: VendureConfig) => Promise<INestA
  *
  * @example
  * ```TypeScript
- * import { bootstrap } from '\@vendure/core';
+ * import { bootstrap } from '\@gseller/core';
  * import { config } from './vendure-config';
  *
  * bootstrap(config).catch(err => {
@@ -87,7 +87,7 @@ export async function bootstrap(userConfig: Partial<VendureConfig>): Promise<INe
  *
  * @example
  * ```TypeScript
- * import { bootstrapWorker } from '\@vendure/core';
+ * import { bootstrapWorker } from '\@gseller/core';
  * import { config } from './vendure-config';
  *
  * bootstrapWorker(config)

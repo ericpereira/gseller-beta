@@ -4,7 +4,7 @@ import {
   RequestContext,
   TransactionalConnection,
   isGraphQlErrorResult,
-} from "@vendure/core";
+} from "@gseller/core";
 import {
   AssetNotDeletedError,
   BannerNotDeletedError,
@@ -16,7 +16,7 @@ import {
   CreateChannelBannerWithAssetIdInput,
   CreateChannelBannerWithAssetInput,
   UpdateChannelBanner,
-} from "@vendure/common/lib/generated-types";
+} from "@gseller/common/lib/generated-types";
 
 import { ChannelBanner } from "../entities/channel-banner.entity";
 import { Injectable } from "@nestjs/common";

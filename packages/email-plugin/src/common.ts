@@ -1,4 +1,4 @@
-import { Injector, RequestContext } from '@vendure/core';
+import { Injector, RequestContext } from '@gseller/core';
 
 import { EmailPluginDevModeOptions, EmailPluginOptions, EmailTransportOptions } from './types';
 

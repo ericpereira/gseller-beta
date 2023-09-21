@@ -1,5 +1,5 @@
-import { Type } from '@vendure/common/lib/shared-types';
-import { assertNever } from '@vendure/common/lib/shared-utils';
+import { Type } from '@gseller/common/lib/shared-types';
+import { assertNever } from '@gseller/common/lib/shared-utils';
 import { Connection, DataSourceOptions } from 'typeorm';
 import { DateUtils } from 'typeorm/util/DateUtils';
 

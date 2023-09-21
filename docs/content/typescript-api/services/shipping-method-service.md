@@ -13,7 +13,7 @@ generated: true
 
 # ShippingMethodService
 
-{{< generation-info sourceFile="packages/core/src/service/services/shipping-method.service.ts" sourceLine="44" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/shipping-method.service.ts" sourceLine="44" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/shipping-method#shippingmethod'>ShippingMethod</a> entities.
 

@@ -13,7 +13,7 @@ generated: true
 
 # FastImporterService
 
-{{< generation-info sourceFile="packages/core/src/data-import/providers/importer/fast-importer.service.ts" sourceLine="40" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/data-import/providers/importer/fast-importer.service.ts" sourceLine="40" packageName="@gseller/core">}}
 
 A service to import entities into the database. This replaces the regular `create` methods of the service layer with faster
 versions which skip much of the defensive checks and other DB calls which are not needed when running an import. It also

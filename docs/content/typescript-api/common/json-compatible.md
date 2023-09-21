@@ -13,7 +13,7 @@ generated: true
 
 # JsonCompatible
 
-{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="51" packageName="@vendure/common">}}
+{{< generation-info sourceFile="packages/common/src/shared-types.ts" sourceLine="51" packageName="@gseller/common">}}
 
 A type representing JSON-compatible values.
 From https://github.com/microsoft/TypeScript/issues/1897#issuecomment-580962081

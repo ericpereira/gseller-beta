@@ -13,7 +13,7 @@ generated: true
 
 # InternalServerError
 
-{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="14" packageName="@gseller/core">}}
 
 This error should be thrown when some unexpected and exceptional case is encountered.
 
@@ -44,7 +44,7 @@ class InternalServerError extends I18nError {
 
 # UserInputError
 
-{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="27" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="27" packageName="@gseller/core">}}
 
 This error should be thrown when user input is not as expected.
 
@@ -75,7 +75,7 @@ class UserInputError extends I18nError {
 
 # IllegalOperationError
 
-{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="40" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="40" packageName="@gseller/core">}}
 
 This error should be thrown when an operation is attempted which is not allowed.
 
@@ -106,7 +106,7 @@ class IllegalOperationError extends I18nError {
 
 # UnauthorizedError
 
-{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="53" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="53" packageName="@gseller/core">}}
 
 This error should be thrown when the user's authentication credentials do not match.
 
@@ -137,7 +137,7 @@ class UnauthorizedError extends I18nError {
 
 # ForbiddenError
 
-{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="67" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="67" packageName="@gseller/core">}}
 
 This error should be thrown when a user attempts to access a resource which is outside of
 his or her privileges.
@@ -169,7 +169,7 @@ class ForbiddenError extends I18nError {
 
 # ChannelNotFoundError
 
-{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="81" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="81" packageName="@gseller/core">}}
 
 This error should be thrown when a <a href='/typescript-api/entities/channel#channel'>Channel</a> cannot be found based on the provided
 channel token.
@@ -201,7 +201,7 @@ class ChannelNotFoundError extends I18nError {
 
 # EntityNotFoundError
 
-{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="95" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/error/errors.ts" sourceLine="95" packageName="@gseller/core">}}
 
 This error should be thrown when an entity cannot be found in the database, i.e. no entity of
 the given entityName (Product, User etc.) exists with the provided id.

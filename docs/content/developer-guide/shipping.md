@@ -15,7 +15,7 @@ Custom checkers can be created by defining a [`ShippingEligibilityChecker` objec
 For example, you could create a checker which works with a custom "weight" field to only apply to orders below a certain weight:
 
 ```TypeScript
-import { LanguageCode, ShippingEligibilityChecker } from '@vendure/core';
+import { LanguageCode, ShippingEligibilityChecker } from '@gseller/core';
 
 export const maxWeightChecker = new ShippingEligibilityChecker({
   code: 'max-weight-checker',
@@ -55,7 +55,7 @@ export const maxWeightChecker = new ShippingEligibilityChecker({
 Custom checkers are then passed into the VendureConfig [ShippingOptions]({{< relref "shipping-options" >}}) to make them available when setting up new ShippingMethods:
 
 ```TypeScript
-import { defaultShippingEligibilityChecker, VendureConfig } from '@vendure/core';
+import { defaultShippingEligibilityChecker, VendureConfig } from '@gseller/core';
 import { maxWeightChecker } from './max-weight-checker';
 
 export const config: VendureConfig = {
@@ -76,7 +76,7 @@ Custom calculators can be created by defining a [`ShippingCalculator` object]({{
 For example, you could create a calculator which consults an external data source (e.g. a spreadsheet, database or 3rd-party API) to find out the cost and estimated delivery time for the order.
 
 ```TypeScript
-import { LanguageCode, ShippingCalculator } from '@vendure/core';
+import { LanguageCode, ShippingCalculator } from '@gseller/core';
 import { shippingDataSource } from './shipping-data-source';
 
 export const externalShippingCalculator = new ShippingCalculator({
@@ -112,7 +112,7 @@ export const externalShippingCalculator = new ShippingCalculator({
 Custom calculators are then passed into the VendureConfig [ShippingOptions]({{< relref "shipping-options" >}}) to make them available when setting up new ShippingMethods:
 
 ```TypeScript
-import { defaultShippingCalculator, VendureConfig } from '@vendure/core';
+import { defaultShippingCalculator, VendureConfig } from '@gseller/core';
 import { externalShippingCalculator } from './external-shipping-calculator';
 
 export const config: VendureConfig = {

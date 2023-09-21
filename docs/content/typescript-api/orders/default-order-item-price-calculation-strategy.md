@@ -13,7 +13,7 @@ generated: true
 
 # DefaultOrderItemPriceCalculationStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/order/default-order-item-price-calculation-strategy.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/order/default-order-item-price-calculation-strategy.ts" sourceLine="14" packageName="@gseller/core">}}
 
 The default <a href='/typescript-api/orders/order-item-price-calculation-strategy#orderitempricecalculationstrategy'>OrderItemPriceCalculationStrategy</a>, which simply passes through the price of
 the ProductVariant without performing any calculations

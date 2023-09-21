@@ -13,7 +13,7 @@ generated: true
 
 # RefundState
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/refund-state-machine/refund-state.ts" sourceLine="13" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/refund-state-machine/refund-state.ts" sourceLine="13" packageName="@gseller/core">}}
 
 These are the default states of the refund process.
 

@@ -13,7 +13,7 @@ generated: true
 
 # ShouldRunCheckFn
 
-{{< generation-info sourceFile="packages/core/src/config/shipping-method/shipping-eligibility-checker.ts" sourceLine="143" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/shipping-method/shipping-eligibility-checker.ts" sourceLine="143" packageName="@gseller/core">}}
 
 An optional method which is used to decide whether to run the `check()` function.
 Returns a JSON-compatible object which is cached and compared between calls.

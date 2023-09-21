@@ -13,7 +13,7 @@ generated: true
 
 # TestServerOptions
 
-{{< generation-info sourceFile="packages/testing/src/types.ts" sourceLine="14" packageName="@vendure/testing">}}
+{{< generation-info sourceFile="packages/testing/src/types.ts" sourceLine="14" packageName="@gseller/testing">}}
 
 Configuration options used to initialize an instance of the <a href='/typescript-api/testing/test-server#testserver'>TestServer</a>.
 

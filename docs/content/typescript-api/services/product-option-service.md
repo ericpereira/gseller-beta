@@ -13,7 +13,7 @@ generated: true
 
 # ProductOptionService
 
-{{< generation-info sourceFile="packages/core/src/service/services/product-option.service.ts" sourceLine="32" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/product-option.service.ts" sourceLine="32" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/product-option#productoption'>ProductOption</a> entities.
 

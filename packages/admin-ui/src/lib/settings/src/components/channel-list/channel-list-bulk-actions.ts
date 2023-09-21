@@ -4,7 +4,7 @@ import {
     GetCustomerListQuery,
     ItemOf,
     Permission,
-} from '@vendure/admin-ui/core';
+} from '@gseller/admin-ui/core';
 import { map } from 'rxjs/operators';
 
 export const deleteChannelsBulkAction = createBulkDeleteAction<ItemOf<GetChannelsQuery, 'channels'>>({

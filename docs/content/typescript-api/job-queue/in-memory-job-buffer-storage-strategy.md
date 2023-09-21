@@ -13,7 +13,7 @@ generated: true
 
 # InMemoryJobBufferStorageStrategy
 
-{{< generation-info sourceFile="packages/core/src/job-queue/job-buffer/in-memory-job-buffer-storage-strategy.ts" sourceLine="17" packageName="@vendure/core" since="1.3.0">}}
+{{< generation-info sourceFile="packages/core/src/job-queue/job-buffer/in-memory-job-buffer-storage-strategy.ts" sourceLine="17" packageName="@gseller/core" since="1.3.0">}}
 
 A <a href='/typescript-api/job-queue/job-buffer-storage-strategy#jobbufferstoragestrategy'>JobBufferStorageStrategy</a> which keeps the buffered jobs in memory. Should
 _not_ be used in production, since it will lose data in the event of the server

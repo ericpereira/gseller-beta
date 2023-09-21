@@ -13,7 +13,7 @@ generated: true
 
 # SystemOptions
 
-{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="993" packageName="@vendure/core" since="1.6.0">}}
+{{< generation-info sourceFile="packages/core/src/config/vendure-config.ts" sourceLine="993" packageName="@gseller/core" since="1.6.0">}}
 
 Options relating to system functions.
 

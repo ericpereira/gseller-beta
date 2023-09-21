@@ -1,6 +1,6 @@
-import { LanguageCode } from '@vendure/common/lib/generated-types';
-import { Omit } from '@vendure/common/lib/omit';
-import { Injector, RequestContext, SerializedRequestContext, VendureEvent } from '@vendure/core';
+import { LanguageCode } from '@gseller/common/lib/generated-types';
+import { Omit } from '@gseller/common/lib/omit';
+import { Injector, RequestContext, SerializedRequestContext, VendureEvent } from '@gseller/core';
 import { Attachment } from 'nodemailer/lib/mailer';
 import SESTransport from 'nodemailer/lib/ses-transport';
 import SMTPTransport from 'nodemailer/lib/smtp-transport';
@@ -368,7 +368,7 @@ export interface Partial {
  *
  * @example
  * ```TypeScript
- * import { EmailPlugin, TemplateLoader } from '@vendure/email-plugin';
+ * import { EmailPlugin, TemplateLoader } from '@gseller/email-plugin';
  *
  * class MyTemplateLoader implements TemplateLoader {
  *      loadTemplate(injector, ctx, { type, templateName }){

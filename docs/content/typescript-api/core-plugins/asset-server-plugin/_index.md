@@ -13,7 +13,7 @@ generated: true
 
 # AssetServerPlugin
 
-{{< generation-info sourceFile="packages/asset-server-plugin/src/plugin.ts" sourceLine="139" packageName="@vendure/asset-server-plugin">}}
+{{< generation-info sourceFile="packages/asset-server-plugin/src/plugin.ts" sourceLine="139" packageName="@gseller/asset-server-plugin">}}
 
 The `AssetServerPlugin` serves assets (images and other files) from the local file system, and can also be configured to use
 other storage strategies (e.g. <a href='/typescript-api/core-plugins/asset-server-plugin/s3asset-storage-strategy#s3assetstoragestrategy'>S3AssetStorageStrategy</a>. It can also perform on-the-fly image transformations
@@ -21,16 +21,16 @@ and caches the results for subsequent calls.
 
 ## Installation
 
-`yarn add @vendure/asset-server-plugin`
+`yarn add @gseller/asset-server-plugin`
 
 or
 
-`npm install @vendure/asset-server-plugin`
+`npm install @gseller/asset-server-plugin`
 
 *Example*
 
 ```ts
-import { AssetServerPlugin } from '@vendure/asset-server-plugin';
+import { AssetServerPlugin } from '@gseller/asset-server-plugin';
 
 const config: VendureConfig = {
   // Add an instance of the plugin to the plugins array

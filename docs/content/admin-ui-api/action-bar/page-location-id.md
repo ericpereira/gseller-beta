@@ -13,7 +13,7 @@ generated: true
 
 # PageLocationId
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/component-registry-types.ts" sourceLine="51" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/component-registry-types.ts" sourceLine="51" packageName="@gseller/admin-ui">}}
 
 The valid locationIds for registering action bar items or tabs.
 

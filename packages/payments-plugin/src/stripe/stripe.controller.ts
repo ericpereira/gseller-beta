@@ -9,8 +9,8 @@ import {
     PaymentMethodService,
     RequestContext,
     RequestContextService,
-} from '@vendure/core';
-import { OrderStateTransitionError } from '@vendure/core/dist/common/error/generated-graphql-shop-errors';
+} from '@gseller/core';
+import { OrderStateTransitionError } from '@gseller/core/dist/common/error/generated-graphql-shop-errors';
 import { Response } from 'express';
 import Stripe from 'stripe';
 

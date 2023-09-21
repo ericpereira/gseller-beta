@@ -2,7 +2,7 @@ import {
   Allow,
   Ctx,
   RequestContext
-} from '@vendure/core';
+} from '@gseller/core';
 import {
   Args,
   Mutation,
@@ -11,7 +11,7 @@ import {
 } from '@nestjs/graphql';
 import { ChannelAddressServiceAdmin } from '../services/admin.service';
 import { manageChannelAddressPermission } from '../permission';
-import { ChannelAddressInput } from '@vendure/common/lib/generated-types';
+import { ChannelAddressInput } from '@gseller/common/lib/generated-types';
 @Resolver()
 export class AdminChannelAddressResolver {
 

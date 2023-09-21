@@ -9,7 +9,7 @@ import { EntityIdStrategy } from './entity-id-strategy';
  *
  * @example
  * ```TypeScript
- * import { UuidIdStrategy, VendureConfig } from '\@vendure/core';
+ * import { UuidIdStrategy, VendureConfig } from '\@gseller/core';
  *
  * export const config: VendureConfig = {
  *   entityOptions: {

@@ -1,4 +1,4 @@
-import { isObject } from '@vendure/common/lib/shared-utils';
+import { isObject } from '@gseller/common/lib/shared-utils';
 import { ApolloServerPlugin, GraphQLRequestListener, GraphQLServiceContext } from 'apollo-server-plugin-base';
 import { DocumentNode, OperationDefinitionNode } from 'graphql';
 

@@ -13,7 +13,7 @@ generated: true
 
 # RequestContextService
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/request-context/request-context.service.ts" sourceLine="24" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/request-context/request-context.service.ts" sourceLine="24" packageName="@gseller/core">}}
 
 Creates new <a href='/typescript-api/request/request-context#requestcontext'>RequestContext</a> instances.
 

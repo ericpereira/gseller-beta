@@ -13,7 +13,7 @@ generated: true
 
 # ProcessContext
 
-{{< generation-info sourceFile="packages/core/src/process-context/process-context.ts" sourceLine="31" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/process-context/process-context.ts" sourceLine="31" packageName="@gseller/core">}}
 
 The ProcessContext can be injected into your providers & modules in order to know whether it
 is being executed in the context of the main Vendure server or the worker.
@@ -22,7 +22,7 @@ is being executed in the context of the main Vendure server or the worker.
 
 ```TypeScript
 import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
-import { ProcessContext } from '@vendure/core';
+import { ProcessContext } from '@gseller/core';
 
 @Injectable()
 export class MyService implements OnApplicationBootstrap {

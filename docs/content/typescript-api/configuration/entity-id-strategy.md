@@ -13,7 +13,7 @@ generated: true
 
 # AutoIncrementIdStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/entity/auto-increment-id-strategy.ts" sourceLine="11" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/entity/auto-increment-id-strategy.ts" sourceLine="11" packageName="@gseller/core">}}
 
 An id strategy which uses auto-increment integers as primary keys
 for all entities. This is the default strategy used by Vendure.
@@ -59,7 +59,7 @@ class AutoIncrementIdStrategy implements EntityIdStrategy<'increment'> {
 
 # EntityIdStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/entity/entity-id-strategy.ts" sourceLine="25" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/entity/entity-id-strategy.ts" sourceLine="25" packageName="@gseller/core">}}
 
 The EntityIdStrategy determines how entity IDs are generated and stored in the
 database, as well as how they are transformed when being passed from the API to the
@@ -126,7 +126,7 @@ back to the raw ID value.{{< /member-description >}}
 
 # UuidIdStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/entity/uuid-id-strategy.ts" sourceLine="25" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/entity/uuid-id-strategy.ts" sourceLine="25" packageName="@gseller/core">}}
 
 An id strategy which uses string uuids as primary keys
 for all entities. This strategy can be configured with the
@@ -136,7 +136,7 @@ of <a href='/typescript-api/configuration/vendure-config#vendureconfig'>VendureC
 *Example*
 
 ```TypeScript
-import { UuidIdStrategy, VendureConfig } from '@vendure/core';
+import { UuidIdStrategy, VendureConfig } from '@gseller/core';
 
 export const config: VendureConfig = {
   entityOptions: {

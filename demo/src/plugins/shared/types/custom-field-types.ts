@@ -1,5 +1,5 @@
 
-declare module '@vendure/core/dist/entity/custom-entity-fields' {
+declare module '@gseller/core/dist/entity/custom-entity-fields' {
     class CustomFieldsSeller {
         connectedAccountId: string;
     }

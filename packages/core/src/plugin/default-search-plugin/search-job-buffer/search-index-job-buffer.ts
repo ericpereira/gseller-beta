@@ -1,5 +1,5 @@
-import { ID } from '@vendure/common/lib/shared-types';
-import { unique } from '@vendure/common/lib/unique';
+import { ID } from '@gseller/common/lib/shared-types';
+import { unique } from '@gseller/common/lib/unique';
 
 import { Job, JobBuffer } from '../../../job-queue/index';
 import {

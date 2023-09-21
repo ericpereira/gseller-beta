@@ -13,7 +13,7 @@ generated: true
 
 # MoneyStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/entity/money-strategy.ts" sourceLine="40" packageName="@vendure/core" since="2.0.0">}}
+{{< generation-info sourceFile="packages/core/src/config/entity/money-strategy.ts" sourceLine="40" packageName="@gseller/core" since="2.0.0">}}
 
 The MoneyStrategy defines how monetary values are stored and manipulated. The MoneyStrategy
 is defined in <a href='/typescript-api/configuration/entity-options#entityoptions'>EntityOptions</a>:

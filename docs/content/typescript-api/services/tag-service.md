@@ -13,7 +13,7 @@ generated: true
 
 # TagService
 
-{{< generation-info sourceFile="packages/core/src/service/services/tag.service.ts" sourceLine="24" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/services/tag.service.ts" sourceLine="24" packageName="@gseller/core">}}
 
 Contains methods relating to <a href='/typescript-api/entities/tag#tag'>Tag</a> entities.
 

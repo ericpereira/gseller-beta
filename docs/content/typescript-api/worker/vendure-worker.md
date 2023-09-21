@@ -13,7 +13,7 @@ generated: true
 
 # VendureWorker
 
-{{< generation-info sourceFile="packages/core/src/worker/vendure-worker.ts" sourceLine="13" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/worker/vendure-worker.ts" sourceLine="13" packageName="@gseller/core">}}
 
 This object is created by calling the <a href='/typescript-api/worker/bootstrap-worker#bootstrapworker'>bootstrapWorker</a> function.
 

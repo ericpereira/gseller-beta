@@ -1,4 +1,4 @@
-import { LanguageCode } from "@vendure/core";
+import { LanguageCode } from "@gseller/core";
 
 export type Filters = {
   productIds: [string];

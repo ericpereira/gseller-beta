@@ -13,7 +13,7 @@ generated: true
 
 # LocalizedStringArray
 
-{{< generation-info sourceFile="packages/core/src/common/configurable-operation.ts" sourceLine="43" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/common/configurable-operation.ts" sourceLine="43" packageName="@gseller/core">}}
 
 An array of string values in a given <a href='/typescript-api/common/language-code#languagecode'>LanguageCode</a>, used to define human-readable string values.
 The `ui` property can be used in conjunction with the Vendure Admin UI to specify a custom form input

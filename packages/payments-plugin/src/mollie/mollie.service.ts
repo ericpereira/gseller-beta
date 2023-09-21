@@ -18,8 +18,8 @@ import {
     ProductVariant,
     ProductVariantService,
     RequestContext,
-} from '@vendure/core';
-import { totalCoveredByPayments } from '@vendure/core/dist/service/helpers/utils/order-utils';
+} from '@gseller/core';
+import { totalCoveredByPayments } from '@gseller/core/dist/service/helpers/utils/order-utils';
 
 import { loggerCtx, PLUGIN_INIT_OPTIONS } from './constants';
 import {

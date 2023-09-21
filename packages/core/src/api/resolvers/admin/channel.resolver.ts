@@ -10,8 +10,8 @@ import {
     QueryChannelArgs,
     QueryChannelsArgs,
     UpdateChannelResult,
-} from '@vendure/common/lib/generated-types';
-import { PaginatedList } from '@vendure/common/lib/shared-types';
+} from '@gseller/common/lib/generated-types';
+import { PaginatedList } from '@gseller/common/lib/shared-types';
 
 import { ErrorResultUnion, isGraphQlErrorResult } from '../../../common/error/error-result';
 import { Channel } from '../../../entity/channel/channel.entity';

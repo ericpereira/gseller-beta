@@ -13,7 +13,7 @@ generated: true
 
 # OrderStateLabelComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/order-state-label/order-state-label.component.ts" sourceLine="13" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/shared/components/order-state-label/order-state-label.component.ts" sourceLine="13" packageName="@gseller/admin-ui">}}
 
 Displays the state of an order in a colored chip.
 

@@ -13,7 +13,7 @@ generated: true
 
 # StockDisplayStrategy
 
-{{< generation-info sourceFile="packages/core/src/config/catalog/stock-display-strategy.ts" sourceLine="14" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/catalog/stock-display-strategy.ts" sourceLine="14" packageName="@gseller/core">}}
 
 Defines how the `ProductVariant.stockLevel` value is obtained. It is usually not desirable
 to directly expose stock levels over a public API, as this could be considered a leak of

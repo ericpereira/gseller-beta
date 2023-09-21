@@ -13,7 +13,7 @@ generated: true
 
 # ShippingEligibilityChecker
 
-{{< generation-info sourceFile="packages/core/src/config/shipping-method/shipping-eligibility-checker.ts" sourceLine="49" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/config/shipping-method/shipping-eligibility-checker.ts" sourceLine="49" packageName="@gseller/core">}}
 
 The ShippingEligibilityChecker class is used to check whether an order qualifies for a
 given <a href='/typescript-api/entities/shipping-method#shippingmethod'>ShippingMethod</a>.

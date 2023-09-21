@@ -1,4 +1,4 @@
-import { OrderService, PluginCommonModule, RequestContext, VendurePlugin } from "@vendure/core";
+import { OrderService, PluginCommonModule, RequestContext, VendurePlugin } from "@gseller/core";
 
 import { ContextStrategy } from "../context-auth-strategy";
 import { WebhookPagarmeController } from "./webhook-handler.controller";

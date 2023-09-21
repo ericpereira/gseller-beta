@@ -13,7 +13,7 @@ generated: true
 
 # registerHistoryEntryComponent
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/custom-history-entry-component/history-entry-component.service.ts" sourceLine="13" packageName="@vendure/admin-ui" since="1.9.0">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/custom-history-entry-component/history-entry-component.service.ts" sourceLine="13" packageName="@gseller/admin-ui" since="1.9.0">}}
 
 Registers a <a href='/admin-ui-api/custom-history-entry-components/history-entry-component#historyentrycomponent'>HistoryEntryComponent</a> for displaying history entries in the Order/Customer
 history timeline.

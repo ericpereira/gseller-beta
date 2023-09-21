@@ -13,7 +13,7 @@ generated: true
 
 # addNavMenuSection
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder.service.ts" sourceLine="44" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/providers/nav-builder/nav-builder.service.ts" sourceLine="44" packageName="@gseller/admin-ui">}}
 
 Add a section to the main nav menu. Providing the `before` argument will
 move the section before any existing section with the specified id. If

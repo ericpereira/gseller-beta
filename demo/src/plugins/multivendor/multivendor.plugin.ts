@@ -4,7 +4,7 @@ import {
   PluginCommonModule,
   VendurePlugin,
   configureDefaultOrderProcess,
-} from '@vendure/core';
+} from '@gseller/core';
 
 import { ContextStrategy } from './context-auth-strategy';
 import { MultivendorPluginOptions } from './types';

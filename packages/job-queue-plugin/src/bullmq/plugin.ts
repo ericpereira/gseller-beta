@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { PluginCommonModule, VendurePlugin } from '@gseller/core';
 
 import { BullMQJobQueueStrategy } from './bullmq-job-queue-strategy';
 import { BULLMQ_PLUGIN_OPTIONS } from './constants';
@@ -28,17 +28,17 @@ import { BullMQPluginOptions } from './types';
  *
  * ## Installation
  *
- * `yarn add \@vendure/job-queue-plugin bullmq@1`
+ * `yarn add \@gseller/job-queue-plugin bullmq@1`
  *
  * or
  *
- * `npm install \@vendure/job-queue-plugin bullmq@1`
+ * `npm install \@gseller/job-queue-plugin bullmq@1`
  *
  * **Note:** The v1.x version of this plugin is designed to work with bullmq v1.x.
  *
  * @example
  * ```ts
- * import { BullMQJobQueuePlugin } from '\@vendure/job-queue-plugin/package/bullmq';
+ * import { BullMQJobQueuePlugin } from '\@gseller/job-queue-plugin/package/bullmq';
  *
  * const config: VendureConfig = {
  *   // Add an instance of the plugin to the plugins array

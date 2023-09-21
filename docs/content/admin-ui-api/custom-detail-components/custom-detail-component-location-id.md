@@ -13,7 +13,7 @@ generated: true
 
 # CustomDetailComponentLocationId
 
-{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/component-registry-types.ts" sourceLine="111" packageName="@vendure/admin-ui">}}
+{{< generation-info sourceFile="packages/admin-ui/src/lib/core/src/common/component-registry-types.ts" sourceLine="111" packageName="@gseller/admin-ui">}}
 
 The valid locations for embedding a <a href='/admin-ui-api/custom-detail-components/custom-detail-component#customdetailcomponent'>CustomDetailComponent</a>.
 

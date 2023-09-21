@@ -13,7 +13,7 @@ generated: true
 
 # ExternalAuthenticationService
 
-{{< generation-info sourceFile="packages/core/src/service/helpers/external-authentication/external-authentication.service.ts" sourceLine="24" packageName="@vendure/core">}}
+{{< generation-info sourceFile="packages/core/src/service/helpers/external-authentication/external-authentication.service.ts" sourceLine="24" packageName="@gseller/core">}}
 
 This is a helper service which exposes methods related to looking up and creating Users based on an
 external <a href='/typescript-api/auth/authentication-strategy#authenticationstrategy'>AuthenticationStrategy</a>.

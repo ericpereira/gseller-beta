@@ -1,4 +1,4 @@
-import { Permission } from '@vendure/core';
+import { Permission } from '@gseller/core';
 import { manageChannelAddressPermission } from '../../plugins/store-config/channel-address/permission'
 import { manageChannelBannerPermission } from '../../plugins/store-config/channel-banner/permission'
 import { manageChannelFinancesPermission } from '../../plugins/store-config/channel-finances/permission'

@@ -1,5 +1,5 @@
 import { Args, Query, Resolver, ResolveField } from "@nestjs/graphql";
-import { Ctx, RequestContext } from "@vendure/core";
+import { Ctx, RequestContext } from "@gseller/core";
 import { ChannelAddressServiceShop } from "../services/shop.service";
 import { ChannelAddress } from "../entities/channel-address.entity";
 
