@@ -19,7 +19,6 @@ import { CountryService } from '../../../service/services/country.service';
 import { SearchService } from '../../../service/services/search.service';
 import { ZoneService } from '../../../service/services/zone.service';
 import {
-    CollectionFilterDefinition,
     CountryDefinition,
     InitialData,
     RoleDefinition,

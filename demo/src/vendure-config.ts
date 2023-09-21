@@ -1,6 +1,6 @@
 import "dotenv/config";
 
-import { apiOptions, authOptions, dbConnectionOptions, paymentOptions, plugins } from "./config";
+import { apiOptions, authOptions, dbConnectionOptions, plugins } from "./config";
 
 import { VendureConfig } from "@vendure/core";
 
