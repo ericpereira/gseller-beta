@@ -1,5 +1,3 @@
-import * as orderHandlers from "./order.handler";
-
 import { bankAccountChangeHandler } from "./bank-account-change"
 import { contactHandler } from "./contact.handler";
 import { emailAddressChangeHandler } from "./email-address-change.handler"
@@ -18,5 +16,4 @@ export default [
   emailVerificationHandler,
   bankAccountChangeHandler,
   recipientContractConfirmationHandler,
-  ...Object.values(orderHandlers),
 ];

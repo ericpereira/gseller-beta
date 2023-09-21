@@ -362,18 +362,7 @@ export class AssetService {
         //     usageCount.products += usages.products.length;
         //     usageCount.variants += usages.variants.length;
         // }
-        const hasUsages = !!(usageCount.products || usageCount.variants || usageCount.collections);
-        if (hasUsages && !force) {
-            return {
-                result: DeletionResult.NOT_DELETED,
-                message: ctx.translate('message.asset-to-be-deleted-is-featured', {
-                    assetCount: assets.length,
-                    products: usageCount.products,
-                    variants: usageCount.variants,
-                    collections: usageCount.collections,
-                }),
-            };
-        }
+        
         const hasDeleteAllPermission = await this.hasDeletePermissionForChannels(ctx, channelsOfAssets);
         if (deleteFromAllChannels && !hasDeleteAllPermission) {
             throw new ForbiddenError();

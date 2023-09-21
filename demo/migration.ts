@@ -1,5 +1,4 @@
-//import { generateMigration, revertLastMigration, runMigrations } from '@vendure/core';
-import { generateMigration, revertLastMigration, runMigrations } from '../../vendure/packages/core';
+import { generateMigration, revertLastMigration, runMigrations } from '@vendure/core';
 import program from 'commander';
 
 import { config } from './src/vendure-config';

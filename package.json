@@ -1,6 +1,6 @@
 {
-  "name": "vendure",
-  "version": "10.2.2",
+  "name": "gseller-core",
+  "version": "1.0.0",
   "private": true,
   "engines": {
     "node": ">= 10.12.0 < 11 || >= 12.00"
