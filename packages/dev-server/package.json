@@ -24,8 +24,8 @@
     },
     "devDependencies": {
         "@types/csv-stringify": "^3.1.0",
-        "@gseller/testing": "^2.0.7",
-        "@gseller/ui-devkit": "^2.0.7",
+        "@vendure/testing": "^2.0.7",
+        "@vendure/ui-devkit": "^2.0.7",
         "commander": "^7.1.0",
         "concurrently": "^5.0.0",
         "csv-stringify": "^5.3.3",
