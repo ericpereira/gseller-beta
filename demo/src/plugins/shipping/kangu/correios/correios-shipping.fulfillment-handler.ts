@@ -1,4 +1,4 @@
-import { FulfillmentHandler, LanguageCode } from "@gseller/core";
+import { FulfillmentHandler, LanguageCode } from "@ericpereiraglobalsys/core";
 
 export const customFulfillmentHandler = new FulfillmentHandler({
   code: "correios-fulfillment",

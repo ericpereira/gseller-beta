@@ -4,8 +4,8 @@ import {
   EventBus,
   RequestContext,
   TransactionalConnection,
-} from "@gseller/core";
-import { ChannelAddressInput } from "@gseller/common/lib/generated-types";
+} from "@ericpereiraglobalsys/core";
+import { ChannelAddressInput } from "@ericpereiraglobalsys/common/lib/generated-types";
 import { IsNull, UpdateResult } from "typeorm";
 
 import {

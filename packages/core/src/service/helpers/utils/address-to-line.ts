@@ -1,4 +1,4 @@
-import { OrderAddress } from '@gseller/common/lib/generated-types';
+import { OrderAddress } from '@ericpereiraglobalsys/common/lib/generated-types';
 
 import { Address } from '../../../entity/address/address.entity';
 

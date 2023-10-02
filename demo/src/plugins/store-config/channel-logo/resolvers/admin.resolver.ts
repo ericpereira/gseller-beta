@@ -2,7 +2,7 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import {
     Allow, Asset, AssetService, ChannelService, Ctx, isGraphQlErrorResult,
     Permission, RequestContext, Transaction
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 @Resolver()
 export class ChannelLogoResolver {

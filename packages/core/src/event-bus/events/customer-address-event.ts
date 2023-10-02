@@ -1,5 +1,5 @@
-import { CreateAddressInput, UpdateAddressInput } from '@gseller/common/lib/generated-types';
-import { ID } from '@gseller/common/lib/shared-types';
+import { CreateAddressInput, UpdateAddressInput } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { RequestContext } from '../../api';
 import { Address } from '../../entity/address/address.entity';

@@ -1,5 +1,5 @@
-import { CreateProvinceInput, UpdateProvinceInput } from '@gseller/common/lib/generated-types';
-import { ID } from '@gseller/common/lib/shared-types';
+import { CreateProvinceInput, UpdateProvinceInput } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { RequestContext } from '../../api';
 import { Province } from '../../entity/region/province.entity';

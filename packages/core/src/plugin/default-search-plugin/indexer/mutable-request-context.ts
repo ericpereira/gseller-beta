@@ -1,4 +1,4 @@
-import { ID } from '@gseller/common/lib/shared-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { RequestContext, SerializedRequestContext } from '../../../api/common/request-context';
 import { Channel } from '../../../entity/channel/channel.entity';

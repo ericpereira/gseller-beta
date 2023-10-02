@@ -1,5 +1,5 @@
 import { ClientOptions } from '@elastic/elasticsearch';
-import { DeepRequired, EntityRelationPaths, ID, LanguageCode, Product, ProductVariant } from '@gseller/core';
+import { DeepRequired, EntityRelationPaths, ID, LanguageCode, Product, ProductVariant } from '@ericpereiraglobalsys/core';
 import deepmerge from 'deepmerge';
 
 import {

@@ -1,6 +1,6 @@
-import { JobState } from '@gseller/common/lib/generated-types';
-import { ID } from '@gseller/common/lib/shared-types';
-import { isObject } from '@gseller/common/lib/shared-utils';
+import { JobState } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { isObject } from '@ericpereiraglobalsys/common/lib/shared-utils';
 import { from, interval, race, Subject, Subscription } from 'rxjs';
 import { filter, switchMap, take, throttleTime } from 'rxjs/operators';
 

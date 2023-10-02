@@ -1,4 +1,4 @@
-import { Injector, RequestContext } from '@gseller/core';
+import { Injector, RequestContext } from '@ericpereiraglobalsys/core';
 import fs from 'fs/promises';
 import path from 'path';
 import { LoadTemplateInput, Partial, TemplateLoader } from './types';

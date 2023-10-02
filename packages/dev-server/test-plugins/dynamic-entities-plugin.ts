@@ -1,6 +1,6 @@
 // product-review.entity.ts
-import { DeepPartial } from '@gseller/common/lib/shared-types';
-import { VendureEntity, VendurePlugin } from '@gseller/core';
+import { DeepPartial } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { VendureEntity, VendurePlugin } from '@ericpereiraglobalsys/core';
 import { Column, Entity } from 'typeorm';
 
 @Entity()

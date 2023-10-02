@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { LanguageCode } from '@gseller/common/lib/generated-types';
-import { ID } from '@gseller/common/lib/shared-types';
-import { unique } from '@gseller/common/lib/unique';
+import { LanguageCode } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 import { Observable } from 'rxjs';
 import { In, IsNull } from 'typeorm';
 import { FindOptionsUtils } from 'typeorm/find-options/FindOptionsUtils';

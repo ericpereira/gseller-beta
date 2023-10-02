@@ -1,5 +1,5 @@
-import { JobListOptions } from '@gseller/common/lib/generated-types';
-import { ID, PaginatedList } from '@gseller/common/lib/shared-types';
+import { JobListOptions } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID, PaginatedList } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { Job } from '../../job-queue';
 

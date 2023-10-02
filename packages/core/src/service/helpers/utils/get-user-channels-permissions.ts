@@ -1,6 +1,6 @@
-import { Permission } from '@gseller/common/lib/generated-types';
-import { ID } from '@gseller/common/lib/shared-types';
-import { unique } from '@gseller/common/lib/unique';
+import { Permission } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 
 import { Role } from '../../../entity/role/role.entity';
 import { User } from '../../../entity/user/user.entity';

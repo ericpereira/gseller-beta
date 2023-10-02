@@ -1,5 +1,5 @@
-import { ConfigurableOperationInput, LanguageCode, Permission } from '@gseller/common/lib/generated-types';
-import { ID } from '@gseller/common/lib/shared-types';
+import { ConfigurableOperationInput, LanguageCode, Permission } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { Zone } from '../entity/zone/zone.entity';
 

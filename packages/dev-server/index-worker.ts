@@ -1,4 +1,4 @@
-import { bootstrapWorker } from '@gseller/core';
+import { bootstrapWorker } from '@ericpereiraglobalsys/core';
 
 import { devConfig } from './dev-config';
 

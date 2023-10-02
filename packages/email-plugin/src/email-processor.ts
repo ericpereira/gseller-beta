@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
-import { Ctx, Injector, InternalServerError, Logger, RequestContext } from '@gseller/core';
+import { Ctx, Injector, InternalServerError, Logger, RequestContext } from '@ericpereiraglobalsys/core';
 import fs from 'fs-extra';
 
 import { deserializeAttachments } from './attachment-utils';

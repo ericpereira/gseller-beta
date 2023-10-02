@@ -1,4 +1,4 @@
-import { LanguageCode, ShippingEligibilityChecker } from "@gseller/core";
+import { LanguageCode, ShippingEligibilityChecker } from "@ericpereiraglobalsys/core";
 
 export const correiosEligibilityChecker = new ShippingEligibilityChecker({
   code: "jamef-eligibility-checker",

@@ -7,7 +7,7 @@ import {
   OrderService,
   RequestContext,
   TransactionalConnection,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import gql from 'graphql-tag';
 
 type InputCreateActiveOrder = {

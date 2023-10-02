@@ -1,5 +1,5 @@
-import { AssetType } from '@gseller/common/lib/generated-types';
-import { AssetPreviewStrategy, getAssetType, Logger, RequestContext } from '@gseller/core';
+import { AssetType } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { AssetPreviewStrategy, getAssetType, Logger, RequestContext } from '@ericpereiraglobalsys/core';
 import path from 'path';
 import sharp from 'sharp';
 

@@ -1,4 +1,4 @@
-import { Injector, RequestContext } from '@gseller/core';
+import { Injector, RequestContext } from '@ericpereiraglobalsys/core';
 
 import { EmailPluginDevModeOptions, EmailPluginOptions, EmailTransportOptions } from './types';
 

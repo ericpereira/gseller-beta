@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from "@gseller/core";
+import { PluginCommonModule, VendurePlugin } from "@ericpereiraglobalsys/core";
 
 import { ProductVariantsCustomFields } from "./custom-fields";
 import { ProductsCubicInformationService } from "./products-cubic-information.service";

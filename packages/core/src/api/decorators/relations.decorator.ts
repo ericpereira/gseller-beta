@@ -1,6 +1,6 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import { Type } from '@gseller/common/lib/shared-types';
-import { unique } from '@gseller/common/lib/unique';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 import { getNamedType, GraphQLResolveInfo, GraphQLSchema, isObjectType } from 'graphql';
 import { getMetadataArgsStorage } from 'typeorm';
 

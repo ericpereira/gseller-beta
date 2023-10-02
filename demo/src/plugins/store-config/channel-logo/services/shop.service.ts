@@ -4,7 +4,7 @@ import {
   ChannelService,
   RequestContext,
   TransactionalConnection,
-} from "@gseller/core";
+} from "@ericpereiraglobalsys/core";
 
 import { Injectable } from "@nestjs/common";
 import { LogoDoesExistError } from "../common/graphql.error";

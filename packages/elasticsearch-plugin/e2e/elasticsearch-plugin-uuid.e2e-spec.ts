@@ -1,4 +1,4 @@
-import { DefaultJobQueuePlugin, mergeConfig, UuidIdStrategy } from '@gseller/core';
+import { DefaultJobQueuePlugin, mergeConfig, UuidIdStrategy } from '@ericpereiraglobalsys/core';
 import { createTestEnvironment } from '@gseller/testing';
 import gql from 'graphql-tag';
 import path from 'path';

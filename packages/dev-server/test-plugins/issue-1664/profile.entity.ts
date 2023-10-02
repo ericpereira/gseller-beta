@@ -1,5 +1,5 @@
-import { DeepPartial } from '@gseller/common/lib/shared-types';
-import { User, VendureEntity } from '@gseller/core';
+import { DeepPartial } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { User, VendureEntity } from '@ericpereiraglobalsys/core';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne } from 'typeorm';
 
 import { ProfileAsset } from './profile-asset.entity';

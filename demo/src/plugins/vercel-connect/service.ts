@@ -1,4 +1,4 @@
-import { Administrator, RequestContext } from '@gseller/core';
+import { Administrator, RequestContext } from '@ericpereiraglobalsys/core';
 
 import { Injectable } from "@nestjs/common";
 import { VercelDeploymentWorker } from './workers/building-vercel';

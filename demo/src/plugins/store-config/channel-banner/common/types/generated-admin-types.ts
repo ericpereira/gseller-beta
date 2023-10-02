@@ -1,5 +1,5 @@
 import { IsBoolean, IsDate, IsNotEmpty, IsString } from "class-validator";
-declare module "@gseller/common/lib/generated-types" {
+declare module "@ericpereiraglobalsys/common/lib/generated-types" {
   class CreateChannelBannerInput {
     @IsString()
     @IsNotEmpty()

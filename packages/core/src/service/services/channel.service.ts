@@ -7,10 +7,10 @@ import {
     DeletionResult,
     UpdateChannelInput,
     UpdateChannelResult,
-} from '@gseller/common/lib/generated-types';
-import { DEFAULT_CHANNEL_CODE } from '@gseller/common/lib/shared-constants';
-import { ID, PaginatedList, Type } from '@gseller/common/lib/shared-types';
-import { unique } from '@gseller/common/lib/unique';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
+import { DEFAULT_CHANNEL_CODE } from '@ericpereiraglobalsys/common/lib/shared-constants';
+import { ID, PaginatedList, Type } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 import { FindOneOptions } from 'typeorm';
 
 import { RelationPaths } from '../../api';

@@ -1,4 +1,4 @@
-import { AssetStorageStrategy } from '@gseller/core';
+import { AssetStorageStrategy } from '@ericpereiraglobalsys/core';
 import { createHash } from 'crypto';
 import { Request } from 'express';
 import { ReadStream } from 'fs';

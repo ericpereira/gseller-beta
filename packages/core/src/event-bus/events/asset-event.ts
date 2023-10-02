@@ -1,5 +1,5 @@
-import { CreateAssetInput, DeleteAssetInput, UpdateAssetInput } from '@gseller/common/lib/generated-types';
-import { ID } from '@gseller/common/lib/shared-types';
+import { CreateAssetInput, DeleteAssetInput, UpdateAssetInput } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { RequestContext } from '../../api';
 import { Asset } from '../../entity';

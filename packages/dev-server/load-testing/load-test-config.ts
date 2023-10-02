@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { AssetServerPlugin } from '@gseller/asset-server-plugin';
+import { AssetServerPlugin } from '@ericpereiraglobalsys/asset-server-plugin';
 import {
     defaultConfig,
     DefaultJobQueuePlugin,
@@ -10,7 +10,7 @@ import {
     LogLevel,
     mergeConfig,
     VendureConfig,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import path from 'path';
 
 export function getMysqlConnectionOptions(databaseName: string) {

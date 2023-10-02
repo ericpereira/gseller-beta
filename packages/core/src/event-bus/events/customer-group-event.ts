@@ -1,5 +1,5 @@
-import { CreateCustomerGroupInput, UpdateCustomerGroupInput } from '@gseller/common/lib/generated-types';
-import { ID } from '@gseller/common/lib/shared-types';
+import { CreateCustomerGroupInput, UpdateCustomerGroupInput } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { RequestContext } from '../../api';
 import { CustomerGroup } from '../../entity';

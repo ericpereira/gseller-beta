@@ -1,5 +1,5 @@
-import { LogicalOperator } from '@gseller/common/lib/generated-types';
-import { Type } from '@gseller/common/lib/shared-types';
+import { LogicalOperator } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { VendureEntity } from '../../entity/base/base.entity';
 import { Channel } from '../../entity/channel/channel.entity';
@@ -189,7 +189,7 @@ export type MiddlewareHandler = Type<any> | Function;
  *
  * @example
  * ```TypeScript
- * import { VendureConfig } from '\@gseller/core';
+ * import { VendureConfig } from '\@ericpereiraglobalsys/core';
  * import { json } from 'body-parser';
  *
  * export const config: VendureConfig = {

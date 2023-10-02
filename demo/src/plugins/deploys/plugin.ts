@@ -1,4 +1,4 @@
-import { EventBus, PluginCommonModule, VendurePlugin } from '@gseller/core';
+import { EventBus, PluginCommonModule, VendurePlugin } from '@ericpereiraglobalsys/core';
 import { Deploy } from './entities/deploy.entity';
 import { DeploysAdminResolver } from './resolvers/admin.resolver';
 import AdminSchema from './schema/admin.schema';

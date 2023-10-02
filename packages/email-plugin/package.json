@@ -1,5 +1,5 @@
 {
-    "name": "@gseller/email-plugin",
+    "name": "@ericpereiraglobalsys/email-plugin",
     "version": "2.0.7",
     "license": "MIT",
     "main": "lib/index.js",
@@ -35,8 +35,8 @@
         "@types/fs-extra": "^9.0.1",
         "@types/handlebars": "^4.1.0",
         "@types/mjml": "^4.0.4",
-        "@gseller/common": "^2.0.7",
-        "@gseller/core": "^2.0.7",
+        "@ericpereiraglobalsys/common": "^2.0.7",
+        "@ericpereiraglobalsys/core": "^2.0.7",
         "rimraf": "^3.0.2",
         "typescript": "4.9.5"
     }

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { INestApplication } from '@nestjs/common';
-import { GlobalFlag } from '@gseller/common/lib/generated-types';
+import { GlobalFlag } from '@ericpereiraglobalsys/common/lib/generated-types';
 import {
     bootstrap,
     Importer,
@@ -8,9 +8,9 @@ import {
     LanguageCode,
     OrderService,
     RequestContextService,
-} from '@gseller/core';
-import { populate } from '@gseller/core/cli/populate';
-import { ParsedProductWithVariants } from '@gseller/core/src/index';
+} from '@ericpereiraglobalsys/core';
+import { populate } from '@ericpereiraglobalsys/core/cli/populate';
+import { ParsedProductWithVariants } from '@ericpereiraglobalsys/core/src/index';
 import { clearAllTables } from '@gseller/testing';
 import { spawn } from 'child_process';
 import program from 'commander';

@@ -6,7 +6,7 @@ import {
     Permission,
     ServerConfig,
     UpdateGlobalSettingsResult,
-} from '@gseller/common/lib/generated-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
 import {
     GraphQLOutputType,
     GraphQLResolveInfo,

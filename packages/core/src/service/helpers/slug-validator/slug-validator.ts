@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { LanguageCode } from '@gseller/common/lib/generated-types';
-import { normalizeString } from '@gseller/common/lib/normalize-string';
-import { ID, Type } from '@gseller/common/lib/shared-types';
+import { LanguageCode } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { normalizeString } from '@ericpereiraglobalsys/common/lib/normalize-string';
+import { ID, Type } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { RequestContext } from '../../../api/common/request-context';
 import { TransactionalConnection } from '../../../connection/transactional-connection';

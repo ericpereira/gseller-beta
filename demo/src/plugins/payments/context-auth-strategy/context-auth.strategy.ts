@@ -7,7 +7,7 @@ import {
     RoleService,
     TransactionalConnection,
     User
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 import { Injectable } from '@nestjs/common';
 

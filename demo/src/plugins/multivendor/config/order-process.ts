@@ -9,10 +9,10 @@ import {
   orderItemsArePartiallyDelivered,
   orderItemsArePartiallyShipped,
   orderItemsAreShipped,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
-import { ID } from '@gseller/common/lib/shared-types';
-import { OrderType } from '@gseller/common/lib/generated-shop-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { OrderType } from '@ericpereiraglobalsys/common/lib/generated-shop-types';
 
 let connection: TransactionalConnection;
 let orderService: OrderService;

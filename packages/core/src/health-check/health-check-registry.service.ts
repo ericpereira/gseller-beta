@@ -24,7 +24,7 @@ import { HealthIndicatorFunction } from '@nestjs/terminus';
  *
  * @example
  * ```TypeScript
- * import { HealthCheckRegistryService, PluginCommonModule, VendurePlugin } from '\@gseller/core';
+ * import { HealthCheckRegistryService, PluginCommonModule, VendurePlugin } from '\@ericpereiraglobalsys/core';
  * import { TerminusModule } from '\@nestjs/terminus';
  *
  * \@VendurePlugin({

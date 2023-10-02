@@ -1,4 +1,4 @@
-import { ErrorResult } from '@gseller/core';
+import { ErrorResult } from '@ericpereiraglobalsys/core';
 
 export class ChannelNotFoundError extends ErrorResult {
   readonly __typename = 'ChannelNotFoundError';

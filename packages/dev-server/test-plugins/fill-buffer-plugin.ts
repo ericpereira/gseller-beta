@@ -7,7 +7,7 @@ import {
     ProductVariantService,
     RequestContext,
     VendurePlugin,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import gql from 'graphql-tag';
 
 @Resolver()

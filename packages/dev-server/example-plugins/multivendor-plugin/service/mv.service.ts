@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateAdministratorInput, Permission } from '@gseller/common/lib/generated-types';
-import { normalizeString } from '@gseller/common/lib/normalize-string';
+import { CreateAdministratorInput, Permission } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { normalizeString } from '@ericpereiraglobalsys/common/lib/normalize-string';
 import {
     AdministratorService,
     Channel,
@@ -21,7 +21,7 @@ import {
     TaxSetting,
     TransactionalConnection,
     User,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 import { multivendorShippingEligibilityChecker } from '../config/mv-shipping-eligibility-checker';
 import { CreateSellerInput } from '../types';

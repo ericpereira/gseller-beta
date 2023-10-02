@@ -1,5 +1,5 @@
 import { Args, Query, Resolver, Parent, ResolveField } from '@nestjs/graphql';
-import { Allow, Permission } from '@gseller/core';
+import { Allow, Permission } from '@ericpereiraglobalsys/core';
 import { SearchCustomService } from './search-custom.service';
 import { SearchCustomInput } from './dto/types';
 @Resolver()

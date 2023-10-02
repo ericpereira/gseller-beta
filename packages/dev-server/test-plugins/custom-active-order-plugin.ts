@@ -7,11 +7,11 @@ import {
     RequestContext,
     TransactionalConnection,
     VendurePlugin,
-} from '@gseller/core';
-import { CustomOrderFields } from '@gseller/core/dist/entity/custom-entity-fields';
+} from '@ericpereiraglobalsys/core';
+import { CustomOrderFields } from '@ericpereiraglobalsys/core/dist/entity/custom-entity-fields';
 import gql from 'graphql-tag';
 
-declare module '@gseller/core/dist/entity/custom-entity-fields' {
+declare module '@ericpereiraglobalsys/core/dist/entity/custom-entity-fields' {
     interface CustomOrderFields {
         orderToken: string;
     }

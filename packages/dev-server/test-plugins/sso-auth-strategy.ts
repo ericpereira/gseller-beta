@@ -7,7 +7,7 @@ import {
     RequestContext,
     RoleService,
     User,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import { DocumentNode } from 'graphql';
 import gql from 'graphql-tag';
 

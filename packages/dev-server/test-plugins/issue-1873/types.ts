@@ -10,4 +10,4 @@ export interface PluginInitOptions {
  * https://www.vendure.io/docs/developer-guide/customizing-models/
  * https://www.typescriptlang.org/docs/handbook/modules.html#ambient-modules
  */
-declare module '@gseller/core' {}
+declare module '@ericpereiraglobalsys/core' {}

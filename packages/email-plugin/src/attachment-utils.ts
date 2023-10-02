@@ -1,4 +1,4 @@
-import { Logger } from '@gseller/core';
+import { Logger } from '@ericpereiraglobalsys/core';
 import { Readable, Stream } from 'stream';
 import { format, Url } from 'url';
 

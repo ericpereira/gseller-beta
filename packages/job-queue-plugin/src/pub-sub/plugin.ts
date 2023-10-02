@@ -1,5 +1,5 @@
 import { PubSub } from '@google-cloud/pubsub';
-import { PluginCommonModule, Type, VendurePlugin } from '@gseller/core';
+import { PluginCommonModule, Type, VendurePlugin } from '@ericpereiraglobalsys/core';
 
 import { PUB_SUB_OPTIONS } from './constants';
 import { PubSubOptions } from './options';

@@ -18,9 +18,9 @@ import {
   TransactionalConnection,
   idsAreEqual,
   isGraphQlErrorResult,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
-import { CustomSellerFields } from '@gseller/core/dist/entity/custom-entity-fields';
+import { CustomSellerFields } from '@ericpereiraglobalsys/core/dist/entity/custom-entity-fields';
 import { MultivendorPluginOptions } from '../types';
 
 export class MultivendorSellerStrategy implements OrderSellerStrategy {

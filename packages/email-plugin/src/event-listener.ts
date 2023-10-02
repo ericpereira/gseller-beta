@@ -1,4 +1,4 @@
-import { Type } from '@gseller/common/lib/shared-types';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { EmailEventHandler } from './event-handler';
 import { EventWithContext } from './types';

@@ -1,5 +1,5 @@
-import { LanguageCode } from '@gseller/common/lib/generated-types';
-import { assertNever } from '@gseller/common/lib/shared-utils';
+import { LanguageCode } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { assertNever } from '@ericpereiraglobalsys/common/lib/shared-utils';
 
 import { UserInputError } from '../../common/error/errors';
 import { Injector } from '../../common/injector';

@@ -1,4 +1,4 @@
-import { EventBus, Logger, PluginCommonModule, VendurePlugin } from '@gseller/core';
+import { EventBus, Logger, PluginCommonModule, VendurePlugin } from '@ericpereiraglobalsys/core';
 
 import { CreateShopEvent } from '../../event-bus/events/shop-event';
 import { OnApplicationBootstrap } from '@nestjs/common';

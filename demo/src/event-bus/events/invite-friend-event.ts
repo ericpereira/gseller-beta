@@ -1,4 +1,4 @@
-import { RequestContext, VendureEvent } from "@gseller/core";
+import { RequestContext, VendureEvent } from "@ericpereiraglobalsys/core";
 
 import { InviteFriend } from "../../plugins/shared/types/generated-types";
 

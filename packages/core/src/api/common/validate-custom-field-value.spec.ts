@@ -1,4 +1,4 @@
-import { LanguageCode } from '@gseller/common/lib/generated-types';
+import { LanguageCode } from '@ericpereiraglobalsys/common/lib/generated-types';
 import { fail } from 'assert';
 import { describe, expect, it } from 'vitest';
 

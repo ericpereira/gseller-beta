@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { SearchInput, SearchResponse } from '@gseller/common/lib/generated-types';
-import { Omit } from '@gseller/common/lib/omit';
+import { SearchInput, SearchResponse } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { Omit } from '@ericpereiraglobalsys/common/lib/omit';
 
 import { RequestContext } from '../../api/common/request-context';
 import { InternalServerError } from '../../common/error/errors';

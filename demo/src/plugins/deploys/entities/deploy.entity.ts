@@ -1,7 +1,7 @@
-import { Channel, VendureEntity } from '@gseller/core';
+import { Channel, VendureEntity } from '@ericpereiraglobalsys/core';
 import { Column, Entity, Index, ManyToOne } from "typeorm";
 
-import { DeepPartial } from "@gseller/common/lib/shared-types";
+import { DeepPartial } from "@ericpereiraglobalsys/common/lib/shared-types";
 
 export enum DeployType {
   Vercel = "vercel",

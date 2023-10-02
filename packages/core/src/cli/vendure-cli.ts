@@ -106,7 +106,7 @@ async function getApplicationRef(): Promise<INestApplication | undefined> {
     // on this initial run.
     config.dbConnectionOptions.synchronize = true;
 
-    const { bootstrap } = require('@gseller/core');
+    const { bootstrap } = require('@ericpereiraglobalsys/core');
     console.log('Bootstrapping Vendure server...');
     const app = await bootstrap(config);
     return app;

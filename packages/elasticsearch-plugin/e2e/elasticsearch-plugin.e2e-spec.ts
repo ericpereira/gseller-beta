@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion, no-console */
-import { CurrencyCode, SortOrder } from '@gseller/common/lib/generated-types';
-import { pick } from '@gseller/common/lib/pick';
+import { CurrencyCode, SortOrder } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { pick } from '@ericpereiraglobalsys/common/lib/pick';
 import {
     DefaultJobQueuePlugin,
     DefaultLogger,
@@ -9,7 +9,7 @@ import {
     LanguageCode,
     LogLevel,
     mergeConfig,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import { createTestEnvironment, E2E_DEFAULT_CHANNEL_TOKEN } from '@gseller/testing';
 import { fail } from 'assert';
 import gql from 'graphql-tag';

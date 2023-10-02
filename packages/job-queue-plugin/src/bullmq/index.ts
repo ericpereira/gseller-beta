@@ -1,4 +1,4 @@
-import { Logger } from '@gseller/core';
+import { Logger } from '@ericpereiraglobalsys/core';
 
 // ensure that the bullmq package is installed
 try {

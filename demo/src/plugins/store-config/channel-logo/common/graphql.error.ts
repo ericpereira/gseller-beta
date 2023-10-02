@@ -1,4 +1,4 @@
-import { ErrorResult } from "@gseller/core";
+import { ErrorResult } from "@ericpereiraglobalsys/core";
 
 export class LogoDoesExistError implements ErrorResult {
   readonly __typename = "LogoDoesntExistError";

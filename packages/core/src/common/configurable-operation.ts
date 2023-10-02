@@ -7,14 +7,14 @@ import {
     LocalizedString,
     Maybe,
     StringFieldOption,
-} from '@gseller/common/lib/generated-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
 import {
     ConfigArgType,
     DefaultFormComponentConfig,
     ID,
     UiComponentConfig,
-} from '@gseller/common/lib/shared-types';
-import { assertNever } from '@gseller/common/lib/shared-utils';
+} from '@ericpereiraglobalsys/common/lib/shared-types';
+import { assertNever } from '@ericpereiraglobalsys/common/lib/shared-utils';
 
 import { RequestContext } from '../api/common/request-context';
 
@@ -297,7 +297,7 @@ export interface ConfigurableOperationDefOptions<T extends ConfigArgs> extends I
  *
  * @example
  * ```TypeScript
- * import { Injector, ShippingCalculator } from '\@gseller/core';
+ * import { Injector, ShippingCalculator } from '\@ericpereiraglobalsys/core';
  * import { ShippingRatesService } from './shipping-rates.service';
  *
  * // We keep reference to our injected service by keeping it

@@ -1,5 +1,5 @@
-import { Type } from '@gseller/common/lib/shared-types';
-import { unique } from '@gseller/common/lib/unique';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 import { Connection, OrderByCondition } from 'typeorm';
 import { ColumnMetadata } from 'typeorm/metadata/ColumnMetadata';
 

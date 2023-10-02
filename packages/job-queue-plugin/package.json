@@ -1,5 +1,5 @@
 {
-    "name": "@gseller/job-queue-plugin",
+    "name": "@ericpereiraglobalsys/job-queue-plugin",
     "version": "2.0.7",
     "license": "MIT",
     "main": "package/index.js",
@@ -23,8 +23,8 @@
     },
     "devDependencies": {
         "@google-cloud/pubsub": "^2.8.0",
-        "@gseller/common": "^2.0.7",
-        "@gseller/core": "^2.0.7",
+        "@ericpereiraglobalsys/common": "^2.0.7",
+        "@ericpereiraglobalsys/core": "^2.0.7",
         "bullmq": "^3.15.5",
         "ioredis": "^5.3.0",
         "rimraf": "^3.0.2",

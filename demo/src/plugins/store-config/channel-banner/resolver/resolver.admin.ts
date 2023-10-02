@@ -5,13 +5,13 @@ import {
   Permission,
   RequestContext,
   Transaction,
-} from "@gseller/core";
+} from "@ericpereiraglobalsys/core";
 import { ChannelBannerAdminService } from "../services/service.admin";
 import {
   CreateChannelBannerWithAssetIdInput,
   CreateChannelBannerWithAssetInput,
   UpdateChannelBanner,
-} from "@gseller/common/lib/generated-types";
+} from "@ericpereiraglobalsys/common/lib/generated-types";
 import { manageChannelBannerPermission } from "../permission";
 
 @Resolver()

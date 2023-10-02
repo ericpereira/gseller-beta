@@ -1,5 +1,5 @@
-import { CreateChannelInput, UpdateChannelInput } from '@gseller/common/lib/generated-types';
-import { ID } from '@gseller/common/lib/shared-types';
+import { CreateChannelInput, UpdateChannelInput } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { RequestContext } from '../../api';
 import { Channel } from '../../entity';

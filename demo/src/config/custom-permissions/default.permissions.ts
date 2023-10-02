@@ -1,4 +1,4 @@
-import { Permission } from '@gseller/core';
+import { Permission } from '@ericpereiraglobalsys/core';
 
 export const defaultPermissions: Permission[] = [
     Permission.CreateCatalog,

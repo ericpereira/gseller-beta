@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Type } from '@gseller/common/lib/shared-types';
-import { isObject } from '@gseller/common/lib/shared-utils';
-import { unique } from '@gseller/common/lib/unique';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { isObject } from '@ericpereiraglobalsys/common/lib/shared-utils';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 
 import { RequestContext } from '../../../api/common/request-context';
 import { InternalServerError } from '../../../common/error/errors';

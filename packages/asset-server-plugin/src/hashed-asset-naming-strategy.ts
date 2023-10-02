@@ -1,4 +1,4 @@
-import { DefaultAssetNamingStrategy, RequestContext } from '@gseller/core';
+import { DefaultAssetNamingStrategy, RequestContext } from '@ericpereiraglobalsys/core';
 import { createHash } from 'crypto';
 import path from 'path';
 

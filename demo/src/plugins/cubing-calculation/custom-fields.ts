@@ -1,4 +1,4 @@
-import { CustomFields, LanguageCode } from "@gseller/core";
+import { CustomFields, LanguageCode } from "@ericpereiraglobalsys/core";
 
 export const ProductVariantsCustomFields: CustomFields["ProductVariant"] = [
   {

@@ -1,4 +1,4 @@
-import { Type } from '@gseller/common/lib/shared-types';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
 import { DefaultNamingStrategy } from 'typeorm';
 import { ColumnMetadata } from 'typeorm/metadata/ColumnMetadata';
 import { RelationMetadata } from 'typeorm/metadata/RelationMetadata';

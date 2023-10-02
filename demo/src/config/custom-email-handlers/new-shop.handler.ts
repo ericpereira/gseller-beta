@@ -1,4 +1,4 @@
-import { EmailEventListener } from "@gseller/email-plugin";
+import { EmailEventListener } from "@ericpereiraglobalsys/email-plugin";
 import { NewShopEvent } from "../../event-bus/events/new-shop-event";
 
 export const newShopHandler = new EmailEventListener("new-shop")

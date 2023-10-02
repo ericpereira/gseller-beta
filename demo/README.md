@@ -1,6 +1,6 @@
 # my-ap
 
-This project was generated with [`@gseller/create`](https://github.com/vendure-ecommerce/vendure/tree/master/packages/create).
+This project was generated with [`@ericpereiraglobalsys/create`](https://github.com/vendure-ecommerce/vendure/tree/master/packages/create).
 
 Useful links:
 

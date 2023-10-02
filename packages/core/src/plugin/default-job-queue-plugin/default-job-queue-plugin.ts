@@ -1,4 +1,4 @@
-import { Type } from '@gseller/common/lib/shared-types';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { Job } from '../../job-queue/job';
 import { BackoffStrategy } from '../../job-queue/polling-job-queue-strategy';
@@ -86,7 +86,7 @@ export interface DefaultJobQueueOptions {
  *
  * @example
  * ```TypeScript
- * import { DefaultJobQueuePlugin, VendureConfig } from '\@gseller/core';
+ * import { DefaultJobQueuePlugin, VendureConfig } from '\@ericpereiraglobalsys/core';
  *
  * export const config: VendureConfig = {
  *   // Add an instance of the plugin to the plugins array

@@ -1,4 +1,4 @@
-import { Asset, CustomFields, LanguageCode } from '@gseller/core';
+import { Asset, CustomFields, LanguageCode } from '@ericpereiraglobalsys/core';
 
 export const customFields: CustomFields['Administrator'] = [
   {

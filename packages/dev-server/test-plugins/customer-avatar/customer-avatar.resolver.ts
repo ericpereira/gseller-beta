@@ -1,5 +1,5 @@
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
-import { Asset } from '@gseller/common/lib/generated-types';
+import { Asset } from '@ericpereiraglobalsys/common/lib/generated-types';
 import {
     Allow,
     AssetService,
@@ -9,7 +9,7 @@ import {
     Permission,
     RequestContext,
     Transaction,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 @Resolver()
 export class CustomerAvatarResolver {

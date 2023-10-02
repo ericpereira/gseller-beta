@@ -1,6 +1,6 @@
 import { PutObjectRequest, S3ClientConfig } from '@aws-sdk/client-s3';
 import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from '@aws-sdk/types';
-import { AssetStorageStrategy, Logger } from '@gseller/core';
+import { AssetStorageStrategy, Logger } from '@ericpereiraglobalsys/core';
 import { Request } from 'express';
 import * as path from 'node:path';
 import { Readable } from 'node:stream';
@@ -59,8 +59,8 @@ export interface S3Config {
  *
  * @example
  * ```TypeScript
- * import { AssetServerPlugin, configureS3AssetStorage } from '\@gseller/asset-server-plugin';
- * import { DefaultAssetNamingStrategy } from '\@gseller/core';
+ * import { AssetServerPlugin, configureS3AssetStorage } from '\@ericpereiraglobalsys/asset-server-plugin';
+ * import { DefaultAssetNamingStrategy } from '\@ericpereiraglobalsys/core';
  * import { fromEnv } from '\@aws-sdk/credential-providers';
  *
  * // ...
@@ -86,8 +86,8 @@ export interface S3Config {
  *
  * @example
  * ```TypeScript
- * import { AssetServerPlugin, configureS3AssetStorage } from '\@gseller/asset-server-plugin';
- * import { DefaultAssetNamingStrategy } from '\@gseller/core';
+ * import { AssetServerPlugin, configureS3AssetStorage } from '\@ericpereiraglobalsys/asset-server-plugin';
+ * import { DefaultAssetNamingStrategy } from '\@ericpereiraglobalsys/core';
  *
  * // ...
  *

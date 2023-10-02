@@ -1,6 +1,6 @@
-import { ID, RequestContext, VendureEvent } from "@gseller/core";
+import { ID, RequestContext, VendureEvent } from "@ericpereiraglobalsys/core";
 
-import { VendureEntityEvent } from "@gseller/core/dist/event-bus/vendure-entity-event";
+import { VendureEntityEvent } from "@ericpereiraglobalsys/core/dist/event-bus/vendure-entity-event";
 import { Deploy, DeployType } from "../../plugins/deploys/entities/deploy.entity";
 
 /**

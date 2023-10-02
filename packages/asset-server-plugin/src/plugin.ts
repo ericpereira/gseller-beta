@@ -1,5 +1,5 @@
 import { MiddlewareConsumer, NestModule, OnApplicationBootstrap } from '@nestjs/common';
-import { Type } from '@gseller/common/lib/shared-types';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
 import {
     AssetStorageStrategy,
     Logger,
@@ -8,7 +8,7 @@ import {
     registerPluginStartupMessage,
     RuntimeVendureConfig,
     VendurePlugin,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import { createHash } from 'crypto';
 import express, { NextFunction, Request, Response } from 'express';
 import { fromBuffer } from 'file-type';
@@ -31,15 +31,15 @@ import { AssetServerOptions, ImageTransformPreset } from './types';
  *
  * ## Installation
  *
- * `yarn add \@gseller/asset-server-plugin`
+ * `yarn add \@ericpereiraglobalsys/asset-server-plugin`
  *
  * or
  *
- * `npm install \@gseller/asset-server-plugin`
+ * `npm install \@ericpereiraglobalsys/asset-server-plugin`
  *
  * @example
  * ```ts
- * import { AssetServerPlugin } from '\@gseller/asset-server-plugin';
+ * import { AssetServerPlugin } from '\@ericpereiraglobalsys/asset-server-plugin';
  *
  * const config: VendureConfig = {
  *   // Add an instance of the plugin to the plugins array

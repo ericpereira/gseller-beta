@@ -1,4 +1,4 @@
-import { AdministratorService, Ctx, EventBus, RequestContext, TransactionalConnection } from '@gseller/core';
+import { AdministratorService, Ctx, EventBus, RequestContext, TransactionalConnection } from '@ericpereiraglobalsys/core';
 import { Injectable } from '@nestjs/common';
 //@ts-ignore 
 import { InviteFriendEvent } from '../events/event-bus/invite-friend-event';

@@ -1,5 +1,5 @@
-import { OrderType } from '@gseller/common/lib/generated-types';
-import { ID } from '@gseller/common/lib/shared-types';
+import { OrderType } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
 import {
     ChannelService,
     CustomOrderProcess,
@@ -14,7 +14,7 @@ import {
     RequestContextService,
     TransactionalConnection,
     User,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 let connection: TransactionalConnection;
 let orderService: OrderService;

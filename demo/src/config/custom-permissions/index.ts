@@ -1,4 +1,4 @@
-import { Permission } from '@gseller/core';
+import { Permission } from '@ericpereiraglobalsys/core';
 import { customPermissions } from './custom.permissions'
 import { defaultPermissions } from './default.permissions';
 

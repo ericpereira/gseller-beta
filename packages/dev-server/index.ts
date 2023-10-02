@@ -1,4 +1,4 @@
-import { bootstrap, JobQueueService } from '@gseller/core';
+import { bootstrap, JobQueueService } from '@ericpereiraglobalsys/core';
 
 import { devConfig } from './dev-config';
 

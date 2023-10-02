@@ -1,4 +1,4 @@
-import { ID, RequestContext, TransactionalConnection } from "@gseller/core";
+import { ID, RequestContext, TransactionalConnection } from "@ericpereiraglobalsys/core";
 import { InvalidData, LayoutCategoryInvalidID, LayoutCategoryTitleInvalid } from "../graphql.errors";
 
 import { Injectable } from '@nestjs/common';

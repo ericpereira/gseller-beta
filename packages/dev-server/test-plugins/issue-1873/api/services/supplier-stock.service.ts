@@ -4,8 +4,8 @@ import type {
   PaginatedList,
   RelationPaths,
   RequestContext,
-} from '@gseller/core';
-import { ListQueryBuilder } from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
+import { ListQueryBuilder } from '@ericpereiraglobalsys/core';
 import { SupplierStock } from '../../entities/supplier-stock.entity';
 
 @Injectable()

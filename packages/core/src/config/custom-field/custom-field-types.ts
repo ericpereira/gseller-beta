@@ -10,14 +10,14 @@ import {
     RelationCustomFieldConfig as GraphQLRelationCustomFieldConfig,
     StringCustomFieldConfig as GraphQLStringCustomFieldConfig,
     TextCustomFieldConfig as GraphQLTextCustomFieldConfig,
-} from '@gseller/common/lib/generated-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
 import {
     CustomFieldsObject,
     CustomFieldType,
     DefaultFormComponentId,
     Type,
     UiComponentConfig,
-} from '@gseller/common/lib/shared-types';
+} from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { Injector } from '../../common/injector';
 import { VendureEntity } from '../../entity/base/base.entity';

@@ -1,5 +1,5 @@
-import { EmailEventListener } from "@gseller/email-plugin";
-import { PasswordResetEvent } from "@gseller/core";
+import { EmailEventListener } from "@ericpereiraglobalsys/email-plugin";
+import { PasswordResetEvent } from "@ericpereiraglobalsys/core";
 
 export const passwordResetHandler = new EmailEventListener("password-reset")
   .on(PasswordResetEvent)

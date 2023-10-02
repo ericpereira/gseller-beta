@@ -1,5 +1,5 @@
 import { DynamicModule, Injectable, Type } from '@nestjs/common';
-import { LanguageCode } from '@gseller/common/lib/generated-types';
+import { LanguageCode } from '@ericpereiraglobalsys/common/lib/generated-types';
 import { DataSourceOptions } from 'typeorm';
 
 import { getConfig } from './config-helpers';

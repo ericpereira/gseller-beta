@@ -1,6 +1,6 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { Permission } from '@gseller/common/lib/generated-types';
+import { Permission } from '@ericpereiraglobalsys/common/lib/generated-types';
 import { Request, Response } from 'express';
 import { GraphQLResolveInfo } from 'graphql';
 

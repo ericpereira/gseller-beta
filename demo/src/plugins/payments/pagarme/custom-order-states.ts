@@ -1,4 +1,4 @@
-import { OrderProcess } from "@gseller/core";
+import { OrderProcess } from "@ericpereiraglobalsys/core";
 
 export const customOrderProcess: OrderProcess<'PaymentFailed' | 'PaymentRefunded'> = {
     transitions: {

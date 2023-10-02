@@ -1,4 +1,4 @@
-import { generateMigration, revertLastMigration, runMigrations } from '@gseller/core';
+import { generateMigration, revertLastMigration, runMigrations } from '@ericpereiraglobalsys/core';
 import program from 'commander';
 
 import { devConfig } from './dev-config';

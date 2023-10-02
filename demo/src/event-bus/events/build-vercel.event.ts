@@ -1,6 +1,6 @@
-import { RequestContext } from "@gseller/core";
+import { RequestContext } from "@ericpereiraglobalsys/core";
 
-import { VendureEntityEvent } from "@gseller/core/dist/event-bus/vendure-entity-event";
+import { VendureEntityEvent } from "@ericpereiraglobalsys/core/dist/event-bus/vendure-entity-event";
 import { VercelDeploy } from "../../plugins/vercel-connect/entities/vercel-deploy.entity";
 
 /**

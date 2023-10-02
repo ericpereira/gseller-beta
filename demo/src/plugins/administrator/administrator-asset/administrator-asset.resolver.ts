@@ -1,6 +1,6 @@
 // customer-avatar.resolver.ts
 import { Args, Mutation, Resolver, ResolveField } from '@nestjs/graphql';
-import { Allow, Asset, Asset as AssetEntity, Ctx, Permission, RequestContext, Transaction } from '@gseller/core';
+import { Allow, Asset, Asset as AssetEntity, Ctx, Permission, RequestContext, Transaction } from '@ericpereiraglobalsys/core';
 import { Upload } from '../../shared/types/upload';
 import { AdministratorAssetService } from './administrator-asset.service';
 

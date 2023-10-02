@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { GlobalFlag, LanguageCode } from '@gseller/common/lib/generated-types';
-import { normalizeString } from '@gseller/common/lib/normalize-string';
-import { unique } from '@gseller/common/lib/unique';
+import { GlobalFlag, LanguageCode } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { normalizeString } from '@ericpereiraglobalsys/common/lib/normalize-string';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 import parse from 'csv-parse';
 import { Stream } from 'stream';
 

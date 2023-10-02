@@ -1,9 +1,9 @@
 
-import { Allow, Ctx, RequestContext, Transaction } from '@gseller/core';
+import { Allow, Ctx, RequestContext, Transaction } from '@ericpereiraglobalsys/core';
 import { Args, Mutation, Resolver, Query } from '@nestjs/graphql';
 import { FinancesService } from '../services/bank-account.service';
 import { manageChannelFinancesPermission as Permission } from '../permission';
-import { AccountHolderInput, PaymentAccountInput } from '@gseller/common/lib/generated-types'
+import { AccountHolderInput, PaymentAccountInput } from '@ericpereiraglobalsys/common/lib/generated-types'
 import { AccountHolderService } from '../services/account-holder.service';
 @Resolver()
 export class FinancesResolver {

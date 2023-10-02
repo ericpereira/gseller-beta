@@ -1,4 +1,4 @@
-import { ErrorResult } from '@gseller/core';
+import { ErrorResult } from '@ericpereiraglobalsys/core';
 export class AddressAlreadyRegisteredError extends ErrorResult {
   readonly __typename = 'AddressAlreadyRegisteredError';
   readonly errorCode = 'ADDRESS_ALREADY_REGISTERED';

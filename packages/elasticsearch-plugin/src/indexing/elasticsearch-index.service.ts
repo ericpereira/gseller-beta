@@ -1,5 +1,5 @@
 import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
-import { assertNever } from '@gseller/common/lib/shared-utils';
+import { assertNever } from '@ericpereiraglobalsys/common/lib/shared-utils';
 import {
     Asset,
     ID,
@@ -10,7 +10,7 @@ import {
     Product,
     ProductVariant,
     RequestContext,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import { Observable } from 'rxjs';
 
 import { loggerCtx } from '../constants';

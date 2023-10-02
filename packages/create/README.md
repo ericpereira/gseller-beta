@@ -11,7 +11,7 @@ To create a new project, you may choose one of the following methods:
 ### npx
 
 ```sh
-npx @gseller/create my-app
+npx @ericpereiraglobalsys/create my-app
 ```
 
 *[npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher.*
@@ -48,6 +48,6 @@ You can control how much output is generated during the installation and setup w
 Example:
 
 ```sh 
-npx @gseller/create my-app --log-level verbose
+npx @ericpereiraglobalsys/create my-app --log-level verbose
 ```
 

@@ -1,4 +1,4 @@
-import { Type } from '@gseller/common/lib/shared-types';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
 import { Column } from 'typeorm';
 
 import { MoneyStrategy } from '../config/entity/money-strategy';

@@ -1,4 +1,4 @@
-import { VendureLogger } from '@gseller/core';
+import { VendureLogger } from '@ericpereiraglobalsys/core';
 import fs from 'fs';
 
 // A simple custom logger which writes all logs to a file.

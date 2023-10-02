@@ -1,5 +1,5 @@
 import { Column, Entity } from "typeorm";
-import { DeepPartial, VendureEntity } from "@gseller/core";
+import { DeepPartial, VendureEntity } from "@ericpereiraglobalsys/core";
 
 @Entity()
 class Contact extends VendureEntity {

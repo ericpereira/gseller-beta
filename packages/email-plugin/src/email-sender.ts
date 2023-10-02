@@ -1,4 +1,4 @@
-import { InjectableStrategy } from '@gseller/core';
+import { InjectableStrategy } from '@ericpereiraglobalsys/core';
 
 import { EmailDetails, EmailTransportOptions } from './types';
 

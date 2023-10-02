@@ -1,5 +1,5 @@
 import { InitialDataDefinition } from '../types';
-import { LanguageCode } from '@gseller/core';
+import { LanguageCode } from '@ericpereiraglobalsys/core';
 
 export const initialData: InitialDataDefinition = {
   defaultLanguage: LanguageCode.pt_BR,

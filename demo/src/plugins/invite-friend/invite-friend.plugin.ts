@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from '@gseller/core';
+import { PluginCommonModule, VendurePlugin } from '@ericpereiraglobalsys/core';
 
 import { InviteFriendResolver } from './invite-friend-shop.resolver';
 import { InviteFriendService } from './invite-friend.service';

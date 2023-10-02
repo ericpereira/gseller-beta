@@ -1,4 +1,4 @@
-import { ProductVariantService, RequestContext } from "@gseller/core";
+import { ProductVariantService, RequestContext } from "@ericpereiraglobalsys/core";
 
 import { Injectable } from "@nestjs/common";
 

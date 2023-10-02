@@ -1,4 +1,4 @@
-import { Json } from '@gseller/common/lib/shared-types';
+import { Json } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { Logger } from '../config/logger/vendure-logger';
 

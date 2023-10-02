@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable } from "typeorm";
-import { Asset, Channel, Customer, ID, Order, Payment, RefundState, VendureEntity } from "@gseller/core";
-import { DeepPartial } from "@gseller/common/lib/shared-types";
+import { Asset, Channel, Customer, ID, Order, Payment, RefundState, VendureEntity } from "@ericpereiraglobalsys/core";
+import { DeepPartial } from "@ericpereiraglobalsys/common/lib/shared-types";
 
 @Entity()
 class RefundRequest extends VendureEntity {

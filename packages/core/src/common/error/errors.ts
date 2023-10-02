@@ -1,4 +1,4 @@
-import { ID } from '@gseller/common/lib/shared-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { LogLevel } from '../../config/logger/vendure-logger';
 import { coreEntitiesMap } from '../../entity/entities';

@@ -5,7 +5,7 @@ import {
   RequestContext,
   TransactionalConnection,
   User,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 import { DocumentNode } from 'graphql';
 import { FindOneOptions } from 'typeorm';

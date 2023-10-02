@@ -1,4 +1,4 @@
-import { DeepPartial } from '@gseller/common/lib/shared-types';
+import { DeepPartial } from '@ericpereiraglobalsys/common/lib/shared-types';
 import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
 
 import { SoftDeletable } from '../../common/types/common-types';

@@ -14,7 +14,7 @@ import { MetadataArgsStorage } from 'typeorm/metadata-args/MetadataArgsStorage';
  * @example
  * ```TypeScript
  * import { Index } from 'typeorm';
- * import { EntityMetadataModifier, ProductVariant } from '\@gseller/core';
+ * import { EntityMetadataModifier, ProductVariant } from '\@ericpereiraglobalsys/core';
  *
  * // Adds a unique index to the ProductVariant.sku column
  * export const addSkuUniqueIndex: EntityMetadataModifier = metadata => {
@@ -26,7 +26,7 @@ import { MetadataArgsStorage } from 'typeorm/metadata-args/MetadataArgsStorage';
  * @example
  * ```TypeScript
  * import { Column } from 'typeorm';
- * import { EntityMetadataModifier, ProductTranslation } from '\@gseller/core';
+ * import { EntityMetadataModifier, ProductTranslation } from '\@ericpereiraglobalsys/core';
  *
  * // Use the "mediumtext" datatype for the Product's description rather than
  * // the default "text" type.

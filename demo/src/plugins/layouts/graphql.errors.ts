@@ -1,4 +1,4 @@
-import { ErrorResult } from '@gseller/core';
+import { ErrorResult } from '@ericpereiraglobalsys/core';
 export class LayoutCategoryTitleInvalid extends ErrorResult {
     readonly __typename = 'LayoutCategoryTitleInvalid';
     readonly errorCode = 'LAYOUT_CATEGORY_TITLE_INVALID';

@@ -4,12 +4,12 @@ import {
   DefaultJobQueuePlugin,
   DefaultSearchPlugin,
   VendureConfig,
-} from "@gseller/core";
+} from "@ericpereiraglobalsys/core";
 
-import { AdminUiPlugin } from "@gseller/admin-ui-plugin";
-import { AssetServerPlugin } from "@gseller/asset-server-plugin";
+import { AdminUiPlugin } from "@ericpereiraglobalsys/admin-ui-plugin";
+import { AssetServerPlugin } from "@ericpereiraglobalsys/asset-server-plugin";
 import EmailHandlers from "./custom-email-handlers";
-import { EmailPlugin } from "@gseller/email-plugin";
+import { EmailPlugin } from "@ericpereiraglobalsys/email-plugin";
 import { MultivendorPlugin } from "../plugins/multivendor/multivendor.plugin";
 import path from "path";
 

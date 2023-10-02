@@ -9,7 +9,7 @@ import {
   TransactionalConnection,
   UserService,
   isGraphQlErrorResult,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import {
   PasswordResetTokenExpiredError,
   PasswordResetTokenInvalidError,

@@ -1,6 +1,6 @@
 import { Client } from '@elastic/elasticsearch';
 import { Inject, Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
-import { unique } from '@gseller/common/lib/unique';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 import {
     Asset,
     asyncObservable,
@@ -23,7 +23,7 @@ import {
     TransactionalConnection,
     Translatable,
     Translation,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import { Observable } from 'rxjs';
 import { In, IsNull } from 'typeorm';
 

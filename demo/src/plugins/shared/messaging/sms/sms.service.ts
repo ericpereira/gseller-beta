@@ -1,4 +1,4 @@
-import { Customer, Logger, TransactionalConnection } from "@gseller/core";
+import { Customer, Logger, TransactionalConnection } from "@ericpereiraglobalsys/core";
 
 import { Injectable } from '@nestjs/common';
 import { TempSms } from "./entities/sms-temp.entity";

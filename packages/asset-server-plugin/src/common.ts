@@ -1,4 +1,4 @@
-import { REQUEST_CONTEXT_KEY } from '@gseller/core/dist/common/constants';
+import { REQUEST_CONTEXT_KEY } from '@ericpereiraglobalsys/core/dist/common/constants';
 import { Request } from 'express';
 
 import { AssetServerOptions, ImageTransformFormat } from './types';

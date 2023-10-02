@@ -1,11 +1,11 @@
 import { MiddlewareConsumer, NestModule } from '@nestjs/common';
-import { DEFAULT_AUTH_TOKEN_HEADER_KEY, DEFAULT_CHANNEL_TOKEN_KEY } from '@gseller/common/lib/shared-constants';
+import { DEFAULT_AUTH_TOKEN_HEADER_KEY, DEFAULT_CHANNEL_TOKEN_KEY } from '@ericpereiraglobalsys/common/lib/shared-constants';
 import {
     AdminUiAppConfig,
     AdminUiAppDevModeConfig,
     AdminUiConfig,
     Type,
-} from '@gseller/common/lib/shared-types';
+} from '@ericpereiraglobalsys/common/lib/shared-types';
 import {
     ConfigService,
     createProxyHandler,
@@ -14,7 +14,7 @@ import {
     ProcessContext,
     registerPluginStartupMessage,
     VendurePlugin,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import express from 'express';
 import fs from 'fs-extra';
 import path from 'path';
@@ -83,15 +83,15 @@ export interface AdminUiPluginOptions {
  *
  * ## Installation
  *
- * `yarn add \@gseller/admin-ui-plugin`
+ * `yarn add \@ericpereiraglobalsys/admin-ui-plugin`
  *
  * or
  *
- * `npm install \@gseller/admin-ui-plugin`
+ * `npm install \@ericpereiraglobalsys/admin-ui-plugin`
  *
  * @example
  * ```ts
- * import { AdminUiPlugin } from '\@gseller/admin-ui-plugin';
+ * import { AdminUiPlugin } from '\@ericpereiraglobalsys/admin-ui-plugin';
  *
  * const config: VendureConfig = {
  *   // Add an instance of the plugin to the plugins array
@@ -110,7 +110,7 @@ export interface AdminUiPluginOptions {
  *
  * @example
  * ```TypeScript
- * import { AdminUiPlugin } from '\@gseller/admin-ui-plugin';
+ * import { AdminUiPlugin } from '\@ericpereiraglobalsys/admin-ui-plugin';
  *
  * const config: VendureConfig = {
  *   plugins: [

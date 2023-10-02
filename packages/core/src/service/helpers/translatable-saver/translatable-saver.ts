@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { omit } from '@gseller/common/lib/omit';
-import { ID, Type } from '@gseller/common/lib/shared-types';
+import { omit } from '@ericpereiraglobalsys/common/lib/omit';
+import { ID, Type } from '@ericpereiraglobalsys/common/lib/shared-types';
 import { FindOneOptions } from 'typeorm';
 import { FindManyOptions } from 'typeorm/find-options/FindManyOptions';
 

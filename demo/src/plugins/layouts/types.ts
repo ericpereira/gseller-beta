@@ -1,4 +1,4 @@
-import { ID } from "@gseller/core";
+import { ID } from "@ericpereiraglobalsys/core";
 import { LayoutCategory } from "./entities/layout-category.entity";
 
 export enum LayoutTypes {

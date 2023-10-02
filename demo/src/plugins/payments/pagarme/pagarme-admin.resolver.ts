@@ -3,7 +3,7 @@ import {
   ErrorException,
 } from "@gabrielvenegaas/pagarmecoreapilib";
 import { Mutation, Resolver, Args, Query } from "@nestjs/graphql";
-import { Allow, Ctx, Logger, RequestContext } from "@gseller/core";
+import { Allow, Ctx, Logger, RequestContext } from "@ericpereiraglobalsys/core";
 import { Recipient } from "../payments-permissions";
 import { PagarmeService } from "./pagarme.service";
 

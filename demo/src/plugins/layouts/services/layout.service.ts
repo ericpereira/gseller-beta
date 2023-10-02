@@ -1,4 +1,4 @@
-import { AssetService, EventBus, ID, RequestContext, TransactionalConnection } from "@gseller/core";
+import { AssetService, EventBus, ID, RequestContext, TransactionalConnection } from "@ericpereiraglobalsys/core";
 import { InvalidLayoutPrice, LayoutInvalid, LayoutTitleInvalid } from "../graphql.errors";
 
 import { In } from "typeorm";

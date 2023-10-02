@@ -9,7 +9,7 @@ import {
     QueryJobBufferSizeArgs,
     QueryJobsArgs,
     QueryJobsByIdArgs,
-} from '@gseller/common/lib/generated-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
 
 import { ConfigService, InspectableJobQueueStrategy, isInspectableJobQueueStrategy } from '../../../config';
 import { JobQueueService } from '../../../job-queue';

@@ -1,6 +1,6 @@
 
 import { Args, Resolver, Mutation, Query } from '@nestjs/graphql';
-import { Ctx, RequestContext } from '@gseller/core';
+import { Ctx, RequestContext } from '@ericpereiraglobalsys/core';
 import { ContactService } from './contact.service';
 import { ContactUsTdo } from './dto';
 

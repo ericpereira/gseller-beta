@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { mergeConfig } from '@gseller/core';
-import { AssetFragment } from '@gseller/core/e2e/graphql/generated-e2e-admin-types';
+import { mergeConfig } from '@ericpereiraglobalsys/core';
+import { AssetFragment } from '@ericpereiraglobalsys/core/e2e/graphql/generated-e2e-admin-types';
 import { createTestEnvironment } from '@gseller/testing';
 import fs from 'fs-extra';
 import gql from 'graphql-tag';

@@ -8,8 +8,8 @@ import {
     Permission,
     QueryRoleArgs,
     QueryRolesArgs,
-} from '@gseller/common/lib/generated-types';
-import { PaginatedList } from '@gseller/common/lib/shared-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
+import { PaginatedList } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { Role } from '../../../entity/role/role.entity';
 import { RoleService } from '../../../service/services/role.service';

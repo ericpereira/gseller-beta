@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from "@gseller/core";
+import { PluginCommonModule, VendurePlugin } from "@ericpereiraglobalsys/core";
 
 import { SmsResolver } from "./sms-shop.resolver";
 import { SmsService } from "./sms.service";

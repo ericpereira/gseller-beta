@@ -1,7 +1,7 @@
 import {
     AuthenticationResult as ShopAuthenticationResult,
     PasswordValidationError,
-} from '@gseller/common/lib/generated-shop-types';
+} from '@ericpereiraglobalsys/common/lib/generated-shop-types';
 import {
     AuthenticationResult as AdminAuthenticationResult,
     CurrentUser,
@@ -9,7 +9,7 @@ import {
     MutationAuthenticateArgs,
     MutationLoginArgs,
     Success,
-} from '@gseller/common/lib/generated-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
 import { Request, Response } from 'express';
 
 import { isGraphQlErrorResult } from '../../../common/error/error-result';

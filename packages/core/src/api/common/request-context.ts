@@ -1,6 +1,6 @@
-import { CurrencyCode, LanguageCode, Permission } from '@gseller/common/lib/generated-types';
-import { ID, JsonCompatible } from '@gseller/common/lib/shared-types';
-import { isObject } from '@gseller/common/lib/shared-utils';
+import { CurrencyCode, LanguageCode, Permission } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID, JsonCompatible } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { isObject } from '@ericpereiraglobalsys/common/lib/shared-utils';
 import { Request } from 'express';
 import { TFunction } from 'i18next';
 

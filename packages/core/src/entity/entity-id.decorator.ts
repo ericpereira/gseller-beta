@@ -1,4 +1,4 @@
-import { Type } from '@gseller/common/lib/shared-types';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 interface IdColumnOptions {
     /** Whether the field is nullable. Defaults to false */

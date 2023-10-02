@@ -1,5 +1,5 @@
-import { EmailEventListener } from "@gseller/email-plugin";
-import { IdentifierChangeRequestEvent } from "@gseller/core";
+import { EmailEventListener } from "@ericpereiraglobalsys/email-plugin";
+import { IdentifierChangeRequestEvent } from "@ericpereiraglobalsys/core";
 
 export const emailAddressChangeHandler = new EmailEventListener('email-address-change')
   .on(IdentifierChangeRequestEvent)

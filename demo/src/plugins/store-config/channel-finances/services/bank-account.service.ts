@@ -14,7 +14,7 @@ import {
   RequestContext,
   RequestContextService,
   TransactionalConnection,
-} from "@gseller/core";
+} from "@ericpereiraglobalsys/core";
 
 import { AccountHolder } from "../entities/account.holder.entity";
 import { BankAccountEvent } from "../../../../event-bus/events/bank-account-event";
@@ -22,8 +22,8 @@ import { ChannelBankAccount } from "../entities/bank-account.entity";
 import { ContextStrategy } from "../context-auth-strategy";
 import { Injectable } from "@nestjs/common";
 import { IsNull } from "typeorm";
-import { PaymentAccountInput } from "@gseller/common/lib/generated-types";
-import { Seller } from "@gseller/core/dist/entity/seller/seller.entity";
+import { PaymentAccountInput } from "@ericpereiraglobalsys/common/lib/generated-types";
+import { Seller } from "@ericpereiraglobalsys/core/dist/entity/seller/seller.entity";
 
 @Injectable()
 export class FinancesService {

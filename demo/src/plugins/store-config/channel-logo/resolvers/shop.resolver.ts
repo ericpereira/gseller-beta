@@ -1,5 +1,5 @@
 import { Query, Resolver } from "@nestjs/graphql";
-import { Allow, Asset, Ctx, Permission, RequestContext } from "@gseller/core";
+import { Allow, Asset, Ctx, Permission, RequestContext } from "@ericpereiraglobalsys/core";
 import { ChannelDetailsService } from "../services/shop.service";
 
 @Resolver()

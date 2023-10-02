@@ -1,11 +1,11 @@
 import { Parent, ResolveField, Resolver } from '@nestjs/graphql';
-import type { ProductVariant, Translated } from '@gseller/core';
+import type { ProductVariant, Translated } from '@ericpereiraglobalsys/core';
 import {
   assertFound,
   Ctx,
   RequestContext,
   ProductVariantService,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import { SupplierStock } from '../../../entities/supplier-stock.entity';
 
 @Resolver('SupplierStock')

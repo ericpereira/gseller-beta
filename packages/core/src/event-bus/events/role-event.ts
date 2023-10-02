@@ -1,5 +1,5 @@
-import { CreateRoleInput, UpdateRoleInput } from '@gseller/common/lib/generated-types';
-import { ID } from '@gseller/common/lib/shared-types';
+import { CreateRoleInput, UpdateRoleInput } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { RequestContext } from '../../api/common/request-context';
 import { Role } from '../../entity';

@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from "@gseller/core";
+import { PluginCommonModule, VendurePlugin } from "@ericpereiraglobalsys/core";
 import { Layout } from "./entities/layout.entity";
 import { LayoutCategory } from "./entities/layout-category.entity";
 import { ChannelLayout } from "./entities/channel-layout.entity";

@@ -12,7 +12,7 @@ import {
   RequestContext,
   TransactionalConnection,
   SellerService as VendureSellerService,
-} from "@gseller/core";
+} from "@ericpereiraglobalsys/core";
 import { Injectable, OnModuleInit } from "@nestjs/common";
 
 import { ContextStrategy } from "../context-auth-strategy";

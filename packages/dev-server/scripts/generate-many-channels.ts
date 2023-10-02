@@ -7,7 +7,7 @@ import {
     LanguageCode,
     RequestContextService,
     RoleService,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 import { devConfig } from '../dev-config';
 

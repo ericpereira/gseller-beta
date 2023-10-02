@@ -1,4 +1,4 @@
-import { ID, Type } from '@gseller/common/lib/shared-types';
+import { ID, Type } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { RequestContext } from '../../api';
 import { ChannelAware } from '../../common';

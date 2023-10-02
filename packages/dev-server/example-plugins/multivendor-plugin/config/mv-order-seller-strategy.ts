@@ -17,12 +17,12 @@ import {
     SplitOrderContents,
     Surcharge,
     TransactionalConnection,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 import { CONNECTED_PAYMENT_METHOD_CODE, MULTIVENDOR_PLUGIN_OPTIONS } from '../constants';
 import { MultivendorPluginOptions } from '../types';
 
-declare module '@gseller/core/dist/entity/custom-entity-fields' {
+declare module '@ericpereiraglobalsys/core/dist/entity/custom-entity-fields' {
     interface CustomSellerFields {
         connectedAccountId: string;
     }

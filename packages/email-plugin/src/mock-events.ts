@@ -1,4 +1,4 @@
-import { AdjustmentType } from '@gseller/common/lib/generated-shop-types';
+import { AdjustmentType } from '@ericpereiraglobalsys/common/lib/generated-shop-types';
 import {
     AccountRegistrationEvent,
     CurrencyCode,
@@ -7,7 +7,7 @@ import {
     NativeAuthenticationMethod,
     PasswordResetEvent,
     User,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 
 export const mockAccountRegistrationEvent = new AccountRegistrationEvent(

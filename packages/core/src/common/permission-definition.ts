@@ -1,4 +1,4 @@
-import { Permission } from '@gseller/common/lib/generated-types';
+import { Permission } from '@ericpereiraglobalsys/common/lib/generated-types';
 
 /**
  * @description

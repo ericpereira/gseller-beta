@@ -1,5 +1,5 @@
 import { stitchSchemas, ValidationLevel } from '@graphql-tools/stitch';
-import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
+import { notNullOrUndefined } from '@ericpereiraglobalsys/common/lib/shared-utils';
 import {
     buildSchema,
     getNamedType,

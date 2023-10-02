@@ -11,7 +11,7 @@ import {
     Permission,
     RequestContext,
     Transaction
-  } from '@gseller/core';
+  } from '@ericpereiraglobalsys/core';
 import { LayoutService } from '../services/layout.service';
 import { LayoutCategoryService } from '../services/layout-category.service';
 import { InputCreateLayout } from '../types';

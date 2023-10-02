@@ -9,8 +9,8 @@ import {
     MutationAddCustomersToGroupArgs,
     MutationRemoveCustomersFromGroupArgs,
     UpdateCustomerGroupInput,
-} from '@gseller/common/lib/generated-types';
-import { ID, PaginatedList } from '@gseller/common/lib/shared-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID, PaginatedList } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { RequestContext } from '../../api/common/request-context';
 import { RelationPaths } from '../../api/index';

@@ -1,5 +1,5 @@
 import { OnApplicationBootstrap, OnModuleInit } from '@nestjs/common';
-import { Logger, PluginCommonModule, ProcessContext, VendurePlugin } from '@gseller/core';
+import { Logger, PluginCommonModule, ProcessContext, VendurePlugin } from '@ericpereiraglobalsys/core';
 
 /**
  * Testing whether the ProcessContext service is giving the correct results.

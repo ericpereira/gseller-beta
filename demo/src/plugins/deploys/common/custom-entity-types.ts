@@ -1,5 +1,5 @@
 import { Deploy } from '../entities/deploy.entity';
 
-declare module '@gseller/core' {
+declare module '@ericpereiraglobalsys/core' {
     export class DeploysEntity extends Deploy { }
 }

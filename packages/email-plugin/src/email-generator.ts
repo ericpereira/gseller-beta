@@ -1,4 +1,4 @@
-import { InjectableStrategy, VendureEvent } from '@gseller/core';
+import { InjectableStrategy, VendureEvent } from '@ericpereiraglobalsys/core';
 
 import { EmailDetails, EmailPluginOptions } from './types';
 

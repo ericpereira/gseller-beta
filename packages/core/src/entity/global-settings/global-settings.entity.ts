@@ -1,5 +1,5 @@
-import { LanguageCode } from '@gseller/common/lib/generated-types';
-import { DeepPartial } from '@gseller/common/lib/shared-types';
+import { LanguageCode } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { DeepPartial } from '@ericpereiraglobalsys/common/lib/shared-types';
 import { Column, Entity } from 'typeorm';
 
 import { VendureEntity } from '..';

@@ -1,5 +1,5 @@
-import { LanguageCode } from '@gseller/common/lib/generated-types';
-import { Channel, RequestContext } from '@gseller/core';
+import { LanguageCode } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { Channel, RequestContext } from '@ericpereiraglobalsys/core';
 import { Request, Router } from 'express';
 import fs from 'fs-extra';
 import path from 'path';

@@ -1,4 +1,4 @@
-import { JobState } from '@gseller/common/lib/generated-types';
+import { JobState } from '@ericpereiraglobalsys/common/lib/generated-types';
 import { Subject, Subscription } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
 

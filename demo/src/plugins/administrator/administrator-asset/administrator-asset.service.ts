@@ -1,4 +1,4 @@
-import { RequestContext, TransactionalConnection, Administrator, AdministratorService, ID } from '@gseller/core';
+import { RequestContext, TransactionalConnection, Administrator, AdministratorService, ID } from '@ericpereiraglobalsys/core';
 import { Injectable } from '@nestjs/common';
 import { CustomAssetService } from '../../asset/asset.service';
 

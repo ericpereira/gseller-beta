@@ -1,4 +1,4 @@
-import { InternalServerError, Logger } from '@gseller/core';
+import { InternalServerError, Logger } from '@ericpereiraglobalsys/core';
 import { ApolloServerPlugin, GraphQLRequestListener } from 'apollo-server-plugin-base';
 import { GraphQLRequestContext } from 'apollo-server-types';
 import {

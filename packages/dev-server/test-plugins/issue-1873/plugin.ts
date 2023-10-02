@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from '@gseller/core';
+import { PluginCommonModule, VendurePlugin } from '@ericpereiraglobalsys/core';
 import { SupplierStockAdminResolver } from './api/resolvers/admin/supplier-stock-admin.resolver';
 import { SupplierStockInTransitAdminResolver } from './api/resolvers/admin/supplier-stock-in-transit-admin.resolver';
 import { SupplierStockEntityResolver } from './api/resolvers/entity/suppiler-stock-entity.resolver';

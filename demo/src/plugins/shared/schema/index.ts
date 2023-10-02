@@ -1,2 +1,2 @@
-export * from "@gseller/core/dist/api/index"
+export * from "@ericpereiraglobalsys/core/dist/api/index"
 

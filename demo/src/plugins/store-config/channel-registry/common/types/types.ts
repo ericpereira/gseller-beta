@@ -1,6 +1,6 @@
-import { CustomOrderStates } from '@gseller/core';
+import { CustomOrderStates } from '@ericpereiraglobalsys/core';
 
-declare module '@gseller/core' {
+declare module '@ericpereiraglobalsys/core' {
   interface CustomOrderStates {
     ValidatingCustomer: never;
   }

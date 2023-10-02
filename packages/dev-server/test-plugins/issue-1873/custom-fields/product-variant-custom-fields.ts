@@ -1,5 +1,5 @@
-import type { CustomFieldConfig } from '@gseller/core';
-import { Asset } from '@gseller/core';
+import type { CustomFieldConfig } from '@ericpereiraglobalsys/core';
+import { Asset } from '@ericpereiraglobalsys/core';
 
 export const productVariantCustomFields: CustomFieldConfig[] = [
   // {

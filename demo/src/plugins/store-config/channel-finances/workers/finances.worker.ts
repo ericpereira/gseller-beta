@@ -9,12 +9,12 @@ import {
     RequestContext,
     RequestContextService,
     TransactionalConnection,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 
 import { CONNECTED_PAYMENT_METHOD_CODE } from '../../../payments/pagarme/constants';
 import { ChannelBankAccount } from '../entities/bank-account.entity';
-import { RecipientContractInput } from "@gseller/common/lib/generated-types";
+import { RecipientContractInput } from "@ericpereiraglobalsys/common/lib/generated-types";
 
 @Injectable()
 export class financesWorker implements OnModuleInit {

@@ -6,7 +6,7 @@ import {
     NativeAuthenticationResult,
     Permission,
     Success,
-} from '@gseller/common/lib/generated-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
 import { Request, Response } from 'express';
 
 import { NativeAuthStrategyError } from '../../../common/error/generated-graphql-admin-errors';

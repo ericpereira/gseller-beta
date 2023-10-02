@@ -1,6 +1,6 @@
-import { LanguageCode } from '@gseller/common/lib/generated-types';
-import { DEFAULT_CHANNEL_CODE } from '@gseller/common/lib/shared-constants';
-import { EntityHydrator, idsAreEqual, ShippingEligibilityChecker } from '@gseller/core';
+import { LanguageCode } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { DEFAULT_CHANNEL_CODE } from '@ericpereiraglobalsys/common/lib/shared-constants';
+import { EntityHydrator, idsAreEqual, ShippingEligibilityChecker } from '@ericpereiraglobalsys/core';
 
 let entityHydrator: EntityHydrator;
 

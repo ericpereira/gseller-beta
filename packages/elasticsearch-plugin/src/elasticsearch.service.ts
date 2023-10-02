@@ -1,6 +1,6 @@
 import { Client } from '@elastic/elasticsearch';
 import { Inject, Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
-import { SearchResultAsset } from '@gseller/common/lib/generated-types';
+import { SearchResultAsset } from '@ericpereiraglobalsys/common/lib/generated-types';
 import {
     Collection,
     CollectionService,
@@ -15,7 +15,7 @@ import {
     RequestContext,
     SearchEvent,
     SearchService,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import equal from 'fast-deep-equal/es6';
 
 import { buildElasticBody } from './build-elastic-body';

@@ -1,4 +1,4 @@
-import { LanguageCode, Permission } from '@gseller/common/lib/generated-types';
+import { LanguageCode, Permission } from '@ericpereiraglobalsys/common/lib/generated-types';
 
 import { InitialData } from '../../src/data-import';
 

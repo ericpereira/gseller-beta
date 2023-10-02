@@ -9,8 +9,8 @@ import {
     Permission,
     QueryAssetArgs,
     QueryAssetsArgs,
-} from '@gseller/common/lib/generated-types';
-import { PaginatedList } from '@gseller/common/lib/shared-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
+import { PaginatedList } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { Administrator } from '../../../entity/administrator/administrator.entity';
 import { Asset } from '../../../entity/asset/asset.entity';

@@ -1,9 +1,9 @@
 import {
   CreateChannelSocialMediaInput,
   UpdateChannelSocialMediaInput,
-} from "@gseller/common/lib/generated-types";
+} from "@ericpereiraglobalsys/common/lib/generated-types";
 import { FindOneOptions, IsNull, UpdateResult } from "typeorm";
-import { ID, RequestContext, TransactionalConnection } from "@gseller/core";
+import { ID, RequestContext, TransactionalConnection } from "@ericpereiraglobalsys/core";
 import {
   SocialMediaAlreadyRegisteredError,
   SocialMediaNotFoundError,

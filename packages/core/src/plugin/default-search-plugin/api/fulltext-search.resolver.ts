@@ -4,8 +4,8 @@ import {
     QuerySearchArgs,
     SearchInput,
     SearchResponse,
-} from '@gseller/common/lib/generated-types';
-import { Omit } from '@gseller/common/lib/omit';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
+import { Omit } from '@ericpereiraglobalsys/common/lib/omit';
 
 import { RequestContext } from '../../../api/common/request-context';
 import { Allow } from '../../../api/decorators/allow.decorator';

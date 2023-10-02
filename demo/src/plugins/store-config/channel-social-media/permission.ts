@@ -1,3 +1,3 @@
-import { CrudPermissionDefinition } from "@gseller/core";
+import { CrudPermissionDefinition } from "@ericpereiraglobalsys/core";
 
 export const manageChannelSocialMediaPermission = new CrudPermissionDefinition('SocialMedia');

@@ -5,15 +5,15 @@ import {
     DeletionResult,
     Permission,
     UpdateRoleInput,
-} from '@gseller/common/lib/generated-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
 import {
     CUSTOMER_ROLE_CODE,
     CUSTOMER_ROLE_DESCRIPTION,
     SUPER_ADMIN_ROLE_CODE,
     SUPER_ADMIN_ROLE_DESCRIPTION,
-} from '@gseller/common/lib/shared-constants';
-import { ID, PaginatedList } from '@gseller/common/lib/shared-types';
-import { unique } from '@gseller/common/lib/unique';
+} from '@ericpereiraglobalsys/common/lib/shared-constants';
+import { ID, PaginatedList } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 
 import { RequestContext } from '../../api/common/request-context';
 import { RelationPaths } from '../../api/index';

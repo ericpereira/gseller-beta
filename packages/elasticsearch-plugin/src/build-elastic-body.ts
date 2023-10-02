@@ -1,5 +1,5 @@
-import { LanguageCode, LogicalOperator, PriceRange, SortOrder } from '@gseller/common/lib/generated-types';
-import { DeepRequired, ID, UserInputError } from '@gseller/core';
+import { LanguageCode, LogicalOperator, PriceRange, SortOrder } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { DeepRequired, ID, UserInputError } from '@ericpereiraglobalsys/core';
 
 import { SearchConfig } from './options';
 import { CustomScriptMapping, ElasticSearchInput, ElasticSearchSortInput, SearchRequestBody } from './types';

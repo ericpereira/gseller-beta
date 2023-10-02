@@ -1,8 +1,8 @@
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
 import { GqlExecutionContext } from '@nestjs/graphql';
-import { LanguageCode } from '@gseller/common/lib/generated-types';
-import { getGraphQlInputName } from '@gseller/common/lib/shared-utils';
+import { LanguageCode } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { getGraphQlInputName } from '@ericpereiraglobalsys/common/lib/shared-utils';
 import {
     GraphQLInputType,
     GraphQLList,

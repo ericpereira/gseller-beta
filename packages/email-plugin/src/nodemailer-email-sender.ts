@@ -1,6 +1,6 @@
-import { normalizeString } from '@gseller/common/lib/normalize-string';
-import { assertNever } from '@gseller/common/lib/shared-utils';
-import { Logger } from '@gseller/core';
+import { normalizeString } from '@ericpereiraglobalsys/common/lib/normalize-string';
+import { assertNever } from '@ericpereiraglobalsys/common/lib/shared-utils';
+import { Logger } from '@ericpereiraglobalsys/core';
 import fs from 'fs-extra';
 import { createTransport } from 'nodemailer';
 import { default as Mail } from 'nodemailer/lib/mailer';

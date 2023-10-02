@@ -1,5 +1,5 @@
 import { OnApplicationBootstrap } from '@nestjs/common';
-import { DEFAULT_CHANNEL_CODE } from '@gseller/common/lib/shared-constants';
+import { DEFAULT_CHANNEL_CODE } from '@ericpereiraglobalsys/common/lib/shared-constants';
 import {
     Asset,
     Channel,
@@ -13,13 +13,13 @@ import {
     TransactionalConnection,
     User,
     VendurePlugin,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import gql from 'graphql-tag';
 
 import { ProfileAsset } from './profile-asset.entity';
 import { Profile } from './profile.entity';
 
-declare module '@gseller/core' {
+declare module '@ericpereiraglobalsys/core' {
     interface CustomOrderFields {
         productOwner: User;
     }

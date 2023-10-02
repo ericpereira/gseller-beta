@@ -1,5 +1,5 @@
-import { ID } from '@gseller/common/lib/shared-types';
-import { unique } from '@gseller/common/lib/unique';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 
 import { Job, JobBuffer } from '../../../job-queue/index';
 import {

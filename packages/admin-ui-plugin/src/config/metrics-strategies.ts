@@ -1,4 +1,4 @@
-import { RequestContext } from '@gseller/core';
+import { RequestContext } from '@ericpereiraglobalsys/core';
 
 import { MetricData } from '../service/metrics.service';
 import { MetricInterval, MetricSummaryEntry, MetricType } from '../types';

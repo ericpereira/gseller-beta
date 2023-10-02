@@ -6,9 +6,9 @@ import {
     SearchInput,
     SearchResponse,
     SearchResult,
-} from '@gseller/common/lib/generated-types';
-import { ID, JsonCompatible } from '@gseller/common/lib/shared-types';
-import { Asset, SerializedRequestContext } from '@gseller/core';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID, JsonCompatible } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { Asset, SerializedRequestContext } from '@ericpereiraglobalsys/core';
 
 export type ElasticSearchResult = SearchResult & {
     inStock: boolean;

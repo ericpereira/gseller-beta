@@ -1,4 +1,4 @@
-import { DeepPartial } from '@gseller/common/lib/shared-types';
+import { DeepPartial } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { RequestContext } from '../../../api/common/request-context';
 import { InternalServerError } from '../../../common/error/errors';

@@ -1,5 +1,5 @@
 import { ContactUsEvent } from "../../event-bus/events/contact-us-event";
-import { EmailEventListener } from "@gseller/email-plugin";
+import { EmailEventListener } from "@ericpereiraglobalsys/email-plugin";
 
 export const contactHandler = new EmailEventListener("contact")
   .on(ContactUsEvent)

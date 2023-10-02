@@ -1,4 +1,4 @@
-import { DefaultLogger, LogLevel, mergeConfig } from '@gseller/core';
+import { DefaultLogger, LogLevel, mergeConfig } from '@ericpereiraglobalsys/core';
 import { createTestEnvironment } from '@gseller/testing';
 import { RedisConnection } from 'bullmq';
 import path from 'path';

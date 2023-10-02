@@ -1,5 +1,5 @@
 import { Query, Resolver, Args } from "@nestjs/graphql";
-import { Ctx, RequestContext } from "@gseller/core";
+import { Ctx, RequestContext } from "@ericpereiraglobalsys/core";
 import { DeployType } from "../entities/deploy.entity";
 import { DeploysService } from "../services";
 

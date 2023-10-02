@@ -2,7 +2,7 @@ import {
   Allow,
   Ctx,
   RequestContext
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import {
   Args,
   Mutation,
@@ -11,7 +11,7 @@ import {
 } from '@nestjs/graphql';
 import { ChannelAddressServiceAdmin } from '../services/admin.service';
 import { manageChannelAddressPermission } from '../permission';
-import { ChannelAddressInput } from '@gseller/common/lib/generated-types';
+import { ChannelAddressInput } from '@ericpereiraglobalsys/common/lib/generated-types';
 @Resolver()
 export class AdminChannelAddressResolver {
 

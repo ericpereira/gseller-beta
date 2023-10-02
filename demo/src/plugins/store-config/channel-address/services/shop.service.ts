@@ -2,7 +2,7 @@ import {
   ChannelService,
   RequestContext,
   TransactionalConnection,
-} from "@gseller/core";
+} from "@ericpereiraglobalsys/core";
 import { IsNull } from "typeorm";
 
 import {

@@ -1,4 +1,4 @@
-import { DeepPartial } from '@gseller/common/lib/shared-types';
+import { DeepPartial } from '@ericpereiraglobalsys/common/lib/shared-types';
 import { ChildEntity, Column, Index, ManyToOne } from 'typeorm';
 
 import { User } from '../user/user.entity';

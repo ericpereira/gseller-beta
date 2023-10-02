@@ -1,4 +1,4 @@
-import { PluginCommonModule, TransactionalConnection, VendurePlugin } from '@gseller/core';
+import { PluginCommonModule, TransactionalConnection, VendurePlugin } from '@ericpereiraglobalsys/core';
 
 import { CollectionCustomFields } from './custom-fields';
 import { ContextStrategy } from './context-auth-strategy';

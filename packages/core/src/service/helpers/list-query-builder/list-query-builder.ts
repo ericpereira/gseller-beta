@@ -1,7 +1,7 @@
 import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
-import { LogicalOperator } from '@gseller/common/lib/generated-types';
-import { ID, Type } from '@gseller/common/lib/shared-types';
-import { unique } from '@gseller/common/lib/unique';
+import { LogicalOperator } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID, Type } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 import {
     Brackets,
     FindManyOptions,

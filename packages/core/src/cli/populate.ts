@@ -24,8 +24,8 @@ const loggerCtx = 'Populate';
  *
  * @example
  * ```TypeScript
- * import { bootstrap } from '\@gseller/core';
- * import { populate } from '\@gseller/core/cli';
+ * import { bootstrap } from '\@ericpereiraglobalsys/core';
+ * import { populate } from '\@ericpereiraglobalsys/core/cli';
  * import { config } from './vendure-config.ts'
  * import { initialData } from './my-initial-data.ts';
  *
@@ -52,14 +52,14 @@ export async function populate<T extends INestApplicationContext>(
     bootstrapFn: () => Promise<T | undefined>,
     initialDataPathOrObject: string | object,
     productsCsvPath?: string,
-    channelOrToken?: string | import('@gseller/core').Channel,
+    channelOrToken?: string | import('@ericpereiraglobalsys/core').Channel,
 ): Promise<T> {
     const app = await bootstrapFn();
     if (!app) {
         throw new Error('Could not bootstrap the Vendure app');
     }
-    let channel: import('@gseller/core').Channel | undefined;
-    const { ChannelService, Channel, Logger } = await import('@gseller/core');
+    let channel: import('@ericpereiraglobalsys/core').Channel | undefined;
+    const { ChannelService, Channel, Logger } = await import('@ericpereiraglobalsys/core');
     if (typeof channelOrToken === 'string') {
         channel = await app.get(ChannelService).getChannelFromToken(channelOrToken);
         if (!channel) {
@@ -71,7 +71,7 @@ export async function populate<T extends INestApplicationContext>(
     } else if (channelOrToken instanceof Channel) {
         channel = channelOrToken;
     }
-    const initialData: import('@gseller/core').InitialData =
+    const initialData: import('@ericpereiraglobalsys/core').InitialData =
         typeof initialDataPathOrObject === 'string'
             ? require(initialDataPathOrObject)
             : initialDataPathOrObject;
@@ -84,10 +84,10 @@ export async function populate<T extends INestApplicationContext>(
 
 export async function populateInitialData(
     app: INestApplicationContext,
-    initialData: import('@gseller/core').InitialData,
-    channel?: import('@gseller/core').Channel,
+    initialData: import('@ericpereiraglobalsys/core').InitialData,
+    channel?: import('@ericpereiraglobalsys/core').Channel,
 ) {
-    const { Populator, Logger } = await import('@gseller/core');
+    const { Populator, Logger } = await import('@ericpereiraglobalsys/core');
     const populator = app.get(Populator);
     try {
         await populator.populateInitialData(initialData, channel);

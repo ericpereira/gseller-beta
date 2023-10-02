@@ -1,6 +1,6 @@
-import { RequestContext, VendureEvent } from "@gseller/core";
+import { RequestContext, VendureEvent } from "@ericpereiraglobalsys/core";
 
-import { PaymentAccountInput } from "@gseller/common/lib/generated-types";
+import { PaymentAccountInput } from "@ericpereiraglobalsys/common/lib/generated-types";
 
 /**
  * @description

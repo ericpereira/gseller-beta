@@ -4,7 +4,7 @@ import {
   Product,
   ProductVariant,
   VendureEntity,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import { Column, Entity, OneToMany, ManyToOne } from 'typeorm';
 import { SupplierStockInTransit } from './supplier-stock-in-transit.entity';
 

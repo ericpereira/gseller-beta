@@ -10,7 +10,7 @@ import {
     ID,
     Permission,
     RequestContext
-  } from '@gseller/core';
+  } from '@ericpereiraglobalsys/core';
   import { RefundRequest } from '../entities/refund-request.entity';
   import { RefundRequestAdminService } from '../service/admin.service';
 import { InputCreateRefundRequest } from '../types';

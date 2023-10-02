@@ -10,11 +10,11 @@ import {
     LogicalOperator,
     Permission,
     UpdateAssetInput,
-} from '@gseller/common/lib/generated-types';
-import { omit } from '@gseller/common/lib/omit';
-import { ID, PaginatedList, Type } from '@gseller/common/lib/shared-types';
-import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
-import { unique } from '@gseller/common/lib/unique';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
+import { omit } from '@ericpereiraglobalsys/common/lib/omit';
+import { ID, PaginatedList, Type } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { notNullOrUndefined } from '@ericpereiraglobalsys/common/lib/shared-utils';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 import { ReadStream as FSReadStream } from 'fs';
 import { ReadStream } from 'fs-extra';
 import { IncomingMessage } from 'http';

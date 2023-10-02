@@ -1,5 +1,5 @@
-import { JobListOptions, JobState } from '@gseller/common/lib/generated-types';
-import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
+import { JobListOptions, JobState } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { notNullOrUndefined } from '@ericpereiraglobalsys/common/lib/shared-utils';
 import {
     ID,
     Injector,
@@ -9,7 +9,7 @@ import {
     JobData,
     Logger,
     PaginatedList,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import Bull, { ConnectionOptions, JobType, Processor, Queue, Worker, WorkerOptions } from 'bullmq';
 import { EventEmitter } from 'events';
 import { Cluster, Redis, RedisOptions } from 'ioredis';

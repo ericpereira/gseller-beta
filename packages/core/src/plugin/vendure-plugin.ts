@@ -2,8 +2,8 @@ import { Module, Provider, Type as NestType } from '@nestjs/common';
 import { MODULE_METADATA } from '@nestjs/common/constants';
 import { ModuleMetadata } from '@nestjs/common/interfaces';
 import { APP_FILTER, APP_GUARD, APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
-import { pick } from '@gseller/common/lib/pick';
-import { Type } from '@gseller/common/lib/shared-types';
+import { pick } from '@ericpereiraglobalsys/common/lib/pick';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
 import { DocumentNode, GraphQLScalarType } from 'graphql';
 
 import { RuntimeVendureConfig } from '../config/vendure-config';
@@ -125,7 +125,7 @@ export type PluginConfigurationFn = (
  * @example
  * ```TypeScript
  * import { Controller, Get } from '\@nestjs/common';
- * import { Ctx, PluginCommonModule, ProductService, RequestContext, VendurePlugin } from '\@gseller/core';
+ * import { Ctx, PluginCommonModule, ProductService, RequestContext, VendurePlugin } from '\@ericpereiraglobalsys/core';
  *
  * \@Controller('products')
  * export class ProductsController {

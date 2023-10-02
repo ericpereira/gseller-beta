@@ -18,7 +18,7 @@ export interface HttpHealthCheckOptions {
  *
  * @example
  * ```TypeScript
- * import { HttpHealthCheckStrategy, TypeORMHealthCheckStrategy } from '\@gseller/core';
+ * import { HttpHealthCheckStrategy, TypeORMHealthCheckStrategy } from '\@ericpereiraglobalsys/core';
  *
  * export const config = {
  *   // ...

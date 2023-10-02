@@ -1,5 +1,5 @@
-import { AssetType } from '@gseller/common/lib/generated-types';
-import { DeepPartial } from '@gseller/common/lib/shared-types';
+import { AssetType } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { DeepPartial } from '@ericpereiraglobalsys/common/lib/shared-types';
 import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
 
 import { ChannelAware, Taggable } from '../../common/types/common-types';

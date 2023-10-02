@@ -11,7 +11,7 @@ import {
   TransactionalConnection,
   VendurePlugin,
   defaultOrderProcess
-} from "@gseller/core";
+} from "@ericpereiraglobalsys/core";
 
 import { CONNECTED_PAYMENT_METHOD_CODE } from './constants';
 import { ContextStrategy } from "../context-auth-strategy";

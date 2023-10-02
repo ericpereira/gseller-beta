@@ -4,7 +4,7 @@ import {
   AssetService,
   RequestContext,
   TransactionalConnection,
-} from "@gseller/core";
+} from "@ericpereiraglobalsys/core";
 import { ChannelBanner } from "../entities/channel-banner.entity";
 
 @Injectable()

@@ -1,4 +1,4 @@
-import { Ctx, EventBus, RequestContext, TransactionalConnection } from '@gseller/core';
+import { Ctx, EventBus, RequestContext, TransactionalConnection } from '@ericpereiraglobalsys/core';
 import { ContactUsTdo } from './dto';
 import { Injectable } from '@nestjs/common';
 import { Contact } from './entities/contact.entities';

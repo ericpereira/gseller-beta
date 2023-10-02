@@ -10,8 +10,8 @@ import {
     Permission,
     QueryZoneArgs,
     QueryZonesArgs,
-} from '@gseller/common/lib/generated-types';
-import { PaginatedList } from '@gseller/common/lib/shared-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
+import { PaginatedList } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { Zone } from '../../../entity/zone/zone.entity';
 import { ZoneService } from '../../../service/services/zone.service';

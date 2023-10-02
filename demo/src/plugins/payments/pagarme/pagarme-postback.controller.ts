@@ -1,4 +1,4 @@
-import { PaymentStateMachine } from "@gseller/core/dist/service/helpers/payment-state-machine/payment-state-machine";
+import { PaymentStateMachine } from "@ericpereiraglobalsys/core/dist/service/helpers/payment-state-machine/payment-state-machine";
 import { Controller, Body, Headers, Post } from "@nestjs/common";
 import { InjectConnection } from "@nestjs/typeorm";
 import { Connection } from "typeorm";
@@ -14,7 +14,7 @@ import {
   ChannelService,
   PaymentMethodService,
   Logger,
-} from "@gseller/core";
+} from "@ericpereiraglobalsys/core";
 //@ts-ignore
 import pagarme, { Postback } from "pagarme";
 import qs from "qs";

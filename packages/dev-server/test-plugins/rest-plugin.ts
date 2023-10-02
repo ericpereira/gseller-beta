@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { Ctx, PluginCommonModule, ProductService, RequestContext, VendurePlugin } from '@gseller/core';
+import { Ctx, PluginCommonModule, ProductService, RequestContext, VendurePlugin } from '@ericpereiraglobalsys/core';
 
 @Controller('products')
 export class ProductsController {

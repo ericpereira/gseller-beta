@@ -3,7 +3,7 @@ import {
     AssetPreviewStrategy,
     AssetStorageStrategy,
     RequestContext,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 export type ImageTransformFormat = 'jpg' | 'jpeg' | 'png' | 'webp' | 'avif';
 

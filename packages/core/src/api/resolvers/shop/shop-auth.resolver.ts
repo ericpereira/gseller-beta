@@ -25,8 +25,8 @@ import {
     UpdateCustomerEmailAddressResult,
     UpdateCustomerPasswordResult,
     VerifyCustomerAccountResult,
-} from '@gseller/common/lib/generated-shop-types';
-import { HistoryEntryType } from '@gseller/common/lib/generated-types';
+} from '@ericpereiraglobalsys/common/lib/generated-shop-types';
+import { HistoryEntryType } from '@ericpereiraglobalsys/common/lib/generated-types';
 import { Request, Response } from 'express';
 
 import { isGraphQlErrorResult } from '../../../common/error/error-result';

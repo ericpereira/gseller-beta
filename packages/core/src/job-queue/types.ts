@@ -1,5 +1,5 @@
-import { JobState } from '@gseller/common/lib/generated-types';
-import { ID, JsonCompatible } from '@gseller/common/lib/shared-types';
+import { JobState } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID, JsonCompatible } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { Job } from './job';
 

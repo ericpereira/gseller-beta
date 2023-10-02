@@ -1,5 +1,5 @@
 import { ChargesController, OrdersController } from "@gabrielvenegaas/pagarmecoreapilib";
-import { LanguageCode, Logger, OrderService, PaymentMethodHandler, PaymentService, TransactionalConnection } from "@gseller/core";
+import { LanguageCode, Logger, OrderService, PaymentMethodHandler, PaymentService, TransactionalConnection } from "@ericpereiraglobalsys/core";
 
 import { CustomOrderFields } from "./@types/custom-fields";
 import { PagarmeService } from "./pagarme.service";

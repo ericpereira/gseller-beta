@@ -8,9 +8,9 @@ import {
 import {
   AccountHolderInput,
   UpdateAccountHolderInput,
-} from "@gseller/common/lib/generated-types";
+} from "@ericpereiraglobalsys/common/lib/generated-types";
 import { IsNull, UpdateResult } from "typeorm";
-import { RequestContext, TransactionalConnection } from "@gseller/core";
+import { RequestContext, TransactionalConnection } from "@ericpereiraglobalsys/core";
 
 import { AccountHolder } from "../entities/account.holder.entity";
 import { ChannelBankAccount } from "../entities/bank-account.entity";

@@ -2,7 +2,7 @@ import {
   LanguageCode,
   ShippingCalculator,
   TransactionalConnection,
-} from "@gseller/core";
+} from "@ericpereiraglobalsys/core";
 
 import axios, { AxiosResponse } from "axios";
 import { ChannelAddress } from "../../../../plugins/store-config/channel-address/entities/channel-address.entity";

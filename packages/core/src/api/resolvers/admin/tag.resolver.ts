@@ -8,7 +8,7 @@ import {
     QueryTagArgs,
     QueryTagsArgs,
     TagList,
-} from '@gseller/common/lib/generated-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
 
 import { Tag } from '../../../entity/tag/tag.entity';
 import { TagService } from '../../../service/services/tag.service';

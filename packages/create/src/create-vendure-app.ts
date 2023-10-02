@@ -30,7 +30,7 @@ let projectName: string | undefined;
 
 // Set the environment variable which can then be used to
 // conditionally modify behaviour of core or plugins.
-const createEnvVar: import('@gseller/common/lib/shared-constants').CREATING_VENDURE_APP =
+const createEnvVar: import('@ericpereiraglobalsys/common/lib/shared-constants').CREATING_VENDURE_APP =
     'CREATING_VENDURE_APP';
 process.env[createEnvVar] = 'true';
 
@@ -194,9 +194,9 @@ export async function createVendureApp(
     require(path.join(root, 'node_modules/ts-node')).register();
 
     try {
-        const { populate } = await import(path.join(root, 'node_modules/@gseller/core/cli/populate'));
+        const { populate } = await import(path.join(root, 'node_modules/@ericpereiraglobalsys/core/cli/populate'));
         const { bootstrap, DefaultLogger, LogLevel, JobQueueService } = await import(
-            path.join(root, 'node_modules/@gseller/core/dist/index')
+            path.join(root, 'node_modules/@ericpereiraglobalsys/core/dist/index')
         );
         const { config } = await import(configFile);
         const assetsDir = path.join(__dirname, '../assets');
@@ -306,7 +306,7 @@ async function createDirectoryStructure(root: string) {
  * Copy the email templates into the app
  */
 async function copyEmailTemplates(root: string) {
-    const templateDir = path.join(root, 'node_modules/@gseller/email-plugin/templates');
+    const templateDir = path.join(root, 'node_modules/@ericpereiraglobalsys/email-plugin/templates');
     try {
         await fs.copy(templateDir, path.join(root, 'static', 'email', 'templates'));
     } catch (err: any) {

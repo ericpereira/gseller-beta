@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../core/typings.d.ts" />
-import { bootstrap, defaultConfig, JobQueueService, Logger, mergeConfig } from '@gseller/core';
-import { populate } from '@gseller/core/cli';
+import { bootstrap, defaultConfig, JobQueueService, Logger, mergeConfig } from '@ericpereiraglobalsys/core';
+import { populate } from '@ericpereiraglobalsys/core/cli';
 import { clearAllTables, populateCustomers } from '@gseller/testing';
 import path from 'path';
 

@@ -1,5 +1,5 @@
 import { MiddlewareConsumer, NestModule } from '@nestjs/common';
-import { PluginCommonModule, VendurePlugin } from '@gseller/core';
+import { PluginCommonModule, VendurePlugin } from '@ericpereiraglobalsys/core';
 import express from 'express';
 import path from 'path';
 

@@ -1,4 +1,4 @@
-import { CollectionDefinition, InitialData } from '@gseller/core';
+import { CollectionDefinition, InitialData } from '@ericpereiraglobalsys/core';
 import fs from 'fs';
 import path from 'path';
 

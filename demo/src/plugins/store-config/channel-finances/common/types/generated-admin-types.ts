@@ -1,8 +1,8 @@
 import { IsEmail, IsNotEmpty, IsString, MaxLength } from 'class-validator';
 
-import { Channel } from '@gseller/core';
+import { Channel } from '@ericpereiraglobalsys/core';
 
-declare module '@gseller/common/lib/generated-types' {
+declare module '@ericpereiraglobalsys/common/lib/generated-types' {
     class DefaultBankAccount {
 
         @IsString()

@@ -1,11 +1,11 @@
-import { OrderType } from '@gseller/common/lib/generated-types';
+import { OrderType } from '@ericpereiraglobalsys/common/lib/generated-types';
 import {
     CreatePaymentResult,
     LanguageCode,
     PaymentMethodHandler,
     SettlePaymentErrorResult,
     SettlePaymentResult,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 import { MyConnectSdk } from '../payment/mv-connect-sdk';
 

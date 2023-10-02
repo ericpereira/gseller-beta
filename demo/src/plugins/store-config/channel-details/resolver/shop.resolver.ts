@@ -1,5 +1,5 @@
 import { Mutation, Query, Resolver } from "@nestjs/graphql";
-import { Ctx, RequestContext } from "@gseller/core";
+import { Ctx, RequestContext } from "@ericpereiraglobalsys/core";
 import { ChannelDetailsService } from "../services/shop.service";
 
 @Resolver()

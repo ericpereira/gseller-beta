@@ -1,7 +1,7 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
-import { JobState } from '@gseller/common/lib/generated-types';
-import { JobQueue, JobQueueService, Logger, PluginCommonModule, VendurePlugin } from '@gseller/core';
+import { JobState } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { JobQueue, JobQueueService, Logger, PluginCommonModule, VendurePlugin } from '@ericpereiraglobalsys/core';
 import { gql } from 'apollo-server-core';
 import { forkJoin, Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';

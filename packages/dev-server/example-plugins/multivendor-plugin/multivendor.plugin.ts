@@ -10,7 +10,7 @@ import {
     RequestContextService,
     TransactionalConnection,
     VendurePlugin,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 import { shopApiExtensions } from './api/api-extensions';
 import { MultivendorResolver } from './api/mv.resolver';

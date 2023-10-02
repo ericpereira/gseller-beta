@@ -4,8 +4,8 @@ import {
     Permission,
     QuerySearchArgs,
     SearchResponse,
-} from '@gseller/common/lib/generated-types';
-import { Omit } from '@gseller/common/lib/omit';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
+import { Omit } from '@ericpereiraglobalsys/common/lib/omit';
 import {
     Allow,
     Collection,
@@ -14,7 +14,7 @@ import {
     RequestContext,
     SearchJobBufferService,
     SearchResolver,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 import { ElasticsearchService } from '../elasticsearch.service';
 import { ElasticSearchInput, SearchPriceData } from '../types';

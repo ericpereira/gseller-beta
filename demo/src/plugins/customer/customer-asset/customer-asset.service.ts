@@ -1,4 +1,4 @@
-import { RequestContext, TransactionalConnection, Customer, CustomerService, ID, EntityNotFoundError } from '@gseller/core';
+import { RequestContext, TransactionalConnection, Customer, CustomerService, ID, EntityNotFoundError } from '@ericpereiraglobalsys/core';
 import { Injectable } from '@nestjs/common';
 import { CustomAssetService } from '../../asset/asset.service';
 

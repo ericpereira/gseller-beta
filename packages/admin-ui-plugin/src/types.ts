@@ -1,4 +1,4 @@
-import { ID } from '@gseller/core';
+import { ID } from '@ericpereiraglobalsys/core';
 
 export type MetricSummary = {
     interval: MetricInterval;

@@ -1,5 +1,5 @@
-import { isClassInstance, isObject } from '@gseller/common/lib/shared-utils';
-import { simpleDeepClone } from '@gseller/common/lib/simple-deep-clone';
+import { isClassInstance, isObject } from '@ericpereiraglobalsys/common/lib/shared-utils';
+import { simpleDeepClone } from '@ericpereiraglobalsys/common/lib/simple-deep-clone';
 
 import { PartialVendureConfig, VendureConfig } from './vendure-config';
 

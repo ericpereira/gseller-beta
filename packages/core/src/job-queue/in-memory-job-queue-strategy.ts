@@ -6,9 +6,9 @@ import {
     JobState,
     NumberOperators,
     StringOperators,
-} from '@gseller/common/lib/generated-types';
-import { ID, PaginatedList } from '@gseller/common/lib/shared-types';
-import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID, PaginatedList } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { notNullOrUndefined } from '@ericpereiraglobalsys/common/lib/shared-utils';
 
 import { Injector } from '../common';
 import { InspectableJobQueueStrategy } from '../config/job-queue/inspectable-job-queue-strategy';

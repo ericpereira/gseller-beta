@@ -1,5 +1,5 @@
-import { CreateCountryInput, UpdateCountryInput } from '@gseller/common/lib/generated-types';
-import { ID } from '@gseller/common/lib/shared-types';
+import { CreateCountryInput, UpdateCountryInput } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { RequestContext } from '../../api';
 import { Country } from '../../entity';

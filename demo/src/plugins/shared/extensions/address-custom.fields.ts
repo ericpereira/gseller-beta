@@ -1,4 +1,4 @@
-import { CustomFieldConfig, LanguageCode } from "@gseller/core";
+import { CustomFieldConfig, LanguageCode } from "@ericpereiraglobalsys/core";
 
 export default [
     {

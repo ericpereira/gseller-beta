@@ -1,5 +1,5 @@
 import { Deploy, DeployType } from "./entities/deploy.entity";
-import { Logger, RequestContext, TransactionalConnection } from "@gseller/core";
+import { Logger, RequestContext, TransactionalConnection } from "@ericpereiraglobalsys/core";
 
 import { DeployNotFoundError } from './common/graphql.error';
 //TO DO: temp, import entity from core package to avoid circular dependency

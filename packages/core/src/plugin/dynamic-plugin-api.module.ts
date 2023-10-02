@@ -1,6 +1,6 @@
 import { DynamicModule } from '@nestjs/common';
-import { Type } from '@gseller/common/lib/shared-types';
-import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { notNullOrUndefined } from '@ericpereiraglobalsys/common/lib/shared-utils';
 
 import { getConfig } from '../config/config-helpers';
 

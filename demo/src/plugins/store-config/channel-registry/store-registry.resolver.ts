@@ -7,10 +7,10 @@ import {
   EmailAddressConflictError,
   RequestContext,
   Transaction,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import { Context } from '@nestjs/graphql';
 
-import { CreateShopAdministratorInput } from '@gseller/common/lib/generated-types';
+import { CreateShopAdministratorInput } from '@ericpereiraglobalsys/common/lib/generated-types';
 
 @Resolver()
 export class StoreRegistryResolver {

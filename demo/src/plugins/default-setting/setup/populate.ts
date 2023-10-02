@@ -18,7 +18,7 @@ import {
   TransactionalConnection,
   Zone,
   ZoneService,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 import { ContextStrategy } from '../context-auth-strategy';
 import { Injectable } from '@nestjs/common';

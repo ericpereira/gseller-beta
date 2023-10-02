@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from '@gseller/core';
+import { PluginCommonModule, VendurePlugin } from '@ericpereiraglobalsys/core';
 
 import { ContextStrategy } from './context-auth-strategy';
 import { ResponseHeaderMiddleware } from './middleware';

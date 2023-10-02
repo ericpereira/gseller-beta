@@ -4,7 +4,7 @@ import {
     IdentifierChangeRequestEvent,
     NativeAuthenticationMethod,
     PasswordResetEvent,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 import { EmailEventHandler } from './event-handler';
 import { EmailEventListener } from './event-listener';

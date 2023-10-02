@@ -16,11 +16,11 @@ export * from './data-import/index';
 export * from './service/index';
 export * from './i18n/index';
 export * from './worker/index';
-export * from '@gseller/common/lib/shared-types';
+export * from '@ericpereiraglobalsys/common/lib/shared-types';
 export {
     Permission,
     LanguageCode,
     CurrencyCode,
     AssetType,
     AdjustmentType,
-} from '@gseller/common/lib/generated-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';

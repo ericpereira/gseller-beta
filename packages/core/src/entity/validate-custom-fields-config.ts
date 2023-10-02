@@ -1,4 +1,4 @@
-import { Type } from '@gseller/common/lib/shared-types';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
 import { getMetadataArgsStorage } from 'typeorm';
 
 import { CustomFieldConfig, CustomFields } from '../config/custom-field/custom-field-types';

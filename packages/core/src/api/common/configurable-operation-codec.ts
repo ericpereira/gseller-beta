@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { ConfigurableOperation, ConfigurableOperationInput } from '@gseller/common/lib/generated-types';
-import { Type } from '@gseller/common/lib/shared-types';
+import { ConfigurableOperation, ConfigurableOperationInput } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { ConfigurableOperationDef } from '../../common/configurable-operation';
 import { InternalServerError } from '../../common/error/errors';

@@ -1,6 +1,6 @@
-import { AccountRegistrationEvent, NativeAuthenticationMethod } from "@gseller/core";
+import { AccountRegistrationEvent, NativeAuthenticationMethod } from "@ericpereiraglobalsys/core";
 
-import { EmailEventListener } from "@gseller/email-plugin";
+import { EmailEventListener } from "@ericpereiraglobalsys/email-plugin";
 
 export const emailVerificationHandler = new EmailEventListener('email-verification')
   .on(AccountRegistrationEvent)

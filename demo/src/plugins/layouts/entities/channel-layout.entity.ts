@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
-import { Channel, ID, VendureEntity } from "@gseller/core";
-import { DeepPartial } from "@gseller/common/lib/shared-types";
+import { Channel, ID, VendureEntity } from "@ericpereiraglobalsys/core";
+import { DeepPartial } from "@ericpereiraglobalsys/common/lib/shared-types";
 import { Layout } from "./layout.entity";
 
 @Entity()

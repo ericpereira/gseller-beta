@@ -1,6 +1,6 @@
 import { Args, Parent, ResolveField, Resolver } from '@nestjs/graphql';
-import { Permission, QueryCustomersArgs } from '@gseller/common/lib/generated-types';
-import { PaginatedList } from '@gseller/common/lib/shared-types';
+import { Permission, QueryCustomersArgs } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { PaginatedList } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { Customer } from '../../../entity/customer/customer.entity';
 import { CustomerGroup } from '../../../entity/customer-group/customer-group.entity';

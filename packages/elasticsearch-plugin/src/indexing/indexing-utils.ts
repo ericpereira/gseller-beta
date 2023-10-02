@@ -1,5 +1,5 @@
 import { Client } from '@elastic/elasticsearch';
-import { DeepRequired, ID, Logger } from '@gseller/core';
+import { DeepRequired, ID, Logger } from '@ericpereiraglobalsys/core';
 
 import { loggerCtx, VARIANT_INDEX_NAME } from '../constants';
 import { ElasticsearchOptions } from '../options';

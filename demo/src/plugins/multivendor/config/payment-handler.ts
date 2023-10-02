@@ -4,10 +4,10 @@ import {
   PaymentMethodHandler,
   SettlePaymentErrorResult,
   SettlePaymentResult,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 import { MyConnectSdk } from '../payment/connect-sdk';
-import { OrderType } from '@gseller/common/lib/generated-shop-types';
+import { OrderType } from '@ericpereiraglobalsys/common/lib/generated-shop-types';
 
 const sdk = new MyConnectSdk({ apiKey: 'MY_API_KEY' });
 

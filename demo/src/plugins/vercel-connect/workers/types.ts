@@ -1,4 +1,4 @@
-import { Job } from "@gseller/core";
+import { Job } from "@ericpereiraglobalsys/core";
 
 interface VercelDeploymentJobData {
     shopName: string;

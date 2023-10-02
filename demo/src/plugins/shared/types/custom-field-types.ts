@@ -1,5 +1,5 @@
 
-declare module '@gseller/core/dist/entity/custom-entity-fields' {
+declare module '@ericpereiraglobalsys/core/dist/entity/custom-entity-fields' {
     class CustomFieldsSeller {
         connectedAccountId: string;
     }

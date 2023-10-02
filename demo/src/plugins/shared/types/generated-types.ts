@@ -1,7 +1,7 @@
-import { Administrator } from '@gseller/core';
+import { Administrator } from '@ericpereiraglobalsys/core';
 
-export * from '@gseller/common/lib/generated-types';
-declare module '@gseller/common/lib/generated-types' {
+export * from '@ericpereiraglobalsys/common/lib/generated-types';
+declare module '@ericpereiraglobalsys/common/lib/generated-types' {
   interface Producer {
     firstName: string;
     lastName: string;

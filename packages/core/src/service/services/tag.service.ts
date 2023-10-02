@@ -4,9 +4,9 @@ import {
     DeletionResponse,
     DeletionResult,
     UpdateTagInput,
-} from '@gseller/common/lib/generated-types';
-import { ID, PaginatedList, Type } from '@gseller/common/lib/shared-types';
-import { unique } from '@gseller/common/lib/unique';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
+import { ID, PaginatedList, Type } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 
 import { RequestContext } from '../../api/common/request-context';
 import { ListQueryOptions, Taggable } from '../../common/types/common-types';

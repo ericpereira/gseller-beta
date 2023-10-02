@@ -241,10 +241,10 @@ export function getDependencies(
     vendurePkgVersion = '',
 ): { dependencies: string[]; devDependencies: string[] } {
     const dependencies = [
-        `@gseller/core${vendurePkgVersion}`,
-        `@gseller/email-plugin${vendurePkgVersion}`,
-        `@gseller/asset-server-plugin${vendurePkgVersion}`,
-        `@gseller/admin-ui-plugin${vendurePkgVersion}`,
+        `@ericpereiraglobalsys/core${vendurePkgVersion}`,
+        `@ericpereiraglobalsys/email-plugin${vendurePkgVersion}`,
+        `@ericpereiraglobalsys/asset-server-plugin${vendurePkgVersion}`,
+        `@ericpereiraglobalsys/admin-ui-plugin${vendurePkgVersion}`,
         'dotenv',
         dbDriverPackage(dbType),
         `typescript@${TYPESCRIPT_VERSION}`,

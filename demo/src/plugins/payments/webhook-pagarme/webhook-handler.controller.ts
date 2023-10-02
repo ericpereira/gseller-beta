@@ -1,5 +1,5 @@
 import { Controller, Post, Req, Res, Body, HttpStatus } from '@nestjs/common';
-import { Ctx, OrderService, RequestContext, Order } from '@gseller/core';
+import { Ctx, OrderService, RequestContext, Order } from '@ericpereiraglobalsys/core';
 import { Response } from 'express';
 import { WorkerPaymentPagarmeService } from '../worker-payment-process';
 import { WorkerPaymentFailedPagarmeService } from '../worker-payment-process/payment-failed-process';

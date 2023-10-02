@@ -1,5 +1,5 @@
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
-import { Ctx, RequestContext } from '@gseller/core';
+import { Ctx, RequestContext } from '@ericpereiraglobalsys/core';
 
 import { AdministratorAvatarService } from './administrator-auth.service';
 import { AdministratorNotFoundError } from '../../shared/graphql.errors';

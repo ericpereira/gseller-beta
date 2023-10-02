@@ -8,7 +8,7 @@ import {
     RequestContextService,
     ShippingMethodService,
     TransactionalConnection,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import dayjs from 'dayjs';
 
 import { devConfig } from '../dev-config';

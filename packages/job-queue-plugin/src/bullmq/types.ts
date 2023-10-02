@@ -1,4 +1,4 @@
-import { Job } from '@gseller/core';
+import { Job } from '@ericpereiraglobalsys/core';
 import { ConnectionOptions, WorkerOptions } from 'bullmq';
 import { QueueOptions } from 'bullmq';
 

@@ -1,6 +1,6 @@
 import { Module, OnApplicationBootstrap, OnApplicationShutdown } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
-import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
+import { notNullOrUndefined } from '@ericpereiraglobalsys/common/lib/shared-utils';
 
 import { ConfigurableOperationDef } from '../common/configurable-operation';
 import { Injector } from '../common/injector';

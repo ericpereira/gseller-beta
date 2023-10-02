@@ -2,7 +2,7 @@ import { OnApplicationBootstrap, OnModuleInit } from '@nestjs/common';
 import {
   PluginCommonModule,
   VendurePlugin,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 import { ContextStrategy } from './context-auth-strategy';
 import { PopulateSettings } from './setup/populate';

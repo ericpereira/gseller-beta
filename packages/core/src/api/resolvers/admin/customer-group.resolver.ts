@@ -10,8 +10,8 @@ import {
     Permission,
     QueryCustomerGroupArgs,
     QueryCustomerGroupsArgs,
-} from '@gseller/common/lib/generated-types';
-import { PaginatedList } from '@gseller/common/lib/shared-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
+import { PaginatedList } from '@ericpereiraglobalsys/common/lib/shared-types';
 
 import { CustomerGroup } from '../../../entity/customer-group/customer-group.entity';
 import { CustomerGroupService } from '../../../service/services/customer-group.service';

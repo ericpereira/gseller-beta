@@ -1,4 +1,4 @@
-import { PluginCommonModule, VendurePlugin } from '@gseller/core';
+import { PluginCommonModule, VendurePlugin } from '@ericpereiraglobalsys/core';
 import { GraphQLScalarType, Kind } from 'graphql';
 import gql from 'graphql-tag';
 

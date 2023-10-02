@@ -1,5 +1,5 @@
 import { BankAccountEvent } from "../../event-bus/events/bank-account-event";
-import { EmailEventListener } from "@gseller/email-plugin";
+import { EmailEventListener } from "@ericpereiraglobalsys/email-plugin";
 
 export const recipientContractConfirmationHandler = new EmailEventListener('recipient-contract-confirmation')
   .on(BankAccountEvent)

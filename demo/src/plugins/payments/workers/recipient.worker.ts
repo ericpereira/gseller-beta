@@ -8,12 +8,12 @@ import {
     JobQueue,
     JobQueueService,
     Logger,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { PaymentAccountInput, RecipientContractInput } from "@gseller/common/lib/generated-types";
+import { PaymentAccountInput, RecipientContractInput } from "@ericpereiraglobalsys/common/lib/generated-types";
 
 import { RecipientContractEvent } from '../../../event-bus/events/recipient-contract-event';
-import { normalizeString } from '@gseller/common/lib/normalize-string';
+import { normalizeString } from '@ericpereiraglobalsys/common/lib/normalize-string';
 
 @Injectable()
 export class RecipientContractServices implements OnModuleInit {

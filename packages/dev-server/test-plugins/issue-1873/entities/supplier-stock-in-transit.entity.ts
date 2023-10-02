@@ -1,4 +1,4 @@
-import { DeepPartial, ID, VendureEntity } from '@gseller/core';
+import { DeepPartial, ID, VendureEntity } from '@ericpereiraglobalsys/core';
 import { Column, Entity, ManyToOne } from 'typeorm';
 import { SupplierStock } from './supplier-stock.entity';
 

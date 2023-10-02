@@ -1,2 +1,2 @@
 
-declare module '@gseller/core/dist/entity' { }
+declare module '@ericpereiraglobalsys/core/dist/entity' { }

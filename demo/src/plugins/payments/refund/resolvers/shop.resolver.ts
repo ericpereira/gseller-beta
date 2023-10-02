@@ -11,7 +11,7 @@ import {
     Permission,
     RequestContext,
     Transaction
-  } from '@gseller/core';
+  } from '@ericpereiraglobalsys/core';
   import { RefundRequestService } from '../service/shop.service';
 import { InputCreateRefundRequest } from '../types';
 

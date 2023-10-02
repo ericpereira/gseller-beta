@@ -12,7 +12,7 @@ const DEFAULT_CONTEXT = 'Vendure Server';
  *
  * @example
  * ```ts
- * import { DefaultLogger, LogLevel, VendureConfig } from '\@gseller/core';
+ * import { DefaultLogger, LogLevel, VendureConfig } from '\@ericpereiraglobalsys/core';
  *
  * export config: VendureConfig = {
  *     // ...

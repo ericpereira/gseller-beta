@@ -24,19 +24,19 @@ import {
   defaultShippingCalculator,
   isGraphQlErrorResult,
   manualFulfillmentHandler
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 
 import { ContextStrategy } from './context-auth-strategy';
-import { CreateShopAdministratorInput } from '@gseller/common/lib/generated-types';
+import { CreateShopAdministratorInput } from '@ericpereiraglobalsys/common/lib/generated-types';
 import { CreateShopEvent } from '../../../event-bus';
-import { CurrentUser } from '@gseller/common/lib/generated-shop-types';
+import { CurrentUser } from '@ericpereiraglobalsys/common/lib/generated-shop-types';
 import { Injectable } from '@nestjs/common';
 import { ResponseHeaderMiddleware } from './middleware';
-import { Seller } from '@gseller/core/dist/entity/seller/seller.entity';
+import { Seller } from '@ericpereiraglobalsys/core/dist/entity/seller/seller.entity';
 import { ShopNameConflictError } from '../../shared/graphql.errors';
 import { permissions as customPermissions } from '../../../config/custom-permissions';
 import { multivendorShippingEligibilityChecker } from './config/shipping-eligibility-checker';
-import { normalizeString } from '@gseller/common/lib/normalize-string';
+import { normalizeString } from '@ericpereiraglobalsys/common/lib/normalize-string';
 
 @Injectable()
 export class StoreRegistryService {

@@ -1,5 +1,5 @@
-import { LanguageCode, LogicalOperator, SortOrder } from '@gseller/common/lib/generated-types';
-import { DeepRequired } from '@gseller/core';
+import { LanguageCode, LogicalOperator, SortOrder } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { DeepRequired } from '@ericpereiraglobalsys/core';
 import { describe, expect, it } from 'vitest';
 
 import { buildElasticBody } from './build-elastic-body';

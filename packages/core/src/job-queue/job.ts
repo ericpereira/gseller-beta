@@ -1,5 +1,5 @@
-import { JobState } from '@gseller/common/lib/generated-types';
-import { isClassInstance, isObject } from '@gseller/common/lib/shared-utils';
+import { JobState } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { isClassInstance, isObject } from '@ericpereiraglobalsys/common/lib/shared-utils';
 
 import { Logger } from '../config/logger/vendure-logger';
 

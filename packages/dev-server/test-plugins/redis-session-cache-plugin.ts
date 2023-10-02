@@ -1,4 +1,4 @@
-import { CachedSession, Logger, SessionCacheStrategy, VendurePlugin } from '@gseller/core';
+import { CachedSession, Logger, SessionCacheStrategy, VendurePlugin } from '@ericpereiraglobalsys/core';
 import { Redis, RedisOptions } from 'ioredis';
 
 const loggerCtx = 'RedisSessionCacheStrategy';

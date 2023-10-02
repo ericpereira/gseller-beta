@@ -1,7 +1,7 @@
 import { DynamicModule } from '@nestjs/common';
 import { MODULE_METADATA } from '@nestjs/common/constants';
-import { Type } from '@gseller/common/lib/shared-types';
-import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
+import { Type } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { notNullOrUndefined } from '@ericpereiraglobalsys/common/lib/shared-utils';
 
 import { APIExtensionDefinition, PluginConfigurationFn } from './vendure-plugin';
 

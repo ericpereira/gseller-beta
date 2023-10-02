@@ -1,7 +1,7 @@
-import { Asset, Channel, ID, VendureEntity } from "@gseller/core";
+import { Asset, Channel, ID, VendureEntity } from "@ericpereiraglobalsys/core";
 import { Column, Entity, JoinTable, ManyToOne } from "typeorm";
 
-import { DeepPartial } from "@gseller/common/lib/shared-types";
+import { DeepPartial } from "@ericpereiraglobalsys/common/lib/shared-types";
 
 @Entity()
 class ChannelBanner extends VendureEntity {

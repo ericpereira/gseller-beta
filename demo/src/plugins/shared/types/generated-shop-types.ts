@@ -1,3 +1,3 @@
-export * from '@gseller/common/lib/generated-shop-types.d';
+export * from '@ericpereiraglobalsys/common/lib/generated-shop-types.d';
 
-declare module '@gseller/common/lib/generated-shop-types.d' { }
+declare module '@ericpereiraglobalsys/common/lib/generated-shop-types.d' { }

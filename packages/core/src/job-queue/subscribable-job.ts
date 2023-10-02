@@ -1,6 +1,6 @@
-import { JobState } from '@gseller/common/lib/generated-types';
-import { pick } from '@gseller/common/lib/pick';
-import { notNullOrUndefined } from '@gseller/common/lib/shared-utils';
+import { JobState } from '@ericpereiraglobalsys/common/lib/generated-types';
+import { pick } from '@ericpereiraglobalsys/common/lib/pick';
+import { notNullOrUndefined } from '@ericpereiraglobalsys/common/lib/shared-utils';
 import ms from 'ms';
 import { interval, Observable } from 'rxjs';
 import { distinctUntilChanged, filter, map, switchMap, takeWhile, tap } from 'rxjs/operators';

@@ -22,7 +22,7 @@ import { InjectableStrategy } from '../../common/types/injectable-strategy';
  *
  * @example
  * ```TypeScript
- * import { HttpHealthCheckStrategy, TypeORMHealthCheckStrategy } from '\@gseller/core';
+ * import { HttpHealthCheckStrategy, TypeORMHealthCheckStrategy } from '\@ericpereiraglobalsys/core';
  * import { MyCustomHealthCheckStrategy } from './config/custom-health-check-strategy';
  *
  * export const config = {

@@ -3,12 +3,12 @@ import {
     MutationDeleteCustomerAddressArgs,
     MutationUpdateCustomerArgs,
     Success,
-} from '@gseller/common/lib/generated-shop-types';
+} from '@ericpereiraglobalsys/common/lib/generated-shop-types';
 import {
     MutationCreateCustomerAddressArgs,
     MutationUpdateCustomerAddressArgs,
     Permission,
-} from '@gseller/common/lib/generated-types';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
 
 import { ForbiddenError, InternalServerError } from '../../../common/error/errors';
 import { idsAreEqual } from '../../../common/utils';

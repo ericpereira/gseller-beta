@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { assertNever } from '@gseller/common/lib/shared-utils';
+import { assertNever } from '@ericpereiraglobalsys/common/lib/shared-utils';
 import {
     ConfigService,
     Logger,
@@ -7,7 +7,7 @@ import {
     RequestContext,
     TransactionalConnection,
     TtlCache,
-} from '@gseller/core';
+} from '@ericpereiraglobalsys/core';
 import {
     Duration,
     endOfDay,

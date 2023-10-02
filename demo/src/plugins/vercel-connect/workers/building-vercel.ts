@@ -11,7 +11,7 @@ import {
   Logger,
   RequestContextService,
   TransactionalConnection
-} from "@gseller/core";
+} from "@ericpereiraglobalsys/core";
 import { Injectable, OnModuleInit } from "@nestjs/common";
 import { TemplateNotFoundError, VercelDeploymentFailedError } from "../common/graphql.error";
 import { VercelDeploymentJob, VercelDeploymentJobData } from "./types";
@@ -19,7 +19,7 @@ import { VercelDeploymentJob, VercelDeploymentJobData } from "./types";
 import { BuildPlatformEvent } from "../../../event-bus/events/build-platform.event";
 import { DeployType } from "../../../plugins/deploys/entities/deploy.entity";
 import { VercelDeploy } from "../entities/vercel-deploy.entity";
-import { normalizeString } from '@gseller/common/lib/normalize-string';
+import { normalizeString } from '@ericpereiraglobalsys/common/lib/normalize-string';
 import path from 'path';
 
 @Injectable()

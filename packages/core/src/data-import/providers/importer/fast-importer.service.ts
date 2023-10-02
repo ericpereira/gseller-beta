@@ -4,10 +4,10 @@ import {
     CreateProductOptionGroupInput,
     CreateProductOptionInput,
     CreateProductVariantInput,
-} from '@gseller/common/lib/generated-types';
-import { normalizeString } from '@gseller/common/lib/normalize-string';
-import { ID } from '@gseller/common/lib/shared-types';
-import { unique } from '@gseller/common/lib/unique';
+} from '@ericpereiraglobalsys/common/lib/generated-types';
+import { normalizeString } from '@ericpereiraglobalsys/common/lib/normalize-string';
+import { ID } from '@ericpereiraglobalsys/common/lib/shared-types';
+import { unique } from '@ericpereiraglobalsys/common/lib/unique';
 
 import { RequestContext } from '../../../api/common/request-context';
 import { TransactionalConnection } from '../../../connection/transactional-connection';

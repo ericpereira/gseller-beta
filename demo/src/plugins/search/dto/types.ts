@@ -1,4 +1,4 @@
-import { LanguageCode } from "@gseller/core";
+import { LanguageCode } from "@ericpereiraglobalsys/core";
 
 export type Filters = {
   productIds: [string];

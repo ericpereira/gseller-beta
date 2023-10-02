@@ -1,4 +1,4 @@
-import { bootstrapWorker } from '@gseller/core';
+import { bootstrapWorker } from '@ericpereiraglobalsys/core';
 import { config } from './vendure-config';
 
 bootstrapWorker(config)

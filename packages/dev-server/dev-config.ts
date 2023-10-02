@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import { AdminUiPlugin } from '@gseller/admin-ui-plugin';
-import { AssetServerPlugin } from '@gseller/asset-server-plugin';
-import { ADMIN_API_PATH, API_PORT, SHOP_API_PATH } from '@gseller/common/lib/shared-constants';
+import { AdminUiPlugin } from '@ericpereiraglobalsys/admin-ui-plugin';
+import { AssetServerPlugin } from '@ericpereiraglobalsys/asset-server-plugin';
+import { ADMIN_API_PATH, API_PORT, SHOP_API_PATH } from '@ericpereiraglobalsys/common/lib/shared-constants';
 import {
     Asset,
     DefaultJobQueuePlugin,
@@ -11,10 +11,10 @@ import {
     LanguageCode,
     LogLevel,
     VendureConfig,
-} from '@gseller/core';
-import { ElasticsearchPlugin } from '@gseller/elasticsearch-plugin';
-import { defaultEmailHandlers, EmailPlugin } from '@gseller/email-plugin';
-import { BullMQJobQueuePlugin } from '@gseller/job-queue-plugin/package/bullmq';
+} from '@ericpereiraglobalsys/core';
+import { ElasticsearchPlugin } from '@ericpereiraglobalsys/elasticsearch-plugin';
+import { defaultEmailHandlers, EmailPlugin } from '@ericpereiraglobalsys/email-plugin';
+import { BullMQJobQueuePlugin } from '@ericpereiraglobalsys/job-queue-plugin/package/bullmq';
 import 'dotenv/config';
 import { compileUiExtensions } from '@gseller/ui-devkit/compiler';
 import path from 'path';

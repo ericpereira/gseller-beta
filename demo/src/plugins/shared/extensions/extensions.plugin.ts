@@ -1,4 +1,4 @@
-import { VendurePlugin } from "@gseller/core";
+import { VendurePlugin } from "@ericpereiraglobalsys/core";
 import addressCustomFields from "./address-custom.fields";
 import gql from "graphql-tag";
 @VendurePlugin({
