@@ -2968,8 +2968,6 @@ export type SearchResult = {
     description: Scalars['String'];
     facetIds: Array<Scalars['ID']>;
     facetValueIds: Array<Scalars['ID']>;
-    price: SearchResultPrice;
-    priceWithTax: SearchResultPrice;
     productAsset?: Maybe<SearchResultAsset>;
     productId: Scalars['ID'];
     productName: Scalars['String'];
@@ -2988,9 +2986,6 @@ export type SearchResultAsset = {
     id: Scalars['ID'];
     preview: Scalars['String'];
 };
-
-/** The price of a search result product, either as a range or as a single price */
-export type SearchResultPrice = PriceRange | SinglePrice;
 
 export type SearchResultSortParameter = {
     name?: InputMaybe<SortOrder>;

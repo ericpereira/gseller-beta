@@ -121,7 +121,6 @@ type OrderLine implements Node {
     id: ID!
     createdAt: DateTime!
     updatedAt: DateTime!
-    productVariant: ProductVariant!
     featuredAsset: Asset
     "The price of a single unit, excluding tax and discounts"
     unitPrice: Money!

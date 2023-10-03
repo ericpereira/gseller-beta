@@ -14,7 +14,7 @@ import { PluginCommonModule } from '../plugin-common.module';
 import { VendurePlugin } from '../vendure-plugin';
 
 import { stockStatusExtension } from './api/api-extensions';
-import { AdminFulltextSearchResolver, ShopFulltextSearchResolver } from './api/fulltext-search.resolver';
+import { AdminFulltextSearchResolver } from './api/fulltext-search.resolver';
 import { BUFFER_SEARCH_INDEX_UPDATES, PLUGIN_INIT_OPTIONS } from './constants';
 import { SearchIndexItem } from './entities/search-index-item.entity';
 import { FulltextSearchService } from './fulltext-search.service';
@@ -81,7 +81,7 @@ export interface DefaultSearchReindexResponse extends SearchReindexResponse {
     shopApiExtensions: {
         schema: () =>
             DefaultSearchPlugin.options.indexStockStatus === true ? stockStatusExtension : undefined,
-        resolvers: [ShopFulltextSearchResolver],
+        resolvers: [],
     },
     entities: [SearchIndexItem],
     compatibility: '>0.0.0',

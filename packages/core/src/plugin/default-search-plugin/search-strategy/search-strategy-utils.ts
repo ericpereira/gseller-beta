@@ -47,9 +47,7 @@ export function mapToSearchResult(raw: any, currencyCode: CurrencyCode): SearchR
     return {
         sku: raw.si_sku,
         slug: raw.si_slug,
-        price,
         enabled,
-        priceWithTax,
         currencyCode,
         productVariantId: raw.si_productVariantId,
         productId: raw.si_productId,

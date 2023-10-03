@@ -2679,13 +2679,7 @@ export type Mutation = {
   removeFacetsFromChannel: Array<RemoveFacetFromChannelResult>;
   /** Remove members from a Zone */
   removeMembersFromZone: Zone;
-  /**
-   * Remove an OptionGroup from a Product. If the OptionGroup is in use by any ProductVariants
-   * the mutation will return a ProductOptionInUseError, and the OptionGroup will not be removed.
-   * Setting the `force` argument to `true` will override this and remove the OptionGroup anyway,
-   * as well as removing any of the group's options from the Product's ProductVariants.
-   */
-  removeOptionGroupFromProduct: RemoveOptionGroupFromProductResult;
+  
   /** Removes PaymentMethods from the specified Channel */
   removePaymentMethodsFromChannel: Array<PaymentMethod>;
   /** Removes ProductVariants from the specified Channel */
@@ -5334,8 +5328,6 @@ export type SearchResult = {
   enabled: Scalars['Boolean'];
   facetIds: Array<Scalars['ID']>;
   facetValueIds: Array<Scalars['ID']>;
-  price: SearchResultPrice;
-  priceWithTax: SearchResultPrice;
   productAsset?: Maybe<SearchResultAsset>;
   productId: Scalars['ID'];
   productName: Scalars['String'];
@@ -5354,8 +5346,6 @@ export type SearchResultAsset = {
   preview: Scalars['String'];
 };
 
-/** The price of a search result product, either as a range or as a single price */
-export type SearchResultPrice = PriceRange | SinglePrice;
 
 export type SearchResultSortParameter = {
   name?: InputMaybe<SortOrder>;

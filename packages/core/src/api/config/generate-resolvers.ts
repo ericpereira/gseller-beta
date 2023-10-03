@@ -109,11 +109,6 @@ export async function generateResolvers(
         Node: dummyResolveType,
         PaginatedList: dummyResolveType,
         Upload: GraphQLUpload || dummyResolveType,
-        SearchResultPrice: {
-            __resolveType(value: any) {
-                return value.hasOwnProperty('value') ? 'SinglePrice' : 'PriceRange';
-            },
-        },
         CustomFieldConfig: customFieldsConfigResolveType,
         CustomField: customFieldsConfigResolveType,
         ErrorResult: {
@@ -131,8 +126,6 @@ export async function generateResolvers(
     );
 
     const adminResolvers = {
-        StockMovementItem: stockMovementResolveType,
-        StockMovement: stockMovementResolveType,
         ...adminErrorOperationTypeResolvers,
         ...customFieldRelationResolvers.adminResolvers,
     };
