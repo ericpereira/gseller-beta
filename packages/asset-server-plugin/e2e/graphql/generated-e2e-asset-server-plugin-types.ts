@@ -2675,8 +2675,6 @@ export type Mutation = {
   removeCustomersFromGroup: CustomerGroup;
   /** Remove an OrderLine from the draft Order */
   removeDraftOrderLine: RemoveOrderItemsResult;
-  /** Removes Facets from the specified Channel */
-  removeFacetsFromChannel: Array<RemoveFacetFromChannelResult>;
   /** Remove members from a Zone */
   removeMembersFromZone: Zone;
   
@@ -5187,8 +5185,6 @@ export type RemoveCollectionsFromChannelInput = {
   channelId: Scalars['ID'];
   collectionIds: Array<Scalars['ID']>;
 };
-
-export type RemoveFacetFromChannelResult = Facet | FacetInUseError;
 
 export type RemoveFacetsFromChannelInput = {
   channelId: Scalars['ID'];

@@ -643,11 +643,6 @@ export const adminErrorOperationTypeResolvers = {
       return isGraphQLError(value) ? (value as any).__typename : 'Order';
     },
   },
-  RemoveFacetFromChannelResult: {
-    __resolveType(value: any) {
-      return isGraphQLError(value) ? (value as any).__typename : 'Facet';
-    },
-  },
   SetCustomerForDraftOrderResult: {
     __resolveType(value: any) {
       return isGraphQLError(value) ? (value as any).__typename : 'Order';
